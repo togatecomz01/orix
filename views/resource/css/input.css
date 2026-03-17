@@ -14,6 +14,9 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .form-input::placeholder, .form-input.is-placeholder { color: var(--color-9); opacity: 1; }
 .form-input option { color: var(--color-2); }
 
+/* 폼 내부 말줄임표 필요할 때 */
+.form-input.ellipsis {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
 /* 툴팁 (! 아이콘) */
 .label-tooltip { position: relative; cursor: pointer; display: inline-flex; align-items: center; line-height: 1.5;}
 .label-tooltip::after { content: ''; display: inline-block; width: 20px; height: 20px; margin-left: 6px; background: url('../../resource/svg/info-rounded.svg') no-repeat center / contain; cursor: pointer; }
@@ -25,8 +28,8 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /* 폼 레이아웃 (줄 바꿈 및 간격) */
 .form-row { display: flex; align-items: center; gap: 8px; width: 100%; }
 .form-row #tel1 {max-width: 136px;}
-.col-bank, .email-top input:first-child, #emailId { width: 180px; flex: none; }
-.col-account, .email-top input:last-child, #emailDomain { flex: 1; }
+.col-bank/* , .email-top input:first-child, #emailId  */{ width: 180px; flex: none; }
+.col-account/* , .email-top input:last-child, #emailDomain  */{ flex: 1; }
 /* .email-top { margin-bottom: 10px; } */
 .at-mark { color: var(--color-6); font-weight: var(--font-w-r); padding: 0 2px; }
 .email-bottom { width: 100%; }

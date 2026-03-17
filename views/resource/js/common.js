@@ -21,9 +21,34 @@ $(function() {
                 if (val !== clean) { $(this).val(clean); val = clean; }
             }
             $(this).attr('title', val); /* 인풋에 입력된 밸류값을 타이틀로 추가해서 보이게 */
+
+            /* 이메일일 경우, 진짜 타이핑된 원본 값을 real에 저장해둠 */
+            if (id === 'emailId' || id === 'emailDomain') {
+                $(this).data('real', val);
+            }
+
             $(this).removeClass('error');
             $(this).closest('.form-row').find('.form-input').removeClass('error');
             $(this).closest('.form-item, .payment-setting, .card-box, .direct-input-wrap').find('.error-msg').hide();
+        });
+
+        $(document).on('blur', '#emailId, #emailDomain', function() {
+            var realVal = $(this).data('real') || $(this).val();
+            
+            if (realVal.length > 15) {
+                /* 진짜 값은 놔두고 화면에 보이는 값만 15자 + '...' 로 변경 */
+                $(this).val(realVal.substring(0, 15) + '...');
+            }
+        });
+
+        /* 다시 클릭해서 포커스가 들어왔을 때 (원래 글자 복구) */
+        $(document).on('focus', '#emailId, #emailDomain', function() {
+            var realVal = $(this).data('real');
+            
+            /* 숨겨뒀던 진짜 값이 있다면 화면에 다시 띄워서 수정할 수 있게 함 */
+            if (realVal) {
+                $(this).val(realVal);
+            }
         });
 
         /* 연락처 자동 포커스 */
@@ -281,21 +306,30 @@ $(function() {
             if (!isTermsOk) return false;
 
             /* 인풋 빈값 및 형식 검사 */
-            var hasEmpty = false, hasFormat = false, $firstError = null;
             $('.form-input:visible:not(:disabled)').each(function() {
-                var val = $(this).val() || ""; var id = this.id;
+                var val = $(this).data('real') || $(this).val() || ""; /* 말줄임표로 인한 변수 수정, 원본 값이 저장된 real 데이터가 있으면 그걸 쓰고, 없으면 val()을 가져옴 */ 
+                var id = this.id;
+
                 if (val.trim() === "") {
-                    showInputError($(this), null); hasEmpty = true; if (!$firstError) $firstError = $(this);
+                    showInputError($(this), null);
+                    hasEmpty = true;
+                    if (!$firstError) $firstError = $(this);
                 } else {
+                    /* 자릿수 체크 */
                     if (id === 'userAccount' && val.length < 10) { 
-                        showInputError($(this), "계좌번호를 정확히 입력해 주세요."); hasFormat = true; if (!$firstError) $firstError = $(this);
+                        showInputError($(this), "계좌번호를 정확히 입력해 주세요.");
+                        hasFormat = true;
+                        if (!$firstError) $firstError = $(this);
                     }
+                    /* 이메일 도메인 마침표 체크 */
+                    /* 도메인도 data('real')이 있다면 그걸 기준으로 검사 */
                     if (id === 'emailDomain' && val.indexOf('.') === -1) {
-                        showInputError($(this), "정확한 이메일 주소를 입력해 주세요."); hasFormat = true; if (!$firstError) $firstError = $(this);
+                        showInputError($(this), "정확한 이메일 주소를 입력해 주세요.");
+                        hasFormat = true;
+                        if (!$firstError) $firstError = $(this);
                     }
                 }
             });
-
             /* 연락처 자리수 검사 */
             if ($('#tel1').length > 0 && $('#tel1').is(':visible')) {
                 var fullTel = ($('#tel1').val() || "") + ($('#tel2').val() || "") + ($('#tel3').val() || "");

@@ -24,7 +24,8 @@
 .pop-footer .btn-secondary, .pop-footer .btn-primary {
     padding: 20px 40px; font-size: var(--font18);
 }
-
+.s-ready-container .btn-area {margin-top: 10px;}
+.s-ready-container .btn-area .btn-primary{font-size: var(--font24);}
 @media (max-width: 1600px) {
     .btn-download { font-size: var(--font16); }
     .ico-download { width: 24px; height: 24px; }
