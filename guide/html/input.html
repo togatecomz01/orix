@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - Form</title>
+
+    <link href="../../views/resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../views/resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../views/resource/js/common.js"></script>
+
+    <link href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"></a></h1>
+                <div class="header-contact">
+                    <span class="tel"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">Form / Input Standard</h2>
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">1. 기본 입력 가이드</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">구조</p>
+                                    <p class="desc">.form-item > label + .form-input</p>
+                                </li>
+                                <li>
+                                    <p class="tit">특징</p>
+                                    <p class="desc">모든 입력창은 60px 높이를 기본으로 하며, <br>에러 시 .error 클래스를 추가합니다.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-box">
+                            <h3 class="card-tit">2. 특수 입력 가이드</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">이메일</p>
+                                    <p class="desc">.form-row와 .at-mark(@) 조합</p>
+                                </li>
+                                <li>
+                                    <p class="tit">연락처</p>
+                                    <p class="desc">3분할, #tel2 4자리 입력 시 #tel3 자동 포커스</p>
+                                </li>
+                                <li>
+                                    <p class="tit">주소</p>
+                                    <p class="desc">.input-with-btn 구조 및 readonly 적용</p>
+                                </li>
+                                <li>
+                                    <p class="tit">날짜선택</p>
+                                    <p class="desc">.js-min-today 클래스로 과거 날짜 차단</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">Component Preview</h3>
+                            
+                            <!-- 기본 텍스트 -->
+                            <div class="form-item">
+                                <label class="form-label">기본 인풋</label>
+                                <input type="text" class="form-input" placeholder="이름을 입력하세요">
+                            </div>
+
+                            <!-- 계좌번호 -->
+                            <div class="form-item">
+                                <label class="form-label">계좌번호 (분할형)</label>
+                                <div class="form-row">
+                                    <div class="col-bank">
+                                        <select class="form-input is-placeholder">
+                                            <option value="" disabled selected hidden>은행 선택</option>
+                                            <option value="신한">신한</option>
+                                            <option value="국민">국민</option>
+                                            <option value="하나">하나</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-account">
+                                        <input type="tel" class="form-input" placeholder="계좌번호 입력">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 이메일 -->
+                            <div class="form-item">
+                                <label class="form-label">이메일 (중간 @ 기호)</label>
+                                <div class="form-row">
+                                    <input type="text" class="form-input" placeholder="아이디">
+                                    <span class="at-mark">@</span>
+                                    <input type="text" class="form-input" placeholder="도메인 직접입력">
+                                </div>
+                            </div>
+
+                            <!-- 연락처 -->
+                            <div class="form-item">
+                                <label class="form-label">연락처 (자동 포커스 테스트)</label>
+                                <div class="form-row">
+                                    <select id="tel1" class="form-input is-placeholder" style="width:136px; flex:none;">
+                                        <option value="" selected disabled hidden>선택</option>
+                                        <option value="010">010</option>
+                                        <option value="02">02</option>
+                                    </select>
+                                    <input type="tel" id="tel2" class="form-input" maxlength="4" placeholder="1234" inputmode="numeric">
+                                    <input type="tel" id="tel3" class="form-input" maxlength="4" placeholder="5678" inputmode="numeric">
+                                </div>
+                            </div>
+
+                            <!-- 주소 -->
+                            <div class="form-item">
+                                <label class="form-label">주소 검색</label>
+                                <div class="input-with-btn mb-12">
+                                    <input type="text" class="form-input" placeholder="우편번호" readonly>
+                                    <button type="button" class="btn-dark-gray">검색</button>
+                                </div>
+                                <input type="text" class="form-input" placeholder="기본주소" readonly>
+                            </div>
+
+                            <!-- 데이트피커 -->
+                            <div class="form-item">
+                                <label class="form-label">데이트피커 (.js-min-today)</label>
+                                <input type="date" class="form-input js-min-today" data-placeholder="날짜 선택" required>
+                            </div>
+
+                            <!-- 에러 상태 -->
+                            <div class="form-item">
+                                <label class="form-label">에러 노출 예시</label>
+                                <input type="text" class="form-input error" value="잘못된 형식">
+                                <p class="error-msg">형식에 맞게 입력해 주세요.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div> 
+            </div> 
+        </div> 
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-notice">
+                    <p class="notice-tit">ORIX UI STANDARD GUIDE</p>
+                </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary">가이드 확인 완료</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

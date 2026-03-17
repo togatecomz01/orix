@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - Button</title>
+
+    <link href="../../views/resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../views/resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../views/resource/js/common.js"></script>
+
+    <link href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"></a></h1>
+                <div class="header-contact"><span class="tel"></span></div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">Button Standard</h2>
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">1. 버튼 유형 및 용도</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">.btn-primary</p>
+                                    <p class="desc">메인 액션(확인, 다음, 제출). 브랜드 컬러 적용.</p>
+                                </li>
+                                <li>
+                                    <p class="tit">.btn-secondary</p>
+                                    <p class="desc">서브 액션(취소, 이전). 흰색 배경 + 테두리.</p>
+                                </li>
+                                <li>
+                                    <p class="tit">.btn-outline</p>
+                                    <p class="desc">컨텐츠 내부 보조 버튼(PDF 다운로드 등).</p>
+                                </li>
+                                <li>
+                                    <p class="tit">.disabled</p>
+                                    <p class="desc">유효성 미통과 시 비활성 상태 표시.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-box">
+                            <h3 class="card-tit">2. 레이아웃 규칙</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">하단 버튼</p>
+                                    <p class="desc">#footerWrap > .btn-area 내부에 배치.</p>
+                                </li>
+                                <li>
+                                    <p class="tit">컨텐츠 버튼</p>
+                                    <p class="desc">.acc-btn-area 내부에 배치 (우측 정렬).</p>
+                                </li>
+                                <li>
+                                    <p class="tit">팝업 버튼</p>
+                                    <p class="desc">.pop-footer 내부에 배치 (중앙 정렬).</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        
+                        <!-- 컨텐츠 내 버튼 예시 -->
+                        <div class="card-box">
+                            <h3 class="card-tit">Content / Accordion Buttons</h3>
+                            <p style="margin-bottom:20px; font-size:14px; color:#888;">* 아코디언 하단 등에 쓰이는 우측 정렬 버튼 그룹</p>
+                            
+                            <div class="acc-btn-area" style="padding-top:0; flex-wrap:wrap;"> 
+                                <!-- 가이드에서만 너비를 좀 줄여서 보여줌 -->
+                                <button type="button" class="btn-outline" style="min-width:auto; flex:1;">PDF 다운로드</button>
+                                <button type="button" class="btn-primary" style="min-width:auto; flex:1;">확인 완료</button>
+                            </div>
+                        </div>
+
+                        <!-- 인풋/기능형 버튼 예시 -->
+                        <div class="card-box">
+                            <h3 class="card-tit">Inline / functional Buttons</h3>
+                            <div class="form-item">
+                                <label class="form-label">기능형 버튼 조합 예시</label>
+                                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                    <button type="button" class="btn-dark-gray" style="position:static; min-width:120px;">주소 검색</button>
+                                    <label class="btn-file-select">파일 선택</label>
+                                    <button type="button" class="btn-reset" style="position:static;">초기화</button>
+                                    <button type="button" class="btn-del-file" style="position:static;">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 상태별 버튼 예시 -->
+                        <div class="card-box">
+                            <h3 class="card-tit">Button States</h3>
+                            <div style="display:flex; gap:10px;">
+                                <button type="button" class="btn-primary">Normal</button>
+                                <button type="button" class="btn-secondary">Normal</button>
+                                <button type="button" class="btn-primary disabled">Disabled</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-notice">
+                    <p class="notice-tit">Main Footer Button Layout</p>
+                    <p class="sub-txt">페이지 하단에 고정되는 버튼 영역 예시입니다.</p>
+                </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary">다음 단계로 이동</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

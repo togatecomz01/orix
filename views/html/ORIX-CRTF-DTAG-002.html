@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>오릭스 A시안 (전자서명 팝업 시뮬레이션)</title>
+    
+    <link href="../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../resource/js/jquery.form.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+</head>
+<body style="overflow: hidden;">
+    <div id="wrap">
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"><img src="../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <div class="header-contact"><span class="txt">고객센터</span><span class="tel">02-2050-6700</span></div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">본인인증</h2>
+                <!-- 배경용 -->
+                <div class="card-box mb-42" style="height: 300px;"></div>
+                <div class="layout-grid">
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popSignature" class="layer-popup on">
+        <div class="pop-dimmed"></div>
+        <div class="pop-container">
+            <div class="pop-header">
+                <h2 class="pop-tit">전자서명</h2>
+                <button type="button" class="btn-pop-close" aria-label="팝업 닫기"></button>
+            </div>
+
+            <div class="pop-body">
+                <div class="tab-container jsTab">
+                    <nav class="tab-list">
+                        <div class="btn-group">
+                            <li class="tab-item active" data-tab="tabSign1"><button type="button">서명하기</button></li>
+                            <li class="tab-item" data-tab="tabSign2"><button type="button">인감도장 업로드</button></li>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content">
+                        <!-- 탭1: 서명 -->
+                        <div id="tabSign1" class="tab-panel active">
+                            <div class="signature-pad-box">
+                                <p class="placeholder-txt">반드시 서명 바랍니다.</p>
+                                <canvas id="signatureCanvas"></canvas>
+                                <button type="button" class="btn-reset">초기화</button>
+                            </div>
+                        </div>
+
+                        <!-- 탭2: 인감 업로드 -->
+                        <div id="tabSign2" class="tab-panel">
+                            <div class="stamp-upload-box">
+                                <!-- 업로드 전 -->
+                                <div class="view-default">
+                                    <div class="txt-area">
+                                        <p class="tit">첨부할 파일을 여기로 드래그하여 업로드 하세요.</p>
+                                        <p class="desc">최대 300KB미만의 PNG, JPG 이미지를 한 장 업로드 할 수 있습니다.<br>* 반드시 도장 테두리가 잘리지 않은 선명한 이미지의 법인인감을 사용해주세요.</p>
+                                    </div>
+                                    <div class="btn-area">
+                                        <label for="stampFile" class="btn-file-select">파일 선택</label>
+                                        <input type="file" id="stampFile" accept="image/*">
+                                    </div>
+                                </div>
+                                <!-- 업로드 후 -->
+                                <div class="view-uploaded" style="display: none;">
+                                    <div class="file-card">
+                                        <span class="ico-check-fill"></span>
+                                        <div class="file-info"><p class="name"></p><p class="size"></p></div>
+                                        <button type="button" class="btn-del-file">파일삭제</button>
+                                    </div>
+                                    <div class="txt-area">
+                                        <p class="desc">최대 300KB미만의 PNG, JPG 이미지를 한 장 업로드 할 수 있습니다.<br>* 반드시 도장 테두리가 잘리지 않은 선명한 이미지의 법인인감을 사용해주세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pop-notice">
+                    <p class="txt">본 서명(인감)은 <span class="blue-txt"> ‘자동차임대차(렌탈)계약서, 주민등록번호 수집・이용 동의서(렌터카 법인 계약자용), 자동이체 신청서’에 일괄 적용됩니다.</span></p>
+                    <p class="txt">본 서명(인감)정보는 비대면 전자약정 프로세스에 따라, 이어지는 법인공동인증서 인증과 결합하여 법적 효력 및 계약의 성립을 확정하며, 이는 법적으로 직접 자필 및 날인한 것과 동일한 효력을 가집니다.</p>
+                </div>
+            </div>
+
+            <div class="pop-footer">
+                <button type="button" class="btn-secondary">취소</button>
+                <button type="button" class="btn-primary">제출하기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

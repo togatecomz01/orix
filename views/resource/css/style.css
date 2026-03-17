@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+:root {
+    --font12: 0.667rem;  
+    --font13: 0.722rem; 
+    --font14: 0.778rem;  
+    --font16: 0.889rem; 
+    --font18: 1rem;      
+    --font20: 1.111rem;  
+    --font22: 1.222rem;  
+    --font24: 1.333rem;  
+    --font26: 1.444rem;  
+    --font28: 1.556rem;  
+    --font30: 1.667rem;  
+    --font32: 1.778rem;  
+    --font34: 1.889rem;  
+    --font36: 2rem;     
+    --font38: 2.111rem;  
+    --font40: 2.222rem; 
+    --font42: 2.333rem; 
+    --font45: 2.5rem;
+    
+    --font-w-b: 700;
+    --font-w-sb: 600;
+    --font-w-m: 500;
+    --font-w-r: 400;
+    --font-w-l: 300;
+}
+
+body {
+    --dim: rgba(0, 0, 0, 0.5);
+    --white-dim: rgba(255, 255, 255, 0.5);
+    --white: #FFFFFF;
+
+
+
+    /** 기본 색상 **/
+    /* --primary: #0871F3;
+    --primary-light: #41C7F4;
+    --secondary: #BAD1EC;
+    ----default-color:#757575; */
+
+    --primary: #3182EE;
+    --border:#E5E5EA;
+
+    --color-1: #111111;
+    --color-2:#222222;
+    --color-3:#333333;
+    --color-45:#454545;
+    --color-6:#666666;
+    --color-75:#757575;
+    --color-9:#999999;
+    --color-c: #CCCCCC;
+    --color-f:#FFFFFF;
+    --color-fd:#FDFDFD;
+    --color-f8:#F8F8F8;
+    --color-c:#CCCCCC;
+    --color-ab:#ABABAB;
+    --color-e:#EEEEEE;
+    --color-d:#DDDDDD;
+    --color-f6:#F6F6F6;
+    --color-fa:#FAFAFA;
+    --bg-box:#F3F6FB;
+    --error: #F00;
+
+    --outline: #0871F3;
+}
+
+.ml-10 { margin-left: 10px; }
+.ml-16 { margin-left: 16px; }
+.mb-0 {margin-bottom: 0 !important;}
+.mb-10 {margin-bottom: 10px !important;}
+.mb-12 {margin-bottom: 12px !important;}
+.mb-40 {margin-bottom: 40px !important;}
+.mb-42 {margin-bottom: 42px !important;}
+.mb-48 {margin-bottom: 48px !important;}
+.mb-32 {margin-bottom: 32px !important;}
+.mt-auto { margin-top: auto !important; } 
+.mt-32 {margin-top: 32px !important;}
+/* 텍스트 유틸리티 (Color, Align, etc) */
+.c5 {color: #c5c5c5;}
+.blue { color: var(--primary); }
+.blue-sb {color: var(--primary); font-weight: var(--font-w-sb);}
+.blue-b {color: var(--primary); font-weight: var(--font-w-b);}
+.blue-txt { color: var(--primary); font-weight: var(--font-w-sb); margin-right: 8px; }
+.red-txt { color: var(--error); }
+.txt-6 {color: var(--color-6);}
+.tal { text-align: left !important; }
+.tac { text-align: center !important; }
+.tar { text-align: right !important; }

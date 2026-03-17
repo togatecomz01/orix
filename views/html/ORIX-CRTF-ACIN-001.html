@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>오릭스 A시안 (정보입력)</title>
+    
+    <link href="../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../resource/js/jquery.form.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="../resource/images/ORIX_logo.png" alt="오릭스 캐피탈 로고">
+                    </a>
+                </h1>
+
+                <div class="header-contact">
+                    <span class="txt">고객센터</span>
+                    <span class="tel">02-2050-6700</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <ol class="step-area">
+                    <li>1</li>
+                    <li class="active">2</li> 
+                    <li>3</li>
+                </ol>
+
+                <h2 class="page-tit">자동이체 계좌 및 납부정보를 입력해주세요</h2>
+
+                <div class="layout-grid">
+                    
+                    <div class="col-group">
+                        <div class="card-box mh-100">
+                            <h3 class="card-tit">고객정보</h3>
+
+                            <div class="form-item">
+                                <label for="userName" class="form-label">예금주</label>
+                                <input type="text" title="예금주" id="userName" class="form-input" maxlength="20" placeholder="예금주 입력">
+                                <p class="error-msg" style="display:none;">예금주명을 입력해주세요.</p>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="bankSelect" class="form-label label-tooltip">
+                                    계좌번호
+                                    <span class="tooltip-box">
+                                        핸드폰번호의 평생 계좌번호는 자동이체 출금용 계좌로 등록할 수 없습니다.
+                                    </span>
+                                </label>
+                                
+                                <div class="form-row">
+                                    <div class="col-bank">
+                                        <select id="bankSelect" class="form-input is-placeholder">
+                                            <option value="" class="select-placeholder" selected disabled hidden>은행 선택</option>
+                                            <option value="shinhan">신한은행</option>
+                                            <option value="kb">국민은행</option>
+                                            <option value="woori">우리은행</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-account">
+                                        <input type="tel" id="userAccount" class="form-input" maxlength="16" inputmode="numeric" placeholder="계좌번호 입력">
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <p class="error-msg" style="display:none;">계좌번호를 입력해 주세요.</p>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="emailId" class="form-label label-tooltip">
+                                    이메일
+                                    <span class="tooltip-box short">
+                                        이메일 주소를 정확히 입력해 주세요. 인증 번호가 발송됩니다.
+                                    </span>
+                                </label>
+                                <div class="form-row email-top mb-12">
+                                    <input type="text" id="emailId" class="form-input ellipsis" placeholder="아이디" title="">
+                                    <span class="at-mark">@</span>
+                                    <input type="text" id="emailDomain" class="form-input" placeholder="도메인 입력" title="">
+                                </div>
+                                <p class="error-msg" style="display:none;">이메일을 입력해 주세요.</p>
+                                <!-- <div class="email-bottom">
+                                    <select class="form-input"> 
+                                        <option value="">직접입력</option>
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="gmail.com">daum.net</option>
+                                    </select>
+                                </div> -->
+                                <div class="check-group sm mt-10">
+                                    <input type="checkbox" id="emailSame">
+                                    <label for="emailSame">계약서 및 안내문 수신 메일 정보와 동일</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">납부일 설정</h3>
+
+                            <div class="payment-setting">
+                                <div class="pay-type-group">
+                                    <!-- 익월납부 -->
+                                    <div class="pay-option">
+                                        <input type="radio" id="payNext" name="payType" value="next" checked>
+                                        <label for="payNext">
+                                            <span class="radio-check-circle"></span>
+                                            <span class="txt">익월납부</span>
+                                        </label>
+                                    </div>
+                                    <!-- 당월납부 -->
+                                    <div class="pay-option">
+                                        <input type="radio" id="payCurrent" name="payType" value="current">
+                                        <label for="payCurrent">
+                                            <span class="radio-check-circle"></span>
+                                            <span class="txt">당월납부</span>
+                                        </label>
+                                    </div>
+                                    <!-- 직접입력 -->
+                                    <div class="pay-option">
+                                        <input type="radio" id="payDirect" name="payType" value="direct">
+                                        <label for="payDirect">
+                                            <span class="radio-check-circle"></span>
+                                            <span class="txt">직접입력</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- 선택에 따라 노출/비노출 -->
+                                <div class="pay-sub-area">
+                                    <!-- 날짜 선택 버튼 (익월/당월일 때 노출) -->
+                                    <div id="dateSelectArea" class="date-selection">
+                                        <div class="date-btn-group">
+                                            <input type="radio" id="date5" name="payDate" value="5">
+                                            <label for="date5">5일</label>
+                                            
+                                            <input type="radio" id="date15" name="payDate" value="15" checked>
+                                            <label for="date15">15일</label>
+                                            
+                                            <input type="radio" id="date25" name="payDate" value="25">
+                                            <label for="date25">25일</label>
+                                            
+                                            <input type="radio" id="dateLast" name="payDate" value="말일">
+                                            <label for="dateLast">말일</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- 직접 입력 인풋 (직접입력일 때 노출) -->
+                                    <div id="directInputArea" class="direct-input-wrap" style="display:none;">
+                                        <input type="date" id="payDirectInput" class="form-input js-min-today" data-placeholder="납부일을 선택해 주세요." required>
+                                        <p class="error-msg" style="display:none;">날짜를 선택해 주세요.</p>
+                                    </div>
+                                </div>
+                                <div class="payment-notice">
+                                    은행 휴무일, 공휴일에는 자동이체가 진행되지 않으며, 돌아오는 첫 영업일에 지연 출금됩니다.
+                                </div>
+                                <div class="payment-result-box pay-date">
+                                    <span class="label">첫회차 납부일</span>
+                                    <span class="date">2026.03.15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-text-wrap">
+                    <div class="biz-info">
+                        <dl>
+                            <dt>법인명</dt>
+                            <dd>(주)홍길동컴퍼니</dd>
+                        </dl>
+                        <dl>
+                            <dt>계약서 및 안내문 수신 메일 주소</dt>
+                            <dd>orixagreementmanagement@orix.co.kr</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="btn-area">
+                    <a href="./ORIX-CRTF-SMAG-001.html" class="btn-primary">다음</a>
+                    <!-- <button type="button" class="btn-primary btn-lg" disabled>다음으로</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

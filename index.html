@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>오릭스 법인전자약정 프로젝트 워크리스트</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="keywords" content="Mobile UX/UI" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="#" />
+        <!-- 웹 앱 매니페스트 (PWA) -->
+        <link rel="manifest" href="../assets/icons/site.webmanifest" />
+
+        <link rel="stylesheet" type="text/css" href="./guide/css/pub-worklist.css" />
+        <script src="./guide/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="./guide/js/jquery.form.min.js"></script>
+        <style>
+            .header .etc {
+                color: yellowgreen;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+            .header .etc-link {
+                border: 1px solid red;
+                background-color: white;
+                padding: 2px;
+                margin-left: auto;
+            }
+            .header .etc-link a {
+                color: red;
+            }
+            .cont table {
+                display: none;
+            }
+            .cont .tit {
+                cursor: pointer;
+            }
+            .cont .tit.on ~ table {
+                display: table;
+            }
+            .ing td {
+                background-color: beige;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper pc">
+            <section class="ifr_view">
+                <iframe id="iframe" width="100%" height="100%" src="./button.html"></iframe>
+            </section>
+            <section class="container">
+                <div class="header">
+                    <h1>오릭스 법인전자약정 워크리스트</h1>
+                    <ul class="stateArea">
+                        <li><strong>진행상태 :</strong></li>
+                        <li class="typeCommon"><span>공통</span></li>
+                        <li class="typeIng"><span>진행 중</span></li>
+                        <li class="typeComp"><span>완료</span></li>
+                        <li class="typeNon"><span>삭제</span></li>
+                    </ul>
+                    <ul class="stateCnt">
+                        <li>총 <span id="totCnt"></span>개</li>
+                        <li>작업중 <span id="progressCnt"></span>개</li>
+                        <li>완료 <span id="compCnt"></span>개</li>
+                    </ul>
+                    <ul class="etc">
+                        <li>테이블 열 진행 클래스(tr에 적용) : 완료 [comp], 비활성화 [non], 완료 [ing] <br />** ui-util.css, ui-utill.js 공통으로 들어갑니다.</li>
+                    </ul>
+                </div>
+
+                <div class="cont guide">
+                    <h3 class="tit on">공통</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td>로딩화면</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-LODG-001.html" target="_blank">ORIX-CRTF-LODG-001</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>시스템 알럿</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./guide/sample/header.html" target="_blank">alert</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>뒤로가기 방지 컨펌 알럿</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./guide/sample/button.html" target="_blank">confirm_alert</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>A시안 (진입 페이지)</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/A/intro-page.html" target="_blank">A시안 (진입 페이지)</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>A시안 (정보입력)</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/A/info_in.html" target="_blank">A시안 (정보입력)</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>A시안 (약정서 확인 및 서명)</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/A/confirm&sign.html" target="_blank">A시안 (약정서 확인 및 서명)</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>카카오 주소 api 테스트</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/A/api_test.html" target="_blank">api_test</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>input</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./guide/html/input.html" target="_blank">input</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>button</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./guide/html/button.html" target="_blank">button</a></td>
+                                <td></td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">온보딩</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td>진입 화면</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-MAIN-001.html" target="_blank">ORIX-CRTF-MAIN-001</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="comp">
+                                <td>진입 에러 화면</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-MAIN-002.html" target="_blank">ORIX-CRTF-MAIN-002</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="comp">
+                                <td>서비스 예정 화면</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-MAIN-003.html" target="_blank">ORIX-CRTF-MAIN-003</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">본인인증</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td>본인인증</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-INDT-001.html" target="_blank">ORIX-CRTF-INDT-001</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>약관동의 팝업</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="#" target="_blank">약관동의 팝업</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>솔루션 호출</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="#" target="_blank">솔루션 호출</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">계약 상세정보</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="non">
+                                <td>계약정보</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="#" target="_blank">계약정보</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td>차량정보</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="#" target="_blank">차량정보</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">견적확인</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td>견적확인</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-CHEC-001.html" target="_blank">ORIX-CRTF-CHEC-001</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">자동이체 계좌 및 납부정보</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td rowspan="4">자동이체 계좌 및 납부정보</td>
+                                <td>계좌 인증</td>
+                                <td></td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-ACIN-001.html" target="_blank">ORIX-CRTF-ACIN-001</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td></td>
+                                <td>인증완료 팝업</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="#" target="_blank">인증완료 팝업</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td></td>
+                                <td>인증오류 팝업</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="#" target="_blank">인증오류 팝업</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr class="non">
+                                <td></td>
+                                <td>납부정보 입력</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="#" target="_blank">납부정보 입력</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont page">
+                    <h3 class="tit on">약정서 확인</h3>
+                    <table>
+                        <summary></summary>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="8%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                            <col width="4%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="24%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">depth1</th>
+                                <th scope="col">depth2</th>
+                                <th scope="col">depth3</th>
+                                <th scope="col" class="fileName">화면ID</th>
+                                <th scope="col">형태</th>
+                                <th scope="col">담당</th>
+                                <th scope="col">시작일자</th>
+                                <th scope="col">종료일자</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comp">
+                                <td rowspan="6">약정서 확인</td>
+                                <td>약정서 주요 내역(요약본)</td>
+                                <td></td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-SMAG-001.html" target="_blank">ORIX-CRTF-SMAG-001</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="comp">
+                                <td>상세 약정서 확인</td>
+                                <td></td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-DTAG-001.html" target="_blank">ORIX-CRTF-DTAG-001</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="comp">
+                                <td></td>
+                                <td>전자서명 팝업</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-DTAG-002.html" target="_blank">ORIX-CRTF-DTAG-002</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr class="non">
+                                <td></td>
+                                <td>전자서명 최종 제출 안내</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="#" target="_blank">전자서명 최종 제출 안내</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="non">
+                                <td></td>
+                                <td>솔루션 호출</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="#" target="_blank">솔루션 호출</a></td>
+                                <td>팝업</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                            <tr class="comp">
+                                <td></td>
+                                <td>전자서명 완료</td>
+                                <!-- <td></td> -->
+                                <td class="fileName"><a href="./views/html/ORIX-CRTF-DTAG-003.html" target="_blank">ORIX-CRTF-DTAG-003</a></td>
+                                <td>페이지</td>
+                                <td></td>
+                                <td class="fromDate"></td>
+                                <td class="toDate"></td>
+                                <td class="state"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                /*---------------------------------------------
+				ready, load
+			---------------------------------------------*/
+                // 모든 리소스(이미지 등)가 로드된 후 fnPreload()를 호출하여 초기화
+                $(window).on("load", function () {
+                    fnPreload();
+                });
+
+                /*---------------------------------------------
+				preload, init
+			---------------------------------------------*/
+                /* preload */
+                function fnPreload() {
+                    tableStateManager.init();
+                }
+
+                /*---------------------------------------------
+				tableStateManager 모듈 정의
+			---------------------------------------------*/
+                var tableStateManager = (function () {
+                    // 날짜 관련 배열 (필요시 활용)
+                    var fromDate = [],
+                        toDate = [],
+                        dateGap = [];
+
+                    // 상태별 개수 변수
+                    var progressCnt = 0, // 진행 중 개수
+                        compCnt = 0, // 완료 개수
+                        delCnt = 0; // 삭제 개수
+
+                    return {
+                        // 테이블 각 행의 상태를 업데이트하는 함수
+                        updateStates: function () {
+                            // 호출 시마다 카운트 초기화
+                            progressCnt = 0;
+                            compCnt = 0;
+                            delCnt = 0;
+
+                            $(".cont table tbody tr").each(function () {
+                                var $row = $(this);
+                                var $stateCell = $row.find(".state");
+
+                                if ($row.hasClass("non")) {
+                                    $stateCell.html("<span>삭제</span>");
+                                    delCnt++;
+                                } else if ($row.hasClass("ing")) {
+                                    $stateCell.html("<span>진행 중</span>");
+                                    progressCnt++;
+                                } else if ($row.hasClass("comp")) {
+                                    $stateCell.html("<span>완료</span>");
+                                    compCnt++;
+                                } else {
+                                    $stateCell.text("");
+                                }
+                            });
+                        },
+
+                        // 상태별 카운트를 업데이트
+                        updateCounts: function () {
+                            var totCnt = $(".page table tbody tr").length; // 전체 행 개수
+                            $("#compCnt").text(compCnt);
+                            $("#totCnt").text(totCnt);
+                            $("#progressCnt").text(progressCnt);
+                        },
+                        // 레이아웃(마진) 조정
+                        adjustLayout: function () {
+                            var headerH = $(".container .header").outerHeight();
+                            $(".container .guide").css("margin-top", headerH + "px");
+                        },
+
+                        // 전체 초기화: 상태 업데이트, 카운트 갱신, 레이아웃 조정 실행
+                        init: function () {
+                            // 반환된 객체의 메서드를 호출
+                            this.updateStates();
+                            this.updateCounts();
+                            this.adjustLayout();
+                        },
+                        // 상태와 카운트만 갱신
+                        update: function () {
+                            this.updateStates();
+                            this.updateCounts();
+                        },
+                    };
+                })();
+
+                /**
+                 * #테이블 토글
+                 **/
+                var tableListToggle = function (el) {
+                    var $el = $(el);
+                    return {
+                        open: function () {
+                            $el.addClass("on");
+                        },
+                        close: function () {
+                            $el.removeClass("on");
+                        },
+                        toggle: function () {
+                            if ($el.hasClass("on")) {
+                                this.close();
+                            } else {
+                                this.open();
+                            }
+                        },
+                    };
+                };
+
+                //event
+                $(document).on("click", ".cont .tit", function () {
+                    tableListToggle(this).toggle();
+                });
+            });
+        </script>
+    </body>
+</html>

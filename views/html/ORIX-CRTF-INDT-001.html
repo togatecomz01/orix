@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>오릭스 A시안 (본인인증)</title>
+
+    <link href="../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../resource/js/jquery.form.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+
+    <!-- 주소 API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body style="overflow: hidden;"> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
+    <div id="wrap">
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"><img src="../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <div class="header-contact"><span class="txt">고객센터</span><span class="tel">02-2050-6700</span></div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                
+                <h2 class="page-tit">본인인증</h2>
+
+                <div class="card-box mb-42"> 
+
+                    <div class="agree-header">
+                        <div class="check-group circle-type mb-32">
+                            <input type="checkbox" id="agreeAll">
+                            <label for="agreeAll">전체 약관동의</label>
+                        </div>
+                    </div>
+
+                    <div class="accordion-list">
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term1" name="terms">
+                                    <label for="term1">
+                                        
+                                        <span class="acc-trigger"><span class="blue-txt">(필수)</span>개인정보 수집 · 이용 동의</span>
+                                    </label>
+                                </div>
+                                <button type="button" class="btn-toggle" aria-label="내용 열기/닫기"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">
+                                    <p class="term-tit">[필수]개인정보 수집이용 동의</p>
+                                    <ul class="bul-refer">
+                                        <li>아래의 동의사항은 거래관계의 설정 및 유지를 위한 필수 사항입니다.</li>
+                                        <li>귀하는 동의를 거부할 권리가 있으나, 동의하지 않을 경우 거래관계의 설정 또는 유지가 불가능할 수 있음을 알려드립니다.</li>
+                                        <li>신용공여 사실만으로 신용점수가 하락할 수 있으며, 금융권역 또는 신용공여 형태에 따라 은행의 신용공여보다 신용점수 하락폭이 클 수 있습니다.</li>
+                                    </ul>
+
+                                    <div class="term-footer">
+                                        <ul>
+                                            <li>오릭스캐피탈코리아(주) 귀중</li>
+                                            <li>귀사와의 금융거래 관련하여 귀사가 본인의 개인(신용)정보를 처리하고자 하는 경우에는 「개인정보 보호법」 제15조, 제22조, 제24조 및 「신용정보의 이용 및 보호에 관한 법률」 제32조, 제33조, 제34조에 따라 동의를 얻어야 합니다.</li>
+                                            <li>이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 처리하는 것에 동의합니다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term2" name="terms">
+                                    <label for="term2"><span class="blue-txt">(필수)</span> 고유식별정보처리동의</label>
+                                </div>
+                                <button type="button" class="btn-toggle"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">내용이 들어갑니다.</div>
+                            </div>
+                        </div>
+
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term3" name="terms">
+                                    <label for="term3"><span class="blue-txt">(필수)</span> 통신사 이용약관 동의</label>
+                                </div>
+                                <button type="button" class="btn-toggle"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">내용이 들어갑니다.</div>
+                            </div>
+                        </div>
+
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term4" name="terms">
+                                    <label for="term4"><span class="blue-txt">(필수)</span> 서비스 이용약관 동의</label>
+                                </div>
+                                <button type="button" class="btn-toggle"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">내용이 들어갑니다.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box mh-100">
+                            <h3 class="card-tit">안내문 수신 정보</h3>
+                            
+                            <div class="form-item">
+                                <label for="emailId" class="form-label">이메일</label>
+                                <div class="form-row">
+                                    <input type="text" id="emailId" class="form-input" placeholder="abc123">
+                                    <span class="at-mark">@</span>
+                                    <input type="text" id="emailDomain" class="form-input" placeholder="naver.com">
+                                </div>
+                                <p class="error-msg" style="display:none;">이메일을 입력해 주세요.</p>
+                                
+                            </div>
+
+                            <div class="form-item">
+                                <label class="form-label">담당자 연락처</label>
+                                <div class="form-row">
+                                    <select id="tel1" class="form-input is-placeholder">
+                                        <option value="" class="select-placeholder" selected disabled hidden>선택</option>
+                                        <option value="010">010</option>
+                                        <option value="02">02</option>
+                                        <option value="031">031</option>
+                                    </select>
+
+                                    <input type="tel" id="tel2" class="form-input" maxlength="4" inputmode="numeric">
+
+                                    <input type="tel" id="tel3" class="form-input" maxlength="4" inputmode="numeric">
+                                </div>
+                                
+                                <p class="error-msg" style="display:none;">연락처 모두를 입력해 주세요.</p>
+                                <!-- <p class="error-msg" style="display:none;"></p> -->
+                                <!-- 화면설계서 참고하여 에러메시지 수정 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">법인 등록 주소지</h3>
+
+                            <div class="form-item">
+                                <label class="form-label">주소</label>
+                                <div class="input-with-btn mb-12">
+                                    <input type="text" id="zonecode" class="form-input" placeholder="54321" readonly>
+                                    <button type="button" id="btnPostcode" class="btn-dark-gray">우편번호 검색</button>
+                                </div>
+
+                                <input type="text" id="address" class="form-input mb-12" placeholder="서울 강남구 테헤란로 306" readonly>
+
+                                <input type="text" id="detailAddress" class="form-input" placeholder="상세주소를 입력해 주세요. (ex. A동 1508호)">
+                                <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-text-wrap">
+                    <div class="footer-notice">
+                        <p class="notice-tit">약정완료 시, 계약서류 및 안내가 입력하신 정보로 발송됩니다.</p>
+                        <p class="sub-txt">※ 정확한 법인 정보를 입력해주시기 바랍니다.</p>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <a href="./ORIX-CRTF-CHEC-001.html" class="btn-primary">법인공동인증서 인증하기</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popLoading" class="layer-popup on">
+        <div class="pop-dimmed"></div>
+        <div class="pop-container type-loading">
+            <div class="loading-body">
+                <div class="loading-visual"></div>
+                <p class="loading-tit">
+                    안전한 금융거래를 위해<br>
+                    신원 확인 및 권한 검증을 진행하고 있습니다.
+                </p>
+
+                <p class="loading-desc">
+                    페이지를 새로고침 하거나 창을 닫을 경우 인증이 취소될 수 있습니다.<br>
+                    잠시만 기다려 주세요.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

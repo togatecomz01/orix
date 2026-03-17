@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>오릭스 A시안 (정보입력)</title>
+    
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="../../resource/images/ORIX_logo.png" alt="오릭스 캐피탈 로고">
+                    </a>
+                </h1>
+
+                <div class="header-contact">
+                    <span class="txt">고객센터</span>
+                    <span class="tel">02-2050-6700</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <ol class="step-area">
+                    <li>1</li>
+                    <li class="active">2</li> 
+                    <li>3</li>
+                </ol>
+
+                <h2 class="page-tit">API 테스트</h2>
+
+                <div class="layout-grid">
+                    
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">고객정보</h3>
+
+                            <!-- 임시 API용 -->
+                            <div class="form-item">
+                                <label class="form-label">주소</label>
+                                
+                                <div class="form-row" style="margin-bottom: 8px;">
+                                    <div style="width: 120px; flex: none;">
+
+                                        <input type="text" id="zonecode" class="form-input" placeholder="우편번호" readonly>
+                                    </div>
+                                    <button type="button" id="btnPostcode" class="btn-primary" style="padding: 0 20px; height: 60px; font-size: 16px;">
+                                        주소 검색
+                                    </button>
+                                </div>
+
+                                <div style="margin-bottom: 8px;">
+                                    <input type="text" id="address" class="form-input" placeholder="기본 주소" readonly>
+                                </div>
+
+                                <div>
+                                    <input type="text" id="detailAddress" class="form-input" placeholder="상세 주소를 입력해 주세요.">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-text-wrap">
+                    <div class="biz-info">
+                        <dl>
+                            <dt>사업자명</dt>
+                            <dd>(주)홍길동</dd>
+                        </dl>
+                        <dl>
+                            <dt>사업자번호</dt>
+                            <dd>123-456-78910</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="btn-area">
+                    <a href="./confirm&sign.html" class="btn-primary btn-lg disabled" aria-disabled="true">다음으로</a>
+                    <!-- <button type="button" class="btn-primary btn-lg" disabled>다음으로</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

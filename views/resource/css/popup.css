@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* 팝업 레이아웃 */
+.layer-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: none; }
+.layer-popup.on { display: block; }
+.pop-dimmed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+.pop-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1000px; height: 700px; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; }
+.pop-header { position: relative; text-align: center; flex-shrink: 0; }
+.pop-tit { font-size: var(--font28); font-weight: var(--font-w-b); color: var(--color-2); }
+.btn-pop-close { position: absolute; top: 0px; right: 0px; width: 30px; height: 30px; background: url('../svg/ico_Xbutton.svg') no-repeat center/contain; border: none; cursor: pointer; }
+.pop-body { flex: 1; padding: 20px 0; }
+/* 탭 */
+.tab-list { border-bottom: 2px solid #eee; margin-bottom: 26px; }
+.tab-list .btn-group { display: flex; }
+.tab-item { flex: 1; text-align: center; list-style: none; }
+.tab-item button { width: 100%; padding: 18px 0; font-size: var(--font20); color: var(--color-6); font-weight: var(--font-w-m); border: none; background: none; border-bottom: 2px solid transparent; cursor: pointer; margin-bottom: -2px; }
+.tab-item.active button { color: var(--primary); border-bottom-color: var(--primary); font-weight: var(--font-w-b); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+/* 서명 캔버스 */
+.signature-pad-box { position: relative; background: #F8F8F8; border-radius: 8px; height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--color-e); }
+.signature-pad-box canvas { width: 100%; height: 100%; cursor: crosshair; position: relative; z-index: 1; }
+.placeholder-txt { position: absolute; font-size: 46px; color: rgba(34, 34, 34, 0.10); font-weight: var(--font-w-m); pointer-events: none; }
+
+/* .btn-reset { position: absolute; top: 20px; right: 25px; min-width: 101px; z-index: 2; padding: 10px 16px 10px 10px; border: 1px solid var(--color-d); background: var(--white) url('../svg/ico-refresh-outline.svg') no-repeat 20px center / 20px; border-radius: 4px; font-size: var(--font18); color: var(--color-9); cursor: pointer; } */
+.btn-reset { position: absolute; top: 20px; right: 25px; z-index: 2; padding: 10px 16px 10px 42px; border: 1px solid var(--color-d); background: var(--white) url('../svg/ico-refresh-outline.svg') no-repeat 14px center / 18px; border-radius: 4px; font-size: var(--font16); color: var(--color-6); cursor: pointer; line-height: 1; }
+/* 인감 업로드 박스 */
+.stamp-upload-box { height: 300px; background: var(--white); border: 2px dashed var(--primary); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; }
+.view-uploaded { width: 100%; }
+.stamp-upload-box.uploaded { background: #F9F9F9; border: 1px solid var(--color-e); padding: 50px; justify-content: flex-start;}
+.stamp-upload-box .tit { font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 16px; }
+.stamp-upload-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); line-height: 1.5; margin-bottom: 28px; }
+.btn-file-select { display: inline-block; padding: 14px 32px; background: #f5f5f5; border: 1px solid var(--color-d); border-radius: 100px; font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-45); cursor: pointer; transition: 0.2s; }
+.btn-file-select:hover,.btn-reset:hover, .btn-del-file:hover {border: 1px solid #BBB; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);}
+/*파일 선택 버튼 커스텀 + 키보드 포커싱 */
+#stampFile { position: absolute; width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0, 0, 0, 0);border: 0;}
+#stampFile:focus-visible + .btn-file-select {outline: 2px solid var(--color-2); outline-offset: 2px;}    
+/* 파일 카드 */
+.file-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 20px 24px; width: 100%; margin: 0 auto 32px; display: flex; align-items: center; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.file-card .file-info { flex: 1; margin-left: 20px;}
+.file-card .name { font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 5px; word-break: break-all; }
+.file-card .size { font-size: var(--font16); font-weight: var(--font-w-l); color: var(--color-75); }
+.file-card .check-group{ margin-bottom: 0;}
+.btn-del-file { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px 8px 44px; border: 1px solid var(--color-d); border-radius: 4px; background: var(--white) url('../svg/ico_trash.svg') no-repeat 12px center / 24px; font-size: var(--font16); color: var(--color-6); cursor: pointer; /* font-weight: var(--font-w-l); */}
+/* 공통 하단부 */
+.pop-notice { margin-top: 16px; font-size: 16px; color: #666; font-weight: var(--font-w-r); line-height: 1.5; }
+.pop-notice .txt {font-weight: var(--font-w-r); margin-bottom: 10px; position: relative; padding-left: 28px;}
+.pop-notice .txt:last-child { margin-bottom: 0px; }
+/* 하단 유의사항 안내 문구 */
+.pop-notice .txt::before { content: ''; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; background: url('../svg/ico-warning-999.svg') no-repeat center / contain; }
+.pop-footer { 
+    flex-shrink: 0; 
+    display: flex; justify-content: center; gap: 20px; 
+}
+
+/*------- 로딩 팝업 -------*/
+.pop-container.type-loading {width: 510px; height: 380px; border-radius: 20px; padding: 0;display: flex; align-items: center; justify-content: center; }
+.loading-body { text-align: center; width: 100%; padding: 0 40px; box-sizing: border-box; transform: translateY(-10px);}
+.loading-visual { width: 240px; height: 126px; margin: 0 auto 26px auto; background: url('../images/loading.gif') no-repeat center / contain;}
+.loading-tit {font-size: var(--font24); font-weight: var(--font-w-b); color: var(--color-45); line-height: 1.5; margin-bottom: 16px; }
+.loading-desc {font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); line-height: 1.5; }
+
+.ico-check-fill { display: inline-block; width: 36px; height: 36px; position: relative; flex-shrink: 0; }
+.ico-check-fill::before { content: ''; display: block; width: 100%; height: 100%; background: url('../svg/folder-check-filled.svg') no-repeat center / contain; }
