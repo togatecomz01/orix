@@ -1,0 +1,4 @@
+/* sample.css (가이드 전용) */
+.page-tit { border-bottom: 1px solid #000; padding-bottom: 20px; }
+.card-box .card-tit { color: #3182EE; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.info-list { background: #fafafa; padding: 20px; border-radius: 8px; } /* 설명용 박스 강조 */

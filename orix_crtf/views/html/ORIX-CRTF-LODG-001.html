@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>오릭스 A시안 (로딩 팝업 시뮬레이션)</title>
+    
+    <link href="../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../resource/js/jquery.form.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+</head>
+<body style="overflow: hidden;">
+    <div id="wrap">
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"><img src="../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <div class="header-contact"><span class="txt">고객센터</span><span class="tel">02-2050-6700</span></div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">상세약정서 확인 및 전자서명</h2>
+                <!-- 배경용 -->
+                <div class="card-box mb-42" style="height: 300px;"></div>
+                <div class="layout-grid">
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popLoading" class="layer-popup on">
+        <div class="pop-dimmed"></div>
+        <div class="pop-container type-loading">
+            <div class="loading-body">
+                <div class="loading-visual"></div>
+                <!-- ------- S : 화면설계서 참고 하여 상황에 맞는 문구 추가해 주시면 됩니다.------- -->
+                <p class="loading-tit">
+                    안전한 금융거래를 위해<br>
+                    신원 확인 및 권한 검증을 진행하고 있습니다.
+                </p>
+                <!-- <p class="loading-tit">
+                    인증 처리 시간이<br>
+                    예상보다 길어지고 있습니다.
+                </p> -->
+
+                <p class="loading-desc">
+                    페이지를 새로고침 하거나 창을 닫을 경우 인증이 취소될 수 있습니다.<br>
+                    잠시만 기다려 주세요.
+                </p>
+                <!-- <p class="loading-desc">
+                    통신환경에 따라 다소 시간이 걸릴 수 있으며, 계속해서 화면이 멈춰있다면, 고객센터 또는 담당자에게 연락 주시면 빠르게 확인 도와드리겠습니다.
+                </p> -->
+                <!-- ------- E : 화면설계서 참고 하여 상황에 맞는 문구 추가해 주시면 됩니다.------- -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

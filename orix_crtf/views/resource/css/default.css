@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+:root{
+    --default-color: #222;
+    --defalt-color-tr: transparent;
+}
+
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-text-size-adjust: none; word-break: keep-all; word-wrap: break-word; }
+html { font-size: 18px; height: 100%; }
+body { font-size: 1rem; font-weight: 500; line-height: normal; font-family: 'Pretendard','NotoSansCJKkr', 'Spoqa Han Sans Neo', "Apple SD Gothic Neo", sans-serif; color: var(--default-color); -webkit-overflow-scrolling: touch; height: 100%; }
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, li, ol, li, table, caption, th, td, form, fieldset, legend, address, div, p, span, a { margin: 0; padding: 0; }
+ul, ol, li, dl, dt, dd { list-style: none; }
+form, fieldset, legend, input, button, textarea, label { color: var(--default-color); }
+div, img, form, fieldset, button, blockquote, p, hr, select, input { border: 0; padding: 0; margin: 0; }
+img, table { width: 100%; }
+img { line-height: 0; font-size: 0; vertical-align: top; max-width: 100%; }
+table { border-spacing: 0; border-collapse: collapse; }
+address, em { font-style: normal; }
+legend, caption { visibility: hidden; }
+a { display: block; color: var(--default-color); text-decoration: none; cursor: pointer; }
+a, a:hover, a:focus, a:active { text-decoration: none !important; cursor: pointer !important; }
+
+input, textarea, select, address { font-family: 'Pretendard','NotoSansCJKkr', 'Spoqa Han Sans Neo', "Apple SD Gothic Neo", sans-serif; }
+input, button, select, textarea { font-family: inherit; }
+input, textarea, select { display: inline-block; vertical-align: middle; color: var(--default-color); }
+button { background-color: var(--defalt-color-tr); background-position: center; background-size: contain; cursor: pointer; }
+input:disabled { cursor: initial; }
+
+input[type=number] { -moz-appearance: textfield; }
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+input[type="password"]::-ms-reveal { display: none; }
+input[type="radio"], input[type="checkbox"] { box-sizing: border-box; padding: 0; }
+input::-ms-clear, input::-ms-reveal { display: none; }
+textarea:-webkit-autofill, textarea:-webkit-autofill:focus, textarea:-webkit-autofill:hover { -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important; box-shadow: 0 0 0 1000px #FFFFFF inset !important; }
+
+
+img { max-width: 100%; vertical-align: top; } 
+a { text-decoration: none; color: var(--default-color); cursor: pointer; } 
