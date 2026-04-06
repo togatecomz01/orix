@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "Noto Sans";
+	font-weight: 100;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Thin.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Thin.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Thin.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Thin.woff2") format("woff2");
+}
+  
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 200;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Light.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Light.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Light.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Light.woff2") format("woff2");
+  }
+  
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 300;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-DemiLight.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-DemiLight.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-DemiLight.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-DemiLight.woff2") format("woff2");
+  }
+  
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 400;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Regular.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Regular.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Regular.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Regular.woff2") format("woff2");
+  }
+  
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 500;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Medium.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Medium.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Medium.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Medium.woff2") format("woff2");
+  }
+  
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 700;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Bold.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Bold.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Bold.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Bold.woff2") format("woff2");
+  }
+
+
+  @font-face {
+	font-family: "Noto Sans KR";
+	font-weight: 900;
+	font-style: normal;
+	src: url("../../font/NotoSans/eot/NotoSans-Black.eot?") format("eot"),
+	url("../../font/NotoSans/otf/NotoSans-Black.otf") format("opentype"),
+	url("../../font/NotoSans/woff/NotoSans-Black.woff") format("woff"),
+	url("../../font/NotoSans/woff2/NotoSans-Black.woff2") format("woff2");
+  }
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 100;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream1.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 200;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream2.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 300;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream3.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 400;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream4.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 500;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream5.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 600;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream6.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 700;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream7.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 800;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream8.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "S-Core Dream";
+	font-weight: 900;
+	font-style: normal;
+	src: url("../../font/S-Core_Dream/SCDream9.otf") format("opentype");
+}
+  
