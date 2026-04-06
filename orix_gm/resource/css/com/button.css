@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* =========================================================
+    CSS 변수
+========================================================= */
+body{
+    --btn-board:1px solid var(--color-9);
+    --btn-padding:8px 16px;
+    --btn-font-color:var(--color-75);
+    --btn-active:var(--primary);
+    --ico_reset:url("../../images/com/svg/ico_reset.svg");
+    --btn-form-h:50px;
+
+    --btn-content-font-size:var(--font16);
+    --btn-content-font-color:var(--color-f);
+    --btn-content-background:var(--color-2);
+    --btn-content-active:var(--primary);
+    --btn-content-diasbled:var(--color-d);
+    --btn-content-d-font-color:var(--color-75);
+
+    --btn-pop-background:var(--color-2);
+    --btn-pop-font-color:var(--color-f);
+    --btn-pop-font-size:var(--font18);
+    --btn-pop-font-w:var(--font-w500);
+
+    --btn-pop-s-background:var(--color-f);
+    --btn-pop-s-border:1px solid var(--color-d);
+
+    --btn-download-background:var(--color-f);
+    --btn-download-font-size:var(--font20);
+    --btn-download-border:1px solid var(--color-d);
+    --ico-download:url("../../images/com/svg/ico_download.svg");
+    --ico-link:url("../../images/com/svg/ico_link.svg");
+
+    --btm-btn-primary:var(--primary);
+    --btm-btn-primary-active:var(--active);
+    --btm-btn-secondary:var(--color-d);
+    --btm-btn-secondary-active:var(--color-c);
+    --btm-btn-font-size:var(--font22);  
+    --btm-btn-font-weight:var(--font-w500);
+
+    --btn-text:var(--primary);
+
+    --lst-btn-pprev:url("../../images/com/svg/ico_pprev.svg");
+    --lst-btn-prev:url("../../images/com/svg/ico_prev.svg");
+    --ico-file:url("../../images/com/svg/ico_file.svg");
+    --ico-close: url("../../images/com/svg/ico_close.svg");
+    --ico-login: url("../../images/content/register/w/ico_login.svg");
+    --ico-login2: url("../../images/content/register/w/ico_login2.png");
+    --ico-register: url("../../images/content/register/w/ico_register.svg");
+    --ico-add:url("../../images/com/svg/ico_add.svg");
+    --ico-del:url("../../images/com/svg/ico_del.svg");
+    --tab-active:var(--primary);
+}
+
+/* =========================================================
+    기본 버튼 공통 상태 
+========================================================= */
+a, button { position:relative; }
+a:focus-visible,
+button:focus-visible { outline:2px solid var(--tab-active); outline-offset:4px; z-index:2; color:var(--primary); }
+a:hover, button:hover { border-color:var(--primary); color:var(--primary); }
+
+/* =========================================================
+    메인 버튼 스타일
+========================================================= */
+/** Form btn **/
+.btn-form { width:100%; max-width:160px; height:var(--btn-form-h); padding:var(--btn-padding); border:var(--btn-board); color:var(--btn-font-color); box-sizing:border-box; text-align:center; }
+.btn-form:hover { border-color:var(--btn-active); color:var(--btn-active);}
+
+/** Popup Btn **/
+.button-wrap.popup {display: flex;justify-content: center;gap: 20px;}
+.btn-pop-primary,
+.btn-pop-secondary { padding:15px 50px; width:100%; max-width:212px; min-width:140px; height:60px; line-height:1; box-sizing:"border-box"; font-size:var(--btn-pop-font-size); color:var(--btn-pop-font-second-color); font-weight:var(--btn-pop-font-w); border-radius:100px; border:1px solid transparent; }
+.btn-pop-primary{ background:var(--btn-pop-background); color:var(--btn-pop-font-color); }
+.btn-pop-primary:hover { background:var(--primary); color:var(--btn-pop-font-color); }
+.btn-pop-primary:focus-visible,
+.btn-pop-primary:focus { color:var(--color-f); }
+.btn-pop-secondary{ border:var(--btn-pop-s-border); background:var(--btn-pop-s-background); }
+.btn-pop-secondary:hover{ background:var(--btm-btn-secondary-active); color:var(--color-45); border: var(--btn-pop-s-background); }
+
+/** 링크, 다운로드버튼 **/
+.btn-group.w50 { display:flex; flex-wrap:wrap; }
+.btn-group.w50 > a { margin-top:24px; padding-left:73px; width:calc(50% - 16px); background-repeat:no-repeat; background-position:left 20px center; background-size:40px; }
+.btn-group.w50 > a:nth-child(odd) { margin-right:16px; }
+.btn-group.w50 > a:nth-child(even) { margin-left:16px; }
+.btn-group.w50 > a:first-of-type,
+.btn-group.w50 > a:nth-of-type(2) { margin-top:0; }
+
+/* .btn-link, */
+.btn-download { display:inline-flex; align-items:center; justify-content:space-between; gap:10px; min-height:80px; line-height:1.5; padding:0 32px; border-radius:100px; background:var(--btn-download-background); border:var(--btn-download-border); text-align:left; font-size:var(--btn-download-font-size); }
+.btn-download { min-height:60px; }
+.btn-download::after { content:""; display:block; width:24px; height:24px; background-color:var(--color-9); 
+mask-image:var(--ico-download); mask-repeat:no-repeat; mask-size:auto 40px; mask-position:center; -webkit-mask-image:var(--ico-download); -webkit-mask-repeat:no-repeat; -webkit-mask-size:17.333px auto; -webkit-mask-position:center; 
+}
+
+/** CTA 01 **/
+.btn-content.cta .button-group { display:flex; gap:24px; justify-content:center; width:100%; text-align:center; }
+.btn-content.cta a,
+.btn-content.cta button {  flex:0 0 auto; display:inline-block; padding:0 60px; min-width:161px; width:auto; height:63px; line-height:63px; font-size:var(--btm-btn-font-size); font-weight:var(--btm-btn-font-weight); text-align:center; border-radius:100px;}
+.btn-content.cta .btn-primary { background-color: var(--btm-btn-primary); color:var(--color-f); }
+.btn-content.cta .btn-primary:hover { background-color: var(--active); }
+.btn-content.cta .btn-secondary { background-color: var(--btm-btn-secondary); }
+.btn-content.cta .btn-secondary:hover{ background:var(--btm-btn-secondary-active); color:var(--color-45); }
+.btn-content.cta button:disabled,
+.btn-content.cta a[aria-disabled="true"] { text-decoration:none; cursor: not-allowed; background-color:var(--color-d); color:var(--color-75); pointer-events:none;}
+
+/** Top Button (layout에 있는 코드 button으로 이동)**/
+#scrollTop { position:fixed; right:30px; bottom:30px; opacity:0; visibility:hidden; transition:opacity 0.3s ease, visibility 0.3s ease; z-index:11; }
+#scrollTop.on { opacity: 1; visibility: visible; }
+#scrollTop .scrollUpBtn { width:48px; height:48px; background-color:var(--color-f); border:1px solid var(--color-d); border-radius: 50%; cursor: pointer; box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.08); transition: background-color 0.3s ease, transform 0.2s ease; font-size:0; }
+#scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-6); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; }
+#scrollTop .scrollUpBtn:hover { border-color:var(--primary); transform: translateY(-2px); }
+#scrollTop .scrollUpBtn:hover::before { background-color:var(--primary); }

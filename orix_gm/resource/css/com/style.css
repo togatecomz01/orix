@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* 모바일 폰트 사이즈 기준 [html::18px], 짝수 단위입니다.[짝수 단위로 할 경우 소수점 최대 3자리로 떨어집니다.] */
+:root {
+    --font12: 0.857rem;
+    --font13: 0.929rem;
+    --font14: 1rem;
+    --font16: 1.143rem;
+    --font18: 1.286rem;
+    --font20: 1.429rem;
+    --font22: 1.571rem;
+    --font24: 1.714rem;
+    --font26: 1.857rem;
+    --font28: 2rem;
+    --font30: 2.143rem;
+    --font32: 2.286rem;
+    --font34: 2.429rem;
+    --font36: 2.571rem;
+    --font38: 2.714rem;
+    --font40: 2.857rem;
+    --font42: 3rem;
+    --font45: 3.214rem;
+
+    --font-w100: 100;
+    --font-w200: 200;
+    --font-w300: 300;
+    --font-w400: 400;
+    --font-w500: 500;
+    --font-w600: 600;
+    --font-w700: 700;
+    --font-w800: 800;
+    --font-w900: 900;
+
+}
+
+
+body {
+    --dim: rgba(0, 0, 0, 0.5);
+    --white-dim: rgba(255, 255, 255, 0.5);
+
+    --active: #3182EE;
+
+    --red: #E52A00;
+
+    /** 기본 색상 **/
+    --primary: #02294A;
+    --secondary: #3182EE;
+
+    /** label Color **/
+    --ing-bg:#DEF2FF;
+    --ing-text:#3182EE;
+    --end-bg:#C9C9C9;
+    --end-text:#02294A;
+    --success-bg:#D3F1DE;
+    --success-text:#166734;
+    --error-bg:#FBDEDE;
+    --error-text:#F00;
+
+    /** Text Color **/
+    --color-2:#222222; /* 타이틀 */
+    --color-45:#454545; /* 본문 */
+    --color-6:#666666; /* 보조 */
+    --color-9:#999999; /* 비활성 */
+
+    --color-f:#FFFFFF;
+    --color-fd:#FDFDFD;
+    --color-f8:#F8F8F8;
+    --color-c:#CCCCCC;
+    --color-ab:#ABABAB;
+    --color-e:#EEEEEE;
+    --color-d:#DDDDDD;
+    --color-f6:#F6F6F6;
+    --color-fa:#FAFAFA;
+    --bg-box:#F3F6FB;
+
+
+    --outline: #0871F3;
+
+
+}
