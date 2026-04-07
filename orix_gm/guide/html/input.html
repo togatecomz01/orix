@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORIX UI GUIDE - Input</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>INPUT</h1>
+            </section>
+            <!-- S: 본문 -->
+            <section class="page-container">
+                <h2>column</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="form-group">
+                                <label for="default" class="label-tit">label</label>
+                                <input id="default" type="text" name="default" class="form-control" placeholder="디폴트">
+                            </div>
+                            <div class="form-group">
+                                <label for="focus" class="label-tit">focus</label>
+                                <input id="focus" type="text" name="focus" class="form-control" placeholder="포커스" autofocus="">
+                            </div>
+                            <div class="form-group">
+                                <label for="diss" class="label-tit">disable</label>
+                                <input id="diss" type="text" name="diss" class="form-control" placeholder="비활성" disabled="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>row</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="form-group">
+                                <div class="flex-row">
+                                    <label for="default" class="label-tit">label</label>
+                                    <input id="default" type="text" name="default" class="form-control" placeholder="디폴트">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="flex-row">
+                                    <label for="focus" class="label-tit">focus</label>
+                                    <input id="focus" type="text" name="focus" class="form-control" placeholder="포커스" autofocus="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="flex-row">
+                                    <label for="diss" class="label-tit">disable</label>
+                                    <input id="diss" type="text" name="diss" class="form-control" placeholder="비활성" disabled="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example">
+                    <h2 style=" padding:10px; margin-bottom:24px; background-color: antiquewhite;">예시)</h2>
+                    <div class="user-list">
+                        <div class="user-item">
+                            <h4>기본정보</h4>
+                            <div class="form-content">
+                                <div class="form-wrap">
+                                    <div class="form-group">
+                                        <label for="user-id" class="label-tit">ID</label>
+                                        <input id="user-id" type="text" name="user-id" class="form-control" value="Zero00120" disabled="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company-name" class="label-tit">업체명</label>
+                                        <input id="company-name" type="text" name="company-name" class="form-control" value="심규남 (제로모터스)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-ctno" class="label-tit">사업자번호</label>
+                                        <input id="office-ctno" type="text" name="office-ctno" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-name" class="label-tit">사업자명 (오릭스 전산)</label>
+                                        <input id="office-name" type="text" name="office-name" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>
