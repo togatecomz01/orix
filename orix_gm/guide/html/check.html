@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORIX UI GUIDE - Check</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>CHECK</h1>
+            </section>
+            <!-- S: 본문 -->
+            <section class="page-container">
+                <h2 style="margin-bottom:20px;">기본 체크박스</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="check-group">
+                                <input type="checkbox" id="check-on" name="row1-active-1" value="" checked="">
+                                <label for="check-on" class="check">Check Box ON</label>
+                            </div>
+
+                            <div class="check-group">
+                                <input type="checkbox" id="check-off" name="row1-active-2" value="">
+                                <label for="check-off" class="check">Check Box OFF</label>
+                            </div>
+
+                            <div class="check-group">
+                                <input type="checkbox" id="check-disabled" name="row1-active-3" value="" checked="" disabled="">
+                                <label for="check-disabled" class="check">Check Box Disable-checked</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="margin-bottom:20px;">라벨 없는 체크박스</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="check-group">
+                                <input type="checkbox" id="check-only-on" name="row1-active-4" value="" checked="">
+                                <label for="check-only-on" class="check only"></label>
+                            </div>
+
+                            <div class="check-group">
+                                <input type="checkbox" id="check-only-off" name="row1-active-5" value="">
+                                <label for="check-only-off" class="check only"></label>
+                            </div>
+
+                            <div class="check-group">
+                                <input type="checkbox" id="check-only-disabled" name="row1-active-6" value="" checked="" disabled="">
+                                <label for="check-only-disabled" class="check only"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="margin-bottom:20px;">기본 라디오</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="radio-group">
+                                <input type="radio" id="radio-on" name="row2-active" value="" checked="">
+                                <label for="radio-on" class="radio">Radio ON</label>
+                            </div>
+
+                            <div class="radio-group">
+                                <input type="radio" id="radio-off" name="row2-active" value="">
+                                <label for="radio-off" class="radio">Radio OFF</label>
+                            </div>
+
+                            <div class="radio-group">
+                                <input type="radio" id="radio-disabled" name="row2-active-2" value="" checked="" disabled="">
+                                <label for="radio-disabled" class="radio">Radio Disable-checked</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="margin-bottom:20px;">라벨 없는 라디오</h2>
+                <div class="card-list">
+                    <div class="form-content">
+                        <div class="form-wrap">
+                            <div class="radio-group">
+                                <input type="radio" id="radio-only-on" name="row2-active-3" value="" checked="">
+                                <label for="radio-only-on" class="radio only"></label>
+                            </div>
+
+                            <div class="radio-group">
+                                <input type="radio" id="radio-only-off" name="row2-active-3" value="">
+                                <label for="radio-only-off" class="radio only"></label>
+                            </div>
+
+                            <div class="radio-group">
+                                <input type="radio" id="radio-only-disabled" name="row2-active-4" value="" checked="" disabled="">
+                                <label for="radio-only-disabled" class="radio only"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>

@@ -25,10 +25,7 @@ h4 { font-size:var(--font18); font-weight:var(--font-w600); color:var(--color-2)
 .btn-icon { background-repeat:no-repeat; background-position:left center; background-size:50px auto; }
 .btn-icon.download { background-image:url("../../images/com/svg/ico_download.svg"); }
 
-
-/* =============================================
-    #sidebar
-============================================= */
+/*** sidebar ***/
 .side-nav { position:absolute; top:0; left:0; bottom:0; width:60px; padding:22px 0; background:var(--color-2); z-index:5; }
 
 .side-nav .logo a { display:block; width:50px; height:50px; margin:0 auto; }
@@ -40,9 +37,7 @@ h4 { font-size:var(--font18); font-weight:var(--font-w600); color:var(--color-2)
 .side-menu a.on { border-radius:16px; background-color:var(--active); }
 .side-menu img { display:block; margin:0 auto; }
 
-/* =============================================
-    #page-header
-============================================= */
+/*** page-header ***/
 main.contentWrap > .page-header { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--color-d); }
 
 .user-links { font-size:0; }
@@ -57,9 +52,7 @@ main.contentWrap > .page-header { display:flex; justify-content:space-between; a
 .user-links .btn-logout { position:relative; display:inline-block; padding:8px 13px 8px 29px; border:1px solid var(--color-d); border-radius:20px; background-color:var(--color-f); font-size:var(--font16); font-weight:var(--font-w500); color:#000; }
 .user-links .btn-logout::before { content:""; position:absolute; top:50%; left:8px; transform:translateY(-50%); display:block; width:16px; height:16px; background:url("../../images/com/svg/btn_logout.svg") no-repeat center center; }
 
-/* =============================================
-    #page-control
-============================================= */
+/*** page-control ***/
 main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
 .page-control .control-header { position:relative; min-height:38px; padding-right:240px; margin-bottom:27px; }
 .page-control .control-header h3 { line-height:38px; }
@@ -75,9 +68,28 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
 .control-actions .btn-inquire:focus-visible { color:var(--color-f); }
 
 /* input */
-.page-control .form-content { width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:#F8FAFB; }
 .flex-row .label-tit { position:relative; padding-left:10px; }
 .flex-row .label-tit::before { content:"·"; position:absolute; left:0; top:50%; transform:translateY(-50%); font-weight:900; }
+
+/* =============================================
+    #공매입찰관리
+============================================= */
+.page-control > .form-content { width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:#F8FAFB; }
+.page-control > .form-content > .form-wrap { display:table; width:100%; table-layout:auto; }
+.page-control > .form-content > .form-wrap > .form-group { display:table-cell; vertical-align:middle; }
+.page-control > .form-content > .form-wrap > .form-group + .form-group > .flex-row { padding-left:20px; }
+
+.page-control > .form-content > .form-wrap > .form-group > .flex-row { display:table; width:100%; table-layout:auto; }
+.page-control > .form-content > .form-wrap > .form-group > .flex-row .label-tit { display:table-cell; width:1%; padding-left:10px; padding-right:10px; white-space:nowrap; vertical-align:middle; }
+.page-control > .form-content > .form-wrap > .form-group > .flex-row .field-box { display:table-cell; width:100%; vertical-align:middle; }
+.page-control > .form-content > .form-wrap > .form-group > .flex-row .field-box input,
+.page-control > .form-content > .form-wrap > .form-group > .flex-row .field-box select { width:100%; min-width:150px; }
+
+.page-control > .form-content > .form-wrap > .form-group.form-manage-no > .flex-row .field-box { width:319px; }
+.page-control > .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box { width:150px; }
+.page-control > .form-content > .form-wrap > .form-group.form-maker > .flex-row .field-box { width:260px; }
+.page-control > .form-content > .form-wrap > .form-group.form-model > .flex-row .field-box { width:304px; }
+.page-control > .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box { width:150px; }
 
 /* =============================================
     #사용자관리

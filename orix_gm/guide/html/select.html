@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORIX UI GUIDE - Select</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>SELECT</h1>
+            </section>
+            <!-- S: 본문 -->
+            <section class="page-container">
+                <h2 style="margin-bottom:20px;">기본</h2>
+                <div class="form-content">
+                    <div class="form-wrap">
+                        <div class="form-group">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">select</label>
+                                <select name="fruits" required="">
+                                    <option value="" disabled="" selected="">선택해주세요.</option>
+                                    <option value="1">옵션1</option>
+                                    <option value="2">옵션2</option>
+                                    <option value="3">옵션3</option>
+                                    <option value="4">옵션4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">focus</label>
+                                <select name="fruits" required="" style="border:1px solid #454545;">
+                                    <option value="" disabled="" selected="">선택해주세요.</option>
+                                    <option value="1">옵션1</option>
+                                    <option value="2">옵션2</option>
+                                    <option value="3">옵션3</option>
+                                    <option value="4" selected="">포커스</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">disabled</label>
+                                <select name="fruits" disabled>
+                                    <option value="" >선택해주세요.</option>
+                                    <option value="1">옵션1</option>
+                                    <option value="2">옵션2</option>
+                                    <option value="3">옵션3</option>
+                                    <option value="4" selected="">선택완료 되었습니다.</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example">
+                    <h2 style=" padding:10px; margin-bottom:24px; background-color: antiquewhite;">예시)</h2>
+                    <div class="page-control">
+                        <div class="form-content">
+                            <div class="form-wrap">
+                                <div class="form-group form-manage-no">
+                                    <div class="flex-row">
+                                        <label for="fruits" class="label-tit">관리번호</label>
+                                        <div class="field-box">
+                                            <select name="fruits" required="">
+                                                <option value="" disabled="" selected="">선택해주세요.</option>
+                                                <option value="1">옵션1</option>
+                                                <option value="2">옵션2</option>
+                                                <option value="3">옵션3</option>
+                                                <option value="4">옵션4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-car-no">
+                                    <div class="flex-row">
+                                        <label for="default" class="label-tit">차량번호</label>
+                                        <div class="field-box">
+                                            <input id="default" type="text" name="default" placeholder="디폴트">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-maker">
+                                    <div class="flex-row">
+                                        <label for="fruits" class="label-tit">제조사</label>
+                                        <div class="field-box">
+                                            <select name="fruits" required="">
+                                                <option value="" disabled="" selected="">선택해주세요.</option>
+                                                <option value="1">옵션1</option>
+                                                <option value="2">옵션2</option>
+                                                <option value="3">옵션3</option>
+                                                <option value="4">옵션4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-model">
+                                    <div class="flex-row">
+                                        <label for="fruits" class="label-tit">차종</label>
+                                        <div class="field-box">
+                                            <select name="fruits" required="">
+                                                <option value="" disabled="" selected="">선택해주세요.</option>
+                                                <option value="1">옵션1</option>
+                                                <option value="2">옵션2</option>
+                                                <option value="3">옵션3</option>
+                                                <option value="4">옵션4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-status">
+                                    <div class="flex-row">
+                                        <label for="fruits" class="label-tit">구분</label>
+                                        <div class="field-box">
+                                            <select name="fruits" required="">
+                                                <option value="" disabled="" selected="">전체</option>
+                                                <option value="1">입찰</option>
+                                                <option value="2">낙찰</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>
