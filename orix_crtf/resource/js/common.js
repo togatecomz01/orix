@@ -289,25 +289,36 @@ $(function() {
         }
 
         $(document).on('click', '.footer-inner .btn-primary', function(e) {
-            if ($(this).hasClass('disabled')) { e.preventDefault(); return false; }
-            e.preventDefault();
-            var targetHref = $(this).attr('href');
+            if ($(this).hasClass('disabled')) {
+                e.preventDefault();
+                return false;
+            }
 
-            $('.form-input').removeClass('error'); $('.error-msg').hide();
+            e.preventDefault();
+
+            var targetHref = $(this).attr('href');
+            var hasEmpty = false;
+            var hasFormat = false;
+            var $firstError = null;
+
+            $('.form-input').removeClass('error');
+            $('.error-msg').hide();
 
             /* 약관 검사 */
             var isTermsOk = true;
             $('input[name="terms"]').each(function() {
                 if (!$(this).is(':checked')) {
                     var termName = $(this).closest('.acc-head').find('label').text().replace('(필수)', '').trim();
-                    alert("'" + termName + "' 약관에 동의해 주세요."); isTermsOk = false; return false; 
+                    alert("'" + termName + "' 약관에 동의해 주세요.");
+                    isTermsOk = false;
+                    return false;
                 }
             });
             if (!isTermsOk) return false;
 
             /* 인풋 빈값 및 형식 검사 */
             $('.form-input:visible:not(:disabled)').each(function() {
-                var val = $(this).data('real') || $(this).val() || ""; /* 말줄임표로 인한 변수 수정, 원본 값이 저장된 real 데이터가 있으면 그걸 쓰고, 없으면 val()을 가져옴 */ 
+                var val = $(this).data('real') || $(this).val() || "";
                 var id = this.id;
 
                 if (val.trim() === "") {
@@ -315,14 +326,12 @@ $(function() {
                     hasEmpty = true;
                     if (!$firstError) $firstError = $(this);
                 } else {
-                    /* 자릿수 체크 */
-                    if (id === 'userAccount' && val.length < 10) { 
+                    if (id === 'userAccount' && val.length < 10) {
                         showInputError($(this), "계좌번호를 정확히 입력해 주세요.");
                         hasFormat = true;
                         if (!$firstError) $firstError = $(this);
                     }
-                    /* 이메일 도메인 마침표 체크 */
-                    /* 도메인도 data('real')이 있다면 그걸 기준으로 검사 */
+
                     if (id === 'emailDomain' && val.indexOf('.') === -1) {
                         showInputError($(this), "정확한 이메일 주소를 입력해 주세요.");
                         hasFormat = true;
@@ -330,41 +339,26 @@ $(function() {
                     }
                 }
             });
-            /* 연락처 자리수 검사 */
-            if ($('#tel1').length > 0 && $('#tel1').is(':visible')) {
-                var fullTel = ($('#tel1').val() || "") + ($('#tel2').val() || "") + ($('#tel3').val() || "");
-                if ($('#tel1').val() && $('#tel2').val() && $('#tel3').val() && fullTel.length < 10) {
-                    showInputError($('#tel1, #tel2, #tel3'), "11자리 이상 입력해 주세요."); hasFormat = true; if (!$firstError) $firstError = $('#tel2');
-                }
+
+            if ($('#dateSelectArea').is(':visible') && !$('input[name="payDate"]:checked').length) {
+                hasEmpty = true;
             }
 
-            if ($('#dateSelectArea').is(':visible') && !$('input[name="payDate"]:checked').length) hasEmpty = true;
-
-            if (hasEmpty) { alert('입력되지 않은 정보가 있습니다. 모든 정보를 입력해주세요.'); if ($firstError) $firstError.focus(); return false; }
-            if (hasFormat) { alert('유효하지 않은 형식이 포함되어 있습니다. 빨간색으로 표시된 부분을 수정해 주세요.'); if ($firstError) $firstError.focus(); return false; }
-
-            /* 납부일 유효성 검사 */
-            if ($('.payment-result-box.pay-date').length > 0) {
-                var selectedDateText = $('.payment-result-box.pay-date .date').text(); /* 예: "2026.02.05" */
-                
-                if (selectedDateText !== "") {
-                    var selectedVal = selectedDateText.replace(/\./g, ''); /* "20260205로 포맷팅" */
-                    
-                    var today = new Date();
-                    var y = today.getFullYear();
-                    var m = String(today.getMonth() + 1).padStart(2, '0');
-                    var d = String(today.getDate()).padStart(2, '0');
-                    var todayVal = y + m + d; // "20260224"
-
-                    /* 선택된 날짜가 오늘보다 작으면 */
-                    if (parseInt(selectedVal) < parseInt(todayVal)) {
-                        alert('기준일 이전 납부일은 선택하실 수 없습니다.\n선택일 ' + selectedVal + ' | 기준일 ' + todayVal);
-                        return false; /* 정상일시 실행 ㄴ */
-                    }
-                }
+            if (hasEmpty) {
+                alert('입력되지 않은 정보가 있습니다. 모든 정보를 입력해주세요.');
+                if ($firstError) $firstError.focus();
+                return false;
             }
 
-            if (targetHref && targetHref !== "#") location.href = targetHref;
+            if (hasFormat) {
+                alert('유효하지 않은 형식이 포함되어 있습니다. 빨간색으로 표시된 부분을 수정해 주세요.');
+                if ($firstError) $firstError.focus();
+                return false;
+            }
+
+            if (targetHref && targetHref !== "#") {
+                location.href = targetHref;
+            }
         });
     }
 
