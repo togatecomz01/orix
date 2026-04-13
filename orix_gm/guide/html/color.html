@@ -7,33 +7,16 @@
     <title>ORIX UI GUIDE - Color</title>
 
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
-    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
-    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/lib/jquery.form.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
 
     <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
 </head>
 <body>
     <div class="wrap">
         <!-- S: 사이드메뉴 -->
-        <nav class="side-nav">
-            <div class="logo">
-                <a href="#none">
-                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
-                </a>
-            </div>
-            <ul class="side-menu">
-                <li>
-                    <a href="#none" title="공매입찰관리" class="on">
-                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
-                    </a>
-                </li>
-                <li>
-                    <a href="#none" title="사용자관리">
-                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <div data-include-path="../../views/include/inc-nav.html"></div>
         <!-- E: 사이드메뉴 -->
 
         <main class="contentWrap">

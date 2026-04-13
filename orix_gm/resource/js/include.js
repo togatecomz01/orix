@@ -1,5 +1,49 @@
 $(function () {
     var includeSelector = '[data-include-path]';
+    var navScriptPath = '../../resource/js/nav.js';
+    var isNavScriptLoading = false;
+    var navScriptCallbacks = [];
+
+    function loadNavScript(callback) {
+        if (typeof window.initSideNav === 'function') {
+            if (typeof callback === 'function') {
+                callback();
+            }
+
+            return;
+        }
+
+        if (typeof callback === 'function') {
+            navScriptCallbacks.push(callback);
+        }
+
+        if (isNavScriptLoading) {
+            return;
+        }
+
+        isNavScriptLoading = true;
+
+        $.getScript(navScriptPath)
+            .done(function () {
+                var i;
+
+                isNavScriptLoading = false;
+
+                for (i = 0; i < navScriptCallbacks.length; i += 1) {
+                    navScriptCallbacks[i]();
+                }
+
+                navScriptCallbacks = [];
+            })
+            .fail(function (xhr, status, error) {
+                isNavScriptLoading = false;
+                navScriptCallbacks = [];
+
+                if (window.console && typeof window.console.error === 'function') {
+                    window.console.error('nav.js load failed:', status, error);
+                }
+            });
+    }
 
     function getCacheBuster() {
         return new Date().getTime();
@@ -39,6 +83,12 @@ $(function () {
                 if (window.console && typeof window.console.error === 'function') {
                     window.console.error('Include load failed:', path, xhr.status, xhr.statusText);
                 }
+            } else if (path.indexOf('inc-nav.html') > -1) {
+                loadNavScript(function () {
+                    if (typeof window.initSideNav === 'function') {
+                        window.initSideNav($target);
+                    }
+                });
             }
 
             triggerIncludeLoaded($target, path, response, status, xhr);
