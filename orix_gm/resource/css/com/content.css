@@ -1,46 +1,4 @@
 @charset "UTF-8";
-
-/* =============================================
-    #공통
-============================================= */
-/*** h ***/
-h1 { font-family:'S-Core Dream'; font-size:var(--font26); color:var(--primary); }
-h2 { font-size:var(--font28); font-weight:var(--font-w600); color:var(--color-2); }
-h3 { font-size:var(--font20); font-weight:var(--font-w600); color:var(--color-2); }
-h4 { font-size:var(--font18); font-weight:var(--font-w600); color:var(--color-2); }
-
-/*** button ***/
-/** 기본 **/
-.la-button,
-.sm-button { font-size:0; }
-.la-button button { min-width:116px; height:50px; padding:0 12px; border-radius:6px; font-size:var(--font18); font-weight:var(--font-w500); }
-.sm-button button { min-width:80px; height:40px; padding:0 10px; border-radius:3px; font-size:var(--font16); font-weight:var(--font-w500); }
-.la-button button + button,
-.sm-button button + button { margin-left:10px; }
-
-.btn-icon,
-.btn-line { border:1px solid var(--color-d); background-color:var(--color-f); }
-
-/* primary */
-.btn-primary { border:1px solid var(--primary); background-color:var(--primary); color:var(--color-f); }
-
-/* secondary */
-.btn-secondary { border:1px solid var(--secondary); background-color:var(--secondary); color:var(--color-f); }
-
-/* icon button */
-.la-button button.btn-icon { padding:0 12px 0 52px; background-repeat:no-repeat; background-position:left center; background-size:50px auto; }
-.sm-button button.btn-icon { padding:0 12px 0 42px; background-repeat:no-repeat; background-position:left center; background-size:40px auto; }
-
-button.btn-icon.download { background-image:url("../../images/com/svg/ico_download.svg"); }
-button.btn-icon.bid { background-image:url("../../images/com/svg/Ico_link2.svg"); }
-button.btn-icon.bid.disabled { background-image:url("../../images/com/svg/ico_link2_dis.svg"); }
-button.btn-icon.excel { background-image:url("../../images/ico_excel.png"); background-size:28px 28px; background-position:left 9px center; }
-
-.sm-button button.btn-icon.excel { background-size:22px 22px; }
-
-/* disabled button */
-button.disabled { border:1px solid var(--color-d); background-color:#E9E7E7; color:var(--color-9); }
-
 /*** 태그 ***/
 input[class*="tag-"] { display:inline-block; min-width:unset; min-width:76px; max-width:120px; width:100%; max-height:unset; height:30px; padding:0 8px; border:0; border-radius:30px; font-size:var(--font16); font-weight:var(--font-w400); line-height:30px; text-align:center; cursor:unset; }
 [class*="tag-"]:focus { border:0; }

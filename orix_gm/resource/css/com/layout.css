@@ -59,6 +59,12 @@ main.contentWrap > .page-container { padding-top:34px; }
 /**타이틀 및 텍스트**/
 /* h3,
 .group > .text-group:has(h5) > h4{ display:block; font-size:var(--font26); color:var(--color-2);  } */
+
+h1 { font-family:'S-Core Dream'; font-size:var(--font26); color:var(--primary); }
+h2 { font-size:var(--font28); font-weight:var(--font-w600); color:var(--color-2); }
+h3 { font-size:var(--font20); font-weight:var(--font-w600); color:var(--color-2); }
+h4 { font-size:var(--font18); font-weight:var(--font-w600); color:var(--color-2); }
+
 h3 + p,
 .tit + dl { margin-top:20px; }
 h3.rfrnc { font-size:var(--font28) !important; color:var(--color-2) !important; }

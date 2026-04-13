@@ -104,3 +104,37 @@ mask-image:var(--ico-download); mask-repeat:no-repeat; mask-size:auto 40px; mask
 #scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-75); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; }
 #scrollTop .scrollUpBtn:hover { border-color:var(--primary); transform: translateY(-2px); }
 #scrollTop .scrollUpBtn:hover::before { background-color:var(--primary); }
+
+/* =========================================================
+    오릭스 버튼
+========================================================= */
+/** 기본 **/
+.la-button,
+.sm-button { font-size:0; }
+.la-button button { min-width:116px; height:50px; padding:0 12px; border-radius:6px; font-size:var(--font18); font-weight:var(--font-w500); }
+.sm-button button { min-width:80px; height:40px; padding:0 10px; border-radius:3px; font-size:var(--font16); font-weight:var(--font-w500); }
+.la-button button + button,
+.sm-button button + button { margin-left:10px; }
+
+.btn-icon,
+.btn-line { border:1px solid var(--color-d); background-color:var(--color-f); }
+
+/* primary */
+.btn-primary { border:1px solid var(--primary); background-color:var(--primary); color:var(--color-f); }
+
+/* secondary */
+.btn-secondary { border:1px solid var(--secondary); background-color:var(--secondary); color:var(--color-f); }
+
+/* icon button */
+.la-button button.btn-icon { padding:0 12px 0 52px; background-repeat:no-repeat; background-position:left center; background-size:50px auto; }
+.sm-button button.btn-icon { padding:0 12px 0 42px; background-repeat:no-repeat; background-position:left center; background-size:40px auto; }
+
+button.btn-icon.download { background-image:url("../../images/com/svg/ico_download.svg"); }
+button.btn-icon.bid { background-image:url("../../images/com/svg/Ico_link2.svg"); }
+button.btn-icon.bid.disabled { background-image:url("../../images/com/svg/ico_link2_dis.svg"); }
+button.btn-icon.excel { background-image:url("../../images/ico_excel.png"); background-size:28px 28px; background-position:left 9px center; }
+
+.sm-button button.btn-icon.excel { background-size:22px 22px; }
+
+/* disabled button */
+button.disabled { border:1px solid var(--color-d); background-color:#E9E7E7; color:var(--color-9); }
