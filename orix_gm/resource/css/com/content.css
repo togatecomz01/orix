@@ -133,9 +133,12 @@ body.popup { overflow:hidden; }
 /* =============================================
     #로그인 에러
 ============================================= */
-.error-content { text-align:center; }
-.error-group .tit { font-size:var(--font38); font-weight:var(--font-w600); color:var(--color-2); text-align:center; }
-.error-group .tit::before { content:""; display:block; width:269px; height:269px; margin:0 auto; background:url("../../images/img_error.png") no-repeat center center / 269px auto; }
+.error main.contentWrap { padding-left:0; padding-right:0; }
+.error-content { padding-top:160px; text-align:center; }
+.error-content .error-group .tit { font-size:var(--font38); font-weight:var(--font-w600); color:var(--color-2); text-align:center; }
+.error-content .error-group .tit::before { content:""; display:block; width:269px; height:269px; margin:0 auto; background:url("../../images/img_error.png") no-repeat center center / 269px auto; }
+.error-content .error-group span { display:inline-block; margin:15px 0 2px; font-size:var(--font20); color:var(--color-2); }
+.error-content .la-button button { width:400px; height:74px; font-size:var(--font24); font-weight:var(--font-w600); }
 
 /* =============================================
     #로그인
@@ -170,5 +173,5 @@ body.popup { overflow:hidden; }
 
 .login-guide { margin-top:40px; padding:30px 0 14px; border-top:1px solid var(--color-d); font-size:var(--font16); color:var(--color-75); text-align:center; }
 
-.footer-wrap { margin-top:34px; text-align:center; border-top:0; }
+.footer-wrap { position:absolute; left:0; right:0; bottom:20px; margin:34px 0 20px; text-align:center; border-top:0; }
 .footer-wrap p { font-size:var(--font16); color:var(--color-75); }
