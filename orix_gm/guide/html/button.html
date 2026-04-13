@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORIX UI GUIDE - Button</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>BUTTON</h1>
+            </section>
+            <!-- S: 본문 -->
+            <section class="page-container">
+                <h2>la-button</h2>
+                <div class="card-list btn">
+                    <div class="button-item">
+                        <div class="la-button">
+                            <div>
+                                <p>Primary button</p>
+                                <button type="button" class="btn-primary">Button</button>
+                            </div>
+                            <div>
+                                <p>Line button</p>
+                                <button type="button" class="btn-line">Button</button>
+                            </div>
+                            <div>
+                                <p>Disabled button</p>
+                                <div>
+                                    <button type="button" class="btn-primary disabled">Primary disabled</button>
+                                    <button type="button" class="btn-line disabled">Primary disabled</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-item">
+                        <div class="la-button">
+                            <div>
+                                <p>ICON button</p>
+                                <div>
+                                    <button type="button" class="btn-icon download">ICO-Button</button>
+                                    <button class="btn-icon bid">ICO-Button</button>
+                                    <button type="button" class="btn-icon excel">ICO-Button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>sm-button</h2>
+                <div class="card-list btn">
+                    <div class="button-item">
+                        <div class="sm-button">
+                            <div>
+                                <p>Primary button</p>
+                                <button type="button" class="btn-primary">Button</button>
+                            </div>
+                            <div>
+                                <p>Secondary button</p>
+                                <button type="button" class="btn-secondary">Button</button>
+                            </div>
+                            <div>
+                                <p>Line button</p>
+                                <button type="button" class="btn-line">Button</button>
+                            </div>
+                            <div>
+                                <p>Disabled button</p>
+                                <div>
+                                    <button type="button" class="btn-primary disabled">Primary disabled</button>
+                                    <button type="button" class="btn-line disabled">Line disabled</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-item">
+                        <div class="sm-button">
+                            <div>
+                                <p>ICON button</p>
+                                <div>
+                                    <button type="button" class="btn-icon download">ICO-Button</button>
+                                    <button type="button" class="btn-icon bid">ICO-Button</button>
+                                    <button type="button" class="btn-icon excel">ICO-Button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example">
+                    <h2 style=" padding:10px; margin-bottom:24px; background-color: antiquewhite;">예시)</h2>
+                    <p>la-button</p>
+                    <div class="page-control">
+                        <div class="control-header">
+                            <h2>공매입찰관리</h2>
+                            <div class="la-button">
+                                <button type="button" class="btn-icon excel" data-popup-target="excelPopup">EXCEL</button>
+                                <button type="button" class="btn-primary">조회</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p>sm-button</p>
+                    <div class="grid-content">
+                        <div class="grid-head">
+                            <h3>공매물건 목록</h3>
+                            <div class="sm-button">
+                                <button type="button" class="btn-primary disabled">입찰</button>
+                                <button type="button" class="btn-icon bid disabled">일괄 입찰</button>
+                                <button type="button" class="btn-icon download">공매입찰 기록</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>

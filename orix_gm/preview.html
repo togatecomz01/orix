@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공매입찰관리 - TOAST UI Grid 4.21.22</title>
+
+  <!-- IE11/legacy browsers polyfills must load BEFORE grid.js -->
+  <script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3/minified.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.14.1/runtime.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tui-grid/4.21.22/tui-grid.css" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1f2937;
+      min-width: 1280px;
+    }
+    .wrap {
+      width: 1440px;
+      margin: 24px auto;
+      padding: 0 20px 32px;
+    }
+    .section {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+    .section-header {
+      position: relative;
+      min-height: 70px;
+      padding: 16px 20px;
+      border-bottom: 1px solid #eef2f7;
+      background: #ffffff;
+    }
+    .section-title {
+      float: left;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 38px;
+      letter-spacing: -0.02em;
+    }
+    .actions {
+      float: right;
+      white-space: nowrap;
+    }
+    .section-header:after,
+    .row:after,
+    .status-bar:after,
+    .form-grid:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    button {
+      appearance: none;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #111827;
+      border-radius: 10px;
+      height: 38px;
+      padding: 0 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    button:first-child { margin-left: 0; }
+    button.primary {
+      background: #02294a;
+      border-color: #02294a;
+      color: #fff;
+    }
+    button.warn {
+      background: #b20126;
+      border-color: #b20126;
+      color: #fff;
+    }
+    .form-grid {
+      padding: 18px 20px 20px;
+    }
+    .field {
+      float: left;
+      width: 19.2%;
+      margin-right: 1%;
+    }
+    .field.last { margin-right: 0; }
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #4b5563;
+      margin-bottom: 7px;
+    }
+    .field input,
+    .field select {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 0 12px;
+      font-size: 14px;
+      background: #fff;
+    }
+    .status-bar {
+      padding: 18px 20px 20px;
+    }
+    .status-card {
+      float: left;
+      width: 18.4%;
+      margin-right: 2%;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #fbfcfe;
+      min-height: 78px;
+    }
+    .status-card.last { margin-right: 0; }
+    .status-card .label {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+    .status-card .value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.4;
+    }
+    .status-card .value.live { color: #b20126; }
+    .grid-wrap {
+      padding: 0 14px 14px;
+    }
+    .badge {
+      display: inline-block;
+      min-width: 68px;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .badge.bid { background: #e8f3ff; color: #0b63c9; }
+    .badge.fail { background: #ffe8ec; color: #b20126; }
+    .badge.done { background: #ebf8ef; color: #18794e; }
+    .price-edit {
+      display: inline-block;
+      width: 100%;
+      background: #fff8d9;
+      font-weight: 700;
+      padding: 0 4px;
+    }
+    .info-note {
+      margin: 10px 20px 0;
+      padding: 10px 12px;
+      background: #fff7e8;
+      border: 1px solid #f4d9a7;
+      border-radius: 8px;
+      color: #7c5a13;
+      font-size: 12px;
+    }
+    #grid {
+      min-height: 520px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">조회조건</div>
+        <div class="actions">
+          <button class="primary" id="searchBtn" type="button">조회</button>
+          <button id="resetBtn" type="button">초기화</button>
+          <button id="excelBtn" type="button">엑셀</button>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="bidNo">관리번호</label>
+          <select id="bidNo">
+            <option value="2026-031">2026-031</option>
+            <option value="2026-030">2026-030</option>
+            <option value="2026-029">2026-029</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="carNo">차량번호</label>
+          <input id="carNo" type="text" placeholder="예: 123가4567" />
+        </div>
+        <div class="field">
+          <label for="maker">제조사</label>
+          <select id="maker">
+            <option value="">전체</option>
+            <option value="현대">현대</option>
+            <option value="기아">기아</option>
+            <option value="벤츠">벤츠</option>
+            <option value="BMW">BMW</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="carName">차종</label>
+          <select id="carName">
+            <option value="">전체</option>
+            <option value="아반떼">아반떼</option>
+            <option value="K5">K5</option>
+            <option value="E-Class">E-Class</option>
+            <option value="5 Series">5 Series</option>
+          </select>
+        </div>
+        <div class="field last">
+          <label for="kubun">구분</label>
+          <select id="kubun">
+            <option value="">전체</option>
+            <option value="입찰">입찰</option>
+            <option value="낙찰">낙찰</option>
+            <option value="유찰">유찰</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">공매물건 리스트</div>
+        <div class="actions">
+          <button class="warn" id="bidBtn" type="button">입찰</button>
+          <button id="bulkBidBtn" type="button">일괄입찰</button>
+        </div>
+      </div>
+      <div class="info-note">4.21.22 고정 버전. IE11 대응을 위해 polyfill과 ES5 문법으로 변경했지만, TOAST UI Grid 4.21.22의 IE11 동작은 브라우저/망 환경에 따라 일부 기능 차이가 있을 수 있다.</div>
+      <div class="status-bar">
+        <div class="status-card">
+          <div class="label">시작일시</div>
+          <div class="value">2026-04-06 10:00:00</div>
+        </div>
+        <div class="status-card">
+          <div class="label">종료일시</div>
+          <div class="value">2026-04-06 17:00:00</div>
+        </div>
+        <div class="status-card">
+          <div class="label">서버일시</div>
+          <div class="value" id="serverTime">-</div>
+        </div>
+        <div class="status-card">
+          <div class="label">공매진행 상태</div>
+          <div class="value live">입찰 진행중</div>
+        </div>
+        <div class="status-card last">
+          <div class="label">선택 건수</div>
+          <div class="value" id="selectedCount">0건</div>
+        </div>
+      </div>
+      <div class="grid-wrap">
+        <div id="grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- exact version fixed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tui-grid/4.21.22/tui-grid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <script>
+    (function () {
+      var rawData = [
+        { no: 1, carNo: '123가4567', maker: '현대', carName: '아반떼', model: '1.6 스마트', color: '화이트', year: 2023, cc: 1598, driveKm: 18234, park: '인천', bodyNo: 'KMHABCD1234567890', bidPrice: 1120, maxPrice: 1180, contract: '입찰' },
+        { no: 2, carNo: '234나5678', maker: '기아', carName: 'K5', model: '2.0 프레스티지', color: '블랙', year: 2022, cc: 1999, driveKm: 41120, park: '수원', bodyNo: 'KNAGBCD1234567891', bidPrice: 1380, maxPrice: 1410, contract: '낙찰' },
+        { no: 3, carNo: '345다6789', maker: '벤츠', carName: 'E-Class', model: 'E250 Avantgarde', color: '실버', year: 2021, cc: 1991, driveKm: 52990, park: '부천', bodyNo: 'WDDABCD1234567892', bidPrice: 3120, maxPrice: 3250, contract: '유찰' },
+        { no: 4, carNo: '456라7890', maker: 'BMW', carName: '5 Series', model: '520d xDrive', color: '그레이', year: 2022, cc: 1995, driveKm: 36770, park: '안양', bodyNo: 'WBAABCD1234567893', bidPrice: 3560, maxPrice: 3620, contract: '입찰' },
+        { no: 5, carNo: '567마8901', maker: '현대', carName: '아반떼', model: '1.6 인스퍼레이션', color: '블루', year: 2024, cc: 1598, driveKm: 8420, park: '서울', bodyNo: 'KMHABCD1234567894', bidPrice: 1540, maxPrice: 1590, contract: '입찰' }
+      ];
+
+      function byId(id) {
+        return document.getElementById(id);
+      }
+
+      function copyRow(row, no, bidNo) {
+        return {
+          no: no,
+          bidNo: bidNo || '',
+          carNo: row.carNo,
+          maker: row.maker,
+          carName: row.carName,
+          model: row.model,
+          color: row.color,
+          year: row.year,
+          cc: row.cc,
+          driveKm: row.driveKm,
+          park: row.park,
+          bodyNo: row.bodyNo,
+          bidPrice: row.bidPrice,
+          maxPrice: row.maxPrice,
+          contract: row.contract
+        };
+      }
+
+      function cloneData(list, bidNo) {
+        var result = [];
+        var i;
+        for (i = 0; i < list.length; i += 1) {
+          result.push(copyRow(list[i], i + 1, bidNo));
+        }
+        return result;
+      }
+
+      function numberWithCommas(value) {
+        var n = Number(value);
+        if (isNaN(n)) {
+          return value;
+        }
+        return n.toLocaleString();
+      }
+
+      function pad2(n) {
+        return n < 10 ? '0' + n : '' + n;
+      }
+
+      function containsText(source, keyword) {
+        if (!keyword) {
+          return true;
+        }
+        return String(source).indexOf(keyword) > -1;
+      }
+
+      if (!window.tui || !window.tui.Grid) {
+        byId('grid').innerHTML = '<div style="padding:24px;border:1px solid #e5e7eb;background:#fff4f4;color:#b20126;border-radius:8px;">TOAST UI Grid 스크립트를 불러오지 못했습니다. CDN 접근 여부를 확인해라.</div>';
+        return;
+      }
+
+      var grid = new tui.Grid({
+        el: byId('grid'),
+        data: cloneData(rawData),
+        scrollX: true,
+        scrollY: true,
+        bodyHeight: 520,
+        rowHeaders: ['checkbox'],
+        summary: {
+          height: 40,
+          position: 'bottom',
+          columnContent: {
+            carNo: {
+              template: function () {
+                return '<strong>[ 총건수 ]</strong>';
+              }
+            },
+            maker: {
+              template: function (valueMap) {
+                return '<strong>' + valueMap.count + '건</strong>';
+              }
+            },
+            bidPrice: {
+              template: function (valueMap) {
+                return '<strong>' + numberWithCommas(Math.round(valueMap.sum)) + '</strong>';
+              }
+            }
+          }
+        },
+        columns: [
+          { header: 'No', name: 'no', width: 60, align: 'center', sortable: true, resizable: false },
+          { header: '차량번호', name: 'carNo', width: 110, align: 'center', sortable: true, filter: 'text', resizable: true },
+          { header: '제조사', name: 'maker', width: 100, sortable: true, filter: 'select', resizable: true },
+          { header: '차종', name: 'carName', width: 120, sortable: true, filter: 'select', resizable: true },
+          { header: '모델명', name: 'model', minWidth: 180, sortable: true, filter: 'text', resizable: true },
+          { header: '색상', name: 'color', width: 90, align: 'center', resizable: true },
+          { header: '연식', name: 'year', width: 80, align: 'center', sortable: true, resizable: true },
+          { header: '배기량', name: 'cc', width: 90, align: 'right', resizable: true,
+            formatter: function (info) {
+              return numberWithCommas(info.value);
+            }
+          },
+          { header: '주행거리', name: 'driveKm', width: 100, align: 'right', resizable: true,
+            formatter: function (info) {
+              return numberWithCommas(info.value);
+            }
+          },
+          { header: '주차장', name: 'park', width: 90, align: 'center', resizable: true },
+          { header: '차대번호', name: 'bodyNo', minWidth: 210, resizable: true },
+          {
+            header: '입찰가격(만원)',
+            name: 'bidPrice',
+            width: 130,
+            align: 'right',
+            editor: 'text',
+            sortable: true,
+            resizable: true,
+            formatter: function (info) {
+              return '<span class="price-edit">' + numberWithCommas(info.value) + '</span>';
+            }
+          },
+          {
+            header: '최고가(만원)',
+            name: 'maxPrice',
+            width: 120,
+            align: 'right',
+            resizable: true,
+            formatter: function (info) {
+              return numberWithCommas(info.value);
+            }
+          },
+          {
+            header: '낙찰구분',
+            name: 'contract',
+            width: 100,
+            align: 'center',
+            sortable: true,
+            resizable: true,
+            formatter: function (info) {
+              var value = info.value;
+              if (value === '유찰') {
+                return '<span class="badge fail">유찰</span>';
+              }
+              if (value === '낙찰') {
+                return '<span class="badge done">낙찰</span>';
+              }
+              return '<span class="badge bid">입찰</span>';
+            }
+          }
+        ]
+      });
+
+      function renderServerTime() {
+        var now = new Date();
+        byId('serverTime').innerHTML = now.getFullYear() + '-' +
+          pad2(now.getMonth() + 1) + '-' +
+          pad2(now.getDate()) + ' ' +
+          pad2(now.getHours()) + ':' +
+          pad2(now.getMinutes()) + ':' +
+          pad2(now.getSeconds());
+      }
+
+      function updateSelectedCount() {
+        var rows = grid.getCheckedRows();
+        byId('selectedCount').innerHTML = rows.length + '건';
+      }
+
+      function bindGridEvents() {
+        grid.on('check', updateSelectedCount);
+        grid.on('uncheck', updateSelectedCount);
+        grid.on('checkAll', updateSelectedCount);
+        grid.on('uncheckAll', updateSelectedCount);
+      }
+
+      function searchData() {
+        var bidNo = byId('bidNo').value;
+        var carNo = byId('carNo').value.replace(/^\s+|\s+$/g, '');
+        var maker = byId('maker').value;
+        var carName = byId('carName').value;
+        var kubun = byId('kubun').value;
+        var filtered = [];
+        var i;
+        var row;
+
+        for (i = 0; i < rawData.length; i += 1) {
+          row = rawData[i];
+          if (!containsText(row.carNo, carNo)) {
+            continue;
+          }
+          if (maker && row.maker !== maker) {
+            continue;
+          }
+          if (carName && row.carName !== carName) {
+            continue;
+          }
+          if (kubun && row.contract !== kubun) {
+            continue;
+          }
+          filtered.push(row);
+        }
+
+        grid.resetData(cloneData(filtered, bidNo));
+        updateSelectedCount();
+      }
+
+      function resetData() {
+        byId('carNo').value = '';
+        byId('maker').value = '';
+        byId('carName').value = '';
+        byId('kubun').value = '';
+        grid.resetData(cloneData(rawData, ''));
+        updateSelectedCount();
+      }
+
+      function exportExcel() {
+        try {
+          grid.export('xlsx', {
+            fileName: '공매입찰관리_시안_4.21.22'
+          });
+        } catch (e) {
+          alert('엑셀 내보내기 중 오류가 발생했다. 브라우저 또는 CDN 리소스를 확인해라.');
+        }
+      }
+
+      function bidSelected() {
+        var rows = grid.getCheckedRows();
+        if (!rows || !rows.length) {
+          alert('선택된 차량이 없습니다.');
+          return;
+        }
+        alert(rows.length + '건 입찰 처리 시안');
+      }
+
+      function bindUi() {
+        byId('searchBtn').onclick = searchData;
+        byId('resetBtn').onclick = resetData;
+        byId('excelBtn').onclick = exportExcel;
+        byId('bidBtn').onclick = bidSelected;
+        byId('bulkBidBtn').onclick = function () {
+          alert('일괄입찰 팝업 연결 위치');
+        };
+      }
+
+      renderServerTime();
+      bindGridEvents();
+      bindUi();
+      updateSelectedCount();
+      window.setInterval(renderServerTime, 1000);
+    }());
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width:1200px, initial-scale=1.0" />
+    <title>로그인</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
+
+</head>
+<body>
+    <div class="wrap login">
+        <main class="contentWrap">
+            <!-- S: 로그인 -->
+            <section class="login-container">
+                <div class="login-content">
+                    <div class="login-header">
+                        <img src="../../resource/images/login_logo.png" alt="ORIX">
+                        <h1>공매입찰관리 시스템</h1>
+                        <p>Auction Tender Management System</p>
+                    </div>
+                    <div class="login-form">
+                        <h2>Sign in</h2>
+                        <div class="form-wrap">
+                            <div class="form-group">
+                                <label for="userId" class="sr-only">아이디</label>
+                                <span class="ipt-clear user">
+                                    <input id="userId" class="login-input ellipsis alnum" type="text" name="userId" placeholder="User ID를 입력해주세요">
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="userPw" class="sr-only">비밀번호</label>
+                                <span class="ipt-clear password">
+                                    <input id="userPw" class="login-input alnum" type="password" name="userPw" placeholder="비밀번호를 입력해주세요">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="la-button">
+                            <button type="button" class="btn-secondary">로그인</button>
+                        </div>
+                        <p class="login-guide">공매관리 시스템에 접근하려면 로그인 해주세요.</p>
+                    </div>
+                </div>
+                <div class="footer-wrap">
+                    <p>Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved</p>
+                </div>
+            </section>
+            <!-- E: 로그인 -->
+        </main>
+    </div>
+</body>
+</html>

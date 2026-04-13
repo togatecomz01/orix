@@ -1,10 +1,10 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 /* =========================================================
     CSS 변수
 ========================================================= */
 body{
-    --btn-board:1px solid var(--color-9);
+    --btn-board:1px solid var(--color-d);
     --btn-padding:8px 16px;
     --btn-font-color:var(--color-75);
     --btn-active:var(--primary);
@@ -18,9 +18,9 @@ body{
     --btn-content-diasbled:var(--color-d);
     --btn-content-d-font-color:var(--color-75);
 
-    --btn-pop-background:var(--color-2);
+    --btn-pop-background:var(--secondary);
     --btn-pop-font-color:var(--color-f);
-    --btn-pop-font-size:var(--font18);
+    --btn-pop-font-size:var(--font16);
     --btn-pop-font-w:var(--font-w500);
 
     --btn-pop-s-background:var(--color-f);
@@ -59,7 +59,7 @@ body{
 a, button { position:relative; }
 a:focus-visible,
 button:focus-visible { outline:2px solid var(--tab-active); outline-offset:4px; z-index:2; color:var(--primary); }
-a:hover, button:hover { border-color:var(--primary); color:var(--primary); }
+/* a:hover, button:hover { border-color:var(--primary); color:var(--primary); } */
 
 /* =========================================================
     메인 버튼 스타일
@@ -71,21 +71,13 @@ a:hover, button:hover { border-color:var(--primary); color:var(--primary); }
 /** Popup Btn **/
 .button-wrap.popup {display: flex;justify-content: center;gap: 20px;}
 .btn-pop-primary,
-.btn-pop-secondary { padding:15px 50px; width:100%; max-width:212px; min-width:140px; height:60px; line-height:1; box-sizing:"border-box"; font-size:var(--btn-pop-font-size); color:var(--btn-pop-font-second-color); font-weight:var(--btn-pop-font-w); border-radius:100px; border:1px solid transparent; }
-.btn-pop-primary{ background:var(--btn-pop-background); color:var(--btn-pop-font-color); }
-.btn-pop-primary:hover { background:var(--primary); color:var(--btn-pop-font-color); }
+.btn-pop-secondary { padding:10px; width:108px; height:40px; line-height:1; box-sizing:"border-box"; font-size:var(--btn-pop-font-size); font-weight:var(--btn-pop-font-w); border-radius:3px; border:1px solid transparent; }
+.btn-pop-primary{ background:var(--btn-pop-background); color:var(--color-f); }
+.btn-pop-primary:hover { background:var(--primary); color:var(--color-f); }
 .btn-pop-primary:focus-visible,
 .btn-pop-primary:focus { color:var(--color-f); }
-.btn-pop-secondary{ border:var(--btn-pop-s-border); background:var(--btn-pop-s-background); }
+.btn-pop-secondary{ border:var(--btn-pop-s-border); background:var(--color-f); color:var(--color-45); }
 .btn-pop-secondary:hover{ background:var(--btm-btn-secondary-active); color:var(--color-45); border: var(--btn-pop-s-background); }
-
-/** 링크, 다운로드버튼 **/
-.btn-group.w50 { display:flex; flex-wrap:wrap; }
-.btn-group.w50 > a { margin-top:24px; padding-left:73px; width:calc(50% - 16px); background-repeat:no-repeat; background-position:left 20px center; background-size:40px; }
-.btn-group.w50 > a:nth-child(odd) { margin-right:16px; }
-.btn-group.w50 > a:nth-child(even) { margin-left:16px; }
-.btn-group.w50 > a:first-of-type,
-.btn-group.w50 > a:nth-of-type(2) { margin-top:0; }
 
 /* .btn-link, */
 .btn-download { display:inline-flex; align-items:center; justify-content:space-between; gap:10px; min-height:80px; line-height:1.5; padding:0 32px; border-radius:100px; background:var(--btn-download-background); border:var(--btn-download-border); text-align:left; font-size:var(--btn-download-font-size); }
@@ -109,6 +101,6 @@ mask-image:var(--ico-download); mask-repeat:no-repeat; mask-size:auto 40px; mask
 #scrollTop { position:fixed; right:30px; bottom:30px; opacity:0; visibility:hidden; transition:opacity 0.3s ease, visibility 0.3s ease; z-index:11; }
 #scrollTop.on { opacity: 1; visibility: visible; }
 #scrollTop .scrollUpBtn { width:48px; height:48px; background-color:var(--color-f); border:1px solid var(--color-d); border-radius: 50%; cursor: pointer; box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.08); transition: background-color 0.3s ease, transform 0.2s ease; font-size:0; }
-#scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-6); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; }
+#scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-75); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; }
 #scrollTop .scrollUpBtn:hover { border-color:var(--primary); transform: translateY(-2px); }
 #scrollTop .scrollUpBtn:hover::before { background-color:var(--primary); }

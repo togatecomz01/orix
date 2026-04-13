@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 :root {
     --font12: 0.75rem;
@@ -47,7 +47,7 @@ body {
     --ing-bg:#DEF2FF;
     --ing-text:#3182EE;
     --end-bg:#C9C9C9;
-    --end-text:#02294A;
+    --end-text:#454545;
     --success-bg:#D3F1DE;
     --success-text:#166734;
     --error-bg:#FBDEDE;

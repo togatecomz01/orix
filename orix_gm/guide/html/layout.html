@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width:1200px, initial-scale=1.0" />
+    <title>레이아웃</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>공매입찰 관리 시스템</h1>
+                <div class="user-links">
+                    <div class="user-info">
+                        <span class="user-thumb">
+                            <img src="../../resource/images/img_profile.png" alt="사용자 프로필" />
+                        </span>
+            
+                        <span class="user-name">심규남(제로모티스)</span>
+                    </div>
+                    <a href="#none" class="btn-logout">로그아웃</a>
+                </div>
+            </section>
+            <!-- S: 페이지 상단 -->
+            <section class="page-control">
+                <div class="control-header">
+                    <h2>공매입찰관리</h2>
+                    <div class="la-button">
+                        <button type="button" class="btn-icon excel" data-popup-target="excelPopup">EXCEL</button>
+                        <button type="button" class="btn-primary">조회</button>
+                    </div>
+                </div>
+                <div class="form-content">
+                    <div class="form-wrap">
+                        <div class="form-group form-manage-no">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">관리번호</label>
+                                <div class="field-box">
+                                    <select name="fruits" required="">
+                                        <option value="" disabled="">선택해주세요.</option>
+                                        <option value="1" selected="">227차 2026년 04-1회 04-06~04-08</option>
+                                        <option value="2">옵션2</option>
+                                        <option value="3">옵션3</option>
+                                        <option value="4">옵션4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-car-no">
+                            <div class="flex-row">
+                                <label for="default" class="label-tit">차량번호</label>
+                                <div class="field-box">
+                                    <input id="default" type="text" name="default" placeholder="디폴트" value="122허 3382">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-maker">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">제조사</label>
+                                <div class="field-box">
+                                    <select name="fruits" required="">
+                                        <option value="" disabled="">선택해주세요.</option>
+                                        <option value="1" selected="">KG모빌리티(쌍용)</option>
+                                        <option value="2">옵션2</option>
+                                        <option value="3">옵션3</option>
+                                        <option value="4">옵션4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-model">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">차종</label>
+                                <div class="field-box">
+                                    <select name="fruits" required="">
+                                        <option value="" disabled="">선택해주세요.</option>
+                                        <option value="1" selected="">싼타페 THE CONTRAST</option>
+                                        <option value="2">옵션2</option>
+                                        <option value="3">옵션3</option>
+                                        <option value="4">옵션4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-status">
+                            <div class="flex-row">
+                                <label for="fruits" class="label-tit">구분</label>
+                                <div class="field-box">
+                                    <select name="fruits" required="">
+                                        <option value="" disabled="">전체</option>
+                                        <option value="1" selected="">입찰</option>
+                                        <option value="2">낙찰</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 페이지 상단 -->
+            <!-- S: 본문 -->
+            <section class="page-container">
+                <!-- 그리드 -->
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>
