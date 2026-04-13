@@ -15,8 +15,9 @@ input.tag-error { background-color:var(--error-bg); color:var(--error-text); }
 
 .side-menu { display:flex; flex-direction:column; align-items:center; gap:20px; margin-top:40px; }
 .side-menu li { width:50px; height:50px; }
-.side-menu a { display:block; width:100%; height:100%; text-align:center; }
-.side-menu a.on { border-radius:16px; background-color:var(--active); }
+.side-menu a { display:block; width:100%; height:100%; border-radius:16px; text-align:center; }
+.side-menu a:hover { border:1px dashed var(--color-f); }
+.side-menu a.on { border:0; background-color:var(--active); }
 .side-menu img { display:block; margin:0 auto; }
 
 /*** page-header ***/
@@ -51,21 +52,28 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
     #공매입찰관리
 ============================================= */
 .page-control > .form-content { width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:#F8FAFB; box-sizing:border-box; }
-.page-control > .form-content > .form-wrap { display:table; width:100%; table-layout:auto; }
+.page-control > .form-content > .form-wrap { display:table; width:100%; table-layout:fixed; }
 .page-control > .form-content > .form-wrap > .form-group { display:table-cell; vertical-align:middle; }
 .page-control > .form-content > .form-wrap > .form-group + .form-group > .flex-row { padding-left:20px; }
 
 .page-control > .form-content > .form-wrap > .form-group > .flex-row { display:table; width:100%; table-layout:auto; }
 .page-control > .form-content > .form-wrap > .form-group > .flex-row .label-tit { display:table-cell; width:1%; padding-left:10px; padding-right:10px; white-space:nowrap; vertical-align:middle; }
 .page-control > .form-content > .form-wrap > .form-group > .flex-row .field-box { display:table-cell; width:100%; vertical-align:middle; }
+.page-control > .form-content > .form-wrap > .form-group .field-box input,
+.page-control > .form-content > .form-wrap > .form-group .field-box select { width:100%; }
 .page-control > .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box input,
 .page-control > .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box select { width:100%; min-width:100px; }
 
-.page-control > .form-content > .form-wrap > .form-group.form-manage-no > .flex-row .field-box { width:319px;  }
+.page-control > .form-content > .form-wrap > .form-group.form-manage-no { width:26%; }
+.page-control > .form-content > .form-wrap > .form-group.form-car-no { width:16%; }
+.page-control > .form-content > .form-wrap > .form-group.form-maker { width:20%; }
+.page-control > .form-content > .form-wrap > .form-group.form-model { width:22%; }
+.page-control > .form-content > .form-wrap > .form-group.form-status { width:16%; }
+.page-control > .form-content > .form-wrap > .form-group.form-manage-no > .flex-row .field-box,
 .page-control > .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box,
-.page-control > .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box { width:150px; }
-.page-control > .form-content > .form-wrap > .form-group.form-maker > .flex-row .field-box { width:260px; }
-.page-control > .form-content > .form-wrap > .form-group.form-model > .flex-row .field-box { width:304px; }
+.page-control > .form-content > .form-wrap > .form-group.form-maker > .flex-row .field-box,
+.page-control > .form-content > .form-wrap > .form-group.form-model > .flex-row .field-box,
+.page-control > .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box { width:auto; }
 
 /* =============================================
     #그리드
@@ -133,6 +141,7 @@ body.popup { overflow:hidden; }
 /* =============================================
     #로그인 에러
 ============================================= */
+.wrap.error { height:100%; }
 .error main.contentWrap { padding-left:0; padding-right:0; }
 .error-content { padding-top:160px; text-align:center; }
 .error-content .error-group .tit { font-size:var(--font38); font-weight:var(--font-w600); color:var(--color-2); text-align:center; }

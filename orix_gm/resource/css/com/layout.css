@@ -12,10 +12,10 @@ body {
 ---------------------------------------------*/
 html,body { height:100%; }
 body { position: relative; min-width:1200px; height:100%; -webkit-text-size-adjust: none; overflow-y:auto; }
-.wrap { position: relative; margin: 0 auto; display:block; /*overflow: hidden;*/ min-width:1200px; height:100%; }
+.wrap { position: relative; margin: 0 auto; display:block; /*overflow: hidden;*/ min-width:1200px; }
 body.popup { min-width:0; overflow:auto; }
 
-main.contentWrap { -webkit-box-flex:1; -ms-flex:1 1 auto; flex:1 1 auto; padding:0 30px 120px 90px; min-height:0; min-width:0; -webkit-overflow-scrolling:touch; position:relative; overflow-anchor:none; box-sizing:border-box; }
+main.contentWrap { -webkit-box-flex:1; -ms-flex:1 1 auto; flex:1 1 auto; padding:0 30px 0 90px; min-height:0; min-width:0; -webkit-overflow-scrolling:touch; position:relative; overflow-anchor:none; box-sizing:border-box; }
 main.contentWrap > * { width:100%; box-sizing:border-box; }
 /* main.contentWrap > .visual-container,
 main.contentWrap > .page-container { min-width:1200px; margin:0 auto; } */
