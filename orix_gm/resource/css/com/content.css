@@ -131,6 +131,13 @@ body.popup { overflow:hidden; }
 .newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
 
 /* =============================================
+    #로그인 에러
+============================================= */
+.error-content { text-align:center; }
+.error-group .tit { font-size:var(--font38); font-weight:var(--font-w600); color:var(--color-2); text-align:center; }
+.error-group .tit::before { content:""; display:block; width:269px; height:269px; margin:0 auto; background:url("../../images/img_error.png") no-repeat center center / 269px auto; }
+
+/* =============================================
     #로그인
 ============================================= */
 .wrap.login { height:100%; background:#F2F3F8; overflow:hidden; }
@@ -156,9 +163,8 @@ body.popup { overflow:hidden; }
 .login-form .login-input { max-height:unset; height:60px; padding:18px 18px 18px 68px; border:1px solid var(--color-d); border-radius:8px; background-color:#F5F6F8; font-size:var(--font18); color:var(--color-75); box-sizing:border-box; }
 .login-form .password .login-input { padding-right:60px; }
 .login-form .login-input::placeholder { color:var(--color-75); }
-.login-form .password .btn-password-toggle { position:absolute; right:18px; top:50%; width:24px; height:24px; margin-top:-12px; font-size:0; z-index:2; }
-.login-form .password .btn-password-toggle::before { content:""; position:absolute; left:1px; top:6px; width:20px; height:12px; border:2px solid var(--color-75); border-radius:12px / 8px; box-sizing:border-box; }
-.login-form .password .btn-password-toggle::after { content:""; position:absolute; left:9px; top:10px; width:6px; height:6px; border-radius:50%; background-color:var(--color-75); }
+.login-form .password .btn-password-toggle { position:absolute; right:18px; top:50%; width:24px; height:24px; margin-top:-12px; font-size:0; background:url("../../images/ico_eye_off.png") no-repeat center; background-size:24px 24px; z-index:2; }
+.login-form .password .btn-password-toggle.is-show { background-image:url("../../images/ico_eye.png"); }
 
 .login-form .la-button button { width:100%; min-width:100%; height:74px; border-radius:10px; font-size:var(--font24); font-weight:var(--font-w600); text-align:center; line-height:74px; }
 
