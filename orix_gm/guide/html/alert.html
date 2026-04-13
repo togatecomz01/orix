@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORIX UI GUIDE - alert</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/lib/jquery.form.min.js"></script>
+
+    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <nav class="side-nav">
+            <div class="logo">
+                <a href="#none">
+                    <img src="../../resource/images/com/svg/orix_logo.svg" alt="ORIX로고" />
+                </a>
+            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#none" title="공매입찰관리" class="on">
+                        <img src="../../resource/images/com/svg/btn_bid_manage.svg" alt="공매입찰관리" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#none" title="사용자관리">
+                        <img src="../../resource/images/com/svg/btn_user_manage.svg" alt="사용자관리" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <section class="page-header">
+                <h1>ALERT</h1>
+            </section>
+            <!-- S: 페이지 상단 -->
+            <section class="page-control">
+                <div class="control-header">
+                    <h2>오른쪽 버튼 클릭 →</h2>
+                    <div class="la-button">
+                        <button type="button" class="btn-primary js-open-pop" onclick="javascript:view_info('INSERT');">등록</button>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 페이지 상단 -->
+            <!-- S: 본문 -->
+            <section class="page-container">
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+    <script>
+        $(function () {
+            $('.js-open-pop').on('click', function () {
+                var url = 'popup_layout.html';
+                var name = 'carDetailPop';
+                var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+
+                window.open(url, name, option);
+            });
+        });
+    </script>
+</body>
+</html>

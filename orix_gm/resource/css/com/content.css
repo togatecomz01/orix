@@ -121,8 +121,8 @@ body.popup { overflow:hidden; }
 /** pop-content **/
 .newPop .pop-content { display:flex; -ms-flex:1 1 auto; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; }
 
-/* pop-body */
-.newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; height:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
+/* pop-body */ /* 26.04.13기존 height:100% → max-height: 735px 로 수정 , overflow-y: auto 추가 */
+.newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; max-height: 735px; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); overflow-y: auto;}
 
 .view-header .date { font-size:14px; font-size:var(--font-w400); color:var(--color-75); }
 .view-header h4 { margin:5px 0 20px; }
@@ -184,3 +184,333 @@ body.popup { overflow:hidden; }
 
 .footer-wrap { position:absolute; left:0; right:0; bottom:20px; margin:34px 0 20px; text-align:center; border-top:0; }
 .footer-wrap p { font-size:var(--font16); color:var(--color-75); }
+
+/* =============================================
+    #공매입찰관리 메인 css
+============================================= */
+.main-body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-body {
+    margin: 0;
+    font-family: "Noto Sans KR", "S-Core Dream", sans-serif;
+}
+
+.main-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+    padding-left: 58px;
+    box-sizing: border-box;
+}
+
+.main-wrap:before {
+    content: "";
+    position: absolute;
+    top: -130px;
+    right: 0;
+    bottom: -30px;
+    left: 58px;
+    background: url("../../images/main_bg2.png") no-repeat center top;
+    background-size: cover;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-head {
+    position: absolute;
+    top: 22px;
+    right: 36px;
+    z-index: 5;
+}
+
+.user-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.user-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+}
+
+.user-info:before {
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    background: url("../../images/img_profile.png") no-repeat center center;
+    background-size: 38px 38px;
+}
+
+.user-info .text {
+    color: var(--color-45);
+    font-family: Pretendard;
+    font-size: var(--font16);
+    font-weight: var(--font-w400);;
+
+}
+
+.logout-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    max-width: 100px;
+    max-height: 36px;
+    padding: 10px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    background: var(--color-f);
+    color: var(--color-2);
+    font-size: var(--font16);
+    font-weight: var(--font-w500);
+}
+
+.logout-link:before {
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    background: url("../../images/com/svg/logout_icon.svg") no-repeat center center;
+    background-size: 16px 16px;
+}
+
+.logout-link span {
+    display: block;
+    line-height: 1;
+}
+
+.main-content {
+    position: relative;
+    z-index: 3;
+    width: 1520px;
+    height: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.hero-layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-copy {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 620px;
+    box-sizing: border-box;
+    color: var(--color-2);
+}
+
+.hero-copy .sub-copy {
+    font-size: var(--font18);
+    font-weight: var(--font-w400);
+    line-height: 1.5;
+    font-family: Pretendard;
+    color: var(--color-75);
+
+}
+
+.hero-copy .sub-copy strong {
+    display: block;
+    color: var(--color-2);
+    font-size: var(--font28);
+    font-weight: var(--font-w500);
+}
+
+.hero-copy .main-copy {
+    margin-top: 30px;
+    color:var(--color-2);
+    font-family: "S-Core Dream";
+    font-size: var(--font42);
+    font-weight: var(--font-w500);
+}
+
+.hero-copy .main-copy em {
+    font-style: normal;
+    font-weight: var(--font-w600);
+}
+
+.hero-btn {
+    display: inline-block;
+    min-width: 300px;
+    min-height: 62px;
+    margin-top: 30px;
+    padding: 16px 30px;
+    border-radius: 50px;
+    background: var(--secondary);
+    color: #ffffff;
+    font-size: var(--font24);
+    font-family: "S-Core Dream";
+    font-weight: var(--font-w500);
+    text-align: center;
+}
+
+.notice-panel {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 932px; /* 실제 패널 880 + 스크롤 gutter 52 */
+    padding: 30px 82px 12px 30px; /* 오른쪽 30 + gutter 52 */
+    box-sizing: border-box;
+    background: none;
+    border: 0;
+    overflow: visible;
+}
+
+.notice-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 52px; /* 여기까지가 실제 파란 패널 */
+    bottom: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    background: linear-gradient(116deg, rgba(5, 69, 170, 0.60) 6.97%, rgba(42, 117, 242, 0.48) 87.95%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.notice-head,
+.notice-list {
+    position: relative;
+    z-index: 1;
+}
+
+.notice-head {
+    padding: 18px 90px 20px 0;
+    border-bottom: 1px solid var(--color-f);
+}
+
+.notice-head h2 {
+    font-size: var(--font30);
+    font-family: "S-Core Dream";
+    font-weight: var(--font-w700);
+    line-height: 1.5;
+    color: var(--color-f);
+}
+
+.notice-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.notice-action {
+    display: block;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.notice-action img {
+    display: block;
+    width: 70px;
+    height: 70px;
+}
+.notice-list {
+    max-height: 500px; /* 95px * 6 + border 보정 */
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: -44px;
+    padding-right: 44px;
+    box-sizing: content-box;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(49, 74, 137, 0.72) transparent;
+}
+
+.notice-list li {
+    border-top: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.notice-list li:first-child {
+    border-top: 0;
+}
+
+.notice-list a {
+    position: relative;
+    display: block;
+    min-height: 95px;
+    padding: 15px 82px 15px 0;
+    box-sizing: border-box;
+    color: var(--color-f);
+    font-size: var(--font20);
+    font-weight: var(--font-w500);
+}
+.notice-link {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    background: url("../../images/com/svg/ico_main_shortcut.svg") no-repeat center center;
+    background-size: 40px 40px;
+}
+
+/* scrollbar */
+.notice-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notice-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notice-list::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(49, 74, 137, 0.72);
+}
+
+.notice-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(49, 74, 137, 0.72) transparent;
+}
+
+.notice-date {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.notice-title {
+    display: block;
+    word-break: keep-all;
+}
+
+.notice-title .badge-new {
+    display: none;
+}
+
+.page-footer {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    left: 58px;
+    z-index: 3;
+    text-align: center;
+    color: var(--color-75);
+    font-size: var(--font16);
+}
+
+#legacyGrid {
+    display: none;
+}
