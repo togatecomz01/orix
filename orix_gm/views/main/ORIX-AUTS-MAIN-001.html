@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=1200px, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>오릭스 공매입찰관리 메인</title>
 
         <link href="../../resource/css/ui-util.css" rel="stylesheet" />
@@ -18,55 +18,48 @@
     </head>
 
     <body class="main-body">
-        <div class="main-wrap">
+        <div class="wrap main-wrap main-page">
             <!-- S: 사이드메뉴 -->
             <div data-include-path="../include/inc-nav.html"></div>
             <!-- E: 사이드메뉴 -->
-
-            <div class="page-head">
-                <div class="user-links">
-                    <span class="user-info">
-                        <span class="text">심규남(제로모티스)</span>
-                    </span>
-                    <a href="#none" class="logout-link">
-                        <span>로그아웃</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="main-content">
-                <div class="hero-layout">
-                    <div class="hero-copy">
-                        <p class="sub-copy">
-                            <strong>공매입찰관리의 새로운 기준</strong>
-                            The New Standard in Vehicle Auction Management
-                        </p>
-                        <p class="main-copy">
-                            공매입찰 정보를<br />
-                            <em>[ 한눈에 ]</em> 정리해 확인하세요
-                        </p>
-                        <a href="#none" class="hero-btn">공매입찰관리 바로가기</a>
-                    </div>
-
-                    <div class="notice-panel">
-                        <div class="notice-head">
-                            <h2>공지사항</h2>
-                            <div class="notice-actions">
-                                <button type="button" class="notice-action" aria-label="공지사항 등록">
-                                    <img src="../../resource/images/com/svg/notice_register.svg" alt="" />
-                                </button>
-                            </div>
+    
+            <main class="contentWrap">
+                <div data-include-path="../include/inc-main-header.html"></div>
+    
+                <section class="main-content">
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <p class="sub-copy">
+                                <strong>공매입찰관리의 새로운 기준</strong>
+                                The New Standard in Vehicle Auction Management
+                            </p>
+                            <p class="main-copy">
+                                공매입찰 정보를<br />
+                                <em>[ 한눈에 ]</em> 정리해 확인하세요
+                            </p>
+                            <a href="#none" class="hero-btn">공매입찰관리 바로가기</a>
                         </div>
-                        <ul id="noticeList" class="notice-list"></ul>
+    
+                        <div class="notice-panel">
+                            <div class="notice-head">
+                                <h2>공지사항</h2>
+                                <div class="notice-actions">
+                                    <button type="button" class="notice-action" aria-label="공지사항 등록">
+                                        <img src="../../resource/images/com/svg/notice_register.svg" alt="" />
+                                    </button>
+                                </div>
+                            </div>
+                            <ul id="noticeList" class="notice-list"></ul>
+                        </div>
                     </div>
+                </section>
+    
+                <div class="page-footer">
+                    Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved
                 </div>
-            </div>
-
-            <div class="page-footer">
-                Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved
-            </div>
+            </main>
         </div>
-
+    
         <div id="legacyGrid">
             <script>
                 document.write('<object id="grdSheet01" width="100%" height="100%" classid="clsid:1F57AEAD-DB12-11D2-A4F9-00608CEBEE49" codebase="/autocomm/ocx/toinb/toinbgrid.cab#version=1,1,0,122"></object>');

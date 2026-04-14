@@ -261,12 +261,19 @@ main.contentWrap > .bottom-container { margin-top:72px; }
 /* 팝업_모달팝업*/
 .layerPopup.modal .pop-content { max-width:400px; padding:32px 32px 28px 32px; min-width:auto; height:auto; width:calc(100% - 40px); border-radius:20px;  }
 .layerPopup.modal .pop-header { padding:0; }
-.layerPopup.modal .pop-body {  margin-bottom:30px; padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:var(--font18); }
+.layerPopup.modal .pop-body {  margin-bottom:30px; padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:1rem; text-align:center; }
 .layerPopup.modal .pop-body:focus { border:0; outline:0; }
 .layerPopup.modal .pop-body .tit { margin-bottom:12px; font-size:1.111rem; font-weight:500;}
-.layerPopup.modal .pop-body p { font-size:1rem; text-align:center; }
+/* .layerPopup.modal .pop-body p { font-size:1rem; text-align:center; } */ /* 260414 삭제, pop-body로 css 이동 */
 .layerPopup.modal .pop-body table { min-width:unset; }
 .layerPopup.modal .pop-footer { margin-top:42px; }
 
 /**팜업 버튼*/
 .btn-close { display:block; position:absolute; top:44px; right:34px; width:40px; height:40px; background: var(--ico-close) no-repeat center; background-size:22px; font-size:0;  }
+
+/** 로딩 **/
+.loading-content { position:fixed; display:flex; justify-content:center; align-items:center; right:0; top:0; bottom:0; z-index:101; width:100%; height:100vh; min-height:100%; background:rgba(0, 0, 0, 0.15); }
+.loader { width:50px; aspect-ratio:1; border-radius:50%; background:radial-gradient(farthest-side,#02294A 94%,#0000) top/8px 8px no-repeat, conic-gradient(#0000 30%,#02294A); -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0); animation:l13 1s infinite linear; }
+@keyframes l13{
+    100%{transform: rotate(1turn)}
+}
