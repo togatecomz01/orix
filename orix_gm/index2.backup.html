@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>공지사항 - 카드형 UI</title>
+
+        <style>
+        :root {
+        --primary: #2563eb;
+        --bg: #f9fafb;
+        --text: #111827;
+        --border: #e5e7eb;
+        }
+
+        body {
+        margin: 0;
+        font-family: sans-serif;
+        background: var(--bg);
+        }
+
+        .layout {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px;
+        }
+
+        /* header */
+        .header {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 24px;
+        }
+
+        /* section */
+        .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        }
+
+        .title {
+        font-size: 20px;
+        font-weight: 600;
+        }
+
+        .btn {
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .btn.primary {
+        background: var(--primary);
+        color: #fff;
+        }
+
+        /* 카드 */
+        .card-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+        }
+
+        .card-item {
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        transition: 0.2s;
+        cursor: pointer;
+        }
+
+        .card-item:hover {
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-date {
+        font-size: 12px;
+        color: #6b7280;
+        margin-bottom: 6px;
+        }
+
+        .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        }
+
+        .card-user {
+        font-size: 13px;
+        color: #9ca3af;
+        }
+
+        .badge-new {
+        display: inline-block;
+        font-size: 11px;
+        color: #fff;
+        background: #ef4444;
+        padding: 2px 6px;
+        border-radius: 6px;
+        margin-left: 6px;
+        }
+
+        /* ActiveX 숨김 */
+        #legacyGrid {
+        display: none;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="layout">
+
+        <div class="header">ORIX 공지사항</div>
+
+        <div class="section">
+
+            <div class="section-header">
+            <h2 class="title">공지사항</h2>
+            <button class="btn primary">등록</button>
+            </div>
+
+            <!-- 카드 영역 -->
+            <div id="cardList" class="card-list"></div>
+
+        </div>
+
+        </div>
+
+        <!-- ActiveX grid (숨김) -->
+        <div id="legacyGrid">
+        <script>
+        document.write('<object id="grdSheet01" width="100%" height="100%" classid="clsid:1F57AEAD-DB12-11D2-A4F9-00608CEBEE49" codebase="/autocomm/ocx/toinb/toinbgrid.cab#version=1,1,0,122"></object>');
+        </script>
+        </div>
+
+        <script>
+        /* =========================
+        1. 더미 데이터 (디자인 확인용)
+        ========================= */
+        const mockData = [
+        { date: '2026-03-19', title: '시스템 점검 안내', user: '관리자', isNew: true },
+        { date: '2026-03-18', title: '공지사항 테스트입니다', user: '운영자' },
+        { date: '2026-03-17', title: '서비스 업데이트 안내', user: '관리자', isNew: true }
+        ];
+
+        /* =========================
+        2. 카드 렌더링
+        ========================= */
+        function renderCards(data) {
+        const container = document.getElementById('cardList');
+        container.innerHTML = '';
+
+        data.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'card-item';
+
+            el.innerHTML = `
+            <div class="card-date">${item.date}</div>
+            <div class="card-title">
+                ${item.title}
+                ${item.isNew ? '<span class="badge-new">NEW</span>' : ''}
+            </div>
+            <div class="card-user">${item.user}</div>
+            `;
+
+            el.addEventListener('click', () => {
+            alert(item.title);
+            });
+
+            container.appendChild(el);
+        });
+        }
+
+        /* =========================
+        3. (나중용) ActiveX 데이터 가져오기
+        ========================= */
+        function getGridData() {
+        const result = [];
+
+        if (!window.grdSheet01) return result;
+
+        for (let i = 1; i <= grdSheet01.RowCount; i++) {
+            result.push({
+            date: grdSheet01.GetCellValue(i, "NOTICE_DATE"),
+            title: grdSheet01.GetCellValue(i, "TITLE"),
+            user: grdSheet01.GetCellValue(i, "ENTRY_NM")
+            });
+        }
+
+        return result;
+        }
+
+        /* =========================
+        4. 초기 실행
+        ========================= */
+        window.onload = function () {
+        // 지금은 디자인 단계 → mockData 사용
+        renderCards(mockData);
+
+        // 나중에 이렇게 변경
+        // const realData = getGridData();
+        // renderCards(realData);
+        };
+        </script>
+
+    </body>
+</html>

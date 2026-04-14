@@ -1,52 +1,109 @@
 $(function () {
     var includeSelector = '[data-include-path]';
-    var navScriptPath = '../../resource/js/nav.js';
-    var isNavScriptLoading = false;
-    var navScriptCallbacks = [];
-
-    function loadNavScript(callback) {
-        if (typeof window.initSideNav === 'function') {
-            if (typeof callback === 'function') {
-                callback();
-            }
-
-            return;
-        }
-
-        if (typeof callback === 'function') {
-            navScriptCallbacks.push(callback);
-        }
-
-        if (isNavScriptLoading) {
-            return;
-        }
-
-        isNavScriptLoading = true;
-
-        $.getScript(navScriptPath)
-            .done(function () {
-                var i;
-
-                isNavScriptLoading = false;
-
-                for (i = 0; i < navScriptCallbacks.length; i += 1) {
-                    navScriptCallbacks[i]();
-                }
-
-                navScriptCallbacks = [];
-            })
-            .fail(function (xhr, status, error) {
-                isNavScriptLoading = false;
-                navScriptCallbacks = [];
-
-                if (window.console && typeof window.console.error === 'function') {
-                    window.console.error('nav.js load failed:', status, error);
-                }
-            });
-    }
 
     function getCacheBuster() {
         return new Date().getTime();
+    }
+
+    function getPathnameOnly(path) {
+        return (path || '').split('#')[0].split('?')[0];
+    }
+
+    function getDirname(path) {
+        var pathname = getPathnameOnly(path);
+        var lastSlashIndex = pathname.lastIndexOf('/');
+
+        if (lastSlashIndex < 0) {
+            return '';
+        }
+
+        return pathname.substring(0, lastSlashIndex + 1);
+    }
+
+    function isExternalPath(path) {
+        return /^(?:[a-z]+:|\/\/|#|javascript:|mailto:|tel:|data:)/i.test(path || '');
+    }
+
+    function resolvePath(baseDir, relativePath) {
+        var path = relativePath || '';
+        var hash = '';
+        var query = '';
+        var hashIndex = path.indexOf('#');
+        var queryIndex;
+        var pathOnly;
+        var baseParts;
+        var pathParts;
+        var resultParts = [];
+        var i;
+
+        if (!path || isExternalPath(path)) {
+            return path;
+        }
+
+        if (path.charAt(0) === '/') {
+            return path;
+        }
+
+        if (hashIndex > -1) {
+            hash = path.substring(hashIndex);
+            path = path.substring(0, hashIndex);
+        }
+
+        queryIndex = path.indexOf('?');
+
+        if (queryIndex > -1) {
+            query = path.substring(queryIndex);
+            pathOnly = path.substring(0, queryIndex);
+        } else {
+            pathOnly = path;
+        }
+
+        baseParts = (baseDir || '').split('/');
+        pathParts = pathOnly.split('/');
+
+        if (baseParts.length && baseParts[baseParts.length - 1] === '') {
+            baseParts.pop();
+        }
+
+        for (i = 0; i < baseParts.length; i += 1) {
+            resultParts.push(baseParts[i]);
+        }
+
+        for (i = 0; i < pathParts.length; i += 1) {
+            if (!pathParts[i] || pathParts[i] === '.') {
+                continue;
+            }
+
+            if (pathParts[i] === '..') {
+                if (resultParts.length > 1 || (resultParts.length === 1 && resultParts[0] !== '')) {
+                    resultParts.pop();
+                }
+            } else {
+                resultParts.push(pathParts[i]);
+            }
+        }
+
+        return resultParts.join('/') + query + hash;
+    }
+
+    function rewriteRelativePaths($target, includePath) {
+        var pageDir = getDirname(window.location.pathname);
+        var includeFullPath = resolvePath(pageDir, includePath);
+        var includeDir = getDirname(includeFullPath);
+
+        $target.find('[src], [href]').each(function () {
+            var $el = $(this);
+            var src = $el.attr('src');
+            var href = $el.attr('href');
+
+            if (src) {
+                $el.attr('src', resolvePath(includeDir, src));
+            }
+
+            if (href) {
+                $el.attr('href', resolvePath(includeDir, href));
+            }
+        });
     }
 
     function triggerIncludeLoaded($target, path, response, status, xhr) {
@@ -83,12 +140,8 @@ $(function () {
                 if (window.console && typeof window.console.error === 'function') {
                     window.console.error('Include load failed:', path, xhr.status, xhr.statusText);
                 }
-            } else if (path.indexOf('inc-nav.html') > -1) {
-                loadNavScript(function () {
-                    if (typeof window.initSideNav === 'function') {
-                        window.initSideNav($target);
-                    }
-                });
+            } else {
+                rewriteRelativePaths($target, path);
             }
 
             triggerIncludeLoaded($target, path, response, status, xhr);

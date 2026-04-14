@@ -13,6 +13,7 @@
     <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
     <script src="../../resource/js/lib/jquery.form.min.js"></script>
     <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/nav.js"></script>
     <script>
         window.tui = window.tui || {};
         window.tui.DatePicker = window.tui.DatePicker || function () {};
@@ -59,9 +60,8 @@
                                 <label for="bidNo" class="label-tit">관리번호</label>
                                 <div class="field-box">
                                     <select name="bidNo" id="bidNo">
-                                        <option value="" selected="selected">선택해주세요.</option>
-                                        <option value="240401">240401</option>
-                                        <option value="240402">240402</option>
+                                        <option value="240401" selected="selected">227차 2026년 04-1회 04-06~04-08</option>
+                                        <option value="240402">227차 2026년 03-1회 03-09~03-11</option>
                                     </select>
                                 </div>
                             </div>
@@ -308,7 +308,7 @@
                     CONTRACT_YN: '유찰',
                     BIDNO_IDX: '240402',
                     BID_STAT: 'AU110009',
-                    BID_STAT_NM: '유찰',
+                    BID_STAT_NM: '입찰 진행중',
                     BID_START_DATE: '2026-03-24 09:00:00',
                     BID_END_DATE: '2026-03-24 12:00:00'
                 }
