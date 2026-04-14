@@ -22,7 +22,7 @@
     </script>
     <script src="../../resource/js/lib/tui-grid.js"></script>
 </head>
-<body>
+<body data-nav-id="bidg">
     <div class="wrap">
         <!-- S: 사이드메뉴 -->
         <div data-include-path="../include/inc-nav.html"></div>
@@ -30,18 +30,7 @@
 
         <main class="contentWrap">
             <!-- S: 시스템 상단 -->
-            <section class="page-header">
-                <h1>공매입찰 관리 시스템</h1>
-                <div class="user-links">
-                    <div class="user-info">
-                        <span class="user-thumb">
-                            <img src="../../resource/images/img_profile.png" alt="사용자 프로필" />
-                        </span>
-                        <span class="user-name">심규남(제로모티스)</span>
-                    </div>
-                    <a href="#none" class="btn-logout">로그아웃</a>
-                </div>
-            </section>
+            <div data-include-path="../include/inc-sub-header.html"></div>
             <!-- E: 시스템 상단 -->
 
             <!-- S: 페이지 상단 -->

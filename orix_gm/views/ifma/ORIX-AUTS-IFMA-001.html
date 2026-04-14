@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width:1200px, initial-scale=1.0" />
+    <title>사용자 관리</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet" />
+    <link href="../../resource/css/lib/tui-grid.css" rel="stylesheet" />
+
+    <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/lib/jquery.form.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/nav.js"></script>
+    <script>
+        window.tui = window.tui || {};
+        window.tui.DatePicker = window.tui.DatePicker || function () {};
+        window.tui.Pagination = window.tui.Pagination || function () {};
+        window.XLSX = window.XLSX || {};
+    </script>
+    <script src="../../resource/js/lib/tui-grid.js"></script>
+</head>
+<body data-nav-id="ifma">
+    <div class="wrap">
+        <!-- S: 사이드메뉴 -->
+        <div data-include-path="../include/inc-nav.html"></div>
+        <!-- E: 사이드메뉴 -->
+
+        <main class="contentWrap">
+            <!-- S: 시스템 상단 -->
+            <div data-include-path="../include/inc-sub-header.html"></div>
+            <!-- E: 시스템 상단 -->
+
+            <!-- S: 페이지 상단 -->
+            <section class="page-control">
+                <div class="control-header">
+                    <div>
+                        <h2>사용자 정보 관리</h2>
+                        <span>사용자 정보 및 담당자 정보를 수정할 수 있습니다</span>
+                    </div>
+                    <div class="la-button">
+                        <button type="button" class="btn-primary">수정</button>
+                    </div>
+                </div>
+            </section>
+            <!-- E: 페이지 상단 -->
+
+            <!-- S: 본문 -->
+            <section class="page-container">
+
+            </section>
+            <!-- E: 본문 -->
+        </main>
+    </div>
+</body>
+</html>

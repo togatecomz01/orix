@@ -1,57 +1,58 @@
 $(function () {
     /*---------------------------
         입력 클리어 버튼 (공용)
-        - .ipt-clear 래퍼 없으면 자동 생성
-        - readonly 허용(= 버튼 생성 막지 않음)
+        - readonly 허용
     ---------------------------*/
     function ensureClear($input) {
-        // 래퍼 보장
         var $wrap = $input.closest('.ipt-clear');
-
-        // disabled만 막음 (readonly는 허용)
         var disabled = $input.prop('disabled');
         var hasVal = ($input.val() || '').trim() !== '' && !disabled;
         var $btn = $wrap.find('> .btn-clear');
-    
+
         if (hasVal && !$btn.length) {
             $('<button type="button" class="btn-clear" aria-label="입력 지우기" title="지우기">\xd7</button>')
-            .appendTo($wrap)
-            .on('click', function (e) {
-                e.preventDefault();
-    
-                // 1) 텍스트 초기화
-                $input
-                    .data('full-value', '')
-                    .attr('title', '')
-                    .val('')
-                    .removeClass('up')
-                    .trigger('input')
-                    .focus();
-    
-                // 2) 같은 .ipt-file 컨테이너가 있다면 파일도 초기화
-                var $box = $wrap.closest('.ipt-file');
-                if ($box.length) {
-                    var $file = $box.find('input[type="file"]').first();
-                    if ($file.length) $file.val('').trigger('change'); // 내부 상태/리스너 동기화
-                }
-    
-                // 3) 버튼 제거
-                $(this).remove();
-            });
+                .appendTo($wrap)
+                .on('click', function (e) {
+                    e.preventDefault();
+
+                    $input
+                        .data('full-value', '')
+                        .attr('title', '')
+                        .val('')
+                        .removeClass('up')
+                        .trigger('input')
+                        .focus();
+
+                    var $box = $wrap.closest('.ipt-file');
+                    if ($box.length) {
+                        var $file = $box.find('input[type="file"]').first();
+                        if ($file.length) {
+                            $file.val('').trigger('change');
+                        }
+                    }
+
+                    $(this).remove();
+                });
         } else if (!hasVal && $btn.length) {
             $btn.remove();
         }
     }
-    
+
     function bindClearOnce($input) {
         if ($input.data('clear-bound')) return;
+
         $input
-            .on('input', function () { ensureClear($(this)); })
-            .on('keyup change propertychange', function () { ensureClear($(this)); }); // IE 대응
+            .on('input', function () {
+                ensureClear($(this));
+            })
+            .on('keyup change propertychange', function () {
+                ensureClear($(this));
+            });
+
         $input.data('clear-bound', true);
-        ensureClear($input); // 초기 상태 반영
+        ensureClear($input);
     }
-    
+
     function initClearable(scope) {
         (scope || $(document)).find('input[type="text"]').each(function () {
             bindClearOnce($(this));
@@ -100,10 +101,12 @@ $(function () {
             .appendTo($wrap)
             .on('mousedown touchstart', function (e) {
                 e.preventDefault();
+                $(this).addClass('is-show');
                 setPasswordType($input, false);
                 $activePasswordInput = $input;
             })
             .on('mouseup mouseleave touchend touchcancel blur', function () {
+                $(this).removeClass('is-show');
                 setPasswordType($input, true);
 
                 if ($activePasswordInput && $activePasswordInput[0] === $input[0]) {
@@ -113,12 +116,14 @@ $(function () {
             .on('keydown', function (e) {
                 if (e.which === 13 || e.which === 32) {
                     e.preventDefault();
+                    $(this).addClass('is-show');
                     setPasswordType($input, false);
                     $activePasswordInput = $input;
                 }
             })
             .on('keyup', function (e) {
                 if (e.which === 13 || e.which === 32) {
+                    $(this).removeClass('is-show');
                     setPasswordType($input, true);
 
                     if ($activePasswordInput && $activePasswordInput[0] === $input[0]) {
@@ -146,6 +151,39 @@ $(function () {
     function initPasswordToggle(scope) {
         (scope || $(document)).find('.ipt-clear.password input').each(function () {
             bindPasswordToggleOnce($(this));
+        });
+    }
+
+    /*---------------------------
+        파일 업로더 (공용)
+        - .ipt-file 내부 요소만 참조
+    ---------------------------*/
+    function initFileUploader(scope) {
+        (scope || $(document)).find('.ipt-file').each(function () {
+            var $box = $(this);
+            var $text = $box.find('.uploadInput').first();
+            var $file = $box.find('input[type="file"]').first();
+
+            if ($text.length && $file.length) {
+                $text.off('click.file').on('click.file', function () {
+                    $file.trigger('click');
+                });
+            }
+
+            $box.off('change.file').on('change.file', 'input[type="file"]', function () {
+                var name = (this.files && this.files.length) ? this.files[0].name : '';
+
+                if ($text.length) {
+                    $text
+                        .val(name)
+                        [name ? 'addClass' : 'removeClass']('up')
+                        .trigger('input');
+                }
+            });
+
+            if ($text.length) {
+                bindClearOnce($text);
+            }
         });
     }
 
@@ -240,36 +278,6 @@ $(function () {
         });
     }
 
-    /*---------------------------
-        파일 업로더 (컨테이너별 바인딩)
-        - .ipt-file 내부 요소만 참조 → 다중 업로더 OK
-    ---------------------------*/
-    function initFileUploader() {
-        $('.ipt-file').each(function () {
-            var $box   = $(this);
-            var $text  = $box.find('.uploadInput').first();       // 파일명 표시용(대개 readonly)
-            var $file  = $box.find('input[type="file"]').first(); // 실제 파일 인풋
-
-            // (선택) 텍스트 클릭 시 파일 선택 열기
-            if ($text.length && $file.length) {
-                $text.off('click.file').on('click.file', function () {
-                $file.trigger('click');
-                });
-            }
-        
-            // 파일 선택 → 텍스트 갱신 + 클리어 버튼 반영
-            $box.off('change.file').on('change.file', 'input[type="file"]', function () {
-                var name = (this.files && this.files.length) ? this.files[0].name : '';
-                if ($text.length) {
-                $text.val(name)[name ? 'addClass' : 'removeClass']('up').trigger('input'); // ensureClear 호출 유도
-                }
-            });
-        
-            // 이 텍스트 인풋도 클리어 가능하도록 바인딩
-            if ($text.length) bindClearOnce($text);
-        });
-    }
-
     // 숫자 인풋 3자리 콤마
     $(document).on('input', 'input[inputmode=numeric]', function () {
         if (window.commaFormatter && typeof window.commaFormatter.format === 'function') {
@@ -290,17 +298,9 @@ $(function () {
         });
     });
 
-    $(document).on('mouseup.passwordToggle touchend.passwordToggle touchcancel.passwordToggle', function () {
-        if (!$activePasswordInput || !$activePasswordInput.length) return;
-
-        setPasswordType($activePasswordInput, true);
-        $activePasswordInput = null;
-    });
-
-    // 업로더/클리어 초기화
-    initFileUploader();
     initClearable();
     initPasswordToggle();
+    initFileUploader();
     initInputTitle();
     initAlnumInput();
     initEllipsisInput();

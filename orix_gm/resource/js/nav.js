@@ -1,11 +1,13 @@
-/* 공통 사이드 메뉴 활성화 */
-window.initSideNav = (function ($) {
-    function normalize(value) {
-        return $.trim(value || '').replace(/\s+/g, '');
-    }
-
+/* 공통 사이드 메뉴 */
+// 퍼블전용이라고 적혀있는 부분은 개발에 넘길 때 삭제
+(function () {
     function getPathname(path) {
-        return (path || '').split('#')[0].split('?')[0];
+        var pathname = path || '';
+
+        pathname = pathname.split('#')[0];
+        pathname = pathname.split('?')[0];
+
+        return pathname.toLowerCase();
     }
 
     function getFileName(path) {
@@ -15,128 +17,87 @@ window.initSideNav = (function ($) {
         return parts[parts.length - 1] || '';
     }
 
-    function getPageTitle() {
-        var selectors = [
-            '.page-control .control-header h2',
-            '.page-control h2',
-            '.page-title',
-            '.contents-title',
-            'main h2'
-        ];
-        var i;
-        var text = '';
+    /* s : 퍼블전용 */
+    function getCurrentNavId() {
+        return $('body').attr('data-nav-id') || '';
+    }
 
-        for (i = 0; i < selectors.length; i += 1) {
-            text = normalize($(selectors[i]).first().text());
-
-            if (text) {
-                return text;
-            }
+    function findLinkByNavId($links, navId) {
+        if (!navId) {
+            return $();
         }
 
-        return normalize(document.title);
+        return $links.filter('[data-nav-id="' + navId + '"]').first();
     }
+    /* e : 퍼블전용 */
 
-    function getMenuTitle($link) {
-        return normalize($link.attr('title')) ||
-            normalize($link.text()) ||
-            normalize($link.find('img').attr('alt'));
-    }
-
-    function matchMenuByPath($link) {
-        var href = $link.attr('href') || '';
+    /* 메뉴 href가 실제 페이지 경로일 때 현재 URL과 비교해 활성 메뉴를 찾기 */
+    function findLinkByHref($links) {
         var currentPath = getPathname(window.location.pathname);
-        var linkPath = getPathname(href);
         var currentFileName = getFileName(currentPath);
-        var linkFileName = getFileName(linkPath);
-
-        if (!href || href === '#none' || href === '#') {
-            return false;
-        }
-
-        if (linkPath && currentPath === linkPath) {
-            return true;
-        }
-
-        if (linkFileName && currentFileName === linkFileName) {
-            return true;
-        }
-
-        return false;
-    }
-
-    function activateMenu(scope) {
-        var $scope = scope && scope.jquery ? scope : $(scope || document);
-        var $links = $scope.find('.side-menu a');
-        var pageTitle = getPageTitle();
-        var matched = false;
-
-        if (!$links.length || !pageTitle) {
-            $links.removeClass('on');
-            return false;
-        }
-
-        $links.removeClass('on');
+        var $currentLink = $();
+        var matchedLength = -1;
 
         $links.each(function () {
             var $link = $(this);
+            var linkPath = getPathname($link.attr('href'));
+            var linkFileName = getFileName(linkPath);
 
-            if (matchMenuByPath($link)) {
-                $link.addClass('on');
-                matched = true;
-                return false;
-            }
-        });
-
-        if (matched) {
-            return true;
-        }
-
-        $links.each(function () {
-            var $link = $(this);
-
-            if (getMenuTitle($link) === pageTitle) {
-                $link.addClass('on');
-                matched = true;
-                return false;
-            }
-        });
-
-        return matched;
-    }
-
-    function initSideNav(scope) {
-        var target = scope || document;
-        var tryCount = 0;
-
-        function run() {
-            tryCount += 1;
-
-            if (activateMenu(target)) {
+            if (!linkPath || linkPath === '#none' || linkPath === '#') {
                 return;
             }
 
-            if (tryCount < 20) {
-                setTimeout(run, 100);
+            if (linkPath === currentPath) {
+                $currentLink = $link;
+                matchedLength = linkPath.length;
+                return false;
             }
+
+            if (linkFileName && linkFileName === currentFileName && linkPath.length > matchedLength) {
+                $currentLink = $link;
+                matchedLength = linkPath.length;
+            }
+        });
+
+        return $currentLink;
+    }
+
+    window.initSideNav = function ($scope) {
+        var $nav = $scope && $scope.length ? $scope.find('.side-nav') : $('.side-nav');
+        /* s : 퍼블전용 */
+        var navId = getCurrentNavId();
+        /* e : 퍼블전용 */
+        var $links;
+        var $currentLink;
+
+        if (!$nav.length) {
+            return;
         }
 
-        run();
-    }
+        $links = $nav.find('.side-menu li a');
+        $links.removeClass('on');
 
-    if (!window.__sideNavInited) {
-        window.__sideNavInited = true;
+        /* href가 실제 경로로 들어오면 이 분기에서 활성 메뉴를 처리 */
+        $currentLink = findLinkByHref($links);
 
-        $(window).on('load', function () {
-            initSideNav(document);
-        });
+        /* s : 퍼블전용 */
+        if (!$currentLink.length) {
+            $currentLink = findLinkByNavId($links, navId);
+        }
+        /* e : 퍼블전용 */
 
-        $(document).on('include:loaded', function (event, path) {
-            if (path && path.indexOf('inc-nav.html') > -1) {
-                initSideNav(event.target);
+        if ($currentLink.length) {
+            $currentLink.addClass('on');
+        }
+    };
+
+    $(function () {
+        window.initSideNav();
+
+        $(document).on('include:loaded', '[data-include-path]', function (event, path, response, status) {
+            if (status === 'success' && path && path.indexOf('inc-nav.html') > -1) {
+                window.initSideNav($(this));
             }
         });
-    }
-
-    return initSideNav;
-})(jQuery);
+    });
+})();
