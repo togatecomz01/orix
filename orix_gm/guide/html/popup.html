@@ -14,6 +14,7 @@
     <script src="../../resource/js/nav.js"></script>
 
     <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../views/main/ORIX-AUTS-MAIN-003.html" rel="stylesheet">
 </head>
 <body>
     <div class="wrap">
@@ -34,6 +35,7 @@
                         <button type="button" class="btn-primary js-open-pop" onclick="javascript:view_info('INSERT');">등록</button>
                         <button type="button" class="btn-primary js-open-data-pop">data 팝업</button>
                         <button type="button" class="btn-primary js-open-password-pop">사용자확인 암호 입력</button>
+                        <button type="button" class="btn-primary js-open-editer-pop">메인 공지사항 에디터 팝업</button>
                     </div>
                 </div>
             </section>
@@ -64,6 +66,13 @@
                 var url = 'popup_password_input.html';
                 var name = 'dataPop';
                 var option = 'width=450,height=280,scrollbars=yes,resizable=yes';
+
+                window.open(url, name, option);
+            });
+            $('.js-open-editer-pop').on('click', function () {
+                var url = '../../views/main/ORIX-AUTS-MAIN-003.html';
+                var name = 'dataPop';
+                var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
 
                 window.open(url, name, option);
             });
