@@ -36,7 +36,7 @@ main.contentWrap .page-header { display:flex; justify-content:space-between; ali
 .user-links .btn-logout::before { content:""; position:absolute; top:50%; left:8px; transform:translateY(-50%); display:block; width:16px; height:16px; background:url("../../images/com/svg/btn_logout.svg") no-repeat center center; }
 
 /*** page-control ***/
-main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
+main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
 .page-control .control-header { display:table; width:100%; table-layout:fixed; margin-bottom:20px; }
 .page-control .control-header h2,
 .page-control .control-header .la-button { display:table-cell; vertical-align:middle; }
@@ -75,13 +75,12 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
     #그리드
 ============================================= */
 .grid-body { border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
-/*** 그리드 head ***/
+/** 그리드 head **/
 .grid-content .grid-head { display:table; width:100%; table-layout:fixed; margin-bottom:12px; }
 .grid-content .grid-head h3,
 .grid-content .grid-head .sm-button { display:table-cell; vertical-align:middle; }
 .grid-content .grid-head h3 { width:auto; }
 .grid-content .grid-head .sm-button { white-space:nowrap; text-align:right; }
-/*** 그리드 body ***/
 /** 그리드 캡션 **/
 .grid-caption { display:flex; justify-content:space-between; align-items:center; padding:14px 16px 12px; }
 /* 오른쪽 */
@@ -97,19 +96,6 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .grid-caption .m-dot li + li { margin-left:20px; }
 .grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; }
 .grid-caption .server-time { color:var(--secondary); vertical-align:middle; }
-
-/** 그리드 content **/
-/* 테이블 */
-th.tui-grid-cell-header,
-td.tui-grid-cell > div { font-size:var(--font14); }
-th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
-td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
-/* 유찰.낙찰 */
-.bid-win,
-.bid-fail { display:inline-block; font-size:var(--font14); font-weight:var(--font-w500); }
-.bid-fail { color:var(--color-9); }
-.bid-win { position: relative; color:var(--success-text); }
-.bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; vertical-align:top; }
 
 /* =============================================
     #사용자관리
@@ -147,6 +133,31 @@ body.popup { overflow:hidden; }
 /* pop-footer */
 .newPop .pop-content .pop-footer { -ms-flex:0 0 auto; flex:0 0 auto; margin-top:18px; }
 .newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
+
+/* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
+
+.newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
+.newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; min-height:0; padding:20px; border-radius:10px; overflow:hidden; }
+.download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
+
+/* 파일 다운로드 팝업 전용 */
+.download-pop .download-alert { flex:0 0 auto; margin:0 0 10px; padding: 14px 0 14px 0; border-radius:10px; background-color:#FBDEDE; color:var(--error-text); font-size:var(--font14); /* font-weight:var(--font-w500); */ text-align:center; }
+.download-pop .download-guide-list { margin:30px 0 0; padding:0; list-style:none; }
+.download-pop .download-guide-list li { position:relative; margin-top:10px; padding-left:14px; color:var(--color-45); font-size:var(--font16); font-weight: var(--font-w300); word-break:keep-all; }
+.download-pop .download-guide-list li:first-child { margin-top:0; }
+.download-pop .download-guide-list li::before { content:"·"; position:absolute; top:0; left:0; color:var(--color-45); }
+.download-pop .download-guide-note { position:relative; margin:30px 0 0; padding:10px 0 35px 32px; border-top:1px solid var(--color-d); color:var(--color-75); font-size:var(--font14); font-weight: var(--font-w400);}
+.download-pop .download-guide-note::before { content:""; position:absolute; top:8px; left:0; width:26px; height:26px; background:url("../../images/com/svg/info_rounded.svg") no-repeat center center / 26px 26px; }
+
+/* 사용자확인 암호입력 팝업 전용용 */
+.password-pop .pop-form-box { width:100%; max-width:300px; margin:30px auto 0; }
+.password-pop .pop-form-row { display:table; width:100%; table-layout:auto; }
+.password-pop .pop-form-row .label-tit { position:relative; display:table-cell; width:1%; padding:0 12px 0 18px; white-space:nowrap; vertical-align:middle; font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-75); }
+.password-pop .pop-form-row .label-tit::before { content:"·"; position:absolute; left:6px; top:50%; transform:translateY(-50%); font-weight:900; color:var(--color-75); }
+.password-pop .pop-input-box { display:table-cell; width:100%; vertical-align:middle; }
+.password-pop .pop-input-password,
+.password-pop .pop-input-text { width:100%; }
+
 
 /* =============================================
     #로그인 에러

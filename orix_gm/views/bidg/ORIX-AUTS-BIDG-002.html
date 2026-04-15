@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width:1200px, initial-scale=1.0" />
-    <title>공매입찰관리</title>
-
-    <link href="../../resource/css/ui-util.css" rel="stylesheet" />
-    <link href="../../resource/css/lib/tui-grid.css" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>윈도우 팝업-data download</title>
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
     <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
     <script src="../../resource/js/lib/jquery.form.min.js"></script>
-    <script src="../../resource/js/include.js"></script>
-    <script src="../../resource/js/nav.js"></script>
-    <script>
-        window.tui = window.tui || {};
-        window.tui.DatePicker = window.tui.DatePicker || function () {};
-        window.tui.Pagination = window.tui.Pagination || function () {};
-        window.XLSX = window.XLSX || {};
-    </script>
-    <script src="../../resource/js/lib/tui-grid.js"></script>
+    <script src="../../resource/js/common.js"></script>
+
+    <!-- <link rel="stylesheet" href="../css/sample.css" rel="stylesheet" -->
 </head>
-<body>
-    <div class="wrap">
-        <!-- S: 사이드메뉴 -->
-        <div data-include-path="../include/inc-nav.html"></div>
-        <!-- E: 사이드메뉴 -->
-
-        <main class="contentWrap">
-            <!-- S: 시스템 상단 -->
-            <section class="page-header">
-                <h1>데이터 다운로드 팝업</h1>
-            </section>
-            <!-- E: 시스템 상단 -->
-
-            <!-- S: 페이지 상단 -->
-            <section class="page-control">
-                <div class="control-header">
-                    <h2>오른쪽 버튼 클릭 →</h2>
-                    <div class="la-button">
-                        <button type="button" class="btn-primary js-open-data-pop">data 팝업</button>
-                    </div>
+<body class="popup">
+    <div class="newPop">
+        <div class="pop-content download-pop">
+            <p class="download-alert">모든 다운로드 데이터는 별도 이력 관리 서버에 저장 됩니다.</p>
+        
+            <div class="pop-body">
+                <h2 class="guide-tit">데이터 저장 및 다운로드 안내</h2>
+        
+                <ul class="download-guide-list">
+                    <li>사용자 컴퓨터의 엑셀프로그램을 실행시켜 데이터를 Excel시트에 기록합니다.</li>
+                    <li>데이터를 텍스트 문서로 다운받아 엑셀로 여시면 됩니다. 다운로드 시간이 짧습니다.</li>
+                </ul>
+        
+                <p class="download-guide-note">데이터 용량이 많을 경우 TEXT 다운로드를 권장합니다.</p>
+        
+                <div class="button-content sm-button">
+                    <button type="button" class="btn-icon excel">엑셀 다운로드</button>
+                    <button type="button" class="btn-icon text">TEXT 다운로드</button>
                 </div>
-            </section>
-            <!-- E: 페이지 상단 -->
-
-            <!-- S: 본문 -->
-            <section class="page-container">
-
-            </section>
-            <!-- E: 본문 -->
-        </main>
+            </div>
+        
+            <div class="pop-footer">
+                <div class="button-content">
+                    <button type="button" class="btn-pop-primary">확인</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        $(function () {
-            $('.js-open-data-pop').on('click', function () {
-                var url = 'popup_data.html';
-                var name = 'dataPop';
-                var option = 'width=490,height=520,scrollbars=yes,resizable=yes';
-
-                window.open(url, name, option);
-            });
-        });   
-    </script>
 </body>
 </html>
