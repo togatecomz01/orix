@@ -36,13 +36,12 @@ main.contentWrap .page-header { display:flex; justify-content:space-between; ali
 .user-links .btn-logout::before { content:""; position:absolute; top:50%; left:8px; transform:translateY(-50%); display:block; width:16px; height:16px; background:url("../../images/com/svg/btn_logout.svg") no-repeat center center; }
 
 /*** page-control ***/
-main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
+main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .page-control .control-header { display:table; width:100%; table-layout:fixed; margin-bottom:20px; }
 .page-control .control-header h2,
 .page-control .control-header .la-button { display:table-cell; vertical-align:middle; }
 .page-control .control-header h2 { width:auto; }
 .page-control .control-header .la-button { white-space:nowrap; text-align:right; }
-
 
 /* input */
 .flex-row .label-tit { position:relative; padding-left:10px; }
@@ -52,23 +51,20 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
     #공매입찰관리
 ============================================= */
 .page-control > .form-content { width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:#F8FAFB; box-sizing:border-box; }
-.page-control > .form-content > .form-wrap { display:table; width:100%; table-layout:fixed; }
-.page-control > .form-content > .form-wrap > .form-group { display:table-cell; vertical-align:middle; }
-.page-control > .form-content > .form-wrap > .form-group + .form-group > .flex-row { padding-left:20px; }
+.page-control > .form-content > .form-wrap { display:flex; width:auto; margin-left:-20px; flex-wrap:wrap; }
+.page-control > .form-content > .form-wrap > .form-group { display:block; padding-left:20px; box-sizing:border-box; vertical-align:middle; }
 
 .page-control > .form-content > .form-wrap > .form-group > .flex-row { display:table; width:100%; table-layout:auto; }
 .page-control > .form-content > .form-wrap > .form-group > .flex-row .label-tit { display:table-cell; width:1%; padding-left:10px; padding-right:10px; white-space:nowrap; vertical-align:middle; }
 .page-control > .form-content > .form-wrap > .form-group > .flex-row .field-box { display:table-cell; width:100%; vertical-align:middle; }
 .page-control > .form-content > .form-wrap > .form-group .field-box input,
 .page-control > .form-content > .form-wrap > .form-group .field-box select { width:100%; }
-.page-control > .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box input,
-.page-control > .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box select { width:100%; min-width:100px; }
 
 .page-control > .form-content > .form-wrap > .form-group.form-manage-no { width:26%; }
-.page-control > .form-content > .form-wrap > .form-group.form-car-no { width:16%; }
+.page-control > .form-content > .form-wrap > .form-group.form-car-no { width:16%; min-width:220px; }
 .page-control > .form-content > .form-wrap > .form-group.form-maker { width:20%; }
 .page-control > .form-content > .form-wrap > .form-group.form-model { width:22%; }
-.page-control > .form-content > .form-wrap > .form-group.form-status { width:16%; }
+.page-control > .form-content > .form-wrap > .form-group.form-status { width:16%; min-width:190px; }
 .page-control > .form-content > .form-wrap > .form-group.form-manage-no > .flex-row .field-box,
 .page-control > .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box,
 .page-control > .form-content > .form-wrap > .form-group.form-maker > .flex-row .field-box,
@@ -79,12 +75,13 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
     #그리드
 ============================================= */
 .grid-body { border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
-/** 그리드 head **/
+/*** 그리드 head ***/
 .grid-content .grid-head { display:table; width:100%; table-layout:fixed; margin-bottom:12px; }
 .grid-content .grid-head h3,
 .grid-content .grid-head .sm-button { display:table-cell; vertical-align:middle; }
 .grid-content .grid-head h3 { width:auto; }
 .grid-content .grid-head .sm-button { white-space:nowrap; text-align:right; }
+/*** 그리드 body ***/
 /** 그리드 캡션 **/
 .grid-caption { display:flex; justify-content:space-between; align-items:center; padding:14px 16px 12px; }
 /* 오른쪽 */
@@ -100,6 +97,19 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
 .grid-caption .m-dot li + li { margin-left:20px; }
 .grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; }
 .grid-caption .server-time { color:var(--secondary); vertical-align:middle; }
+
+/** 그리드 content **/
+/* 테이블 */
+th.tui-grid-cell-header,
+td.tui-grid-cell > div { font-size:var(--font14); }
+th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
+td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
+/* 유찰.낙찰 */
+.bid-win,
+.bid-fail { display:inline-block; font-size:var(--font14); font-weight:var(--font-w500); }
+.bid-fail { color:var(--color-9); }
+.bid-win { position: relative; color:var(--success-text); }
+.bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; vertical-align:top; }
 
 /* =============================================
     #사용자관리

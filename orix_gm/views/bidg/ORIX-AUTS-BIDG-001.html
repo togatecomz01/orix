@@ -111,7 +111,9 @@
                         <div class="sm-button">
                             <button type="button" class="btn-primary disabled">입찰</button>
                             <button type="button" class="btn-icon bid disabled">일괄 입찰</button>
-                            <button type="button" class="btn-icon download">공매입찰 기록</button>
+                            <!-- s: 관리자 계정 접속시에만 노출 -->
+                            <button type="button" class="btn-icon download">공매 입찰 기록</button>
+                            <!-- e: 관리자 계정 접속시에만 노출 -->
                         </div>
                     </div>
                     <div class="grid-body">
@@ -130,7 +132,7 @@
                                 <li>종료일시 : <input type="text" class="noline" id="bidEndText" readonly value="2026-03-11 17:00:00"></li>
                                 <li>
                                     서버일시 :
-                                    <span id="svtime" class="server-time">2026-03-24 13:50:00</span>
+                                    <span id="svtime" class="server-time">2026-04-10 13:50:00</span>
                                     <input type="hidden" id="gaptime" name="gaptime">
                                 </li>
                             </ul>
@@ -145,6 +147,10 @@
 
     <script>
         var grid;
+
+        function setTotalCount(count) {
+            $('.grid-caption .total span').text(count);
+        }
 
         // 'YYYY-MM-DD HH:mm:ss' 형식의 문자열을 Date 객체로 변환
         function parseDateTime(value) {
@@ -193,18 +199,65 @@
             return item;
         }
 
-        // 서버시간과 입찰 시작/종료 시간을 비교해 상단 상태 태그와 기간 정보를 갱신
-        function setBidStatus(item) {
-            var $bidStatNm = $('#bidStatNm');
+        // 상태명 기준으로 태그 클래스를 반환한다.
+        function getBidStatusClass(statusText) {
+            if (statusText === '입찰 진행중') {
+                return 'tag-ing';
+            }
+
+            if (statusText === '입찰 시간 종료' || statusText === '공매 완료') {
+                return 'tag-end';
+            }
+
+            if (statusText === '입찰 시간 전') {
+                return 'tag-error';
+            }
+
+            return 'tag-success';
+        }
+
+        // 서버시간과 입찰 시작/종료 시간을 기준으로 화면에 표시할 상태 정보를 계산
+        function getBidStatusInfo(item) {
             var serverTime = parseDateTime($('#svtime').text());
             var bidStart = item ? parseDateTime(item.BID_START_DATE) : null;
             var bidEnd = item ? parseDateTime(item.BID_END_DATE) : null;
             var statusText = '';
 
             if (!item) {
+                return {
+                    statusText: '',
+                    statusClass: ''
+                };
+            }
+
+            statusText = item.BID_STAT_NM;
+
+            if (item.BID_STAT === 'AU110001') {
+                statusText = '입찰 진행중';
+
+                if (serverTime && bidStart && bidEnd) {
+                    if (serverTime.getTime() < bidStart.getTime()) {
+                        statusText = '입찰 시간 전';
+                    } else if (serverTime.getTime() > bidEnd.getTime()) {
+                        statusText = '입찰 시간 종료';
+                    }
+                }
+            }
+
+            return {
+                statusText: statusText,
+                statusClass: getBidStatusClass(statusText)
+            };
+        }
+
+        // 상단 상태 태그와 기간 정보를 갱신한다.
+        function setBidStatus(item) {
+            var $bidStatNm = $('#bidStatNm');
+            var statusInfo = getBidStatusInfo(item);
+
+            if (!item) {
                 $bidStatNm.val('');
                 $bidStatNm.removeClass('tag-end tag-ing tag-success tag-error');
-                $bidStatNm.css('color', '');
                 $('#bidStartText').val('');
                 $('#bidEndText').val('');
                 return;
@@ -213,46 +266,9 @@
             $('#bidStartText').val(item.BID_START_DATE);
             $('#bidEndText').val(item.BID_END_DATE);
 
-            if (item.BID_STAT === 'AU110001') {
-                statusText = '입찰 진행중';
-            } else {
-                statusText = item.BID_STAT_NM;
-            }
-
-            if (serverTime && bidStart && bidEnd) {
-                if (serverTime.getTime() >= bidStart.getTime()) {
-                    if (serverTime.getTime() <= bidEnd.getTime()) {
-                        statusText = '입찰 진행중';
-                    } else if (item.BID_STAT === 'AU110001') {
-                        statusText = '입찰 시간 종료';
-                    } else {
-                        statusText = item.BID_STAT_NM;
-                    }
-                } else if (item.BID_STAT === 'AU110001') {
-                    statusText = '입찰 시간 전';
-                } else {
-                    statusText = item.BID_STAT_NM;
-                }
-            }
-
-            $bidStatNm.val(statusText);
+            $bidStatNm.val(statusInfo.statusText);
             $bidStatNm.removeClass('tag-end tag-ing tag-success tag-error');
-
-            if (statusText === '입찰 진행중') {
-                $bidStatNm.addClass('tag-ing');
-            } else if (statusText === '입찰 시간 종료' || statusText === '공매 완료') {
-                $bidStatNm.addClass('tag-end');
-            } else if (statusText === '입찰 시간 전') {
-                $bidStatNm.addClass('tag-error');
-            } else {
-                $bidStatNm.addClass('tag-success');
-            }
-
-            if (item.BID_STAT === 'AU110009') {
-                $bidStatNm.css('color', '#3182EE');
-            } else {
-                $bidStatNm.css('color', 'black');
-            }
+            $bidStatNm.addClass(statusInfo.statusClass);
         }
 
         // 원화 금액을 만원 단위 문자열로 변환
@@ -265,6 +281,56 @@
 
             return String(Math.floor(number / 10000)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
+
+        function formatContractYn(value) {
+            var text = value || '';
+            var className = '';
+
+            if (text === '낙찰') {
+                className = 'bid-win';
+            } else if (text === '유찰') {
+                className = 'bid-fail';
+            }
+
+            if (!className) {
+                return text;
+            }
+
+            return '<span class="' + className + '">' + text + '</span>';
+        }
+
+        function BidPriceInputRenderer(props) {
+            var el = document.createElement('input');
+
+            this.el = el;
+            this.rowKey = props.rowKey;
+            this.grid = props.grid;
+
+            el.type = 'text';
+            el.className = 'grid-input-price';
+            el.setAttribute('inputmode', 'numeric');
+            el.value = formatPriceToManwon(props.value);
+
+            $(el).on('mousedown click', function (ev) {
+                ev.stopPropagation();
+            });
+
+            $(el).on('input', $.proxy(function () {
+                var inputValue = this.el.value.replace(/[^0-9]/g, '');
+
+                this.el.value = inputValue;
+                this.grid.setValue(this.rowKey, 'BID_PRICE', inputValue);
+            }, this));
+        }
+
+        BidPriceInputRenderer.prototype.getElement = function () {
+            return this.el;
+        };
+
+        BidPriceInputRenderer.prototype.render = function (props) {
+            this.rowKey = props.rowKey;
+            this.el.value = formatPriceToManwon(props.value).replace(/[^0-9]/g, '');
+        };
 
         // 화면 확인용 샘플 데이터.
         // 실제 개발 시에는 조회 API 응답 구조에 맞춰 교체
@@ -359,6 +425,7 @@
             }
 
             grid.resetData(filteredList);
+            setTotalCount(filteredList.length);
             setBidStatus(currentItem);
         }
 
@@ -372,6 +439,7 @@
             }
 
             grid.resetData(list);
+            setTotalCount(list.length);
             setBidStatus(currentItem);
         }
 
@@ -390,23 +458,23 @@
                 scrollY: true,
                 columns: [
                     { header: 'No', name: 'ROW_NUM', width: 60, align: 'center', sortable: false, formatter: function (value) { return value.row.rowKey + 1; } },
-                    { header: '차량번호', name: 'CAR_NO', width: 100, sortable: true, filter: 'text' },
+                    { header: '차량번호', name: 'CAR_NO', width: 80, sortable: true, filter: 'text' },
                     { header: '제조사', name: 'CAR_MAKER', width: 100, sortable: true, filter: 'text' },
-                    { header: '차종', name: 'CAR_NAME', width: 110, sortable: true, filter: 'text' },
-                    { header: '모델명', name: 'CAR_MODEL', width: 160, sortable: true, filter: 'text' },
+                    { header: '차종', name: 'CAR_NAME', width: 164, sortable: true, filter: 'text' },
+                    { header: '모델명', name: 'CAR_MODEL', width: 260, sortable: true, filter: 'text' },
                     { header: '색상', name: 'CAR_COLOR', width: 80, sortable: true, filter: 'text' },
-                    { header: '연식', name: 'CAR_OLD', width: 70, align: 'center', sortable: true },
+                    { header: '연식', name: 'CAR_OLD', width: 80, align: 'center', sortable: true },
                     { header: '배기량', name: 'CAR_CC', width: 80, align: 'right', sortable: true },
-                    { header: '주행거리', name: 'CAR_DRIVEKM', width: 90, align: 'right', sortable: true },
-                    { header: '주차장', name: 'CAR_PARK', width: 90, sortable: true },
-                    { header: '차대번호', name: 'CAR_BODY_NO', width: 180, sortable: true },
-                    { header: '입찰가격(만원)', name: 'BID_PRICE', width: 110, align: 'right', sortable: true, formatter: function (value) { return formatPriceToManwon(value.value); } },
+                    { header: '주행거리', name: 'CAR_DRIVEKM', width: 80, align: 'right', sortable: true },
+                    { header: '주차장', name: 'CAR_PARK', width: 80, sortable: true },
+                    { header: '차대번호', name: 'CAR_BODY_NO', width: 170, sortable: true },
+                    { header: '입찰가격(만원)', name: 'BID_PRICE', width: 120, align: 'right', sortable: true, renderer: { type: BidPriceInputRenderer } },
                     // S : 공매 완료 시 추가. 퍼블본에서는 화면 확인용으로 노출
-                    { header: '최고가(만원)', name: 'BID_MAX_PRICE', width: 110, align: 'right', sortable: true, formatter: function (value) { return formatPriceToManwon(value.value); } },
-                    { header: '낙찰구분', name: 'CONTRACT_YN', width: 90, align: 'center', sortable: true },
+                    { header: '최고가(만원)', name: 'BID_MAX_PRICE', width: 120, align: 'right', sortable: true, formatter: function (value) { return formatPriceToManwon(value.value); } },
+                    { header: '낙찰구분', name: 'CONTRACT_YN', width: 80, align: 'center', sortable: true, formatter: function (value) { return formatContractYn(value.value); } },
                     // E : 공매 완료 시 추가. 퍼블본에서는 화면 확인용으로 노출
                     // S : 관리자 계정에서만 노출. 퍼블본에서는 화면 확인용으로 노출
-                    { header: '낙찰업체', name: 'BID_WINNER_MEM_ID', width: 130, sortable: true }
+                    { header: '낙찰업체', name: 'BID_WINNER_MEM_ID', width: 201, sortable: true }
                     // E : 관리자 계정에서만 노출. 퍼블본에서는 화면 확인용으로 노출
                 ],
                 columnOptions: {

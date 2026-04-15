@@ -15,7 +15,7 @@ body { position: relative; min-width:1200px; height:100%; -webkit-text-size-adju
 .wrap { position: relative; margin: 0 auto; display:block; /*overflow: hidden;*/ min-width:1200px; }
 body.popup { min-width:0; overflow:auto; }
 
-main.contentWrap { -webkit-box-flex:1; -ms-flex:1 1 auto; flex:1 1 auto; padding:0 30px 0 90px; min-height:0; min-width:0; -webkit-overflow-scrolling:touch; position:relative; overflow-anchor:none; box-sizing:border-box; }
+main.contentWrap { -webkit-box-flex:1; -ms-flex:1 1 auto; flex:1 1 auto; padding:0 30px 30px 90px; min-height:0; min-width:0; -webkit-overflow-scrolling:touch; position:relative; overflow-anchor:none; box-sizing:border-box; }
 main.contentWrap > * { width:100%; box-sizing:border-box; }
 /* main.contentWrap > .visual-container,
 main.contentWrap > .page-container { min-width:1200px; margin:0 auto; } */
@@ -36,7 +36,7 @@ main.contentWrap img { max-width:100%; }
     #컨텐츠
 ---------------------------------------------*/
 
-main.contentWrap > .page-container { padding-top:34px; }
+main.contentWrap > .page-container { padding-top:30px; }
 /**text-content, text-group*, process-content, process-gruop */
 .page-container > [class*="-content"] > .group,
 .page-container > [class*="-content"] > [class*="-group"],
