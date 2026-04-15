@@ -60,7 +60,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .form-content > .form-wrap > .form-group.form-car-no > .flex-row .field-box input,
 .form-content > .form-wrap > .form-group.form-status > .flex-row .field-box select { width:100%; min-width:100px; }
 
-.form-content > .form-wrap > .form-group.form-manage-no { width:26%; }
+.form-content > .form-wrap > .form-group.form-manage-no > .flex-row .field-box select { width:26%; }
 .form-content > .form-wrap > .form-group.form-car-no { width:16%; }
 .form-content > .form-wrap > .form-group.form-maker { width:20%; }
 .form-content > .form-wrap > .form-group.form-model { width:22%; }
@@ -75,12 +75,13 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
     #그리드
 ============================================= */
 .grid-body { border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
-/** 그리드 head **/
+/*** 그리드 head ***/
 .grid-content .grid-head { display:table; width:100%; table-layout:fixed; margin-bottom:12px; }
 .grid-content .grid-head h3,
 .grid-content .grid-head .sm-button { display:table-cell; vertical-align:middle; }
 .grid-content .grid-head h3 { width:auto; }
 .grid-content .grid-head .sm-button { white-space:nowrap; text-align:right; }
+/*** 그리드 body ***/
 /** 그리드 캡션 **/
 .grid-caption { display:flex; justify-content:space-between; align-items:center; padding:14px 16px 12px; }
 /* 오른쪽 */
@@ -170,7 +171,6 @@ body.popup { overflow:hidden; }
 .password-pop .pop-input-box { display:table-cell; width:100%; vertical-align:middle; }
 .password-pop .pop-input-password,
 .password-pop .pop-input-text { width:100%; }
-
 
 /* =============================================
     #로그인 에러
