@@ -36,7 +36,7 @@ main.contentWrap .page-header { display:flex; justify-content:space-between; ali
 .user-links .btn-logout::before { content:""; position:absolute; top:50%; left:8px; transform:translateY(-50%); display:block; width:16px; height:16px; background:url("../../images/com/svg/btn_logout.svg") no-repeat center center; }
 
 /*** page-control ***/
-main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
+main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .page-control .control-header { display:table; width:100%; table-layout:fixed; margin-bottom:20px; }
 .page-control .control-header h2,
 .page-control .control-header .la-button { display:table-cell; vertical-align:middle; }
@@ -96,6 +96,19 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:28px; }
 .grid-caption .m-dot li + li { margin-left:20px; }
 .grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; }
 .grid-caption .server-time { color:var(--secondary); vertical-align:middle; }
+
+/** 그리드 content **/
+/* 테이블 */
+th.tui-grid-cell-header,
+td.tui-grid-cell > div { font-size:var(--font14); }
+th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
+td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
+/* 유찰.낙찰 */
+.bid-win,
+.bid-fail { display:inline-block; font-size:var(--font14); font-weight:var(--font-w500); }
+.bid-fail { color:var(--color-9); }
+.bid-win { position: relative; color:var(--success-text); }
+.bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; vertical-align:top; }
 
 /* =============================================
     #사용자관리
