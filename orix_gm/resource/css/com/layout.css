@@ -273,7 +273,12 @@ main.contentWrap > .bottom-container { margin-top:72px; }
 
 /** 로딩 **/
 .loading-content { position:fixed; display:flex; justify-content:center; align-items:center; right:0; top:0; bottom:0; z-index:101; width:100%; height:100vh; min-height:100%; background:rgba(0, 0, 0, 0.15); }
-.loader { width:50px; aspect-ratio:1; border-radius:50%; background:radial-gradient(farthest-side,#02294A 94%,#0000) top/8px 8px no-repeat, conic-gradient(#0000 30%,#02294A); -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0); animation:l13 1s infinite linear; }
-@keyframes l13{
-    100%{transform: rotate(1turn)}
+.loader { display:flex; align-items:flex-end; justify-content:center; gap:12px; width:116px; height:80px; margin:0; border:0; border-radius:0; animation:unset; }
+.loader .bar { width:12px; border-radius:30px; animation:barAnimation 2s ease-in-out infinite; }
+.loader .bar:nth-child(1) { background-color:var(--primary); animation-delay:0s; }
+.loader .bar:nth-child(2) { background-color:#B9082D; animation-delay:0.3s; }
+.loader .bar:nth-child(3) { background-color:var(--primary); animation-delay:0.5s; }
+@keyframes barAnimation {
+    0%, 50%, 100% { width:20px; height:20px; transform:scaleY(1); }
+    25%, 75% { width:20px; height:80px; transform:scaleY(1); }
 }

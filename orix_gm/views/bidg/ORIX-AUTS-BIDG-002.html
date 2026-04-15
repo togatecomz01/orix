@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ORIX UI GUIDE - Popup</title>
+    <meta name="viewport" content="width:1200px, initial-scale=1.0" />
+    <title>공매입찰관리</title>
 
-    <link href="../../resource/css/ui-util.css" rel="stylesheet">
-    <link href="../../resource/css/" rel="stylesheet">
+    <link href="../../resource/css/ui-util.css" rel="stylesheet" />
+    <link href="../../resource/css/lib/tui-grid.css" rel="stylesheet" />
+
     <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
     <script src="../../resource/js/lib/jquery.form.min.js"></script>
     <script src="../../resource/js/include.js"></script>
     <script src="../../resource/js/nav.js"></script>
-
-    <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
+    <script>
+        window.tui = window.tui || {};
+        window.tui.DatePicker = window.tui.DatePicker || function () {};
+        window.tui.Pagination = window.tui.Pagination || function () {};
+        window.XLSX = window.XLSX || {};
+    </script>
+    <script src="../../resource/js/lib/tui-grid.js"></script>
 </head>
 <body>
     <div class="wrap">
         <!-- S: 사이드메뉴 -->
-        <div data-include-path="../../views/include/inc-nav.html"></div>
+        <div data-include-path="../include/inc-nav.html"></div>
         <!-- E: 사이드메뉴 -->
 
         <main class="contentWrap">
             <!-- S: 시스템 상단 -->
             <section class="page-header">
-                <h1>POPUP</h1>
+                <h1>데이터 다운로드 팝업</h1>
             </section>
+            <!-- E: 시스템 상단 -->
+
             <!-- S: 페이지 상단 -->
             <section class="page-control">
                 <div class="control-header">
                     <h2>오른쪽 버튼 클릭 →</h2>
                     <div class="la-button">
-                        <button type="button" class="btn-primary js-open-pop" onclick="javascript:view_info('INSERT');">등록</button>
                         <button type="button" class="btn-primary js-open-data-pop">data 팝업</button>
-                        <button type="button" class="btn-primary js-open-password-pop">사용자확인 암호 입력</button>
                     </div>
                 </div>
             </section>
             <!-- E: 페이지 상단 -->
+
             <!-- S: 본문 -->
             <section class="page-container">
+
             </section>
             <!-- E: 본문 -->
         </main>
     </div>
+
     <script>
         $(function () {
-            $('.js-open-pop').on('click', function () {
-                var url = 'popup_layout.html';
-                var name = 'carDetailPop';
-                var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
-
-                window.open(url, name, option);
-            });
             $('.js-open-data-pop').on('click', function () {
                 var url = 'popup_data.html';
                 var name = 'dataPop';
@@ -60,14 +62,7 @@
 
                 window.open(url, name, option);
             });
-            $('.js-open-password-pop').on('click', function () {
-                var url = 'popup_password_input.html';
-                var name = 'dataPop';
-                var option = 'width=450,height=280,scrollbars=yes,resizable=yes';
-
-                window.open(url, name, option);
-            });
-        });
+        });   
     </script>
 </body>
 </html>

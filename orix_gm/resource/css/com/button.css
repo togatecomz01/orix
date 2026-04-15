@@ -133,8 +133,9 @@ button.btn-icon.download { background-image:url("../../images/com/svg/ico_downlo
 button.btn-icon.bid { background-image:url("../../images/com/svg/Ico_link2.svg"); }
 button.btn-icon.bid.disabled { background-image:url("../../images/com/svg/ico_link2_dis.svg"); }
 button.btn-icon.excel { background-image:url("../../images/ico_excel.png"); background-size:28px 28px; background-position:left 9px center; }
+button.btn-icon.text { background-image:url("../../images/ico_txt.png"); background-size:28px 28px; background-position:left 9px center; }
 
 .sm-button button.btn-icon.excel { background-size:22px 22px; }
-
+.sm-button button.btn-icon.text {background-size: 26px 26px;}
 /* disabled button */
 button.disabled { border:1px solid var(--color-d); background-color:#E9E7E7; color:var(--color-9); }
