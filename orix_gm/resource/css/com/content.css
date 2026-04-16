@@ -83,7 +83,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 /* =============================================
     #그리드
 ============================================= */
-.grid-body { border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
+.grid-body { overflow:hidden; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 /*** 그리드 head ***/
 .grid-content .grid-head { display:table; width:100%; table-layout:fixed; margin-bottom:12px; }
 .grid-content .grid-head h3,
@@ -92,7 +92,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .grid-content .grid-head .sm-button { white-space:nowrap; text-align:right; }
 /*** 그리드 body ***/
 /** 그리드 캡션 **/
-.grid-caption { display:flex; justify-content:space-between; align-items:center; padding:14px 16px 12px; }
+.grid-caption { display:flex; justify-content:space-between; align-items:center; padding:13px 16px 11px; }
 /* 오른쪽 */
 .grid-caption .caption-left .tag-end { margin-right:8px; }
 .grid-caption .caption-left .total { font-family:'S-Core Dream'; font-size:var(--font14); font-weight:var(--font-w200); }
@@ -113,29 +113,57 @@ th.tui-grid-cell-header,
 td.tui-grid-cell > div { font-size:var(--font14); }
 th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
 td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
-td.tui-grid-cell .tui-grid-cell-content { padding:0; }
+td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30px; }
+
 /* 숫자 체크 */
 .tui-grid-container .grid-row-check { display:inline-block; width:14px; height:14px; background:url("../../images/ico_num_chk.png") no-repeat center center / 14px auto; vertical-align:middle; }
 .tui-grid-container .is-checked-row .tui-grid-cell,
 .tui-grid-container .tui-grid-cell.is-checked-cell { background-color:#E5EFFF; }
 .tui-grid-container .tui-grid-cell.is-checked-cell .grid-fake-input { background-color:#E5EFFF; }
+
+/* 가로 스크롤 */
+.grid-body .tui-grid-scrollbar-left-bottom { left:1px; right:1px; bottom:1px; height:16px; border:0; border-radius:0 0 10px 10px; overflow:hidden; }
+.grid-body .tui-grid-scrollbar-right-bottom { right:1px; bottom:1px; width:16px; border:0; border-radius:0 0 10px 0; overflow:hidden; }
+.grid-body .tui-grid-scrollbar-y-inner-border,
+.grid-body .tui-grid-scrollbar-y-outer-border,
+.grid-body .tui-grid-scrollbar-frozen-border { display:none; }
+.grid-body .tui-grid-container ::-webkit-scrollbar { width:16px; height:16px; }
+.grid-body .tui-grid-container ::-webkit-scrollbar-track { border-radius:999px; background-color:transparent; }
+.grid-body .tui-grid-container ::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:999px; background-color:#02104A60; background-clip:content-box; }
+
 /* 입찰가격 */
 .tui-grid-container .grid-fake-input { display:block; height:30px; padding:0 6px; border:1px solid var(--color-d); border-radius:3px; background-color:#F5F6F8; color:var(--color-45); text-align:right; line-height:28px; box-sizing:border-box; }
 .tui-grid-body-container .tui-grid-layer-editing { padding:7px 5px; box-sizing:border-box; }
 .tui-grid-body-container .tui-grid-layer-editing input[type='text'] { width:100%; height:30px !important; padding:0 6px; border:1px solid var(--color-45); border-radius:3px; background-color:var(--color-f); color:var(--color-45); text-align:right; line-height:28px; box-sizing:border-box; }
+
 /* 유찰.낙찰 */
 .bid-win,
 .bid-fail { display:inline-block; font-size:var(--font14); font-weight:var(--font-w500); }
 .bid-fail { color:var(--color-9); }
 .bid-win { position: relative; color:var(--success-text); }
-.bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; vertical-align:top; }
+.bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; }
 
 /* 빈 데이터 */
 .grid-caption .caption-left .bid-status-tag.is-hidden { display:none; }
-.tui-grid-layer-state .tui-grid-layer-state-content { padding-top:54px; }
-.grid-body .tui-grid-layer-state p { top:50%; left:0; right:0; font-size:var(--font24); font-weight:var(--font-w600); line-height:30px; color:var(--color-2); transform:translateY(-50%); }
+.grid-body .tui-grid-layer-state p { top:60%; left:0; right:0; font-size:var(--font24); font-weight:var(--font-w600); line-height:30px; color:var(--color-2); transform:translateY(-60%); }
 .grid-body .tui-grid-layer-state p::before { content:""; position:absolute; bottom:60px; width:186px; height:175px; background:url("../../images/img_grid_nodata.png") no-repeat center center / 186px 175px; }
 .grid-body .tui-grid-layer-state p::after { content:"조회 조건을 설정한 뒤 공매 입찰관리 내역을 조회해 주세요"; display:block; margin-top:9px; font-size:var(--font18); font-weight:var(--font-w400); line-height:24px; color:var(--color-75); }
+
+/* 드래그 선택 영역 */
+.tui-grid-content-area .tui-grid-layer-selection {
+    background-color:#E5EFFF;
+    border-color: rgb(255, 255, 255);
+}
+
+/* 클릭 포커스 테두리 */
+.tui-grid-content-area .tui-grid-layer-focus-border {
+    background-color:var(--secondary);
+}
+
+/* 선택된 헤더/셀 느낌 조정이 필요할 때 */
+.tui-grid-content-area .tui-grid-cell-selected {
+    background-color:#E5EFFF;
+}
 
 /* =============================================
     #사용자관리
@@ -218,9 +246,9 @@ body.popup { overflow:hidden; }
 /* =============================================
     #로그인
 ============================================= */
-.wrap.login { height:100%; background:#F2F3F8; overflow:hidden; }
-.wrap.login .contentWrap { display:flex; -ms-flex-direction:column; flex-direction:column; -ms-flex-align:center; align-items:center; -ms-flex-pack:center; justify-content:center; width:100%; height:100%; padding:0 30px; overflow:hidden; }
-.wrap.login .login-container { width:1200px; }
+.wrap.login { height:100%; background:#F2F3F8; overflow-x:hidden; }
+.wrap.login .contentWrap { display:block; width:100%; height:100%; padding:0 30px;  overflow-x:hidden; }
+.wrap.login .login-container { width:1200px; margin:160px auto 0; }
 .wrap.login .login-content { position:relative; padding:20px 50px 20px 600px; border-radius:20px; background-color:var(--color-f); box-shadow:3px 3px 10px 0 rgba(18, 18, 18, 0.20); }
 .wrap.login .login-content::before { content:""; position:absolute; top:20px; left:20px; width:580px; height:592px; border-radius:12px; background:url("../../images/login_banner.png") no-repeat left top; background-size:580px 592px; }
 .wrap.login .login-form { padding-left:50px; }
@@ -248,7 +276,7 @@ body.popup { overflow:hidden; }
 
 .login-guide { margin-top:40px; padding:30px 0 14px; border-top:1px solid var(--color-d); font-size:var(--font16); color:var(--color-75); text-align:center; }
 
-.footer-wrap { position:absolute; left:0; right:0; bottom:20px; margin:34px 0 20px; text-align:center; border-top:0; }
+.footer-wrap { margin:67px 0 20px; text-align:center; border-top:0; }
 .footer-wrap p { font-size:var(--font16); color:var(--color-75); }
 
 /* =============================================

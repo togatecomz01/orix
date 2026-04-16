@@ -19,6 +19,7 @@
         window.tui.Pagination = window.tui.Pagination || function () {};
         window.XLSX = window.XLSX || {};
     </script>
+    <script src="../../resource/js/mock/bidg-sample-data.js"></script>
     <script src="../../resource/js/lib/tui-grid.js"></script>
 </head>
 <body data-nav-id="bidg">
@@ -48,8 +49,10 @@
                                 <label for="bidNo" class="label-tit">관리번호</label>
                                 <div class="field-box">
                                     <select name="bidNo" id="bidNo">
-                                        <option value="240401" selected="selected">227차 2026년 04-1회 04-06~04-08</option>
-                                        <option value="240402">227차 2026년 03-1회 03-09~03-11</option>
+                                        <option value="260501" selected="selected">228차 2026년 05-1회 05-04~05-06</option>
+                                        <option value="260401">227차 2026년 04-1회 04-06~04-08</option>
+                                        <option value="260301">226차 2026년 03-1회 03-09~03-11</option>
+                                        <option value="260201">225차 2026년 02-1회 02-02~02-04</option>
                                     </select>
                                 </div>
                             </div>
@@ -67,7 +70,7 @@
                                 <label for="maker" class="label-tit">제조사</label>
                                 <div class="field-box">
                                     <select name="maker" id="maker">
-                                        <option value="" selected="selected">선택해주세요.</option>
+                                        <option value="" selected="selected">제조사 선택</option>
                                         <option value="현대">현대</option>
                                         <option value="기아">기아</option>
                                     </select>
@@ -79,7 +82,7 @@
                                 <label for="carName" class="label-tit">차종</label>
                                 <div class="field-box">
                                     <select name="carName" id="carName">
-                                        <option value="" selected="selected">선택해주세요.</option>
+                                        <option value="" selected="selected"></option>
                                         <option value="그랜저">그랜저</option>
                                         <option value="K5">K5</option>
                                     </select>
@@ -119,7 +122,7 @@
                     <div class="grid-body">
                         <div class="grid-caption">
                             <div class="caption-left">
-                                <input type="text" class="tag-end" id="bidStatNm" name="BID_STAT_NM" value="입찰 시간 종료" readonly />
+                                <input type="text" class="bid-status-tag tag-end is-hidden" id="bidStatNm" name="BID_STAT_NM" value="" readonly />
                                 <!--
                                     tag-end : 입찰 시간 종료, 공매 완료
                                     tag-ing : 입찰 진행중
@@ -132,7 +135,7 @@
                                 <li>종료일시 : <input type="text" class="noline" id="bidEndText" readonly value="2026-03-11 17:00:00"></li>
                                 <li>
                                     서버일시 :
-                                    <span id="svtime" class="server-time">2026-04-10 13:50:00</span>
+                                    <span id="svtime" class="server-time">2026-04-08 13:50:00</span>
                                     <input type="hidden" id="gaptime" name="gaptime">
                                 </li>
                             </ul>
@@ -148,11 +151,13 @@
     <script>
         var grid;
 
+        // 그리드 총 건수를 상단에 표시한다.
         function setTotalCount(count) {
             $('.grid-caption .total span').text(count);
         }
 
-        // 'YYYY-MM-DD HH:mm:ss' 형식의 문자열을 Date 객체로 변환
+        //******* [D]s : 퍼블 테스트용 *******//
+        // 날짜/시간 문자열을 Date 객체로 변환한다.
         function parseDateTime(value) {
             var dateTime = value || '';
             var parts = dateTime.split(' ');
@@ -176,8 +181,7 @@
             );
         }
 
-        // 현재 선택된 관리번호 기준으로 상태 표시 대상 입찰건을 찾기
-        // 선택값이 없거나 일치 데이터가 없으면 첫 번째 데이터를 기본값으로 사용
+        // 현재 선택된 관리번호에 맞는 입찰 데이터를 찾는다.
         function getCurrentBidItem(list) {
             var bidNo = $('#bidNo').val();
             var item = null;
@@ -199,7 +203,7 @@
             return item;
         }
 
-        // 상태명 기준으로 태그 클래스를 반환한다.
+        // 입찰 상태명에 맞는 태그 클래스를 반환한다.
         function getBidStatusClass(statusText) {
             if (statusText === '입찰 진행중') {
                 return 'tag-ing';
@@ -216,12 +220,13 @@
             return 'tag-success';
         }
 
-        // 서버시간과 입찰 시작/종료 시간을 기준으로 화면에 표시할 상태 정보를 계산
+        // 퍼블 테스트용으로 서버시간과 입찰 기간을 비교해 상단 상태값을 계산한다.
+        // BID_STAT 같은 상태코드는 현재 화면에서 별도 사용하지 않고, 시작/종료일시 기준으로만 표시한다.
         function getBidStatusInfo(item) {
             var serverTime = parseDateTime($('#svtime').text());
             var bidStart = item ? parseDateTime(item.BID_START_DATE) : null;
             var bidEnd = item ? parseDateTime(item.BID_END_DATE) : null;
-            var statusText = '';
+            var statusText = item ? (item.BID_STAT_NM || '') : '';
 
             if (!item) {
                 return {
@@ -230,17 +235,13 @@
                 };
             }
 
-            statusText = item.BID_STAT_NM;
-
-            if (item.BID_STAT === 'AU110001') {
+            if (serverTime && bidStart && bidEnd) {
                 statusText = '입찰 진행중';
 
-                if (serverTime && bidStart && bidEnd) {
-                    if (serverTime.getTime() < bidStart.getTime()) {
-                        statusText = '입찰 시간 전';
-                    } else if (serverTime.getTime() > bidEnd.getTime()) {
-                        statusText = '입찰 시간 종료';
-                    }
+                if (serverTime.getTime() < bidStart.getTime()) {
+                    statusText = '입찰 시간 전';
+                } else if (serverTime.getTime() > bidEnd.getTime()) {
+                    statusText = '입찰 시간 종료';
                 }
             }
 
@@ -250,7 +251,7 @@
             };
         }
 
-        // 상단 상태 태그와 기간 정보를 갱신한다.
+        // 상단 상태 태그와 시작/종료일시
         function setBidStatus(item) {
             var $bidStatNm = $('#bidStatNm');
             var statusInfo = getBidStatusInfo(item);
@@ -258,6 +259,7 @@
             if (!item) {
                 $bidStatNm.val('');
                 $bidStatNm.removeClass('tag-end tag-ing tag-success tag-error');
+                $bidStatNm.addClass('is-hidden');
                 $('#bidStartText').val('');
                 $('#bidEndText').val('');
                 return;
@@ -268,9 +270,28 @@
 
             $bidStatNm.val(statusInfo.statusText);
             $bidStatNm.removeClass('tag-end tag-ing tag-success tag-error');
+            $bidStatNm.removeClass('is-hidden');
             $bidStatNm.addClass(statusInfo.statusClass);
         }
+        //******* [D]e : 퍼블 테스트용 *******//
 
+        // title
+        function syncFormFieldTitles() {
+            $('.form-content .field-box input, .form-content .field-box select').each(function () {
+                var $field = $(this);
+                var value = '';
+
+                if ($field.is('select')) {
+                    value = $field.find('option:selected').text();
+                } else {
+                    value = $field.val();
+                }
+
+                $field.attr('title', $.trim(value || ''));
+            });
+        }
+
+        //******* [D]s : 퍼블 테스트용 *******//
         // 원화 금액을 만원 단위 문자열로 변환
         function formatPriceToManwon(value) {
             var number = parseInt(value, 10);
@@ -282,6 +303,7 @@
             return String(Math.floor(number / 10000)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
 
+        // 낙찰/유찰
         function formatContractYn(value) {
             var text = value || '';
             var className = '';
@@ -298,90 +320,95 @@
 
             return '<span class="' + className + '">' + text + '</span>';
         }
+        // 숫자값을 천단위 콤마 형식 문자열로 변환
+        function formatGridNumber(value) {
+            var number = parseInt(String(value || '').replace(/[^0-9]/g, ''), 10);
 
-        function BidPriceInputRenderer(props) {
-            var el = document.createElement('input');
+            if (isNaN(number)) {
+                return '0';
+            }
 
-            this.el = el;
-            this.rowKey = props.rowKey;
-            this.grid = props.grid;
+            return String(number).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        //******* [D]e : 퍼블 테스트용 *******//
 
-            el.type = 'text';
-            el.className = 'grid-input-price';
-            el.setAttribute('inputmode', 'numeric');
-            el.value = formatPriceToManwon(props.value);
-
-            $(el).on('mousedown click', function (ev) {
-                ev.stopPropagation();
-            });
-
-            $(el).on('input', $.proxy(function () {
-                var inputValue = this.el.value.replace(/[^0-9]/g, '');
-
-                this.el.value = inputValue;
-                this.grid.setValue(this.rowKey, 'BID_PRICE', inputValue);
-            }, this));
+        // 디자인 반영(필수)
+        function formatBidPriceCell(value) {
+            return '<div class="grid-fake-input">' + formatGridNumber(value) + '</div>';
         }
 
-        BidPriceInputRenderer.prototype.getElement = function () {
-            return this.el;
-        };
+        // No 컬럼의 상태값에 따라 숫자 또는 체크 아이콘을 표시한다.
+        function formatRowNumberCell(value) {
+            if (value.row.ROW_CHECKED === 'Y') {
+                return '<span class="grid-row-check" title="선택됨"></span>';
+            }
 
-        BidPriceInputRenderer.prototype.render = function (props) {
-            this.rowKey = props.rowKey;
-            this.el.value = formatPriceToManwon(props.value).replace(/[^0-9]/g, '');
-        };
+            return value.row.rowKey + 1;
+        }
 
-        // 화면 확인용 샘플 데이터.
-        // 실제 개발 시에는 조회 API 응답 구조에 맞춰 교체
-        function getSampleData() {
-            return [
-                {
-                    CAR_NO: '11두8064',
-                    CAR_MAKER: '기아',
-                    CAR_NAME: '신형 카니발(KA4)',
-                    CAR_MODEL: '9인승 디젤 시그니처',
-                    CAR_COLOR: '회색',
-                    CAR_OLD: '2022',
-                    CAR_CC: '2,151',
-                    CAR_DRIVEKM: '75,337',
-                    CAR_PARK: '평택',
-                    CAR_BODY_NO: 'KMTFA41DDNU01654',
-                    BID_PRICE: '1,000,000',
-                    BID_MAX_PRICE: '0',
-                    CONTRACT_YN: '낙찰',
-                    BID_WINNER_MEM_ID: '기아(주) 인즈중고차센터 평택',
-                    BIDNO_IDX: '240401', //관리번호
-                    BID_STAT: 'AU110001', //입찰현황
-                    BID_STAT_NM: '입찰중', //입찰현황
-                    BID_START_DATE: '2026-04-06 12:00:00', //시작일시
-                    BID_END_DATE: '2026-04-08 17:00:00' //종료일시
-                },
-                {
-                    CAR_NO: '34나7890',
-                    CAR_MAKER: '기아',
-                    CAR_NAME: 'K5',
-                    CAR_MODEL: '2.0 프레스티지',
-                    CAR_COLOR: '흰색',
-                    CAR_OLD: '2021',
-                    CAR_CC: '1999',
-                    CAR_DRIVEKM: '41250',
-                    CAR_PARK: '부천',
-                    CAR_BODY_NO: 'KNAGB412345678901',
-                    BID_PRICE: '18300000',
-                    BID_MAX_PRICE: '18800000',
-                    CONTRACT_YN: '유찰',
-                    BID_WINNER_MEM_ID: '서울모터스',
-                    BIDNO_IDX: '240402',
-                    BID_STAT: 'AU110009',
-                    BID_STAT_NM: '입찰 진행중',
-                    BID_START_DATE: '2026-03-24 09:00:00',
-                    BID_END_DATE: '2026-03-24 12:00:00'
+        // 숫자 체크
+        function setCheckedRowStyle(rowKey, checkedYn) {
+            var columns;
+            var i;
+
+            if (!grid) {
+                return;
+            }
+
+            if (checkedYn === 'Y') {
+                grid.addRowClassName(rowKey, 'is-checked-row');
+            } else {
+                grid.removeRowClassName(rowKey, 'is-checked-row');
+            }
+
+            columns = grid.getColumns();
+
+            for (i = 0; i < columns.length; i += 1) {
+                if (checkedYn === 'Y') {
+                    grid.addCellClassName(rowKey, columns[i].name, 'is-checked-cell');
+                } else {
+                    grid.removeCellClassName(rowKey, columns[i].name, 'is-checked-cell');
                 }
-            ];
+            }
         }
 
-        // 검색영역 입력값을 기준으로 샘플 데이터를 필터링한다.
+        // 체크 토글
+        function toggleRowChecked(rowKey) {
+            var checkedYn;
+
+            if (!grid) {
+                return;
+            }
+
+            checkedYn = grid.getValue(rowKey, 'ROW_CHECKED') === 'Y' ? 'N' : 'Y';
+            grid.setValue(rowKey, 'ROW_CHECKED', checkedYn);
+            setCheckedRowStyle(rowKey, checkedYn);
+        }
+
+        // 체크 배경색
+        function syncCheckedRowStyles() {
+            var data;
+            var i;
+
+            if (!grid) {
+                return;
+            }
+
+            data = grid.getData();
+
+            for (i = 0; i < data.length; i += 1) {
+                setCheckedRowStyle(data[i].rowKey, data[i].ROW_CHECKED);
+            }
+        }
+
+        //******* [D]s : 퍼블 테스트용 *******//
+        // 퍼블 확인용 샘플 데이터다.
+        // 상단 입찰 상태는 샘플의 상태코드가 아니라 BID_START_DATE, BID_END_DATE, 서버일시 기준으로 계산한다.
+        function getSampleData() {
+            return window.bidgSampleData || [];
+        }
+
+        // 검색 조건에 맞는 샘플 데이터만 필터링
         function filterSampleData() {
             var list = getSampleData();
             var bidNo = $('#bidNo').val();
@@ -415,7 +442,7 @@
             });
         }
 
-        // 조회 버튼 클릭 시 그리드 데이터와 상단 입찰 상태를 함께 갱신한다.
+        // 조회 버튼 클릭 시 필터링된 데이터와 상태를 갱신
         function searchData() {
             var filteredList = filterSampleData();
             var currentItem = getCurrentBidItem(filteredList);
@@ -427,6 +454,7 @@
             grid.resetData(filteredList);
             setTotalCount(filteredList.length);
             setBidStatus(currentItem);
+            syncCheckedRowStyles();
         }
 
         // 최초 진입 시 샘플 데이터를 그리드에 바인딩한다.
@@ -441,34 +469,58 @@
             grid.resetData(list);
             setTotalCount(list.length);
             setBidStatus(currentItem);
+            syncCheckedRowStyles();
         }
 
-        // TOAST UI Grid를 생성한다.
-        // 퍼블리셔가 주로 조정하는 영역은 컬럼 순서, 헤더명, width, align, sortable 정도다.
+        // 최초 진입 시 빈 그리드와 기본 상태를 함께 세팅한다.
+        function setInitialGridState() {
+            if (!grid) {
+                return;
+            }
+
+            grid.resetData([]);
+            setTotalCount(0);
+            setBidStatus(null);
+        }
+        //******* [D]e : 퍼블 테스트용 *******//
+
+        // Grid를 생성
         function createGrid() {
             if (!window.tui || !window.tui.Grid) {
                 return;
             }
 
+            tui.Grid.setLanguage('ko', {
+                display: {
+                    noData: '데이터가 없습니다.'
+                }
+            });
+
             grid = new tui.Grid({
                 el: document.getElementById('grid'),
                 usageStatistics: false,
                 bodyHeight: 500,
+                rowHeight: 44,
+                header: {
+                    height:30
+                },
                 scrollX: true,
                 scrollY: true,
+                editingEvent: 'dblclick',
                 columns: [
-                    { header: 'No', name: 'ROW_NUM', width: 60, align: 'center', sortable: false, formatter: function (value) { return value.row.rowKey + 1; } },
-                    { header: '차량번호', name: 'CAR_NO', width: 80, sortable: true, filter: 'text' },
-                    { header: '제조사', name: 'CAR_MAKER', width: 100, sortable: true, filter: 'text' },
-                    { header: '차종', name: 'CAR_NAME', width: 164, sortable: true, filter: 'text' },
-                    { header: '모델명', name: 'CAR_MODEL', width: 260, sortable: true, filter: 'text' },
-                    { header: '색상', name: 'CAR_COLOR', width: 80, sortable: true, filter: 'text' },
+                    { header: 'No', name: 'ROW_NUM', width: 60, align: 'center', sortable: false, formatter: function (value) { return formatRowNumberCell(value); } },
+                    { header: '차량번호', name: 'CAR_NO', width: 90, sortable: true },
+                    { header: '제조사', name: 'CAR_MAKER', width: 100, sortable: true },
+                    { header: '차종', name: 'CAR_NAME', width: 164, sortable: true },
+                    { header: '모델명', name: 'CAR_MODEL', width: 260, sortable: true },
+                    { header: '색상', name: 'CAR_COLOR', width: 80, sortable: true },
                     { header: '연식', name: 'CAR_OLD', width: 80, align: 'center', sortable: true },
                     { header: '배기량', name: 'CAR_CC', width: 80, align: 'right', sortable: true },
                     { header: '주행거리', name: 'CAR_DRIVEKM', width: 80, align: 'right', sortable: true },
                     { header: '주차장', name: 'CAR_PARK', width: 80, sortable: true },
                     { header: '차대번호', name: 'CAR_BODY_NO', width: 170, sortable: true },
-                    { header: '입찰가격(만원)', name: 'BID_PRICE', width: 120, align: 'right', sortable: true, renderer: { type: BidPriceInputRenderer } },
+                    { name: 'ROW_CHECKED', hidden: true },
+                    { header: '입찰가격(만원)', name: 'BID_PRICE', width: 120, align: 'right', sortable: true, editor: 'text', formatter: function (value) { return formatBidPriceCell(value.value); } },
                     // S : 공매 완료 시 추가. 퍼블본에서는 화면 확인용으로 노출
                     { header: '최고가(만원)', name: 'BID_MAX_PRICE', width: 120, align: 'right', sortable: true, formatter: function (value) { return formatPriceToManwon(value.value); } },
                     { header: '낙찰구분', name: 'CONTRACT_YN', width: 80, align: 'center', sortable: true, formatter: function (value) { return formatContractYn(value.value); } },
@@ -483,20 +535,39 @@
             });
         }
 
-        // 화면 초기화 및 이벤트 바인딩.
-        $(function () {
+        // 초기 진입 시 기본 화면을 세팅한다.
+        function initializePage() {
             createGrid();
-            loadSample();
+            setInitialGridState();
+            syncFormFieldTitles();
+        }
 
-            // 검색조건 기준으로 목록을 재조회한다.
+        // 화면 이벤트를 바인딩한다.
+        function bindEvents() {
+            // grid.on('click', function (ev) {
+            //     if (ev.columnName !== 'ROW_NUM') {
+            //         return;
+            //     }
+
+            //     toggleRowChecked(ev.rowKey);
+            // });
+
             $('#searchBtn').on('click', function () {
                 searchData();
             });
 
-            // 관리번호 변경 시 상단 상태 영역만 즉시 반영한다.
-            $('#bidNo').on('change', function () {
-                setBidStatus(getCurrentBidItem(getSampleData()));
+            $('.form-content .field-box input').on('input change', function () {
+                syncFormFieldTitles();
             });
+
+            $('.form-content .field-box select').on('change', function () {
+                syncFormFieldTitles();
+            });
+        }
+
+        $(function () {
+            initializePage();
+            bindEvents();
         });
     </script>
 </body>
