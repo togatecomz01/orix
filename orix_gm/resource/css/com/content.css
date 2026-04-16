@@ -286,12 +286,14 @@ body.popup { overflow:hidden; }
     #메인페이지
 ============================================= */
 
-.main-page.wrap.main-wrap { position:relative; width:100%; min-width:1400px; box-sizing:border-box; overflow:hidden; background:url("../../images/main_bg.png") no-repeat 40px center / cover; }
+body.main-body {min-width: 0;overflow-x: auto;}
+body.main-body .wrap {min-width: 0;}
+.main-page.wrap.main-wrap { position:relative; width:100%; min-width:1720px; box-sizing:border-box; background:url("../../images/main_bg.png") no-repeat 40px center / cover; }
 .main-page > .contentWrap { position:relative; z-index:1; display:flex; flex-direction:column; min-height:100vh; margin:0 auto; padding:0 0 20px; box-sizing:border-box; }
 .main-page > .contentWrap > .main-content { flex:1 1 auto; display:flex; min-height:0; box-sizing:border-box; }
 .main-page > .contentWrap > .page-footer { text-align:center; color:var(--color-75); font-size:var(--font16); }
 .main-page main.contentWrap .page-header { justify-content:flex-end; border:none; padding-right:40px; }
-.main-page .hero-layout { display:flex; align-items:flex-start; gap:48px; width:100%; min-height:100%; padding-left:160px; }
+.main-page .hero-layout { display:flex; align-items:flex-start; gap:48px; width:100%; min-height:100%; padding-left:160px; padding-right: 30px;}
 .main-page .hero-copy { flex:0 0 600px; width:600px; padding-top:50px; box-sizing:border-box; color:var(--color-2); }
 .main-page .hero-copy .sub-copy { font-size:var(--font18); font-weight:var(--font-w400); line-height:1.5; font-family:Pretendard, "Noto Sans KR", sans-serif; color:var(--color-75); }
 .main-page .hero-copy .sub-copy strong { display:block; color:var(--color-2); font-size:var(--font28); font-weight:var(--font-w500); }
@@ -305,7 +307,7 @@ body.popup { overflow:hidden; }
 .main-page .notice-actions { position:absolute; top:0; right:0; }
 .main-page .notice-action { display:block; width:70px; height:70px; padding:0; border:0; background:transparent; cursor:pointer; }
 .main-page .notice-action img { display:block; width:70px; height:70px; }
-.main-page .notice-head, .main-page2 .notice-list { position:relative; z-index:1; }
+.main-page .notice-head, .main-page1 .notice-list { position:relative; z-index:1; }
 .main-page .notice-list { max-height:490px; overflow-y:auto; overflow-x:hidden; margin-right:-50px; padding-right:50px; box-sizing:content-box; }
 .main-page .notice-list li + li a { border-top:1px solid rgba(255, 255, 255, 0.2); }
 .main-page .notice-list li:first-child { border-top:0; }
