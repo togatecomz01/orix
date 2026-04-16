@@ -38,14 +38,14 @@
                                 공매입찰 정보를<br />
                                 <em>[ 한눈에 ]</em> 정리해 확인하세요
                             </p>
-                            <a href="#none" class="hero-btn">공매입찰관리 바로가기</a>
+                            <a href="../bidg/ORIX-AUTS-BIDG-001.html" class="hero-btn">공매입찰관리 바로가기</a>
                         </div>
     
                         <div class="notice-panel">
                             <div class="notice-head">
                                 <h2>공지사항</h2>
                                 <div class="notice-actions">
-                                    <button type="button" class="notice-action" aria-label="공지사항 등록">
+                                    <button type="button" class="notice-action js-open-editer-pop" aria-label="공지사항 등록">
                                         <img src="../../resource/images/com/svg/notice_register.svg" alt="" />
                                     </button>
                                 </div>
@@ -55,8 +55,8 @@
                     </div>
                 </section>
     
-                <div class="page-footer">
-                    Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved
+                <div class="footer-wrap">
+                    <p>Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved</p>
                 </div>
             </main>
         </div>
@@ -184,6 +184,25 @@
                 }
 
                 renderNoticeList(mockData);
+            });
+
+            /* 공지사항 등록 팝업, view 팝업 임시 동작 확인용*/
+            $(function () {
+                $('#noticeList').on('click', function (e) {
+                    var url = '../main/ORIX-AUTS-MAIN-002.html';
+                    var name = 'carDetailPop';
+                    var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+
+                    window.open(url, name, option);
+                });
+               
+                $('.js-open-editer-pop').on('click', function () {
+                    var url = '../main/ORIX-AUTS-MAIN-003.html';
+                    var name = 'noticeEnrollPop';
+                    var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+
+                    window.open(url, name, option);
+                });
             });
         </script>
     </body>

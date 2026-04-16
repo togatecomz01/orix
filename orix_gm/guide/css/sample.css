@@ -56,6 +56,3 @@ h2 + .card-list { margin-top:20px; }
 .sm-button > div { display:inline-flex; flex-direction: column; }
 .la-button > div p,
 .sm-button > div p { margin-bottom:10px; }
-
-/* input */
-input[placeholder="포커스"] { border:1px solid #454545; }
