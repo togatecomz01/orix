@@ -151,8 +151,7 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
 
 /* 드래그 선택 영역 */
 .tui-grid-content-area .tui-grid-layer-selection {
-    background-color:#E5EFFF;
-    border-color: rgb(255, 255, 255);
+    background-color: #0062FF;
 }
 
 /* 클릭 포커스 테두리 */
