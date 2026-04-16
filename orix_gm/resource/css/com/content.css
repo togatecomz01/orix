@@ -8,13 +8,14 @@ input.tag-success { background-color:var(--success-bg); color:var(--success-text
 input.tag-error { background-color:var(--error-bg); color:var(--error-text); }
 
 /*** sidebar ***/
-.side-nav { position:absolute; top:0; left:0; bottom:0; width:60px; padding:22px 0; background:var(--color-2); z-index:5; }
+.side-nav { position:fixed; top:0; left:0; bottom:0; width:60px; height:100%; padding:22px 0; background:var(--color-2); z-index:100; }
 
 .side-nav .logo a { display:block; width:50px; height:50px; margin:0 auto; }
 .side-nav .logo img { display:block; width:100%; height:100%; }
 
-.side-menu { display:flex; flex-direction:column; align-items:center; gap:20px; margin-top:40px; }
+.side-menu { display:flex; flex-direction:column; align-items:center; margin-top:40px; }
 .side-menu li { width:50px; height:50px; }
+.side-menu li + li { margin-top:20px; }
 .side-menu a { display:block; width:100%; height:100%; border-radius:16px; text-align:center; }
 .side-menu a:hover { border:1px dashed var(--color-f); }
 .side-menu a.on { border:0; background-color:var(--active); }
@@ -61,6 +62,8 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .form-group .field-box select { width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 .form-group.form-car-no > .flex-row .field-box input,
 .form-group.form-status > .flex-row .field-box select { min-width:110px; }
+.form-group.form-car-no > .flex-row .field-box input { max-width:200px; width:100%; }
+.form-group.form-status > .flex-row .field-box select { max-width:251px; width:100%; }
 
 .form-group.form-manage-no > .flex-row .field-box select { min-width:296px; }
 .form-group.form-maker > .flex-row .field-box select { min-width:237px; }
@@ -68,13 +71,13 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 
 .form-group.form-manage-no { min-width:368px; }
 .form-group.form-manage-no { -webkit-box-flex:0; -ms-flex:0 0 28%; flex:0 0 28%; max-width:28%; }
-.form-group.form-car-no { min-width:182px; }
+.form-group.form-car-no { min-width:272px; }
 .form-group.form-car-no { -webkit-box-flex:0; -ms-flex:0 0 16%; flex:0 0 16%; max-width:16%; }
 .form-group.form-maker { min-width:309px; }
 .form-group.form-maker { -webkit-box-flex:0; -ms-flex:0 0 20%; flex:0 0 20%; max-width:20%; }
 .form-group.form-model { min-width:337px; }
 .form-group.form-model { -webkit-box-flex:0; -ms-flex:0 0 22%; flex:0 0 22%; max-width:22%; }
-.form-group.form-status { min-width:166px; }
+.form-group.form-status { min-width:307px; }
 .form-group.form-status { -webkit-box-flex:0; -ms-flex:0 0 16%; flex:0 0 16%; max-width:16%; }
 
 /* =============================================
@@ -110,12 +113,29 @@ th.tui-grid-cell-header,
 td.tui-grid-cell > div { font-size:var(--font14); }
 th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
 td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
+td.tui-grid-cell .tui-grid-cell-content { padding:0; }
+/* 숫자 체크 */
+.tui-grid-container .grid-row-check { display:inline-block; width:14px; height:14px; background:url("../../images/ico_num_chk.png") no-repeat center center / 14px auto; vertical-align:middle; }
+.tui-grid-container .is-checked-row .tui-grid-cell,
+.tui-grid-container .tui-grid-cell.is-checked-cell { background-color:#E5EFFF; }
+.tui-grid-container .tui-grid-cell.is-checked-cell .grid-fake-input { background-color:#E5EFFF; }
+/* 입찰가격 */
+.tui-grid-container .grid-fake-input { display:block; height:30px; padding:0 6px; border:1px solid var(--color-d); border-radius:3px; background-color:#F5F6F8; color:var(--color-45); text-align:right; line-height:28px; box-sizing:border-box; }
+.tui-grid-body-container .tui-grid-layer-editing { padding:7px 5px; box-sizing:border-box; }
+.tui-grid-body-container .tui-grid-layer-editing input[type='text'] { width:100%; height:30px !important; padding:0 6px; border:1px solid var(--color-45); border-radius:3px; background-color:var(--color-f); color:var(--color-45); text-align:right; line-height:28px; box-sizing:border-box; }
 /* 유찰.낙찰 */
 .bid-win,
 .bid-fail { display:inline-block; font-size:var(--font14); font-weight:var(--font-w500); }
 .bid-fail { color:var(--color-9); }
 .bid-win { position: relative; color:var(--success-text); }
 .bid-win::before { content:""; display:inline-block; width:14px; height:14px; padding-right:10px; background:url("../../images/ico_bid_chk.png")no-repeat center center / 14px auto; vertical-align:top; }
+
+/* 빈 데이터 */
+.grid-caption .caption-left .bid-status-tag.is-hidden { display:none; }
+.tui-grid-layer-state .tui-grid-layer-state-content { padding-top:54px; }
+.grid-body .tui-grid-layer-state p { top:50%; left:0; right:0; font-size:var(--font24); font-weight:var(--font-w600); line-height:30px; color:var(--color-2); transform:translateY(-50%); }
+.grid-body .tui-grid-layer-state p::before { content:""; position:absolute; bottom:60px; width:186px; height:175px; background:url("../../images/img_grid_nodata.png") no-repeat center center / 186px 175px; }
+.grid-body .tui-grid-layer-state p::after { content:"조회 조건을 설정한 뒤 공매 입찰관리 내역을 조회해 주세요"; display:block; margin-top:9px; font-size:var(--font18); font-weight:var(--font-w400); line-height:24px; color:var(--color-75); }
 
 /* =============================================
     #사용자관리
@@ -154,13 +174,8 @@ body.popup { overflow:hidden; }
 .newPop .pop-content .pop-footer { -ms-flex:0 0 auto; flex:0 0 auto; margin-top:18px; }
 .newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
 
-/* 메인 공지사항 에디터 팝업 간격조절 css */
-.notice-write-pop .form-content > .form-wrap:first-child { margin-bottom:15px; }
-.notice-write-pop .file-wrap { margin-top:23px; }
-.notice-write-pop .ipt-file { margin-bottom:5px; }
-.notice-write-pop .ipt-file:last-child { margin-bottom:0; }
-
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
+
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
 .newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; min-height:0; padding:20px; border-radius:10px; overflow:hidden; }
 .download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
@@ -174,7 +189,7 @@ body.popup { overflow:hidden; }
 .download-pop .download-guide-note { position:relative; margin:30px 0 0; padding:10px 0 35px 32px; border-top:1px solid var(--color-d); color:var(--color-75); font-size:var(--font14); font-weight: var(--font-w400);}
 .download-pop .download-guide-note::before { content:""; position:absolute; top:8px; left:0; width:26px; height:26px; background:url("../../images/com/svg/info_rounded.svg") no-repeat center center / 26px 26px; }
 
-/* 사용자확인 암호입력 팝업 전용 */
+/* 사용자확인 암호입력 팝업 전용용 */
 .password-pop .pop-form-box { width:100%; max-width:300px; margin:30px auto 0; }
 .password-pop .pop-form-row { display:table; width:100%; table-layout:auto; }
 .password-pop .pop-form-row .label-tit { position:relative; display:table-cell; width:1%; padding:0 12px 0 18px; white-space:nowrap; vertical-align:middle; font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-75); }

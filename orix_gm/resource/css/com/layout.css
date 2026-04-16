@@ -53,7 +53,7 @@ main.contentWrap > .page-container { padding-top:30px; }
 .page-container > [class*="-content"] > .group > [class*="-group"]:last-child { margin-bottom:0; }
 .page-container > div.tab-container + div { padding-top:0; }
 
-[class*="-content"] + div { margin-top:54px; }
+/* [class*="-content"] + div { margin-top:54px; } */
 [class*="-content"] > [class*="-group"] + div { margin-top:32px; }
 
 /**타이틀 및 텍스트**/
