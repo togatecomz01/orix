@@ -174,6 +174,12 @@ body.popup { overflow:hidden; }
 .newPop .pop-content .pop-footer { -ms-flex:0 0 auto; flex:0 0 auto; margin-top:18px; }
 .newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
 
+/* 메인 공지사항 에디터 팝업 간격조절 css */
+.notice-write-pop .form-content > .form-wrap:first-child { margin-bottom:15px; }
+.notice-write-pop .file-wrap { margin-top:23px; }
+.notice-write-pop .ipt-file { margin-bottom:5px; }
+.notice-write-pop .ipt-file:last-child { margin-bottom:0; }
+
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
 
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
