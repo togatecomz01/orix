@@ -185,13 +185,16 @@
 
             /* 공지사항 등록 팝업, view 팝업 임시 동작 확인용 */
             $(function () {
-                $('#noticeList').on('click', function (e) {
-                    var url = '../main/ORIX-AUTS-MAIN-002.html';
-                    var name = 'carDetailPop';
-                    var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+                $('#noticeList').on('click', '.notice-title, .notice-link', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
 
-                    window.open(url, name, option);
-                });
+                        var url = '../main/ORIX-AUTS-MAIN-002.html';
+                        var name = 'carDetailPop';
+                        var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+
+                        window.open(url, name, option);
+                    });
                
                 $('.js-open-editer-pop').on('click', function () {
                     var url = '../main/ORIX-AUTS-MAIN-003.html';

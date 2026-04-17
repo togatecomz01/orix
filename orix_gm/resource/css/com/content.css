@@ -182,13 +182,10 @@ body.popup { overflow:hidden; }
 .newPop .pop-header h1 { font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-f); }
 
 /** pop-content **/
-.newPop .pop-content { display:flex; -ms-flex:1 1 auto; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; }
+.newPop .pop-content { display:flex; -ms-flex:1 1 auto; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; overflow-y: auto;}
 
-/* pop-body */ /* 26.04.13기존 height:100% → max-height: 735px 로 수정 , overflow-y: auto 추가 */
-/* .newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; max-height: 735px; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); overflow-y: auto;} */
-.newPop .pop-content .pop-body {display: flex;flex-direction: column;-ms-flex: 1 1 auto;flex: 1 1 auto;width: 100%;min-height: 0;max-height: 735px;padding: 20px;border: 1px solid var(--color-d);border-radius: 10px;background-color: var(--color-f);overflow: hidden;}
-.newPop .pop-content .pop-body .view-cont,
-.newPop .pop-content .pop-body .notice-editor-area {flex: 1 1 auto; min-height: 0; overflow-y: auto;}
+/* pop-body */ 
+.newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f);}
 .newPop .pop-content .pop-body.notice-write-pop #noticeDate,.newPop .pop-content .pop-body.notice-write-pop #noticeNo {max-width: 130px;}
 .newPop .pop-content .pop-body.notice-write-pop .form-content > .form-wrap > .form-group:only-of-type { flex: 1; }
 .view-header .date { font-size:14px; font-size:var(--font-w400); color:var(--color-75); }
@@ -214,7 +211,9 @@ body.popup { overflow:hidden; }
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
 
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
-.newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; min-height:0; padding:20px; border-radius:10px; overflow:hidden; }
+.newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
+.newPop .pop-content.download-pop .pop-body {min-height: 340px;}
+.newPop .pop-content.password-pop .pop-body {min-height: 140px;}
 .download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
 
 /* 파일 다운로드 팝업 전용 */
@@ -307,14 +306,16 @@ body.main-body .wrap {min-width: 0;}
 .main-page .notice-actions { position:absolute; top:0; right:0; }
 .main-page .notice-action { display:block; width:70px; height:70px; padding:0; border:0; background:transparent; cursor:pointer; }
 .main-page .notice-action img { display:block; width:70px; height:70px; }
-.main-page .notice-head, .main-page1 .notice-list { position:relative; z-index:1; }
+.main-page .notice-head, .main-page .notice-list { position:relative; z-index:1; }
 .main-page .notice-list { max-height:490px; overflow-y:auto; overflow-x:hidden; margin-right:-50px; padding-right:50px; box-sizing:content-box; }
 .main-page .notice-list li + li a { border-top:1px solid rgba(255, 255, 255, 0.2); }
 .main-page .notice-list li:first-child { border-top:0; }
-.main-page .notice-list a { position:relative; display:block; min-height:95px; padding:15px 74px 15px 0; box-sizing:border-box; color:var(--color-f); font-size:var(--font20); font-weight:var(--font-w500); }
+.main-page .notice-list a {  position:relative; display:block; min-height:95px; padding:15px 74px 15px 0; box-sizing:border-box; color:var(--color-f); font-size:var(--font20); font-weight:var(--font-w500); cursor:default; }
 .main-page .notice-link { position:absolute; top:50%; right:0; width:40px; height:40px; margin-top:-20px; background:url("../../images/com/svg/ico_main_shortcut.svg") no-repeat center center; background-size:40px 40px; }
 .main-page .notice-date { display:block; margin-bottom:6px; }
-.main-page .notice-title { display:block; word-break:keep-all; }
+.main-page .notice-title,
+.main-page .notice-link { cursor:pointer; }
+.main-page .notice-title {display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 .main-page .notice-title .badge-new { display:none; }
 .main-page .notice-list::-webkit-scrollbar { width:6px; }
 .main-page .notice-list::-webkit-scrollbar-track { background:transparent; }
