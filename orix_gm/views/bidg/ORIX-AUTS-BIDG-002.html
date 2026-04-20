@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>공매입찰관리 - popup</title>
+    <link href="../../resource/css/ui-util.css" rel="stylesheet" />
+    <link href="../../resource/css/lib/tui-grid.css" rel="stylesheet" />
+
+    <script src="../../resource/js/lib/jquery-1.11.3.min.js"></script>
+    <script>
+        window.tui = window.tui || {};
+        window.tui.DatePicker = window.tui.DatePicker || function () {};
+        window.tui.Pagination = window.tui.Pagination || function () {};
+    </script>
+    <script src="../../resource/js/lib/tui-grid.js"></script>
+</head>
+<body class="popup grid">
+    <div class="newPop">
+        <div class="pop-header">
+            <h1>공매 일괄입찰 파일 업로드</h1>
+            <!-- <button type="button" onclick="window.close();">닫기</button> -->
+        </div>
+
+        <div class="pop-content">
+            <div class="upload-wrap">
+                <div class="upload-tit">
+                    <p>업로드 엑셀 파일은 <span class="color-b">파일형식(*.xls)</span>과 <span class="color-b">암호화 해제</span> 확인 후 업로드 진행</p>
+                    <ul>
+                        <li>*파일형식 변경 : 다른 이름으로 저장 &rarr; 파일 형식을 Excel 97-2003 통합문서(*.xls)</li>
+                        <li class="color-r">*양식에서 입찰 가격만 수정, 미 입찰 대상인 경우 금액을 0원으로 유지</li>
+                    </ul>
+                </div>
+                <div class="sm-button">
+                    <button type="button" class="btn-primary">파일 읽기</button>
+                </div>
+            </div>
+            <div class="grid-body">
+                <div class="grid-caption">
+                    <ul class="m-dot">
+                        <li>시작일시 : <input type="text" class="noline" id="bidStartText" readonly value="2026-03-09 12:00:00"></li>
+                    </ul>
+                    <div class="form-content">
+                        <div class="flex-row">
+                            <label for="bidNo" class="label-tit">관리번호</label>
+                            <div class="field-box">
+                                <select name="bidNo" id="bidNo">
+                                    <option value="260501" selected="selected">228차 2026년 05-1회 05-04~05-06</option>
+                                    <option value="260401">227차 2026년 04-1회 04-06~04-08</option>
+                                    <option value="260301">226차 2026년 03-1회 03-09~03-11</option>
+                                    <option value="260201">225차 2026년 02-1회 02-02~02-04</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sm-button">
+                            <button type="button" class="btn-icon download">양식 다운로드</button>
+                            <button type="button" class="btn-secondary">일괄입찰하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="grid"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var grid;
+
+        //******* [D]s : 퍼블 테스트용 *******//
+        var sampleGridData = [
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+            {
+                BIDNO_IDX: '260501',
+                CAR_NO: '123가1234',
+                CAR_MAKER: '현대',
+                CAR_NAME: '그랜저',
+                CAR_COLOR: '검정',
+                CAR_OLD: '2023',
+                CAR_CC: '2497',
+                CAR_DRIVEKM: '15234',
+                CAR_PARK: '오릭스 주차장',
+                CAR_BODY_NO: 'KMHF241DBPA000001',
+                BID_PRICE: '1850'
+            },
+        ];
+        //******* [D]e : 퍼블 테스트용 *******//
+
+        // 현재 선택된 관리번호 텍스트를 title 속성에 맞춘다.
+        function syncFormFieldTitles() {
+            $('.form-content .field-box input, .form-content .field-box select').each(function () {
+                var $field = $(this);
+                var value = '';
+
+                if ($field.is('select')) {
+                    value = $field.find('option:selected').text();
+                } else {
+                    value = $field.val();
+                }
+
+                $field.attr('title', $.trim(value || ''));
+            });
+        }
+
+        // 퍼블 확인용 공매물건번호를 공매번호-순번 형식으로 표시한다.
+        function formatBidItemNo(value) {
+            var bidNo = value.row.BIDNO_IDX || '';
+            var itemNo = value.row.rowKey + 1;
+
+            return bidNo + '-' + ('000' + itemNo).slice(-3);
+        }
+
+        // 팝업 너비에 맞춰 그리드 레이아웃을 다시 계산한다.
+        function refreshGridLayout() {
+            if (!grid) {
+                return;
+            }
+
+            syncGridBodyHeight();
+            grid.refreshLayout();
+        }
+
+        // 팝업에서 남은 높이만큼 그리드 body 높이를 계산해 body 스크롤을 막는다.
+        function syncGridBodyHeight() {
+            var $popupContent = $('.popup.grid .pop-content');
+            var $gridBody = $('.popup.grid .grid-body');
+            var $gridCaption = $('.popup.grid .grid-caption');
+            var gridBodyHeight = 0;
+
+            if (!$popupContent.length || !$gridBody.length) {
+                return;
+            }
+
+            gridBodyHeight = $popupContent.innerHeight() - $gridBody.position().top - 16;
+            gridBodyHeight -= $gridCaption.outerHeight(true) || 0;
+            gridBodyHeight = Math.max(gridBodyHeight, 180);
+
+            if (typeof grid.setBodyHeight === 'function') {
+                grid.setBodyHeight(gridBodyHeight);
+            }
+        }
+
+        // Grid를 생성
+        function createGrid() {
+            if (!window.tui || !window.tui.Grid) {
+                return;
+            }
+
+            tui.Grid.setLanguage('ko', {
+                display: {
+                    noData: '데이터가 없습니다.'
+                }
+            });
+
+            grid = new tui.Grid({
+                el: document.getElementById('grid'),
+                usageStatistics: false,
+                data: sampleGridData,
+                bodyHeight: 180,
+                rowHeight: 44,
+                header: {
+                    height:30
+                },
+                scrollX: false,
+                scrollY: true,
+                editingEvent: 'dblclick',
+                columns: [
+                    { header: '공매번호', name: 'BIDNO_IDX', width: 90, align: 'center', sortable: true },
+                    { header: '차량번호', name: 'CAR_NO', width: 100, align: 'center', sortable: true },
+                    { header: '제조사', name: 'CAR_MAKER', width: 90, align: 'center', sortable: true },
+                    { header: '차종', name: 'CAR_NAME', width: 120, sortable: true },
+                    { header: '색상', name: 'CAR_COLOR', width: 70, align: 'center', sortable: true },
+                    { header: '연식', name: 'CAR_OLD', width: 70, align: 'center', sortable: true },
+                    { header: '배기량', name: 'CAR_CC', width: 80, align: 'center', sortable: true },
+                    { header: '주행거리', name: 'CAR_DRIVEKM', width: 90, align: 'center', sortable: true },
+                    { header: '주차장', name: 'CAR_PARK', width: 100, align: 'center', sortable: true },
+                    { header: '차대번호', name: 'CAR_BODY_NO', minWidth: 140, align: 'center', sortable: true },
+                    { header: '공매물건번호', name: 'BID_ITEM_NO', width: 120, align: 'center', sortable: false, formatter: function (value) { return formatBidItemNo(value); } },
+                    { header: '입찰가격(만원)', name: 'BID_PRICE', width: 110, align: 'right', sortable: true, editor: 'text' }
+                ],
+                columnOptions: {
+                    minWidth: 70,
+                    resizable: true
+                }
+            });
+        }
+
+        // 초기 진입 시 기본 화면을 세팅한다.
+        function initializePage() {
+            createGrid();
+            syncFormFieldTitles();
+            refreshGridLayout();
+        }
+
+        // 화면 이벤트를 바인딩한다.
+        function bindEvents() {
+            $('.form-content .field-box select').on('change', function () {
+                syncFormFieldTitles();
+            });
+
+            $(window).on('resize', function () {
+                refreshGridLayout();
+            });
+        }
+
+        $(function () {
+            initializePage();
+            bindEvents();
+        });
+    </script>
+</body>
+</html>

@@ -5,421 +5,82 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>오릭스 공매입찰관리 메인</title>
-        <script src="../worklist/js/jquery-1.11.3.min.js"></script>
+        <link href="./resource/css/ui-util.css" rel="stylesheet" />
+        <script src="./resource/js/lib/jquery-1.11.3.min.js"></script>
+        <script src="./resource/js/lib/jquery.form.min.js"></script>
+        <script src="./resource/js/include.js"></script>
+        <script src="./resource/js/nav.js"></script>
+        <script src="./resource/js/common.js"></script>
         <style>
-            html,
-            body {
-                min-width: 1200px;
-                height: 100%;
-            }
+            .main-wrap { position: relative; overflow: hidden; min-width: 1260px; min-height: 100vh; padding-left: 60px; box-sizing: border-box; background: url("./resource/images/main_bg.png") no-repeat left center / cover; }
+            .main-wrap main.contentWrap .page-header { justify-content: flex-end; border-bottom:0; }
 
-            body {
-                margin: 0;
-                font-family: "Noto Sans KR", "S-Core Dream", sans-serif;
-                font-size: 14px;
-                color: #ffffff;
-                background: #10263f;
-            }
+            .main-content { position: relative; z-index: 3; width: 1200px; margin: 0 auto; padding: 154px 0 84px; box-sizing: border-box; }
 
-            button,
-            input,
-            select,
-            textarea {
-                font-family: inherit;
-                font-size: inherit;
-            }
+            .hero-layout { display: flex; justify-content: space-between; align-items: flex-start; min-height: 640px; gap: 40px; }
+            .hero-copy { width: 476px; flex: 0 0 476px; }
+            .hero-copy .sub-copy { font-size: var(--font20); font-weight: 400; color: var(--color-75); }
+            .hero-copy .sub-copy strong { display: block; margin-bottom: 8px; font-size: var(--font28); font-weight:var(--font-w500); color: var(--color-2); }
+            .hero-copy .main-copy { margin-top: 30px; font-size: var(--font42); font-weight:var(--font-w500); line-height: 1.45; letter-spacing: -0.03em; }
+            .hero-copy .main-copy em { color:#121212; font-weight:var(--font-w600); }
 
-            ul,
-            ol {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
+            .hero-btn { display: inline-block; margin-top:30px; padding:16px 30px; border-radius: 50px; background:var(--secondary);  color:var(--color-f); font-size:var(--font24); font-weight:var(--font-w500);  text-align: center; }
 
-            p,
-            h1,
-            h2,
-            h3 {
-                margin: 0;
-            }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            .main-wrap {
-                position: relative;
-                overflow: hidden;
-                min-height: 100vh;
-                padding-left: 58px;
-                box-sizing: border-box;
-                background:
-                    linear-gradient(90deg, rgba(10, 24, 40, 0.68) 0%, rgba(16, 38, 63, 0.3) 26%, rgba(26, 64, 108, 0.36) 100%),
-                    radial-gradient(circle at 14% 18%, rgba(255, 228, 194, 0.48) 0%, rgba(255, 228, 194, 0) 30%),
-                    radial-gradient(circle at 80% 30%, rgba(141, 195, 255, 0.22) 0%, rgba(141, 195, 255, 0) 34%),
-                    linear-gradient(135deg, #d4dbe3 0%, #8ea4bb 28%, #5a7695 56%, #233d5c 100%);
-            }
-
-            .main-wrap:before,
-            .main-wrap:after {
-                content: "";
-                position: absolute;
-                border-radius: 50%;
-                pointer-events: none;
-            }
-
-            .main-wrap:before {
-                top: -140px;
-                left: 220px;
-                width: 480px;
-                height: 480px;
-                background: rgba(255, 255, 255, 0.08);
-                filter: blur(30px);
-            }
-
-            .main-wrap:after {
-                right: -120px;
-                bottom: -120px;
-                width: 420px;
-                height: 420px;
-                background: rgba(124, 179, 255, 0.12);
-                filter: blur(24px);
-            }
-
-            .side-nav {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                width: 58px;
-                padding: 10px 0;
-                box-sizing: border-box;
-                background: rgba(31, 33, 37, 0.92);
-                z-index: 5;
-            }
-
-            .side-nav .logo {
-                width: 36px;
-                margin: 0 auto;
-            }
-
-            .side-nav .logo a {
-                display: block;
-            }
-
-            .side-nav .logo img {
-                display: block;
-                margin: 0 auto;
-                max-width: 100%;
-            }
-
-            .side-menu {
-                margin-top: 38px;
-            }
-
-            .side-menu li {
-                width: 58px;
-                height: 52px;
-            }
-
-            .side-menu a {
-                display: block;
-                width: 100%;
-                height: 100%;
-                padding: 10px 0;
-                box-sizing: border-box;
-                text-align: center;
-            }
-
-            .side-menu img {
-                display: block;
-                margin: 0 auto;
-            }
-
-            .page-head {
-                position: relative;
-                z-index: 3;
-                padding: 16px 26px 0 0;
-                text-align: right;
-            }
-
-            .user-links {
-                display: inline-block;
-                font-size: 0;
-                vertical-align: top;
-            }
-
-            .user-links span,
-            .user-links a {
-                display: inline-block;
-                margin-left: 10px;
-                padding: 7px 12px;
-                border-radius: 999px;
-                background: rgba(255, 255, 255, 0.88);
-                color: #4d5d70;
-                font-size: 12px;
-                line-height: 1;
-                vertical-align: middle;
-            }
-
-            .user-links span:first-child {
-                margin-left: 0;
-            }
-
-            .main-content {
-                position: relative;
-                z-index: 3;
-                width: 1200px;
-                margin: 0 auto;
-                padding: 108px 0 84px;
-                box-sizing: border-box;
-            }
-
-            .hero-layout {
-                position: relative;
-                min-height: 640px;
-            }
-
-            .hero-copy {
-                width: 420px;
-                padding-top: 108px;
-            }
-
-            .hero-copy .sub-copy {
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 1.65;
-                color: rgba(255, 255, 255, 0.88);
-            }
-
-            .hero-copy .sub-copy strong {
-                display: block;
-                margin-bottom: 2px;
-                font-size: 20px;
-                font-weight: 500;
-                color: #ffffff;
-            }
-
-            .hero-copy .main-copy {
-                margin-top: 26px;
-                font-size: 36px;
-                font-weight: 700;
-                line-height: 1.45;
-                letter-spacing: -0.03em;
-            }
-
-            .hero-copy .main-copy em {
-                font-style: normal;
-                font-weight: 800;
-            }
-
-            .hero-btn {
-                display: inline-block;
-                min-width: 254px;
-                margin-top: 28px;
-                padding: 18px 28px;
-                border-radius: 999px;
-                background: linear-gradient(90deg, #2379ff 0%, #3f98ff 100%);
-                box-shadow: 0 10px 24px rgba(12, 61, 138, 0.35);
-                color: #ffffff;
-                font-size: 18px;
-                font-weight: 700;
-                line-height: 1;
-                text-align: center;
-            }
-
-            .notice-panel {
-                position: absolute;
-                top: 46px;
-                right: 0;
-                width: 632px;
-                border: 1px solid rgba(255, 255, 255, 0.42);
-                border-radius: 22px;
-                background: rgba(102, 140, 186, 0.22);
-                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-                backdrop-filter: blur(5px);
-                -webkit-backdrop-filter: blur(5px);
-                overflow: hidden;
-            }
-
-            .notice-head {
-                position: relative;
-                padding: 32px 96px 18px 30px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-            }
-
-            .notice-head h2 {
-                font-size: 22px;
-                font-weight: 700;
-                line-height: 1.2;
-            }
-
-            .notice-actions {
-                position: absolute;
-                right: 20px;
-                top: 24px;
-                font-size: 0;
-            }
-
-            .notice-action {
-                display: inline-block;
-                min-width: 34px;
-                height: 22px;
-                margin-left: 6px;
-                padding: 0 8px;
-                border-radius: 4px;
-                background: rgba(48, 69, 97, 0.46);
-                color: rgba(255, 255, 255, 0.78);
-                font-size: 11px;
-                line-height: 22px;
-                text-align: center;
-                box-sizing: border-box;
-            }
-
-            .notice-action:first-child {
-                margin-left: 0;
-            }
-
-            .notice-list li {
-                position: relative;
-                min-height: 67px;
-                padding: 16px 68px 14px 30px;
-                box-sizing: border-box;
-                border-top: 1px solid rgba(255, 255, 255, 0.12);
-            }
-
-            .notice-list li:first-child {
-                border-top: 0;
-            }
-
-            .notice-list a {
-                display: block;
-            }
-
-            .notice-date {
-                display: block;
-                margin-bottom: 6px;
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 15px;
-                font-weight: 700;
-                line-height: 1.2;
-            }
-
-            .notice-title {
-                display: block;
-                color: #ffffff;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 1.45;
-                letter-spacing: -0.02em;
-                word-break: keep-all;
-            }
-
-            .notice-title .badge-new {
-                display: inline-block;
-                margin-left: 8px;
-                padding: 2px 7px 1px;
-                border-radius: 999px;
-                background: rgba(39, 124, 255, 0.96);
-                font-size: 11px;
-                font-weight: 700;
-                line-height: 1.2;
-                vertical-align: middle;
-            }
-
-            .notice-link {
-                position: absolute;
-                right: 24px;
-                top: 50%;
-                width: 16px;
-                height: 16px;
-                margin-top: -8px;
-            }
-
-            .notice-link:before,
-            .notice-link:after {
-                content: "";
-                position: absolute;
-                background: #ffffff;
-            }
-
-            .notice-link:before {
-                right: 1px;
-                top: 1px;
-                width: 11px;
-                height: 2px;
-                transform: rotate(-45deg);
-                transform-origin: right center;
-            }
-
-            .notice-link:after {
-                right: 0;
-                top: 0;
-                width: 2px;
-                height: 11px;
-            }
-
-            #legacyGrid {
-                display: none;
-            }
+            .notice-panel { width: 632px; flex: 0 0 632px; padding-bottom:10px; border: 1px solid rgba(255, 255, 255, 0.80); border-radius: 20px; background:linear-gradient(116deg, rgba(5, 69, 170, 0.60) 6.97%, rgba(42, 117, 242, 0.48) 87.95%); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); overflow: hidden; }
+            .notice-head { position: relative; margin:0 42px 0 20px; padding:29px 0 12px; border-bottom:1px solid var(--color-f); }
+            .notice-head h2 { font-size:var(--font30); font-weight:var(--font-w700); color:var(--color-f); }
+            .notice-actions { position: absolute; right: 20px; top: 24px; font-size: 0; }
+            .notice-list { min-height:400px; }
+            .notice-list li { position: relative; min-height: 67px; margin:0 20px 0 30px; padding: 16px 0 14px; box-sizing: border-box; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+            .notice-list li:first-child { border-top:0; }
+            .notice-list a { display: block; padding-right: 50px; }
+            .notice-date { display: block; margin-bottom: 6px; color: rgba(255, 255, 255, 0.9); font-size: 15px; font-weight: 700; line-height: 1.2; }
+            .notice-title { display: block; overflow: hidden; color: #ffffff; font-size: 16px; font-weight: 500; line-height: 1.45; letter-spacing: -0.02em; white-space: nowrap; text-overflow: ellipsis; }
+            .notice-link { position: absolute; right: 24px; top: 50%; width: 16px; height: 16px; margin-top: -8px; }
+            .notice-link:before, .notice-link:after { content: ""; position: absolute; background: #ffffff; }
+            .notice-link:before { right: 1px; top: 1px; width: 11px; height: 2px; transform: rotate(-45deg); transform-origin: right center; }
+            .notice-link:after { right: 0; top: 0; width: 2px; height: 11px; }
+            #legacyGrid { display: none; }
         </style>
     </head>
     <body>
         <div class="main-wrap">
-            <div class="side-nav">
-                <h1 class="logo">
-                    <a href="#none">
-                        <img src="./resource/images/orix_logo.png" alt="ORIX" />
-                    </a>
-                </h1>
-                <ul class="side-menu">
-                    <li>
-                        <a href="#none" title="공매입찰관리">
-                            <img src="./resource/svg/btn_bid_manage.svg" alt="공매입찰관리" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#none" title="사용자관리">
-                            <img src="./resource/svg/btn_user_manage.svg" alt="사용자관리" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <!-- S: 사이드메뉴 -->
+            <div data-include-path="./views/include/inc-nav.html"></div>
+            <!-- E: 사이드메뉴 -->
 
-            <div class="page-head">
-                <div class="user-links">
-                    <span>심규남(제로모티스)</span>
-                    <a href="#none">로그아웃</a>
-                </div>
-            </div>
-
-            <div class="main-content">
-                <div class="hero-layout">
-                    <div class="hero-copy">
-                        <p class="sub-copy">
-                            <strong>차량 관리의 새로운 기준</strong>
-                            The New Standard in Vehicle Management.
-                        </p>
-                        <p class="main-copy">
-                            차량 정보를<br />
-                            <em>[ 한눈에 ]</em> 확인하세요
-                        </p>
-                        <a href="#none" class="hero-btn">공매입찰관리 바로가기</a>
-                    </div>
-
-                    <div class="notice-panel">
-                        <div class="notice-head">
-                            <h2>공지사항</h2>
-                            <div class="notice-actions">
-                                <span class="notice-action">EXCEL</span>
-                                <span class="notice-action">조회</span>
-                            </div>
+            <main class="contentWrap">
+                <!-- S: 헤더 -->
+                <div data-include-path="./views/include/inc-main-header.html"></div>
+                <!-- E: 헤더 -->
+    
+                <div class="main-content">
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <p class="sub-copy">
+                                <strong>공매입찰관리의 새로운 기준</strong>
+                                The New Standard in Vehicle Auction Management
+                            </p>
+                            <p class="main-copy">
+                                공매입찰 정보를<br />
+                                <em>[ 한눈에 ]</em> 정리해 확인하세요
+                            </p>
+                            <a href="../bidg/ORIX-AUTS-BIDG-001.html" class="hero-btn">공매입찰관리 바로가기</a>
                         </div>
-                        <ul id="noticeList" class="notice-list"></ul>
+    
+                        <div class="notice-panel">
+                            <div class="notice-head">
+                                <h2>공지사항</h2>
+                                <div class="notice-actions">
+                                    <span class="notice-action">EXCEL</span>
+                                    <span class="notice-action">조회</span>
+                                </div>
+                            </div>
+                            <ul id="noticeList" class="notice-list"></ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
 
         <div id="legacyGrid">
@@ -435,7 +96,7 @@
             - 화면 UI 확인용 임시 데이터
             ================================================================ */
             var mockData = [
-                { date: "2026/03/06", title: "26년 3월 1차 공매 - 차량검수 3일(3/9 월 ~ 3월11 수), 입찰기한 (3/11 수 5시)", isNew: true },
+                { date: "2026/03/06", title: "26년 3월 1차 공매 - 차량검수 3일(3/9 월 ~ 3월11 수), 입찰기한 (3/11 수 5시), 요약 내용" },
                 { date: "2024/11/28", title: "오릭스 사업자등록증" },
                 { date: "2024/09/23", title: "입금계좌 안내" },
                 { date: "2024/09/06", title: "[초기설정] 일괄 입찰용 파일 설치 안내" },
@@ -477,13 +138,7 @@
                     listHtml += '<li>';
                     listHtml += '    <a href="#none">';
                     listHtml += '        <span class="notice-date">[' + escapeHtml(item.date) + ']</span>';
-                    listHtml += '        <span class="notice-title">' + escapeHtml(item.title);
-
-                    if (item.isNew) {
-                        listHtml += '<span class="badge-new">NEW</span>';
-                    }
-
-                    listHtml += "        </span>";
+                    listHtml += '        <span class="notice-title">' + escapeHtml(item.title) + "</span>";
                     listHtml += '        <span class="notice-link"></span>';
                     listHtml += "    </a>";
                     listHtml += "</li>";
@@ -517,8 +172,7 @@
 
                     result.push({
                         date: grdSheet01.GetCellValue(i, "NOTICE_DATE"),
-                        title: title,
-                        isNew: false
+                        title: title
                     });
                 }
 
