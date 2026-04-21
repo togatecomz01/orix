@@ -117,6 +117,8 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 th.tui-grid-cell-header,
 td.tui-grid-cell > div { font-size:var(--font14); }
 th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
+.tui-grid-container .tui-grid-border-line-top { border-top:1px solid var(--color-2); }
+.tui-grid-lside-area .tui-grid-header-area .tui-grid-table { border-top-color:var(--color-2); }
 td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
 td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30px; }
 
