@@ -201,7 +201,7 @@ body.popup { overflow:hidden; }
 
 /* pop-body */ 
 .newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f);}
-.newPop .pop-content .pop-body.notice-write-pop #noticeDate,.newPop .pop-content .pop-body.notice-write-pop #noticeNo {max-width: 130px;}
+/* .newPop .pop-content .pop-body.notice-write-pop #noticeDate,.newPop .pop-content .pop-body.notice-write-pop #noticeNo {max-width: 130px;} */
 .newPop .pop-content .pop-body.notice-write-pop .form-content > .form-wrap > .form-group:only-of-type { flex: 1; }
 .view-header .date { font-size:14px; font-size:var(--font-w400); color:var(--color-75); }
 .view-header h4 { margin:5px 0 20px; }
@@ -274,13 +274,16 @@ body.popup { overflow:hidden; }
 /* =============================================
     #로그인 에러
 ============================================= */
-.wrap.error { height:100%; }
-.error main.contentWrap { padding-left:0; padding-right:0; }
-.error-content { padding-top:160px; text-align:center; }
-.error-content .error-group .tit { font-size:var(--font38); font-weight:var(--font-w600); color:var(--color-2); text-align:center; }
-.error-content .error-group .tit::before { content:""; display:block; width:269px; height:269px; margin:0 auto; background:url("../../images/img_error.png") no-repeat center center / 269px auto; }
-.error-content .error-group span { display:inline-block; margin:15px 0 2px; font-size:var(--font20); color:var(--color-2); }
-.error-content .la-button button { width:400px; height:74px; font-size:var(--font24); font-weight:var(--font-w600); }
+body.error { min-width:0; }
+.wrap.error { display:flex; flex-direction:column; min-width:0; min-height:100%; }
+.error main.contentWrap { flex:1 1 auto; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box; }
+.error-content { width:100%; text-align:center; }
+.error-content .error-group .tit { font-size:clamp(var(--font30), 4.1vmin, var(--font38)); font-weight:var(--font-w600); color:var(--color-2); text-align:center; word-break:keep-all; }
+.error-content .error-group .tit::before { content:""; display:block; width:clamp(170px, 30vmin, 269px); height:clamp(170px, 30vmin, 269px); margin:0 auto; background:url("../../images/img_error.png") no-repeat center / contain; }
+.error-content .error-group span { display:inline-block; margin:clamp(10px, 2vmin, 15px) 0 2px; font-size:clamp(var(--font16), 2.4vmin, var(--font20)); color:var(--color-2); word-break:keep-all; }
+.error-content .la-button { margin-top:clamp(24px, 3vmin, 40px); }
+.error-content .la-button button { width:min(60%, 400px); max-width:100%; height:clamp(56px, 7vmin, 74px); font-size:clamp(var(--font18), 2.4vmin, var(--font24)); font-weight:var(--font-w600); }
+.wrap.error .footer-wrap p { font-size:clamp(var(--font12), 1.7vmin, var(--font16)); }
 
 /* =============================================
     #로그인
@@ -380,3 +383,4 @@ body.main-body .wrap {min-width: 0;}
     .main-page .notice-link { width:28px; height:28px; margin-top:-14px; background-size:28px 28px; }
 }
 /* 메인 페이지 css 종료 */
+
