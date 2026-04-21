@@ -217,6 +217,12 @@ body.popup { overflow:hidden; }
 .newPop .pop-content .pop-footer { -ms-flex:0 0 auto; flex:0 0 auto; margin-top:18px; }
 .newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
 
+/* 메인 공지사항 view 파일 다운로드 css */
+.file-wrap .file-list li { display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%; }
+.file-wrap .file-link { position:relative; display:inline-flex; align-items:center; flex:1; min-width:0; gap:10px; color:var(--color-75); text-decoration:none; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.file-wrap .file-link::before {  content:""; display:block; width:28px; height:28px; background-color:var(--color-75); mask-image:var(--ico-file); mask-position:center; mask-repeat:no-repeat; mask-size:28px auto; --webkit-mask-image:var(--ico-file); --webkit-mask-position:center; --webkit-mask-repeat:no-repeat; --webkit-mask-size:13px auto;  }
+.file-wrap .file-link:hover { text-decoration:underline; }
+
 /* 메인 공지사항 에디터 팝업 간격조절 css */
 .notice-write-pop .form-content > .form-wrap:first-child { margin-bottom:15px; }
 .notice-write-pop .file-wrap { margin-top:23px; }
