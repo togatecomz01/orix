@@ -41,11 +41,13 @@ main.contentWrap .page-header { display:flex; justify-content:space-between; ali
 
 /*** page-control ***/
 main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
-.page-control .control-header { display:table; width:100%; table-layout:fixed; margin-bottom:20px; }
+.page-control .control-header { display:table; width:100%; table-layout:fixed; }
 .page-control .control-header h2,
 .page-control .control-header .la-button { display:table-cell; vertical-align:middle; }
 .page-control .control-header h2 { width:auto; }
 .page-control .control-header .la-button { white-space:nowrap; text-align:right; }
+
+.page-control .control-header + .form-content { margin-top:20px; }
 
 /* input */
 .flex-row .label-tit { position:relative; padding-left:10px; }
@@ -171,8 +173,16 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
     #사용자관리
 ============================================= */
 /** 폼 **/
-.user-list .user-item { width:100%; padding:30px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
+.user-list .user-item { width:100%; margin-bottom:20px; padding:30px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 .user-list .user-item h4 { margin-bottom:20px; }
+.user-list:last-child { margin-bottom:0; }
+.user-list .form-group { min-width:270px; }
+
+/** info-text **/
+.user-list.info-text .form-content { display:flex; align-items:flex-end; gap:20px; }
+.user-list.info-text .form-content > .form-wrap { width: auto; margin-bottom:0; }
+.user-list.info-text .info-blue { position:relative; padding-left:34px; color:var(--secondary); font-size:var(--font16); font-weight: var(--font-w400); /* word-break:keep-all; */ }
+.user-list.info-text .info-blue::before { content:""; position:absolute; top:0; left:0; width:28px; height:28px; background:url("../../images/com/svg/info_rounded_blue.svg") no-repeat center / contain; }
 
 /* =============================================
     #새 창 팝업 newPop

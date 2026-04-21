@@ -13,6 +13,7 @@
     <script src="../../resource/js/lib/jquery.form.min.js"></script>
     <script src="../../resource/js/include.js"></script>
     <script src="../../resource/js/nav.js"></script>
+    <script src="../../resource/js/common.js"></script>
     <script>
         window.tui = window.tui || {};
         window.tui.DatePicker = window.tui.DatePicker || function () {};
@@ -29,18 +30,7 @@
 
         <main class="contentWrap">
             <!-- S: 시스템 상단 -->
-            <section class="page-header">
-                <h1>공매입찰 관리 시스템</h1>
-                <div class="user-links">
-                    <div class="user-info">
-                        <span class="user-thumb">
-                            <img src="../../resource/images/img_profile.png" alt="사용자 프로필" />
-                        </span>
-                        <span class="user-name">심규남(제로모티스)</span>
-                    </div>
-                    <a href="#none" class="btn-logout">로그아웃</a>
-                </div>
-            </section>
+            <div data-include-path="../include/inc-sub-header.html"></div>
             <!-- E: 시스템 상단 -->
 
             <!-- S: 페이지 상단 -->
@@ -59,7 +49,86 @@
 
             <!-- S: 본문 -->
             <section class="page-container">
+                <div class="user-content">
+                    <div class="user-list">
+                        <div class="user-item">
+                            <h4>기본정보</h4>
+                            <div class="form-content">
+                                <div class="form-wrap">
+                                    <div class="form-group">
+                                        <label for="user-id" class="label-tit">ID</label>
+                                        <input id="user-id" type="text" name="user-id" value="Zero00120" disabled="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company-name" class="label-tit">업체명</label>
+                                        <input id="company-name" type="text" name="company-name" value="심규남(제로모터스)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-ctno" class="label-tit">사업자번호</label>
+                                        <input id="office-ctno" type="text" name="office-ctno" placeholder="" value="0000000000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-name" class="label-tit">사업자명(오릭스 전산)</label>
+                                        <input id="office-name" type="text" name="office-name" placeholder="" value="심규남(제로모터스)" disabled="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="user-list info-text">
+                        <div class="user-item">
+                            <h4>비밀번호 변경</h4>
+                            <div class="form-content">
+                                <div class="form-wrap">
+                                    <div class="form-group">
+                                        <label for="new-password" class="label-tit">비밀번호 변경</label>
+                                        <span class="ipt-clear password">
+                                            <input id="new-password" type="password" name="new-password" placeholder="">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password-cnt" class="label-tit">비밀번호 변경 확인</label>
+                                        <span class="ipt-clear password">
+                                            <input id="new-password-cnt" type="password" name="new-password-cnt" placeholder="">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="info-blue">비밀번호는 문자, 숫자 특수문자의 조합으로 8~15자리로 입력하여주세요. <br>
+                                    영어대문자(A~Z), 영어소문자(a~z), 숫자(0~9), 특수문자(!, @, #, $, %, ^, &, *, ?, _, ~)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="user-list">
+                        <div class="user-item">
+                            <h4>담당자 정보</h4>
+                            <div class="form-content">
+                                <div class="form-wrap">
+                                    <div class="form-group">
+                                        <label for="user-id" class="label-tit">담당자 부서</label>
+                                        <input id="user-id" type="text" name="user-id" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company-name" class="label-tit">담당자명</label>
+                                        <input id="company-name" type="text" name="company-name" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-ctno" class="label-tit">담당자 연락처</label>
+                                        <input id="office-ctno" type="text" name="office-ctno" placeholder="" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="office-name" class="label-tit">담당자 이메일</label>
+                                        <input id="office-name" type="text" name="office-name" placeholder="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </section>
             <!-- E: 본문 -->
         </main>

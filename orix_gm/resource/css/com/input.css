@@ -17,8 +17,8 @@ body{
     --form-transition: all 0.2s ease;
     --form-radius:3px;
 
-    --form-disabled:#E9E7E7;
-    --form-disabled-font-color:var(--color-9);
+    --form-disabled:#F8F8F8;
+    --form-disabled-font-color:var(--color-75);
 
     --form-focus:var(--color-45);
     --form-focus-font-color:var(--color-45);
@@ -98,6 +98,8 @@ textarea:-ms-input-placeholder { color: var(--form-placeholder-color); }
 .ipt-clear { position:relative; display:block; }
 .ipt-clear input { padding-right:50px }
 .ipt-clear .btn-clear { position:absolute; width:28px; height:28px; right:18px; top:50%; transform:translate(0, -50%); font-size:0; background:url("../../images/com/svg/ico_close.svg") no-repeat center; background-size:28px;  }
+.ipt-clear.password .btn-password-toggle { position:absolute; display:block; width:24px; height:24px; right:18px; top:50%; margin-top:-12px; border:0; background:url("../../images/ico_eye_off.png") no-repeat center; background-size:24px 24px; font-size:0; z-index:2; cursor:pointer; }
+.ipt-clear.password .btn-password-toggle.is-show { background-image:url("../../images/ico_eye.png"); }
 
 /** focus **/
 input:focus,
@@ -429,14 +431,6 @@ ul.check-box.terms li .modal { position:absolute; top:50%; right:20px; transform
 .upload-label .fileLabel { display:block; line-height:38px; font-weight:var(--font-w500); }
 .upload-text.up + .upload-label { border-color:var(--active); }
 .upload { display:none; }
-
-/* =============================================
-    #사용자 정보변경 (IFMA-001) user_list 오른쪽 부분 info-text 들어갈 경우 css
-============================================= */
-.user-list.info-text .user-item { position:relative; }
-.user-list.info-text .form-group { min-width:250px; }
-.user-list.info-text .info-blue { position:absolute; top:103px; left: 600px; padding-left:34px; color:var(--secondary); font-size:var(--font16); font-weight: var(--font-w400); /* word-break:keep-all; */ }
-.user-list.info-text .info-blue::before { content:""; position:absolute; top:-1px; left:0; width:28px; height:28px; background:url("../../images/com/svg/info_rounded_blue.svg") no-repeat center / contain; }
 
 /* 이미지 첨부 */
 /* .photo-content { display:flex; gap:28px; }
