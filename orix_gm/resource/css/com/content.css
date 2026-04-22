@@ -228,9 +228,10 @@ body.popup { overflow:hidden; }
 .notice-write-pop .file-wrap { margin-top:23px; }
 .notice-write-pop .ipt-file { margin-bottom:5px; }
 .notice-write-pop .ipt-file:last-child { margin-bottom:0; }
+.notice-write-pop .notice-editor-area {width: 100%; min-height: 460px;}
+.notice-write-pop .notice-editor-area > * {height: 100%;}
 
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
-
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
 .newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
 .newPop .pop-content.download-pop .pop-body {min-height: 340px;}
@@ -272,7 +273,7 @@ body.popup { overflow:hidden; }
 .popup.grid .pop-content .grid-body { display:flex; flex:1 1 auto; flex-direction:column; min-height:0; padding-bottom:16px; border:0; border-radius:0; overflow:hidden; box-sizing:border-box; }
 .popup.grid .pop-content .grid-caption { flex:0 0 auto; padding:0 30px 20px; }
 .popup.grid .pop-content .grid-caption input.noline { color:var(--color-45); }
-.popup.grid .pop-content #grid { flex:1 1 auto; min-height:0; box-sizing:border-box; }
+.popup.grid .pop-content #grid { flex:1 1 auto; min-height:0; box-sizing:border-box; margin: 0 30px 20px 30px; }
 
 .popup.grid .pop-content .form-content { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
 .popup.grid .pop-content .form-content .label-tit { margin-right:10px; margin-bottom:0; line-height:40px; }
