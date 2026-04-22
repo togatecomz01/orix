@@ -370,7 +370,7 @@ body.main-body .wrap {min-width: 0;}
 
 #legacyGrid { display:none; }
 
-.notice-editor-area .toastui-editor-defaultUI { all:revert; }
+/* .notice-editor-area .toastui-editor-defaultUI { all:revert; } */
 
 /* 메인페이지 미디어쿼리 */
 @media screen and (max-width: 1490px) {

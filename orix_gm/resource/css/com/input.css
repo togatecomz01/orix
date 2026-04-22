@@ -97,7 +97,7 @@ textarea:-ms-input-placeholder { color: var(--form-placeholder-color); }
 /* input + clear */
 .ipt-clear { position:relative; display:block; }
 .ipt-clear input { padding-right:50px }
-.ipt-clear .btn-clear { position:absolute; width:28px; height:28px; right:18px; top:50%; transform:translate(0, -50%); font-size:0; background:url("../../images/com/svg/ico_close.svg") no-repeat center; background-size:28px;  }
+.ipt-clear .btn-clear { position:absolute; width:28px; height:28px; right:18px; top:50%; transform:translate(0, -50%); font-size:0; background:url("../../images/com/svg/ico_close.svg") no-repeat center; background-size:28px; z-index:2; }
 .ipt-clear.password .btn-password-toggle { position:absolute; display:block; width:24px; height:24px; right:18px; top:50%; margin-top:-12px; border:0; background:url("../../images/ico_eye_off.png") no-repeat center; background-size:24px 24px; font-size:0; z-index:2; cursor:pointer; }
 .ipt-clear.password .btn-password-toggle.is-show { background-image:url("../../images/ico_eye.png"); }
 
