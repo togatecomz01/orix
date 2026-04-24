@@ -61,6 +61,151 @@
             </script>
         </div>
 
+        <!-- S : 26.04.24 모달 확인용 -->
+        <section class="modal-container">
+            <div id="notiDetl" class="layerPopup modal notice-layer">
+                <div class="pop-content notice-pop notice-detl">
+                    <div class="popup">
+                        <div class="newPop">
+                            <div class="pop-header">
+                                <h1>공매 공지사항 관리</h1>
+                                <button type="button" class="pop-close-btn">닫기</button>
+                            </div>
+            
+                            <div class="pop-content">
+                                <div class="pop-body">
+                                    <div class="view-header">
+                                        <span class="date">2026/03/06</span>
+                                        <h4>26년 3월 1차 공매_차량검수3일(3/9 월 ~ 3/11 수), 입찰기한(3/11 수 5시) 주차장 평택 217대</h4>
+            
+                                        <div class="file-wrap">
+                                            <ul class="file-list">
+                                                <li>
+                                                    <a href="#none" class="file-link">202603.xlsx</a>
+                                                    <div class="sm-button">
+                                                        <button type="button" class="btn-icon download">다운로드</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+            
+                                    <div class="view-cont">
+                                        내용영역
+                                    </div>
+                                </div>
+            
+                                <!-- view는 footer 없으면 그대로 생략 -->
+                                <!--
+                                <div class="pop-footer">
+                                    <div class="button-content">
+                                        <button type="button" class="btn-pop-secondary btn-close-pop">닫기</button>
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal-container">
+            <div id="notiSave" class="layerPopup modal notice-layer">
+                <div class="pop-content notice-pop notice-save">
+                    <div class="popup">
+                        <div class="newPop">
+                            <div class="pop-header">
+                                <h1>공매 공지사항 관리</h1>
+                                <button type="button" class="pop-close-btn">닫기</button>
+                            </div>
+        
+                            <div class="pop-content">
+                                <div class="pop-body notice-write-pop">
+                                    <div class="form-content">
+                                        <div class="form-wrap">
+                                            <div class="form-group">
+                                                <div class="flex-row">
+                                                    <label for="noticeDate" class="label-tit">공지일자</label>
+                                                    <div class="field-box">
+                                                        <input type="text" id="noticeDate" value="2026/03/27">
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="form-group">
+                                                <div class="flex-row">
+                                                    <label for="noticeNo" class="label-tit">공지번호</label>
+                                                    <div class="field-box">
+                                                        <input type="text" id="noticeNo">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-wrap">
+                                            <div class="form-group">
+                                                <div class="flex-row">
+                                                    <label for="noticeTitle" class="label-tit">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
+                                                    <div class="field-box">
+                                                        <input type="text" id="noticeTitle">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="file-wrap">
+                                        <span class="ipt-file">
+                                            <span class="ipt-clear">
+                                                <input class="form-control upload-text uploadInput" type="text" placeholder="첨부파일을 등록하세요" tabindex="0" readonly />
+                                            </span>
+                                            <label class="upload-label" for="files1">
+                                                <input id="files1" class="upload" name="files1" type="file" />
+                                                <span class="fileLabel">첨부파일</span>
+                                            </label>
+                                        </span>
+        
+                                        <span class="ipt-file">
+                                            <span class="ipt-clear">
+                                                <input class="form-control upload-text uploadInput" type="text" placeholder="첨부파일을 등록하세요" tabindex="0" readonly />
+                                            </span>
+                                            <label class="upload-label" for="files2">
+                                                <input id="files2" class="upload" name="files2" type="file" />
+                                                <span class="fileLabel">첨부파일</span>
+                                            </label>
+                                        </span>
+        
+                                        <span class="ipt-file">
+                                            <span class="ipt-clear">
+                                                <input class="form-control upload-text uploadInput" type="text" placeholder="첨부파일을 등록하세요" tabindex="0" readonly />
+                                            </span>
+                                            <label class="upload-label" for="files3">
+                                                <input id="files3" class="upload" name="files3" type="file" />
+                                                <span class="fileLabel">첨부파일</span>
+                                            </label>
+                                        </span>
+                                    </div>
+        
+                                    <div class="notice-editor-area">
+                                        에디터 영역입니다.
+                                    </div>
+                                </div>
+        
+                                <div class="pop-footer">
+                                    <div class="button-content">
+                                        <button type="button" class="btn-pop-secondary">삭제</button>
+                                        <button type="button" class="btn-pop-primary">등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- E : 26.04.24 모달 확인용 -->
+         
         <script>
             /* ================================================================
             1. 더미 데이터 (디자인 확인용)
@@ -179,27 +324,27 @@
                 renderNoticeList(mockData);
             });
 
-            /* 공지사항 등록 팝업, view 팝업 임시 동작 확인용 */
+            /* S : 26.04.24 공지사항 view, editor 퍼블 확인용 임시 스크립트 */
             $(function () {
                 $('#noticeList').on('click', '.notice-title, .notice-link', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $('#notiDetl').addClass('on');
+                    $('body').css('overflow', 'hidden');
+                });
 
-                        var url = '../main/ORIX-AUTS-MAIN-002.html';
-                        var name = 'carDetailPop';
-                        var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
-
-                        window.open(url, name, option);
-                    });
-               
                 $('.js-open-editer-pop').on('click', function () {
-                    var url = '../main/ORIX-AUTS-MAIN-003.html';
-                    var name = 'noticeEnrollPop';
-                    var option = 'width=1000,height=900,scrollbars=yes,resizable=yes';
+                    $('#notiSave').addClass('on');
+                    $('body').css('overflow', 'hidden');
+                });
 
-                    window.open(url, name, option);
+                $(document).on('click', '.pop-close-btn', function (e) {
+                    e.preventDefault();
+                    $(this).closest('.layerPopup').removeClass('on');
+                    $('body').css('overflow', 'auto');
                 });
             });
+            /* E : 26.04.24 공지사항 view, editor 퍼블 확인용 임시 스크립트 */
         </script>
     </body>
 </html>

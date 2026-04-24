@@ -197,9 +197,9 @@ body.popup { overflow:hidden; }
 .newPop { display:flex; flex-direction:column; width:100%; height:100%; min-height:100%; }
 
 /** pop-header **/
-.newPop .pop-header { display:block; -ms-flex:0 0 auto; flex:0 0 auto; width:100%; padding:15px 20px; background-color:#004EB7; }
+.newPop .pop-header { display:flex; justify-content: space-between; -ms-flex:0 0 auto; flex:0 0 auto; width:100%; padding:15px 20px; background-color:#004EB7; }
 .newPop .pop-header h1 { font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-f); }
-
+.newPop .pop-header .pop-close-btn {width: 24px; height: 24px; border: none; cursor: pointer; padding: 0; background-color: transparent; background-image: url("../../images/com/svg/ico_white_close.svg"); background-repeat: no-repeat; background-position: center; background-size: 24px 24px; font-size: 0;}
 /** pop-content **/
 .newPop .pop-content { display:flex; -ms-flex:1 1 auto; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; overflow-y: auto;}
 
@@ -341,7 +341,7 @@ body.main-body .wrap {min-width: 0;}
 .main-page.wrap.main-wrap { position:relative; width:100%; min-width:1200px; box-sizing:border-box; background:url("../../images/main_bg.png") no-repeat 40px center / cover; }
 .main-page > .contentWrap { position:relative; z-index:1; display:flex; flex-direction:column; min-height:100vh; margin:0 auto; padding:0 0 20px; box-sizing:border-box; }
 .main-page > .contentWrap > .main-content { flex:1 1 auto; display:flex; min-height:0; box-sizing:border-box; }
-.main-page > .contentWrap > .page-footer { text-align:center; color:var(--color-75); font-size:var(--font16); }
+.main-page > .contentWrap > .page-footer { text-align:center; color:var(--color-75); font-size:var(--font16); margin-top: 30px; } 
 .main-page main.contentWrap .page-header { justify-content:flex-end; border:none; padding-right:40px; }
 .main-page .hero-layout {display: flex;align-items: flex-start;gap: 32px;width: 100%;min-height: 100%;padding-left: 160px;padding-right: 24px;box-sizing: border-box;}
 .main-page .hero-copy {flex: 1 1 420px;max-width: 600px;min-width: 360px;padding-top: 50px;box-sizing: border-box;color: var(--color-2);}

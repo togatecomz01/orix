@@ -11,29 +11,42 @@
 
     <link rel="stylesheet" href="../css/sample.css" rel="stylesheet">
 </head>
-<body class="popup">
-    <div class="newPop">
-        <div class="pop-content password-pop">
-            <div class="pop-body">
-                <h2 class="guide-tit">사용자확인 암호입력</h2>
-
-                <div class="pop-form-box">
-                    <div class="pop-form-row">
-                        <label for="userPw" class="label-tit">사용자 암호</label>
-                        <span class="ipt-clear password">
-                            <input id="userPw" class="login-input alnum" type="password" name="userPw" placeholder="">
-                        </span>
+<body>
+    <section class="modal-container">
+        <div id="infoCheck" class="layerPopup modal on">
+            <div class="pop-content password-pop">
+                <div class="pop-body">
+                    <h2 class="guide-tit">사용자확인 암호입력</h2>
+    
+                    <div class="pop-form-box">
+                        <div class="pop-form-row">
+                            <label for="userPw" class="label-tit">사용자 암호</label>
+                            <span class="ipt-clear password">
+                                <input id="userPw" class="login-input alnum" type="password" name="userPw" placeholder="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="pop-footer">
+                    <div class="button-content">
+                        <button type="button" class="btn-pop-primary">확인</button>
+                        <button type="button" class="btn-pop-secondary">취소</button>
                     </div>
                 </div>
             </div>
-        
-            <div class="pop-footer">
-                <div class="button-content">
-                    <button type="button" class="btn-pop-primary">확인</button>
-                    <button type="button" class="btn-pop-secondary">취소</button>
-                </div>
-            </div>
         </div>
-    </div>
+    </section>
 </body>
+<script>
+        /* S : 26.04.24 사용자확인 모달 확인,취소 닫힘힘 퍼블 확인용 임시 스크립트 */
+        $(function () {
+            $(document).on('click', '.btn-pop-primary, .btn-pop-secondary', function (e) {
+                e.preventDefault();
+                $(this).closest('.layerPopup').removeClass('on');
+                $('body').css('overflow', 'auto');
+            });
+        });
+        /* E : 26.04.24 공지사항 view, editor 퍼블 확인용 임시 스크립트 */
+</script>
 </html>
