@@ -66,9 +66,9 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .form-group .field-box input,
 .form-group .field-box select { width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 .form-group.form-car-no > .flex-row .field-box input,
-.form-group.form-status > .flex-row .field-box select { min-width:110px; }
-.form-group.form-car-no > .flex-row .field-box input { max-width:200px; width:100%; }
-.form-group.form-status > .flex-row .field-box select { max-width:251px; width:100%; }
+.form-group.form-status > .flex-row .field-box select { min-width:110px; width:100%; } /* 2026.04.24 */
+/* .form-group.form-car-no > .flex-row .field-box input { max-width:200px; width:100%; }
+.form-group.form-status > .flex-row .field-box select { max-width:251px; width:100%; } 2026.04.24 */
 
 .form-group.form-manage-no > .flex-row .field-box select { min-width:280px; } /* 2026.04.24 */
 .form-group.form-maker > .flex-row .field-box select { min-width:237px; }
