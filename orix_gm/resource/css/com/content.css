@@ -253,7 +253,7 @@ body.popup { overflow:hidden; }
 
 /* 사용자확인 암호입력 팝업 전용*/
 .layerPopup.modal .pop-content.password-pop { max-width:600px;}
-.password-pop .pop-form-box { width:100%; max-width:300px; margin:30px auto 0; }
+.password-pop .pop-form-box { width:100%; max-width:500px; margin:30px auto 0; }
 .password-pop .pop-form-row { display:table; width:100%; table-layout:auto; }
 .password-pop .pop-form-row .label-tit { position:relative; display:table-cell; width:1%; padding:0 12px 0 18px; white-space:nowrap; vertical-align:middle; font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-75); }
 .password-pop .pop-form-row .label-tit::before { content:"·"; position:absolute; left:6px; top:50%; transform:translateY(-50%); font-weight:900; color:var(--color-75); }
