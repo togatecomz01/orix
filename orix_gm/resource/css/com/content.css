@@ -58,7 +58,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 ============================================= */
 .page-control > .form-content { width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:#F8FAFB; }
 .form-content > .form-wrap { display:flex; width:100%; flex-wrap:wrap; }
-.form-content > .form-wrap > .form-group { box-sizing:border-box; flex:none; }
+.form-content > .form-wrap > .form-group { box-sizing:border-box; /*flex:none;*/ } /* 2026.04.24 */
 
 .form-content > .form-wrap > .form-group > .flex-row { display:flex; width:100%; align-items:center; }
 .form-group > .flex-row .label-tit { display:block; padding-left:10px; padding-right:10px; white-space:nowrap; }
@@ -84,6 +84,8 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .form-group.form-model { -webkit-box-flex:0; -ms-flex:0 0 22%; flex:0 0 22%; max-width:22%; }
 .form-group.form-status { min-width:307px; }
 .form-group.form-status { -webkit-box-flex:0; -ms-flex:0 0 16%; flex:0 0 16%; max-width:16%; }
+
+.notice-write-pop .form-content > .form-wrap > .form-group { flex: none; } /* 2026.04.24 */
 
 /* =============================================
     #그리드
@@ -174,15 +176,17 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
 /* =============================================
     #사용자관리
 ============================================= */
+.contentWrap.user .page-control,
+.contentWrap.user .page-container { max-width: 1200px; margin: 0 auto; }
 /** 폼 **/
 .user-list .user-item { width:100%; margin-bottom:20px; padding:30px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 .user-list .user-item h4 { margin-bottom:20px; }
 .user-list:last-child { margin-bottom:0; }
-.user-list .form-group { min-width:270px; }
+.user-list .form-group { min-width:235px; } /* 2026.04.24 */
 
 /** info-text **/
 .user-list.info-text .form-content { display:flex; align-items:flex-end; gap:20px; }
-.user-list.info-text .form-content > .form-wrap { width: auto; margin-bottom:0; }
+.user-list.info-text .form-content > .form-wrap { flex-wrap: nowrap; width: auto; margin-bottom:0; } /* 2026.04.24 */
 .user-list.info-text .info-blue { position:relative; padding-left:34px; color:var(--secondary); font-size:var(--font16); font-weight: var(--font-w400); /* word-break:keep-all; */ }
 .user-list.info-text .info-blue::before { content:""; position:absolute; top:0; left:0; width:28px; height:28px; background:url("../../images/com/svg/info_rounded_blue.svg") no-repeat center / contain; }
 
@@ -390,4 +394,3 @@ body.main-body .wrap {min-width: 0;}
     .main-page .notice-link { width:28px; height:28px; margin-top:-14px; background-size:28px 28px; }
 }
 /* 메인 페이지 css 종료 */
-
