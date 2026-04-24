@@ -359,7 +359,7 @@ body.main-body .wrap {min-width: 0;}
 .main-page .notice-action { display:block; width:70px; height:70px; padding:0; border:0; background:transparent; cursor:pointer; }
 .main-page .notice-action img { display:block; width:70px; height:70px; }
 .main-page .notice-head, .main-page .notice-list { position:relative; z-index:1; }
-.main-page .notice-list { max-height:490px; overflow-y:auto; overflow-x:hidden; margin-right:-50px; padding-right:50px; box-sizing:content-box; }
+.main-page .notice-list { max-height:490px; overflow-y:auto; overflow-x:hidden; margin-right:-50px; padding-right:40px; box-sizing:content-box; }
 .main-page .notice-list li + li a { border-top:1px solid rgba(255, 255, 255, 0.2); }
 .main-page .notice-list li:first-child { border-top:0; }
 .main-page .notice-list a {  position:relative; display:block; min-height:95px; padding:15px 74px 15px 0; box-sizing:border-box; color:var(--color-f); font-size:var(--font20); font-weight:var(--font-w500); cursor:default; }
@@ -372,7 +372,12 @@ body.main-body .wrap {min-width: 0;}
 .main-page .notice-list::-webkit-scrollbar { width:6px; }
 .main-page .notice-list::-webkit-scrollbar-track { background:transparent; }
 .main-page .notice-list::-webkit-scrollbar-thumb { border-radius:999px; background:rgba(49, 74, 137, 0.72); }
-
+/* 메인페이지 파이어폭스 대응 스크롤바 */
+@-moz-document url-prefix() {
+    .main-page .notice-list {
+        scrollbar-color: rgba(49, 74, 137, 0.72) transparent;
+    }
+}
 #legacyGrid { display:none; }
 
 /* .notice-editor-area .toastui-editor-defaultUI { all:revert; } */

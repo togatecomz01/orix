@@ -268,7 +268,7 @@ main.contentWrap > .bottom-container { margin-top:72px; }
 .layerPopup.modal .pop-body table { min-width:unset; }
 .layerPopup.modal .pop-footer { margin-top:42px; }
 
-/* 메인 공지사항 팝업 */
+/* 메인 공지사항 view editor 모달 */
 .layerPopup.modal.notice-layer {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
 .layerPopup.modal.notice-layer.on {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.3); z-index: 105;}
 .layerPopup.modal.notice-layer .pop-content.notice-pop {max-width: 1240px; width: 100%; height: 800px; padding: unset; transform: unset; inset: 0; position: static;}
@@ -279,6 +279,12 @@ main.contentWrap > .bottom-container { margin-top:72px; }
 .layerPopup.modal.notice-layer .pop-content.notice-pop.notice-detl .pop-body {max-height: 680px;}
 .layerPopup.modal.notice-layer .pop-content.notice-pop .pop-body::-webkit-scrollbar-thumb {border-radius: 999px; background: rgba(49, 74, 137, 0.72);}
 .layerPopup.modal.notice-layer .pop-content.notice-pop .pop-body::-webkit-scrollbar {width: 6px;}
+/* 메인 공지사항 view editor 모달 파이어폭스 대응 스크롤바 */
+@-moz-document url-prefix() {
+    .layerPopup.modal.notice-layer .pop-content.notice-pop .pop-body {
+        scrollbar-color: rgba(49, 74, 137, 0.72) transparent;
+    }
+}
 
 /**팜업 버튼*/
 .btn-close { display:block; position:absolute; top:44px; right:34px; width:40px; height:40px; background: var(--ico-close) no-repeat center; background-size:22px; font-size:0;  }
