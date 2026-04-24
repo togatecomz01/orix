@@ -235,6 +235,24 @@ body.popup { overflow:hidden; }
 .notice-write-pop .notice-editor-area {width: 100%; min-height: 460px;}
 .notice-write-pop .notice-editor-area > * {height: 100%;}
 
+/* 메인 공지사항 view editor 모달 */
+.notice-layer {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
+.notice-layer.on {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.3); z-index: 105;}
+.pop-content.notice-pop {max-width: 1240px; width: 100%; height: 800px; padding: unset; transform: unset; inset: 0; position: static;}
+.pop-content.notice-pop .popup {width: 100%; height: 100%;}
+.pop-content.notice-pop .pop-content {max-width: 1240px; width: 100%; height: 100%;}
+.pop-content.notice-pop .pop-header {margin-bottom: 0; padding: 1rem;}
+.pop-content.notice-pop .pop-body {text-align: unset; max-height: 620px; margin-bottom: 0;}
+.pop-content.notice-pop.notice-detl .pop-body {max-height: 680px;}
+.pop-content.notice-pop .pop-body::-webkit-scrollbar-thumb {border-radius: 999px; background: rgba(49, 74, 137, 0.72);}
+.pop-content.notice-pop .pop-body::-webkit-scrollbar {width: 6px;}
+/* 메인 공지사항 view editor 모달 파이어폭스 대응 스크롤바 */
+@-moz-document url-prefix() {
+    .pop-content.notice-pop .pop-body {
+        scrollbar-color: rgba(49, 74, 137, 0.72) transparent;
+    }
+}
+
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
 .newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
