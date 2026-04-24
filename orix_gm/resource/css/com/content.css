@@ -185,7 +185,8 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
 .user-list .user-item { width:100%; margin-bottom:20px; padding:30px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 .user-list .user-item h4 { margin-bottom:20px; }
 .user-list:last-child { margin-bottom:0; }
-.user-list .form-group { min-width:235px; } /* 2026.04.24 */
+.user-list .form-group input { min-width:235px; } /* 2026.04.24 */
+.user-list .form-group .password input { min-width: 270px; } /* 2026.04.24 */
 
 /** info-text **/
 .user-list.info-text .form-content { display:flex; align-items:flex-end; gap:20px; }

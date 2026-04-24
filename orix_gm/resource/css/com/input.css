@@ -69,6 +69,7 @@ input[type="date"],
 input[type="month"],
 input[type="datepicker"],
 select{ width:100%; height:var(--form-height); max-height:var(--form-height); background:var(--form-bg); border: 1px solid var(--form-board); border-radius:var(--form-radius); padding:var(--form-padding); color:var(--from-font-color); box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+input[type="password"] { letter-spacing:-5px; } /* 2026.04.24 */
 textarea { width:100%; border:1px solid var(--form-board); padding:12px 16px; color:var(--from-font-color); font-size:var(--font18); box-sizing:border-box; }
 
 /*
@@ -95,16 +96,20 @@ input.upload { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
 /** placeholder **/
 input::placeholder,
 textarea::placeholder { color: var(--form-placeholder-color); }
+input[type="password"]::placeholder { letter-spacing:normal; } /* 2026.04.24 */
 
 /* Chrome/Safari */
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder { color: var(--form-placeholder-color); }
+input[type="password"]::-webkit-input-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 /* Firefox */
 input::-moz-placeholder,
 textarea::-moz-placeholder { color: var(--form-placeholder-color); opacity: 1; }
+input[type="password"]::-moz-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 /* IE11 */
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder { color: var(--form-placeholder-color); }
+input[type="password"]:-ms-input-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 
 /* input + clear */
 .ipt-clear { position:relative; display:block; }
@@ -119,16 +124,20 @@ select:focus,
 textarea:focus { border:1px solid var(--form-focus); }
 input:focus::placeholder,
 textarea:focus::placeholder { color:var(--form-focus-font-color); }
+input[type="password"]:focus::placeholder { letter-spacing:normal; } /* 2026.04.24 */
 
 /* Chrome/Safari */
 input:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder { color: var(--form-focus-font-color); }
+input[type="password"]:focus::-webkit-input-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 /* Firefox */
 input:focus::-moz-placeholder,
 textarea:focus::-moz-placeholder { color: var(--form-focus-font-color); opacity: 1; }
+input[type="password"]:focus::-moz-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 /* IE11 */
 input:focus:-ms-input-placeholder,
 textarea:focus:-ms-input-placeholder { color: var(--form-focus-font-color); }
+input[type="password"]:focus:-ms-input-placeholder { letter-spacing:normal; } /* 2026.04.24 */
 
 /** disabled **/
 input:disabled,
