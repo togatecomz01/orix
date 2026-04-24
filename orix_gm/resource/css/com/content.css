@@ -251,7 +251,8 @@ body.popup { overflow:hidden; }
 .download-pop .download-guide-note { position:relative; margin:30px 0 0; padding:10px 0 35px 32px; border-top:1px solid var(--color-d); color:var(--color-75); font-size:var(--font14); font-weight: var(--font-w400);}
 .download-pop .download-guide-note::before { content:""; position:absolute; top:8px; left:0; width:26px; height:26px; background:url("../../images/com/svg/info_rounded.svg") no-repeat center center / 26px 26px; }
 
-/* 사용자확인 암호입력 팝업 전용용 */
+/* 사용자확인 암호입력 팝업 전용*/
+.layerPopup.modal .pop-content.password-pop { max-width:600px;}
 .password-pop .pop-form-box { width:100%; max-width:300px; margin:30px auto 0; }
 .password-pop .pop-form-row { display:table; width:100%; table-layout:auto; }
 .password-pop .pop-form-row .label-tit { position:relative; display:table-cell; width:1%; padding:0 12px 0 18px; white-space:nowrap; vertical-align:middle; font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-75); }
