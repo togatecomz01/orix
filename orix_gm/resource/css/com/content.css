@@ -136,9 +136,12 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
 .grid-body .tui-grid-scrollbar-y-inner-border,
 .grid-body .tui-grid-scrollbar-y-outer-border,
 .grid-body .tui-grid-scrollbar-frozen-border { display:none; }
-.grid-body .tui-grid-container ::-webkit-scrollbar { width:16px; height:16px; }
-.grid-body .tui-grid-container ::-webkit-scrollbar-track { border-radius:999px; background-color:transparent; }
-.grid-body .tui-grid-container ::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:999px; background-color:#02104A60; background-clip:content-box; }
+
+/* S :26.04.24 커스텀 스크롤 추가 */
+.grid-body .tui-grid-container .tui-grid-body-area::-webkit-scrollbar { width:16px; height:16px; }
+.grid-body .tui-grid-container .tui-grid-body-area::-webkit-scrollbar-track { border-radius:999px; background-color:transparent; }
+.grid-body .tui-grid-container .tui-grid-body-area::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:999px; background-color:#02104A60; background-clip:content-box; }
+/* E :26.04.24 커스텀 스크롤 추가 */
 
 /* 입찰가격 */
 .tui-grid-container .grid-fake-input { display:block; height:30px; padding:0 6px; border:1px solid var(--color-d); border-radius:3px; background-color:#F5F6F8; color:var(--color-45); text-align:right; line-height:28px; box-sizing:border-box; }
