@@ -35,6 +35,7 @@ main.contentWrap .page-header { display:flex; justify-content:space-between; ali
 
 .user-links .user-info,
 .user-links .btn-logout { vertical-align:middle; }
+.user-links .user-info:hover {cursor: pointer;} /* 26.04.24 user-link 클릭 시 사용자 관리 화면으로 이동 */
 
 .user-links .btn-logout { position:relative; display:inline-block; padding:8px 13px 8px 29px; border:1px solid var(--color-d); border-radius:20px; background-color:var(--color-f); font-size:var(--font16); font-weight:var(--font-w500); color:#000; }
 .user-links .btn-logout::before { content:""; position:absolute; top:50%; left:8px; transform:translateY(-50%); display:block; width:16px; height:16px; background:url("../../images/com/svg/btn_logout.svg") no-repeat center center; }
@@ -257,10 +258,23 @@ body.popup { overflow:hidden; }
     }
 }
 
+/* 엑셀 download 모달 */
+.excel-layer {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
+.excel-layer.on {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.3);}
+.excel-layer .pop-content.excel-pop {max-width: 700px; width: 100%; padding: unset; transform: unset; inset: 0; position: static;}
+.excel-layer .pop-content.excel-pop .popup {width: 100%; height: 100%;}
+.excel-layer .pop-content.excel-pop .pop-content {max-width: 700px; width: 100%; height: 100%;}
+.excel-layer .pop-content.excel-pop .pop-header {margin-bottom: 0; padding: 1rem;}
+.excel-layer .pop-content.excel-pop .pop-body {text-align: unset; max-height: 450px; margin-bottom: 0;}
+.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar-thumb {border-radius: 999px; background: rgba(49, 74, 137, 0.72);}
+.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar {width: 6px;}
+.excel-layer .pop-content.excel-pop .pop-body .download-guide-note {padding: 20px 0 40px 32px;}
+.excel-layer .pop-content.excel-pop .pop-body .download-guide-note::before {top: 18px;}
+
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
 .newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
 .newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
-.newPop .pop-content.download-pop .pop-body {min-height: 340px;}
+.newPop .pop-content.download-pop .pop-body {min-height: 320px;}
 .newPop .pop-content.password-pop .pop-body {min-height: 140px;}
 .download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
 
