@@ -63,6 +63,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 
 .form-content > .form-wrap > .form-group > .flex-row { display:flex; width:100%; align-items:center; }
 .form-group > .flex-row .label-tit { display:block; padding-left:10px; padding-right:10px; white-space:nowrap; }
+.notice-write-pop .form-group > .flex-row .label-tit.noti-title { width:78px;letter-spacing:30px; }
 .form-group > .flex-row .field-box { flex:1; min-width:0; }
 .form-group .field-box input,
 .form-group .field-box select { width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
