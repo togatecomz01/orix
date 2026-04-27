@@ -212,7 +212,7 @@ body.popup { overflow:hidden; }
 .newPop .pop-main .pop-body { flex:1 1 auto; width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 /* .newPop .pop-content .pop-body.notice-write-pop #noticeDate,.newPop .pop-content .pop-body.notice-write-pop #noticeNo {max-width: 130px;} */
 .newPop .pop-main .pop-body.notice-write-pop .form-content > .form-wrap > .form-group:only-of-type { flex:1; }
-.view-header .date { font-size:14px; font-size:var(--font-w400); color:var(--color-75); }
+.view-header .date { font-size:var(--font14); font-weight:var(--font-w400); color:var(--color-75); }
 .view-header h4 { margin:5px 0 20px; }
 
 .file-wrap { margin-bottom:20px; padding:6px 8px 4px 15px; border-radius:6px; background-color:#F2F3F8; }
