@@ -205,13 +205,13 @@ body.popup { overflow:hidden; }
 .newPop .pop-header { display:flex; justify-content: space-between; -ms-flex:0 0 auto; flex:0 0 auto; width:100%; padding:15px 20px; background-color:#004EB7; }
 .newPop .pop-header h1 { font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-f); }
 .newPop .pop-header .pop-close-btn {width: 24px; height: 24px; border: none; cursor: pointer; padding: 0; background-color: transparent; background-image: url("../../images/com/svg/ico_white_close.svg"); background-repeat: no-repeat; background-position: center; background-size: 24px 24px; font-size: 0;}
-/** pop-content **/
-.newPop .pop-content { display:flex; -ms-flex:1 1 auto; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; overflow-y: auto;}
+/** pop-main **/
+.newPop .pop-main { display:flex; flex:1 1 auto; flex-direction:column; width:100%; height:100%; padding:30px 30px 23px; background-color:#F2F3F8; overflow-y:auto; }
 
 /* pop-body */ 
-.newPop .pop-content .pop-body { -ms-flex:1 1 auto; flex:1 1 auto; width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f);}
+.newPop .pop-main .pop-body { flex:1 1 auto; width:100%; padding:20px; border:1px solid var(--color-d); border-radius:10px; background-color:var(--color-f); }
 /* .newPop .pop-content .pop-body.notice-write-pop #noticeDate,.newPop .pop-content .pop-body.notice-write-pop #noticeNo {max-width: 130px;} */
-.newPop .pop-content .pop-body.notice-write-pop .form-content > .form-wrap > .form-group:only-of-type { flex: 1; }
+.newPop .pop-main .pop-body.notice-write-pop .form-content > .form-wrap > .form-group:only-of-type { flex:1; }
 .view-header .date { font-size:14px; font-size:var(--font-w400); color:var(--color-75); }
 .view-header h4 { margin:5px 0 20px; }
 
@@ -223,8 +223,8 @@ body.popup { overflow:hidden; }
 .file-wrap .ipt-file > .upload-label { -ms-flex:0 0 auto; flex:0 0 auto; }
 
 /* pop-footer */
-.newPop .pop-content .pop-footer { -ms-flex:0 0 auto; flex:0 0 auto; margin-top:18px; }
-.newPop .pop-content .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
+.newPop .pop-main .pop-footer { flex:0 0 auto; margin-top:18px; }
+.newPop .pop-main .button-content { display:flex; justify-content:center; gap:16px; text-align:center; }
 
 /* 메인 공지사항 view 파일 다운로드 css */
 .file-wrap .file-list li { display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%; }
@@ -245,12 +245,12 @@ body.popup { overflow:hidden; }
 .notice-layer.on {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.3); z-index: 105;}
 .layerPopup.modal .pop-content.notice-pop {max-width: 1240px; width: 100%; height: 800px; padding: unset; transform: unset; inset: 0; position: static;}
 .pop-content.notice-pop .popup {width: 100%; height: 100%;}
-.pop-content.notice-pop .pop-content {max-width: 1240px; width: 100%; height: 100%;}
-.pop-content.notice-pop .pop-header {margin-bottom: 0; padding: 1rem;}
-.pop-content.notice-pop .pop-body {text-align: unset; max-height: 620px; margin-bottom: 0;}
-.pop-content.notice-pop.notice-detl .pop-body {max-height: 680px;}
-.pop-content.notice-pop .pop-body::-webkit-scrollbar-thumb {border-radius: 999px; background: rgba(49, 74, 137, 0.72);}
-.pop-content.notice-pop .pop-body::-webkit-scrollbar {width: 6px;}
+.pop-content.notice-pop .pop-main { max-width:1240px; width:100%; height:100%; }
+.pop-content.notice-pop .pop-header { margin-bottom:0; padding:1rem; }
+.pop-content.notice-pop .pop-body { text-align:unset; max-height:620px; margin-bottom:0; }
+.pop-content.notice-pop.notice-detl .pop-body { max-height:680px; }
+.pop-content.notice-pop .pop-body::-webkit-scrollbar-thumb { border-radius:999px; background:rgba(49, 74, 137, 0.72); }
+.pop-content.notice-pop .pop-body::-webkit-scrollbar { width:6px; }
 /* 메인 공지사항 view editor 모달 파이어폭스 대응 스크롤바 */
 @-moz-document url-prefix() {
     .pop-content.notice-pop .pop-body {
@@ -261,21 +261,23 @@ body.popup { overflow:hidden; }
 /* 엑셀 download 모달 */
 .excel-layer {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
 .excel-layer.on {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.3);}
-.excel-layer .pop-content.excel-pop {max-width: 700px; width: 100%; padding: unset; transform: unset; inset: 0; position: static;}
-.excel-layer .pop-content.excel-pop .popup {width: 100%; height: 100%;}
-.excel-layer .pop-content.excel-pop .pop-content {max-width: 700px; width: 100%; height: 100%;}
-.excel-layer .pop-content.excel-pop .pop-header {margin-bottom: 0; padding: 1rem;}
-.excel-layer .pop-content.excel-pop .pop-body {text-align: unset; max-height: 450px; margin-bottom: 0;}
-.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar-thumb {border-radius: 999px; background: rgba(49, 74, 137, 0.72);}
-.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar {width: 6px;}
-.excel-layer .pop-content.excel-pop .pop-body .download-guide-note {padding: 20px 0 40px 32px;}
-.excel-layer .pop-content.excel-pop .pop-body .download-guide-note::before {top: 18px;}
+.excel-layer .pop-content.excel-pop { max-width:700px; width:100%; padding:unset; transform:unset; inset:0; position:static; }
+.excel-layer .pop-content.excel-pop .popup { width:100%; height:100%; }
+.excel-layer .pop-content.excel-pop .pop-main { max-width:700px; width:100%; height:100%; }
+.excel-layer .pop-content.excel-pop .pop-header { margin-bottom:0; padding:1rem; }
+.excel-layer .pop-content.excel-pop .pop-body { text-align:unset; max-height:450px; margin-bottom:0; }
+.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar-thumb { border-radius:999px; background:rgba(49, 74, 137, 0.72); }
+.excel-layer .pop-content.excel-pop .pop-body::-webkit-scrollbar { width:6px; }
+.excel-layer .pop-content.excel-pop .download-guide-note { padding:20px 0 40px 32px; }
+.excel-layer .pop-content.excel-pop .download-guide-note::before { top:18px; }
 
 /* 파일 다운로드 팝업, 사용자확인 암호입력 공통 레이아웃*/
-.newPop .pop-content.download-pop, .newPop .pop-content.password-pop { padding:30px; }
-.newPop .pop-content.download-pop .pop-body, .newPop .pop-content.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
-.newPop .pop-content.download-pop .pop-body {min-height: 320px;}
-.newPop .pop-content.password-pop .pop-body {min-height: 140px;}
+.newPop .pop-main.download-pop,
+.newPop .pop-main.password-pop { padding:30px; }
+.newPop .pop-main.download-pop .pop-body,
+.newPop .pop-main.password-pop .pop-body { display:flex; flex:1 1 auto; flex-direction:column; justify-content:flex-start; width:100%; padding:20px; border-radius:10px; overflow:hidden; }
+.newPop .pop-main.download-pop .pop-body { min-height:320px; }
+.newPop .pop-main.password-pop .pop-body { min-height:140px; }
 .download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
 
 /* 파일 다운로드 팝업 전용 */
