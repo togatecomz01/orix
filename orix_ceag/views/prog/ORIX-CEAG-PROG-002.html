@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>오릭스 A시안 (견적 확인)</title>
+    <title>오릭스 전자법인약정 견적 확인</title>
     
-    <link href="../resource/css/ui-util.css" rel="stylesheet">
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
 
-    <script src="../resource/js/jquery-1.11.3.min.js"></script>
-    <script src="../resource/js/jquery.form.min.js"></script>
-    <script src="../resource/js/common.js"></script>
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
 </head>
 <body>
     <div id="wrap">
 
         <div id="headerWrap" role="banner">
             <div class="header-inner">
-                <h1 class="logo"><a href="#"><img src="../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <h1 class="logo"><a href="#"><img src="../../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
                 <div class="header-contact">
                     <span class="txt">고객센터</span>
                     <span class="tel">02-2050-6700</span>
@@ -101,7 +101,7 @@
                             </div>
 
                             <div class="vehicle-view mt-32">
-                                <div class="img-wrap"><img src="../resource/images/gv-70.png" alt="차량 이미지"></div>
+                                <div class="img-wrap"><img src="../../resource/images/gv-70.png" alt="차량 이미지"></div>
                                 <p class="sub">가솔린 터보 1.6 하이브리드 익스클루시브</p>
                                 <p class="model">현대 2025년형 디 올 뉴 그랜저</p>
                             </div>
@@ -129,6 +129,74 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-box mt-32"> 
+
+                    <div class="agree-header">
+                        <div class="check-group circle-type mb-32">
+                            <input type="checkbox" id="agreeAll">
+                            <label for="agreeAll">전체 약관동의</label>
+                        </div>
+                    </div>
+
+                    <div class="accordion-list">
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term1" name="terms">
+                                    <label for="term1">
+                                        
+                                        <span class="acc-trigger"><span class="blue-txt">(필수)</span>개인정보 수집 · 이용 동의 (렌터카)</span>
+                                    </label>
+                                </div>
+                                <button type="button" class="btn-toggle" aria-label="내용 열기/닫기"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">
+                                    <p class="term-tit">[필수]개인정보 수집이용 동의</p>
+                                    <ul class="bul-refer">
+                                        <li>아래의 동의사항은 거래관계의 설정 및 유지를 위한 필수 사항입니다.</li>
+                                        <li>귀하는 동의를 거부할 권리가 있으나, 동의하지 않을 경우 거래관계의 설정 또는 유지가 불가능할 수 있음을 알려드립니다.</li>
+                                        <li>신용공여 사실만으로 신용점수가 하락할 수 있으며, 금융권역 또는 신용공여 형태에 따라 은행의 신용공여보다 신용점수 하락폭이 클 수 있습니다.</li>
+                                    </ul>
+
+                                    <div class="term-footer">
+                                        <ul>
+                                            <li>오릭스캐피탈코리아(주) 귀중</li>
+                                            <li>귀사와의 금융거래 관련하여 귀사가 본인의 개인(신용)정보를 처리하고자 하는 경우에는 「개인정보 보호법」 제15조, 제22조, 제24조 및 「신용정보의 이용 및 보호에 관한 법률」 제32조, 제33조, 제34조에 따라 동의를 얻어야 합니다.</li>
+                                            <li>이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 처리하는 것에 동의합니다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term2" name="terms">
+                                    <label for="term2"><span class="blue-txt">(필수)</span> 자동차임대차(렌탈) 약관</label>
+                                </div>
+                                <button type="button" class="btn-toggle"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">내용이 들어갑니다.</div>
+                            </div>
+                        </div>
+
+                        <div class="acc-item">
+                            <div class="acc-head">
+                                <div class="check-group line-type">
+                                    <input type="checkbox" id="term3" name="terms">
+                                    <label for="term3"><span class="blue-txt">(필수)</span> 자동이체 약관</label>
+                                </div>
+                                <button type="button" class="btn-toggle"></button>
+                            </div>
+                            <div class="acc-body">
+                                <div class="term-content">내용이 들어갑니다.</div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
             </div>
         </div>
 
@@ -139,7 +207,7 @@
                     <p class="sub-txt">※ 내용에 이상이 없을 경우, [다음] 버튼을 통해 계좌 및 납부 정보 등록 화면으로 이동하실 수 있습니다.</p>
                 </div>
                 <div class="btn-area">
-                    <a href="./ORIX-CRTF-ACIN-001.html" class="btn-primary">다음</a>
+                    <a href="./ORIX-CEAG-PROG-002-step2.html" class="btn-primary">다음</a>
                 </div>
             </div>
         </div>
