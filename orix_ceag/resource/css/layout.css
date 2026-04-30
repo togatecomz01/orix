@@ -62,6 +62,7 @@
 
 /* 그리드 (Grid & Container) */
 .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+.layout-grid > .col-group:only-child { grid-column: 1 / -1; }
 .col-group { display: flex; flex-direction: column; gap: 20px; height: 100%; }
 .card-box { background: var(--color-f); border-radius: 16px; padding: 50px; width: 100%; box-sizing: border-box; }
 .card-box.mh-100 {flex: 1;}
