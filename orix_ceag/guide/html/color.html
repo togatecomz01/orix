@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - color/font</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/common.js"></script>
+
+    <link href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div data-include-path="../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">Foundations</h2>
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">Color</h3>
+                            <div class="card-list">
+                                <div class="color-item">
+                                    <h3>Primary</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #3182EE;"></div>
+                                            <dl>
+                                                <dt>Primary</dt>
+                                                <dd>#3182EE</dd>
+                                                <dd>RGB 49 130 238</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Semantic</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #FF0000;"></div>
+                                            <dl>
+                                                <dt>경고/부정</dt>
+                                                <dd>#FF0000</dd>
+                                                <dd>RGB 255 0 0</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #086CFD;"></div>
+                                            <dl>
+                                                <dt>긍정, 선택</dt>
+                                                <dd>#086CFD</dd>
+                                                <dd>RGB 8 108 253</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #DFE4EB;"></div>
+                                            <dl>
+                                                <dt>진행중 / 대기</dt>
+                                                <dd>#DFE4EB</dd>
+                                                <dd>RGB 223 228 235</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Background</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip"></div>
+                                            <dl>
+                                                <dt>White</dt>
+                                                <dd>#FFFFFF</dd>
+                                                <dd>RGB 255 255 255</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #F2F3F8;"></div>
+                                            <dl>
+                                                <dt>BG</dt>
+                                                <dd>#F2F3F8</dd>
+                                                <dd>RGB 248 248 248</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Border</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #3182EE;"></div>
+                                            <dl>
+                                                <dt>On</dt>
+                                                <dd>#3182EE</dd>
+                                                <dd>RGB 49 130 238</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #F8F8F8;"></div>
+                                            <dl>
+                                                <dt>Disable</dt>
+                                                <dd>#F8F8F8</dd>
+                                                <dd>RGB 248 248 248  </dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Text</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #222222;"></div>
+                                            <dl>
+                                                <dt>타이틀</dt>
+                                                <dd>#222222</dd>
+                                                <dd>RGB 34 34 34 </dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #454545;"></div>
+                                            <dl>
+                                                <dt>본문</dt>
+                                                <dd>#454545</dd>
+                                                <dd>RGB 70 70 70</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #666666;"></div>
+                                            <dl>
+                                                <dt>보조</dt>
+                                                <dd>#666666</dd>
+                                                <dd>RGB 102 102 102</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #F2F3F8;"></div>
+                                            <dl>
+                                                <dt>비활성</dt>
+                                                <dd>#999999</dd>
+                                                <dd>RGB 153 153 153</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Input Box</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #DDDDDD;"></div>
+                                            <dl>
+                                                <dt>디폴트</dt>
+                                                <dd>#DDDDDD</dd>
+                                                <dd>RGB 221 221 221</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="border: 1px solid #062D4D; background-color: #F8F8F8;"></div>
+                                            <dl>
+                                                <dt>포커스 </dt>
+                                                <dd>#062D4D</dd>
+                                                <dd>RGB 6 45 77</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #F8F8F8;"></div>
+                                            <dl>
+                                                <dt>Disable</dt>
+                                                <dd>#F8F8F8</dd>
+                                                <dd>RGB 248 248 248</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Icon</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #222222;"></div>
+                                            <dl>
+                                                <dt>강조</dt>
+                                                <dd>#222222</dd>
+                                                <dd>RGB 34 34 34</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #999999;"></div>
+                                            <dl>
+                                                <dt>기본</dt>
+                                                <dd>#999999</dd>
+                                                <dd>RGB 153 153 153</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="color-item">
+                                    <h3>Button</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #3182EE;"></div>
+                                            <dl>
+                                                <dt>Main Button</dt>
+                                                <dd>#3182EE</dd>
+                                                <dd>RGB 49 130 238</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #156CDF;"></div>
+                                            <dl>
+                                                <dt>Main Hover</dt>
+                                                <dd>#156CDF</dd>
+                                                <dd>RGB 21 108 223</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #CCCCCC;"></div>
+                                            <dl>
+                                                <dt>Inactive</dt>
+                                                <dd>#CCCCCC</dd>
+                                                <dd>RGB 204 204 204</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #BBBBBB;"></div>
+                                            <dl>
+                                                <dt>Inactive</dt>
+                                                <dd>#BBBBBB</dd>
+                                                <dd>RGB 187 187 187</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="color-chip" style="background-color: #F5F5F5;"></div>
+                                            <dl>
+                                                <dt>File select</dt>
+                                                <dd>#F5F5F5</dd>
+                                                <dd>RGB 245 245 245</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-tit">font</h3>
+                            <div class="font-list">
+                                <div class="font-item">
+                                    <table class="font-table">
+                                        <colgroup>
+                                            <col style="width: 40%;">
+                                            <col style="width: 18%;">
+                                            <col style="width: 14%;">
+                                            <col style="width: 16%;">
+                                            <col style="width: 12%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Scale Category</th>
+                                                <th>Weight</th>
+                                                <th>Size</th>
+                                                <th>Line height</th>
+                                                <th>Letter spacing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>H1 로고 이미지</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2>H2 페이지/팝업 타이틀</h2></td>
+                                                <td>Bold</td>
+                                                <td>38</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><h3>H3 컨텐츠 타이틀</h3></td>
+                                                <td>Bold, Medium</td>
+                                                <td>24</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><h4>H4 -</h4></td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="font-item">
+                                    <table class="font-table">
+                                        <colgroup>
+                                            <col style="width: 40%;">
+                                            <col style="width: 18%;">
+                                            <col style="width: 14%;">
+                                            <col style="width: 16%;">
+                                            <col style="width: 12%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Scale Category</th>
+                                                <th>Weight</th>
+                                                <th>Size</th>
+                                                <th>Line height</th>
+                                                <th>Letter spacing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><p class="txt-p1">P1 출품/낙찰</p></td>
+                                                <td>SemiBold</td>
+                                                <td>26</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="txt-p2">P2 차량정보 타이틀</p></td>
+                                                <td>SemiBold</td>
+                                                <td>22</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="txt-p3">P3 리스트</p></td>
+                                                <td>Medium, Light</td>
+                                                <td>20</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="txt-p4">P4 버튼</p></td>
+                                                <td>Medium, Regular</td>
+                                                <td>18</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="txt-p5">P5 본문 보조</p></td>
+                                                <td>Regular</td>
+                                                <td>16</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="font-item">
+                                    <table class="font-table">
+                                        <colgroup>
+                                            <col style="width: 40%;">
+                                            <col style="width: 18%;">
+                                            <col style="width: 14%;">
+                                            <col style="width: 16%;">
+                                            <col style="width: 12%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Scale Category</th>
+                                                <th>Weight</th>
+                                                <th>Size</th>
+                                                <th>Line height</th>
+                                                <th>Letter spacing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--color-2); line-height: normal; letter-spacing: 0;">Input label</span></td>
+                                                <td>SemiBold</td>
+                                                <td>18</td>
+                                                <td>auto</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-2); line-height: normal; letter-spacing: 0;">Input Placeholder</span></td>
+                                                <td>Regular</td>
+                                                <td>18</td>
+                                                <td>auto</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="font-item">
+                                    <table class="font-table">
+                                        <colgroup>
+                                            <col style="width: 40%;">
+                                            <col style="width: 18%;">
+                                            <col style="width: 14%;">
+                                            <col style="width: 16%;">
+                                            <col style="width: 12%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Scale Category</th>
+                                                <th>Weight</th>
+                                                <th>Size</th>
+                                                <th>Line height</th>
+                                                <th>Letter spacing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-2);">Table Header</span></td>
+                                                <td>Medium</td>
+                                                <td>18</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-2);">Table Data</span></td>
+                                                <td>Regular</td>
+                                                <td>18</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="font-item">
+                                    <table class="font-table">
+                                        <colgroup>
+                                            <col style="width: 40%;">
+                                            <col style="width: 18%;">
+                                            <col style="width: 14%;">
+                                            <col style="width: 16%;">
+                                            <col style="width: 12%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Scale Category</th>
+                                                <th>Weight</th>
+                                                <th>Size</th>
+                                                <th>Line height</th>
+                                                <th>Letter spacing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span style="font-size: var(--font22); font-weight: var(--font-w-m); color: var(--color-2);">Accordion</span></td>
+                                                <td>Medium</td>
+                                                <td>22</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-size: var(--font20); font-weight: var(--font-w-sb); color: var(--color-2);">Primary Button</span></td>
+                                                <td>SemiBold</td>
+                                                <td>20</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--color-2);">Body, POP Button</span></td>
+                                                <td>SemiBold, Medium</td>
+                                                <td>18</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-2);">Check BOX</span></td>
+                                                <td>Medium, Regular</td>
+                                                <td>18, 16</td>
+                                                <td>150</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="font-weight: var(--font-w-m); color: var(--color-2);">Body Button</span></td>
+                                                <td>Medium</td>
+                                                <td>-</td>
+                                                <td>auto</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-notice">
+                    <p class="notice-tit">ORIX UI STANDARD GUIDE</p>
+                </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary">가이드 확인 완료</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -38,6 +38,16 @@
 /* Inner 공통 (1200px 중앙 정렬) */
 .header-inner, .contents, .footer-inner { width: 1200px; margin: 0 auto; position: relative; box-sizing: border-box; }
 
+/* 텍스트 스타일 공통 */
+h2 { font-size: var(--font38); font-weight: var(--font-w-b); color: var(--color-2); }
+h3 { font-size: var(--font24); font-weight: var(--font-w-b); color: var(--color-2); }
+h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
+.txt-p1 { font-size: var(--font26); font-weight: var(--font-w-sb); color: var(--color-2); }
+.txt-p2 { font-size: var(--font22); font-weight: var(--font-w-sb); color: var(--color-2); }
+.txt-p3 { font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-2); }
+.txt-p4 { font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-2); }
+.txt-p5 { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-2); }
+
 /* 헤더 (Header) */
 .header-inner { height: 100%; display: flex; justify-content: space-between; align-items: center; }
 .header-inner .logo a { display: block; width: 95px; height: 25px; }
