@@ -1,15 +1,15 @@
 @charset "utf-8";
 
 /* 기본 버튼 (Primary) */
-.btn-primary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--primary); color: var(--white); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
+.btn-primary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--primary); color: var(--color-f); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
 .btn-primary:hover {background-color: #156CDF; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);}
 /* .btn-primary:not(:disabled):hover { background-color: #266ac4; } */
 .btn-primary:disabled, .btn-primary.disabled { background-color: var(--color-d); color: var(--color-9); cursor: not-allowed; }
 .btn-primary.disabled:hover { background-color: var(--color-d) ; color: var(--color-9); cursor: not-allowed !important;}
-.btn-secondary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--white); color: var(--color-45); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: 1px solid var(--color-c); cursor: pointer; transition: all 0.2s; }
+.btn-secondary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--color-f); color: var(--color-45); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: 1px solid var(--color-c); cursor: pointer; transition: all 0.2s; }
 
 /* 아코디언 하단 전용 버튼 레이아웃 */
-.acc-btn-area { display: flex; justify-content: flex-end; gap: 20px; padding-top: 32px; background-color: var(--white); padding-bottom: 18px; }
+.acc-btn-area { display: flex; justify-content: flex-end; gap: 20px; padding-top: 32px; background-color: var(--color-f); padding-bottom: 18px; }
 /* 신규 라인 버튼 스타일 (PDF 다운로드용) */
 .btn-outline { display: inline-flex; justify-content: center; align-items: center; min-width: 330px; min-height: 53px; padding: 16px 32px; background: #fff; border: 1px solid var(--color-c); border-radius: 8px; color: var(--color-45); font-size: var(--font18); font-weight: 500; cursor: pointer; transition: all 0.2s; }
 .btn-outline:hover, .btn-secondary:hover {border: 1px solid #BBB; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);}

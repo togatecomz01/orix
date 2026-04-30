@@ -5,7 +5,7 @@
 
 .tbl-contract th, .tbl-contract td { border: 1px solid var(--color-d); padding: 10px 16px; font-size: var(--font12); vertical-align: middle; line-height: 1.5; font-size: var(--font12);}
 .tbl-contract th { background-color: #F5F5F5; color: var(--color-2); font-weight: var(--font-w-m); text-align: center; }
-.tbl-contract td { background-color: var(--white); color: var(--color-45); font-weight: var(--font-w-r); text-align: left; }
+.tbl-contract td { background-color: var(--color-f); color: var(--color-45); font-weight: var(--font-w-r); text-align: left; }
 
 .tbl-contract th:first-child, .tbl-contract td:first-child { border-left: none; }
 .tbl-contract th:last-child, .tbl-contract td:last-child { border-right: none; }
@@ -15,17 +15,17 @@
 .tbl-contract.tbl-guarantee th, .tbl-contract.tbl-guarantee td {border-top: 1px solid #999;}
 /* [예외] 테이블 배경색 및 당구장 제목 */
 .tbl-contract.bg-e8ecf0 th, .tbl-contract th.bg-e8ecf0 { background-color: #E8ECF0 !important; }
-.tbl-contract th.th-bullet { position: relative; padding: 15px 10px 15px 25px !important; text-align: left !important; vertical-align: top; color: #063963; font-size: var(--font12); font-weight: var(--font-w-m); line-height: 1.4; background-color: var(--white) !important; }
+.tbl-contract th.th-bullet { position: relative; padding: 15px 10px 15px 25px !important; text-align: left !important; vertical-align: top; color: #063963; font-size: var(--font12); font-weight: var(--font-w-m); line-height: 1.4; background-color: var(--color-f) !important; }
 .tbl-contract th.th-bullet::before { content: '※'; position: absolute; left: 10px; color: #063963; }
 
 /* 차량정보 테이블 */
-/* .car-table .car-img-cell { padding: 0 !important; border-right: 1px solid var(--color-d) !important; height: 1px; background: var(--white); text-align: center; } */
+/* .car-table .car-img-cell { padding: 0 !important; border-right: 1px solid var(--color-d) !important; height: 1px; background: var(--color-f); text-align: center; } */
 /* .car-table .img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; }
 .car-table .img-wrap img { width: 220px; } */
-/* .car-table .car-name { padding: 12px 16px; border-top: 1px solid var(--color-d); font-weight: var(--font-w-sb); font-size: var(--font14); text-align: center; color: var(--color-45); background: var(--white); flex-shrink: 0; }
-.car-table .car-trim { padding: 12px 16px; border-top: 1px solid var(--color-d); font-size: var(--font12); color: var(--color-6); text-align: center; background: var(--white); flex-shrink: 0; } */
+/* .car-table .car-name { padding: 12px 16px; border-top: 1px solid var(--color-d); font-weight: var(--font-w-sb); font-size: var(--font14); text-align: center; color: var(--color-45); background: var(--color-f); flex-shrink: 0; }
+.car-table .car-trim { padding: 12px 16px; border-top: 1px solid var(--color-d); font-size: var(--font12); color: var(--color-6); text-align: center; background: var(--color-f); flex-shrink: 0; } */
 .car-table th.h-equal { height: 120px; }
-.car-table .h-sub-equal { height: 60px; background: var(--white); border-right: 1px solid #e0e0e0; color: #454545;font-size: var(--font12);font-weight: var(--font-w-r);}
+.car-table .h-sub-equal { height: 60px; background: var(--color-f); border-right: 1px solid #e0e0e0; color: #454545;font-size: var(--font12);font-weight: var(--font-w-r);}
 /* --- 대여차량정보 섹션 전용 --- */
 .doc-sec.type-car {display: grid;grid-template-columns: 272px 1fr; align-items: stretch;margin-bottom: 20px; }
 .doc-sec.type-car .sec-tit {grid-column: 1 / 3; }
@@ -40,7 +40,7 @@
 /* 보증내용 상세 및 체크박스(ㅁ) */
 .ref-cell { font-size: 9px; color: var(--color-75); }
 .h-100 { height: 100px; }
-.fake-chk { display: inline-block; width: 10px; height: 10px; border: 1px solid var(--color-9); background: var(--white); position: relative; margin-right: 4px; }
+.fake-chk { display: inline-block; width: 10px; height: 10px; border: 1px solid var(--color-9); background: var(--color-f); position: relative; margin-right: 4px; }
 .fake-chk.checked { background: var(--color-3); border-color: var(--color-3); }
 .bg-stripe { background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 5px, #fff 5px, #fff 10px); }
 
@@ -49,7 +49,7 @@
 .complete-info-tbl table { width: 100%; border-collapse: collapse; }
 .complete-info-tbl th, .complete-info-tbl td { border-bottom: 1px solid #e0e0e0; font-size: var(--font18); font-weight: var(--font-w-r); }
 .complete-info-tbl th {padding: 18px 20px; background-color: #f5f5f5; font-weight: var(--font-w-m); color: var(--color-2); text-align: center; border-right: 1px solid #e0e0e0;}
-.complete-info-tbl td {padding: 18px 26px; background-color: var(--white); color: var(--color-45); text-align: left; }
+.complete-info-tbl td {padding: 18px 26px; background-color: var(--color-f); color: var(--color-45); text-align: left; }
 
 
 .bdr-none {border-right: none !important;}

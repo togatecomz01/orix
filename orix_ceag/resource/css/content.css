@@ -16,7 +16,7 @@
 .cta-inner { display: flex; align-items: center; background: var(--primary); border-radius: 60px 0 0 0; width: 1250px; padding: 28px 62px 28px 48px; box-sizing: border-box; position: relative; transition: background-color 0.2s; }
 .cta-inner::after { content: ''; position: absolute; right: 62px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: url("../svg/guidance_right-arrow-40.svg") no-repeat center / contain; }
 .badge-start { display: inline-block; background: #fff; color: var(--primary); padding: 20px 24px; border-radius: 100px; font-size: var(--font22); font-weight: var(--font-w-b); white-space: nowrap; transition: 0.2s; }
-.cta-desc { flex: 1; margin-left: 28px; text-align: left; font-size: var(--font22); color: var(--white); font-weight: var(--font-w-r); white-space: nowrap; }
+.cta-desc { flex: 1; margin-left: 28px; text-align: left; font-size: var(--font22); color: var(--color-f); font-weight: var(--font-w-r); white-space: nowrap; }
 
 
 .error-visual { width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/main_error.png') no-repeat center / contain; aspect-ratio: 272 / 251; }
@@ -82,7 +82,7 @@
 /* 상태 뱃지 */
 .badge { display: inline-block; padding: 8px 24px; border-radius: 100px; font-size: var(--font16); font-weight: var(--font-w-m); min-width: 90px; text-align: center; }
 .badge.state-gray { background-color: var(--color-e); color: var(--color-6); }
-.badge.state-blue { background-color: var(--primary); color: var(--white); }
+.badge.state-blue { background-color: var(--primary); color: var(--color-f); }
 
 /* 고객정보 요약 바 (N등분 비율 고정) */
 .info-bar-group { display: flex; background: #F4F4F4; padding: 16px 40px; margin-bottom: 12px; }
@@ -97,7 +97,7 @@
 .info-bar-group dd { color: var(--color-45); font-size: var(--font12); white-space: nowrap; }
 
 /* 섹션 타이틀 (블루 바) */
-.sec-tit { background: #0F3862; color: var(--white); padding: 6px 16px; font-size: var(--font14); font-weight: var(--font-w-b); display: flex; align-items: center; width: 100%; margin-bottom: 0; box-sizing: border-box; }
+.sec-tit { background: #0F3862; color: var(--color-f); padding: 6px 16px; font-size: var(--font14); font-weight: var(--font-w-b); display: flex; align-items: center; width: 100%; margin-bottom: 0; box-sizing: border-box; }
 .sec-tit::before { content: '•'; margin-right: 8px; font-size: var(--font14); line-height: 1; }
 .sec-tit .sub-txt { font-weight: var(--font-w-r); font-size: var(--font12); color: #F8F8F8; margin-left: 20px; }
 

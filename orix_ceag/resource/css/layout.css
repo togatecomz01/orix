@@ -4,7 +4,7 @@
 #wrap { display: flex; flex-direction: column; min-height: 100vh; min-width: 1200px; background-color: #F2F3F8; }
 #headerWrap { flex-shrink: 0; height: 70px; background-color: #F2F3F8; }
 #contentWrap { flex: 1; width: 100%; padding: 52px 0 216px; } /* 216px : footer의 min-height + 카드박스와 footer사이 간격 */
-#footerWrap { position: fixed; bottom: 0; left: 0; width: 100%; max-height: 136px; z-index: 1000; background-color: var(--white); padding: 32px 0; box-shadow: 0 -5px 20px 0 rgba(221, 221, 221, 0.25); }
+#footerWrap { position: fixed; bottom: 0; left: 0; width: 100%; max-height: 136px; z-index: 1000; background-color: var(--color-f); padding: 32px 0; box-shadow: 0 -5px 20px 0 rgba(221, 221, 221, 0.25); }
 
 /* 메인 시작 페이지 전용 레이아웃 + 헤더  */
 #wrap.main-page { background: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
@@ -17,7 +17,7 @@
 .main-nav ul li.nav-item-link::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background-color: var(--color-d); }
 
 /* 고객센터 뱃지 디자인 */
-.cs-badge { display: flex; align-items: center; padding: 8px 18px; border: 1px solid var(--color-d); border-radius: 100px; background: var(--white); font-weight: var(--font-w-r);}
+.cs-badge { display: flex; align-items: center; padding: 8px 18px; border: 1px solid var(--color-d); border-radius: 100px; background: var(--color-f); font-weight: var(--font-w-r);}
 .cs-badge .label { font-size: var(--font18); color: var(--color-45); margin-right: 12px; }
 .cs-badge .tel { font-size: var(--font18); color: var(--color-6);  display: flex; align-items: center; }
 .cs-badge .tel::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../svg/call-filled.svg') no-repeat center / contain; margin-right: 4px; }
@@ -63,7 +63,7 @@
 /* 그리드 (Grid & Container) */
 .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
 .col-group { display: flex; flex-direction: column; gap: 20px; height: 100%; }
-.card-box { background: var(--white); border-radius: 16px; padding: 50px; width: 100%; box-sizing: border-box; }
+.card-box { background: var(--color-f); border-radius: 16px; padding: 50px; width: 100%; box-sizing: border-box; }
 .card-box.mh-100 {flex: 1;}
 /* .col-group .card-box:last-child {flex: 1;} */ /*  */
 .card-tit { font-size: var(--font24); font-weight: var(--font-w-b); margin-bottom: 32px; display: block; }

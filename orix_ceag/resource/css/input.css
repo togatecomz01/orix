@@ -21,7 +21,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .label-tooltip { position: relative; cursor: pointer; display: inline-flex; align-items: center; line-height: 1.5;}
 .label-tooltip::after { content: ''; display: inline-block; width: 20px; height: 20px; margin-left: 6px; background: url('../../resource/svg/info-rounded.svg') no-repeat center / contain; cursor: pointer; }
 .label-tooltip:hover::after {background: url('../svg/info-rounded-2e78b5.svg') no-repeat center / contain;}
-.tooltip-box { display: none; position: absolute; top: -70px; left: 45px; z-index: 100; width: 390px; padding: 12px 16px 14px 16px; background: #2E78B5; color: var(--white); border-radius: 8px; font-size: var(--font14); font-weight: var(--font-w-r); word-break: keep-all; pointer-events: none; }
+.tooltip-box { display: none; position: absolute; top: -70px; left: 45px; z-index: 100; width: 390px; padding: 12px 16px 14px 16px; background: #2E78B5; color: var(--color-f); border-radius: 8px; font-size: var(--font14); font-weight: var(--font-w-r); word-break: keep-all; pointer-events: none; }
 .tooltip-box.short {top: -50px}
 .label-tooltip:hover .tooltip-box { display: block; }
 
@@ -46,7 +46,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group label::before { content: ''; display: inline-block; width: 28px; height: 28px; background-repeat: no-repeat; background-position: center; background-size: 14px auto; transition: background-color 0.2s; margin-right: 8px; flex-shrink: 0; }
 
 /* 사각형 체크박스  */
-.check-group label::before { border-radius: 4px; border: 1px solid #CCC; background-color: var(--white); background-image: url('../../resource/svg/check_line.svg'); }
+.check-group label::before { border-radius: 4px; border: 1px solid #CCC; background-color: var(--color-f); background-image: url('../../resource/svg/check_line.svg'); }
 /* 사각형 체크 상태 */
 .check-group input[type="checkbox"]:checked + label::before { background-color: var(--primary); border-color: var(--primary); }
 
@@ -69,7 +69,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .pay-type-group { display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; }
 .pay-option { position: relative; }
 .pay-option input[type="radio"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-.pay-option label { display: flex; align-items: center; height: 80px; padding: 24px 20px; border: 1px solid var(--color-d); border-radius: 8px; cursor: pointer; background-color: var(--white); transition: all 0.2s; }
+.pay-option label { display: flex; align-items: center; height: 80px; padding: 24px 20px; border: 1px solid var(--color-d); border-radius: 8px; cursor: pointer; background-color: var(--color-f); transition: all 0.2s; }
 
 /* 라디오 원형 아이콘 */
 .radio-check-circle { display: inline-block; width: 24px; height: 24px; border-radius: 50%; background-color: var(--color-d); position: relative; transition: background-color 0.2s; margin-right: 8px; flex-shrink: 0; }
@@ -90,7 +90,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .pay-option input[type="radio"]:focus-visible + label {outline: 2px solid var(--color-2);outline-offset: 1px;}
 .date-btn-group input[type="radio"]:focus-visible + label {outline: 2px solid var(--color-2);outline-offset: -2px;}
 /* 버튼 선택되었을 때 */
-.date-btn-group input[type="radio"]:checked + label { background-color: var(--white); border-color: var(--primary); color: var(--primary); font-weight: var(--font-w-sb); }
+.date-btn-group input[type="radio"]:checked + label { background-color: var(--color-f); border-color: var(--primary); color: var(--primary); font-weight: var(--font-w-sb); }
 
 
 /* 기타 스타일 (데이트피커, 주소검색) */

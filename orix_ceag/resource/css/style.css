@@ -29,41 +29,26 @@
 
 body {
     --dim: rgba(0, 0, 0, 0.5);
-    --white-dim: rgba(255, 255, 255, 0.5);
-    --white: #FFFFFF;
-
-
+    --color-f-dim: rgba(255, 255, 255, 0.5);
 
     /** 기본 색상 **/
-    /* --primary: #0871F3;
-    --primary-light: #41C7F4;
-    --secondary: #BAD1EC;
-    ----default-color:#757575; */
-
     --primary: #3182EE;
-    --border:#E5E5EA;
+    --bg:#F2F3F8;
+    --error: #FF0000;
+    --success:#086CFD;
+    --ing:#DFE4EB;
+    --focus:#062D4D;
 
-    --color-1: #111111;
     --color-2:#222222;
-    --color-3:#333333;
     --color-45:#454545;
     --color-6:#666666;
-    --color-75:#757575;
     --color-9:#999999;
     --color-c: #CCCCCC;
-    --color-f:#FFFFFF;
-    --color-fd:#FDFDFD;
-    --color-f8:#F8F8F8;
-    --color-c:#CCCCCC;
-    --color-ab:#ABABAB;
-    --color-e:#EEEEEE;
+    --color-b:#BBBBBB;
     --color-d:#DDDDDD;
-    --color-f6:#F6F6F6;
-    --color-fa:#FAFAFA;
-    --bg-box:#F3F6FB;
-    --error: #F00;
-
-    --outline: #0871F3;
+    --color-f:#FFFFFF;
+    --color-f5:#F5F5F5;
+    --color-f8:#F8F8F8;
 }
 
 .ml-10 { margin-left: 10px; }

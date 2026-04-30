@@ -21,10 +21,10 @@
 .signature-pad-box canvas { width: 100%; height: 100%; cursor: crosshair; position: relative; z-index: 1; }
 .placeholder-txt { position: absolute; font-size: 46px; color: rgba(34, 34, 34, 0.10); font-weight: var(--font-w-m); pointer-events: none; }
 
-/* .btn-reset { position: absolute; top: 20px; right: 25px; min-width: 101px; z-index: 2; padding: 10px 16px 10px 10px; border: 1px solid var(--color-d); background: var(--white) url('../svg/ico-refresh-outline.svg') no-repeat 20px center / 20px; border-radius: 4px; font-size: var(--font18); color: var(--color-9); cursor: pointer; } */
-.btn-reset { position: absolute; top: 20px; right: 25px; z-index: 2; padding: 10px 16px 10px 42px; border: 1px solid var(--color-d); background: var(--white) url('../svg/ico-refresh-outline.svg') no-repeat 14px center / 18px; border-radius: 4px; font-size: var(--font16); color: var(--color-6); cursor: pointer; line-height: 1; }
+/* .btn-reset { position: absolute; top: 20px; right: 25px; min-width: 101px; z-index: 2; padding: 10px 16px 10px 10px; border: 1px solid var(--color-d); background: var(--color-f) url('../svg/ico-refresh-outline.svg') no-repeat 20px center / 20px; border-radius: 4px; font-size: var(--font18); color: var(--color-9); cursor: pointer; } */
+.btn-reset { position: absolute; top: 20px; right: 25px; z-index: 2; padding: 10px 16px 10px 42px; border: 1px solid var(--color-d); background: var(--color-f) url('../svg/ico-refresh-outline.svg') no-repeat 14px center / 18px; border-radius: 4px; font-size: var(--font16); color: var(--color-6); cursor: pointer; line-height: 1; }
 /* 인감 업로드 박스 */
-.stamp-upload-box { height: 300px; background: var(--white); border: 2px dashed var(--primary); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; }
+.stamp-upload-box { height: 300px; background: var(--color-f); border: 2px dashed var(--primary); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; }
 .view-uploaded { width: 100%; }
 .stamp-upload-box.uploaded { background: #F9F9F9; border: 1px solid var(--color-e); padding: 50px; justify-content: flex-start;}
 .stamp-upload-box .tit { font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 16px; }
@@ -40,7 +40,7 @@
 .file-card .name { font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 5px; word-break: break-all; }
 .file-card .size { font-size: var(--font16); font-weight: var(--font-w-l); color: var(--color-75); }
 .file-card .check-group{ margin-bottom: 0;}
-.btn-del-file { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px 8px 44px; border: 1px solid var(--color-d); border-radius: 4px; background: var(--white) url('../svg/ico_trash.svg') no-repeat 12px center / 24px; font-size: var(--font16); color: var(--color-6); cursor: pointer; /* font-weight: var(--font-w-l); */}
+.btn-del-file { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px 8px 44px; border: 1px solid var(--color-d); border-radius: 4px; background: var(--color-f) url('../svg/ico_trash.svg') no-repeat 12px center / 24px; font-size: var(--font16); color: var(--color-6); cursor: pointer; /* font-weight: var(--font-w-l); */}
 /* 공통 하단부 */
 .pop-notice { margin-top: 16px; font-size: 16px; color: #666; font-weight: var(--font-w-r); line-height: 1.5; }
 .pop-notice .txt {font-weight: var(--font-w-r); margin-bottom: 10px; position: relative; padding-left: 28px;}
