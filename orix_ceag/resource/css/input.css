@@ -26,7 +26,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .label-tooltip:hover .tooltip-box { display: block; }
 
 /* 폼 레이아웃 (줄 바꿈 및 간격) */
-.form-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+.form-row { display: flex; align-items: center; gap: 10px; width: 100%; }
 .form-row #tel1 {max-width: 136px;}
 .col-bank/* , .email-top input:first-child, #emailId  */{ width: 180px; flex: none; }
 .col-account/* , .email-top input:last-child, #emailDomain  */{ flex: 1; }
@@ -39,26 +39,36 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group { display: flex; align-items: center; margin-bottom: 16px; }
 .check-group input[type="checkbox"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-.check-group label { display: flex; align-items: center; font-size: var(--font20); color: var(--color-45); cursor: pointer; font-weight: var(--font-w-m); }
-.check-group label.agreeterm { font-weight: var(--font-w-sb); font-size: var(--font18);}
-
 /* 체크박스 아이콘 기본 구조 */
-.check-group label::before { content: ''; display: inline-block; width: 28px; height: 28px; background-repeat: no-repeat; background-position: center; background-size: 14px auto; transition: background-color 0.2s; margin-right: 8px; flex-shrink: 0; }
+.check-group label { display: flex; align-items: center; font-size: var(--font18); color: var(--color-75); font-weight: var(--font-w-sb); cursor: pointer; }
+.check-group label::before { content: ''; display: inline-block; width: 28px; height: 28px; margin-right: 8px; background-repeat: no-repeat; background-position: center; background-size: 14px auto; flex-shrink: 0; box-sizing: border-box; transition: background-color 0.2s; }
 
-/* 사각형 체크박스  */
-.check-group label::before { border-radius: 4px; border: 1px solid #CCC; background-color: var(--color-f); background-image: url('../../resource/svg/check_line.svg'); }
-/* 사각형 체크 상태 */
-.check-group input[type="checkbox"]:checked + label::before { background-color: var(--primary); border-color: var(--primary); }
+/* disabled */
+.check-group input[type="checkbox"]:checked:disabled + label,
+.check-group input[type="checkbox"]:disabled + label,
+.check-group input[type="radio"]:checked:disabled + label,
+.check-group input[type="radio"]:disabled + label { color: var(--color-9); }
+
+.check-group input[type="checkbox"]:checked:disabled + label::before,
+.check-group input[type="checkbox"]:disabled + label::before,
+.check-group input[type="radio"]:checked:disabled + label::before,
+.check-group input[type="radio"]:disabled + label::before { border-color: var(--color-d); background-color: var(--color-d); }
+
+/* checked */
+.check-group input[type="checkbox"]:checked + label,
+.check-group input[type="radio"]:checked + label { color: var(--color-45); }
+.check-group input[type="checkbox"]:checked + label::before,
+.check-group input[type="radio"]:checked + label::before { background-color: var(--primary); border-color: var(--primary); }
+
+/* 기본 원형 체크박스 */
+.check-group label::before { width: 36px; height: 36px; margin-right: 18px; border: none; border-radius: 50%; background-color: var(--color-d); background-image: url('../../resource/svg/check_line.svg'); }
+
+/* 사각형 체크박스 (28*28) */
+.check-group.rec label::before { width: 28px; height: 28px; margin-right: 8px; border: 1px solid #CCC; border-radius: 4px; background-color: var(--color-f); }
 
 /* 작은 사각형 체크박스 (20*20) */
-.check-group.sm label::before { width: 20px; height: 20px; background-size: 12px auto;}
+.check-group.rec.sm label::before { width: 20px; height: 20px; background-size: 12px auto; }
 .check-group.sm label { font-size: var(--font16); color: var(--color-75); font-weight: var(--font-w-r); }
-
-/* 원형 체크박스 */
-.check-group.circle-type label::before {width: 36px; height: 36px; border-radius: 50%; border: none; background-color: var(--color-d); margin-right: 18px; }
-/* 원형 체크 상태 */
-.check-group.circle-type input[type="checkbox"]:checked + label::before { background-color: var(--primary); }
-
 
 /* 라인 체크박스 */
 .check-group.line-type label::before { border-radius: 0; border: none; background-color: transparent; background-image: url('../../resource/svg/ico_check_gray.svg'); background-size: contain; width: 24px; height: 24px; margin-right: 12px; }
@@ -104,10 +114,10 @@ input[type="date"].form-input:valid::before {display: none;}
 input[type="date"].form-input::-webkit-calendar-picker-indicator {background: url("../../resource/svg/icon_date.svg") no-repeat center / contain; cursor: pointer; position: absolute; right: 18px; top: 0; width: 24px; height: 100%; z-index: 2; opacity: 1;}
 
 /* 우편번호 버튼형 인풋 */
-.input-with-btn { position: relative; display: flex; align-items: center; }
-.input-with-btn .form-input { padding-right: 110px; }
-.input-with-btn button { position: absolute; right: 6px; top: 6px; bottom: 6px; background-color: #062D4D; color: #fff; border-radius: 6px; padding: 0 16px; font-size: var(--font16); font-weight: var(--font-w-m); border: none; cursor: pointer; min-width: 120px; transition: 0.2s;}
-.input-with-btn button:hover {background: #08131D; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);}
+/* .addr { position: relative; display: flex; align-items: center; margin-bottom: 12px; }
+.addr .form-input { padding-right: 110px; }
+.addr button { position: absolute; right: 8px; top: 8px; bottom: 8px; min-width: 120px; padding: 12px 16px; border: none; border-radius: 6px; background-color: #062D4D; color: #fff; font-size: var(--font16); font-weight: var(--font-w-m); cursor: pointer; transition: 0.2s;}
+.addr button:hover {background: #08131D; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);} */
 
 /* 에러 메시지 */
 .form-input.error { border-color: var(--error);  }

@@ -7,24 +7,18 @@
 
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
     <script src="../../resource/js/common.js"></script>
 
     <link href="../css/sample.css" rel="stylesheet">
 </head>
 <body>
     <div id="wrap">
-        <div id="headerWrap" role="banner">
-            <div class="header-inner">
-                <h1 class="logo"><a href="#"></a></h1>
-                <div class="header-contact">
-                    <span class="tel"></span>
-                </div>
-            </div>
-        </div>
+        <div data-include-path="../../views/include/inc-header.html"></div>
 
         <div id="contentWrap" role="main">
             <div class="contents">
-                <h2 class="page-tit">Form / Input Standard</h2>
+                <h2 class="page-tit">Input</h2>
                 <div class="layout-grid">
                     <div class="col-group">
                         <div class="card-box">
@@ -42,6 +36,51 @@
                         </div>
 
                         <div class="card-box">
+                            <h3 class="card-tit">기본</h3>
+                            
+                            <!-- 기본 텍스트 -->
+                            <div class="form-item">
+                                <label class="form-label" for="default">기본 인풋</label>
+                                <input id="default" type="text" name="default" class="form-input" placeholder="이름을 입력하세요">
+                            </div>
+                            
+                            <!-- 포커스 -->
+                            <div class="form-item">
+                                <label class="form-label" for="focus">포커스</label>
+                                <input id="focus" type="text" name="focus" class="form-input" placeholder="이름을 입력하세요" autofocus>
+                            </div>
+                            
+                            <!-- 완료 -->
+                            <div class="form-item">
+                                <label class="form-label" for="val">완료</label>
+                                <input id="val" type="text" name="val" class="form-input" value="홍길동" readonly>
+                            </div>
+
+                            <!-- 비활성 -->
+                            <div class="form-item">
+                                <label class="form-label" for="">비활성</label>
+                                <input id="" type="text" name="" class="form-input" value="홍길동" disabled>
+                            </div>
+
+                            <!-- 에러 상태 -->
+                            <div class="form-item">
+                                <label class="form-label">에러 노출 예시</label>
+                                <input type="text" class="form-input error" value="잘못된 형식">
+                                <p class="error-msg">형식에 맞게 입력해 주세요.</p>
+                            </div>
+
+                            <p for="bankSelect" class="form-label label-tooltip">
+                                오른쪽에 툴팁
+                                <span class="tooltip-box">
+                                    핸드폰번호의 평생 계좌번호는 자동이체 출금용 계좌로 등록할 수 없습니다.
+                                </span>
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
                             <h3 class="card-tit">2. 특수 입력 가이드</h3>
                             <ul class="info-list">
                                 <li>
@@ -52,27 +91,19 @@
                                     <p class="tit">연락처</p>
                                     <p class="desc">3분할, #tel2 4자리 입력 시 #tel3 자동 포커스</p>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <p class="tit">주소</p>
-                                    <p class="desc">.input-with-btn 구조 및 readonly 적용</p>
-                                </li>
+                                    <p class="desc">.addr 구조 및 readonly 적용</p>
+                                </li> -->
                                 <li>
                                     <p class="tit">날짜선택</p>
                                     <p class="desc">.js-min-today 클래스로 과거 날짜 차단</p>
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
-                    <div class="col-group">
                         <div class="card-box">
                             <h3 class="card-tit">Component Preview</h3>
-                            
-                            <!-- 기본 텍스트 -->
-                            <div class="form-item">
-                                <label class="form-label">기본 인풋</label>
-                                <input type="text" class="form-input" placeholder="이름을 입력하세요">
-                            </div>
 
                             <!-- 계좌번호 -->
                             <div class="form-item">
@@ -101,9 +132,9 @@
                                 </div>
                             </div>
 
-                            <!-- 연락처 -->
+                            <!-- 연락처1 -->
                             <div class="form-item">
-                                <label class="form-label">연락처 (자동 포커스 테스트)</label>
+                                <label class="form-label">연락처1 (자동 포커스 테스트)</label>
                                 <div class="form-row">
                                     <select id="tel1" class="form-input is-placeholder" style="width:136px; flex:none;">
                                         <option value="" selected disabled hidden>선택</option>
@@ -115,32 +146,33 @@
                                 </div>
                             </div>
 
-                            <!-- 주소 -->
+                            <!-- 연락처2 -->
                             <div class="form-item">
+                                <label class="form-label">연락처2</label>
+                                <div class="form-row">
+                                    <input type="tel" id="" class="form-input" maxlength="3" placeholder="010" inputmode="numeric">
+                                    <input type="tel" id="" class="form-input" maxlength="4" placeholder="1234" inputmode="numeric">
+                                    <input type="tel" id="" class="form-input" maxlength="4" placeholder="5678" inputmode="numeric">
+                                </div>
+                            </div>
+
+                            <!-- 주소 -->
+                            <!-- <div class="form-item">
                                 <label class="form-label">주소 검색</label>
-                                <div class="input-with-btn mb-12">
+                                <div class="addr">
                                     <input type="text" class="form-input" placeholder="우편번호" readonly>
                                     <button type="button" class="btn-dark-gray">검색</button>
                                 </div>
                                 <input type="text" class="form-input" placeholder="기본주소" readonly>
-                            </div>
+                            </div> -->
 
                             <!-- 데이트피커 -->
                             <div class="form-item">
                                 <label class="form-label">데이트피커 (.js-min-today)</label>
                                 <input type="date" class="form-input js-min-today" data-placeholder="날짜 선택" required>
                             </div>
-
-                            <!-- 에러 상태 -->
-                            <div class="form-item">
-                                <label class="form-label">에러 노출 예시</label>
-                                <input type="text" class="form-input error" value="잘못된 형식">
-                                <p class="error-msg">형식에 맞게 입력해 주세요.</p>
-                            </div>
-
                         </div>
                     </div>
-
                 </div> 
             </div> 
         </div> 

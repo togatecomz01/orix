@@ -7,6 +7,7 @@
 
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
     <script src="../../resource/js/common.js"></script>
 
     <link href="../css/sample.css" rel="stylesheet">
@@ -14,16 +15,11 @@
 <body>
     <div id="wrap">
 
-        <div id="headerWrap" role="banner">
-            <div class="header-inner">
-                <h1 class="logo"><a href="#"></a></h1>
-                <div class="header-contact"><span class="tel"></span></div>
-            </div>
-        </div>
+        <div data-include-path="../../views/include/inc-header.html"></div>
 
         <div id="contentWrap" role="main">
             <div class="contents">
-                <h2 class="page-tit">Button Standard</h2>
+                <h2 class="page-tit">Button</h2>
                 <div class="layout-grid">
                     <div class="col-group">
                         <div class="card-box">

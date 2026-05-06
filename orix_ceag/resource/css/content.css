@@ -7,7 +7,7 @@
 .intro-top-txt { margin-bottom: 34px; }
 .intro-top-txt .eng { font-size: var(--font24); font-weight: var(--font-w-r); margin-bottom: 22px; }
 .intro-top-txt .sub { font-size: var(--font32);}
-.main-page .intro-tit { font-size: 86px; font-weight: var(--font-w-r);}
+.main-page .intro-tit { font-size: 86px; font-weight: var(--font-w-r); color: var(--color-f);}
 
 .intro-cta-bar { position: absolute; bottom: 0; right: 0; z-index: 10; transform: translateY(50%); text-decoration: none; }
 .intro-cta-bar:hover .cta-inner { background-color: #0F5FCB; } /* 호버 시 바 전체 색상 살짝 변경 임시*/
