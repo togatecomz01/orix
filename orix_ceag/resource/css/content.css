@@ -55,11 +55,10 @@
 /* 약관 동의 헤더 */
 
 /* 스크롤바 커스텀 */
-.term-content::-webkit-scrollbar { width: 8px; }
+.term-content::-webkit-scrollbar { width: 8px; background-color: #EEEEEE; }
 .term-content::-webkit-scrollbar-button { display: none; }
-.term-content::-webkit-scrollbar-thumb {
-    background-color: #ccc; border-radius: 0px;
-    background-clip: padding-box; border: 2px solid transparent;
+.term-content::-webkit-scrollbar-thumb { width: 8px;
+    background-color: var(--color-9); border-radius: 0px;
 }
 
 .agree-header {border-bottom: 1px solid var(--color-d);}
@@ -70,9 +69,6 @@
 .bul-refer { margin-bottom: 20px; }
 .bul-refer li { position: relative; padding-left: 15px; line-height: 1.5; font-size: var(--font16); color: var(--color-45); }
 .bul-refer li::before { content: '※'; position: absolute; left: 0; top: 0; color: inherit; }
-
-/* 전자약정 */
-.pay-sub-area { margin: 20px 0 32px; }
 
 /* 전자서명 전용 카드 박스 및 바디 레이아웃 */
 .card-box.contract-item { padding: 32px 50px; margin-bottom: 28px; overflow: hidden; min-height: 99px; }
@@ -143,6 +139,9 @@
 .download-box .txt-area { flex: 1; }
 .download-box .tit { font-size: var(--font24); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 10px; }
 .download-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6);}
+
+/* 전자약정 */
+.pay-sub-area { margin: 20px 0 32px; }
 
 @media (max-width: 1600px) {
     .complete-visual { width: 196px; height: 175px;}
