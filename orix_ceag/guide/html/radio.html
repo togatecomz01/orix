@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - radio</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/common.js"></script>
+
+    <link href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div data-include-path="../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <h2 class="page-tit">Radio</h2>
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">기본</h3>
+                            <div class="radio-list">
+                                <div class="radio-group">
+                                    <input type="radio" id="radioType1Bank" name="radioType1" value="bank" checked>
+                                    <label for="radioType1Bank">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">은행</span>
+                                    </label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="radioType1Stock" name="radioType1" value="stock">
+                                    <label for="radioType1Stock">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">증권사</span>
+                                    </label>
+                                </div>
+                                <div class="radio-group">
+                                    <input type="radio" id="radioType1Disabled" name="radioType1" value="disabled" disabled>
+                                    <label for="radioType1Disabled">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">증권사</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <h3 class="card-tit">라디오 type2(.radio-group.r-btn)</h3>
+                            <div class="radio-list">
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="radioType3Date5" name="radioType3" value="5">
+                                    <label for="radioType3Date5">5일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="radioType3Date15" name="radioType3" value="15" checked>
+                                    <label for="radioType3Date15">15일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="radioType3Date25" name="radioType3" value="25">
+                                    <label for="radioType3Date25">25일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="radioType3DateLast" name="radioType3" value="last">
+                                    <label for="radioType3DateLast">말일</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">라디오 type3(.radio-group.r-box)</h3>
+                            
+                            <div class="radio-list">
+                                <div class="radio-group r-box">
+                                    <input type="radio" id="radioType2Next" name="radioType2" value="next" checked>
+                                    <label for="radioType2Next">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">익월납부</span>
+                                    </label>
+                                </div>
+                                <div class="radio-group r-box">
+                                    <input type="radio" id="radioType2Current" name="radioType2" value="current">
+                                    <label for="radioType2Current">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">당월납부</span>
+                                    </label>
+                                </div>
+                                <div class="radio-group r-box">
+                                    <input type="radio" id="radioType2Direct" name="radioType2" value="direct" disabled>
+                                    <label for="radioType2Direct">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">직접입력</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-notice">
+                    <p class="notice-tit">ORIX UI STANDARD GUIDE</p>
+                </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary">가이드 확인 완료</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

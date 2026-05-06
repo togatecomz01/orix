@@ -114,28 +114,28 @@
                             <h3 class="card-tit">납부일 설정</h3>
 
                             <div class="payment-setting">
-                                <div class="pay-type-group">
+                                <div class="radio-list">
                                     <!-- 익월납부 -->
-                                    <div class="pay-option">
+                                    <div class="radio-group r-box">
                                         <input type="radio" id="payNext" name="payType" value="next" checked>
                                         <label for="payNext">
-                                            <span class="radio-check-circle"></span>
+                                            <span class="radio-check"></span>
                                             <span class="txt">익월납부</span>
                                         </label>
                                     </div>
                                     <!-- 당월납부 -->
-                                    <div class="pay-option">
+                                    <div class="radio-group r-box">
                                         <input type="radio" id="payCurrent" name="payType" value="current">
                                         <label for="payCurrent">
-                                            <span class="radio-check-circle"></span>
+                                            <span class="radio-check"></span>
                                             <span class="txt">당월납부</span>
                                         </label>
                                     </div>
                                     <!-- 직접입력 -->
-                                    <div class="pay-option">
+                                    <div class="radio-group r-box">
                                         <input type="radio" id="payDirect" name="payType" value="direct">
                                         <label for="payDirect">
-                                            <span class="radio-check-circle"></span>
+                                            <span class="radio-check"></span>
                                             <span class="txt">직접입력</span>
                                         </label>
                                     </div>
@@ -145,18 +145,23 @@
                                 <div class="pay-sub-area">
                                     <!-- 날짜 선택 버튼 (익월/당월일 때 노출) -->
                                     <div id="dateSelectArea" class="date-selection">
-                                        <div class="date-btn-group">
-                                            <input type="radio" id="date5" name="payDate" value="5">
-                                            <label for="date5">5일</label>
-                                            
-                                            <input type="radio" id="date15" name="payDate" value="15" checked>
-                                            <label for="date15">15일</label>
-                                            
-                                            <input type="radio" id="date25" name="payDate" value="25">
-                                            <label for="date25">25일</label>
-                                            
-                                            <input type="radio" id="dateLast" name="payDate" value="말일">
-                                            <label for="dateLast">말일</label>
+                                        <div class="radio-list">
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="date5" name="payDate" value="5">
+                                                <label for="date5">5일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="date15" name="payDate" value="15" checked>
+                                                <label for="date15">15일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="date25" name="payDate" value="25">
+                                                <label for="date25">25일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="dateLast" name="payDate" value="말일">
+                                                <label for="dateLast">말일</label>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -70,6 +70,9 @@
 .bul-refer li { position: relative; padding-left: 15px; line-height: 1.5; font-size: var(--font16); color: var(--color-45); }
 .bul-refer li::before { content: '※'; position: absolute; left: 0; top: 0; color: inherit; }
 
+/* 전자약정 */
+.pay-sub-area { margin: 20px 0 32px; }
+
 /* 전자서명 전용 카드 박스 및 바디 레이아웃 */
 .card-box.contract-item { padding: 32px 50px; margin-bottom: 28px; overflow: hidden; min-height: 99px; }
 .contract-item .acc-head { padding-top: 0; }
