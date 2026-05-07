@@ -20,12 +20,12 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /* =============================================
     #툴팁 (! 아이콘)
 ============================================= */
-.label-tooltip { position: relative; cursor: pointer; display: inline-flex; align-items: center; line-height: 1.5;}
-.label-tooltip::after { content: ''; display: inline-block; width: 20px; height: 20px; margin-left: 6px; background: url('../../resource/svg/info-rounded.svg') no-repeat center / contain; cursor: pointer; }
-.label-tooltip:hover::after {background: url('../svg/info-rounded-2e78b5.svg') no-repeat center / contain;}
-.tooltip-box { display: none; position: absolute; top: -70px; left: 45px; z-index: 100; width: 390px; padding: 12px 16px 14px 16px; background: #2E78B5; color: var(--color-f); border-radius: 8px; font-size: var(--font14); font-weight: var(--font-w-r); word-break: keep-all; pointer-events: none; }
-.tooltip-box.short {top: -50px}
-.label-tooltip:hover .tooltip-box { display: block; }
+.label-tooltip { display: inline-flex; align-items: center; line-height: 1.5;}
+.tooltip-area { position: relative; display: inline-block; width: 20px; height: 20px; margin-left: 6px; flex: none; cursor: pointer; }
+.tooltip-icon { display: block; width: 20px; height: 20px; background: url('../../resource/svg/info-rounded.svg') no-repeat center / contain; }
+.tooltip-area:hover .tooltip-icon { background: url('../svg/info-rounded-2e78b5.svg') no-repeat center / contain; }
+.tooltip-box { position: absolute; display: none; bottom: 0; left: calc(100% + 8px); z-index: 100; max-width: 440px; width: max-content; padding: 12px 16px 14px; border-radius: 8px; background-color: #2E78B5; font-size: var(--font14); font-weight: var(--font-w-r); color: var(--color-f); line-height: 1.5; word-break: keep-all; pointer-events: none; }
+.tooltip-area:hover .tooltip-box { display: block; }
 
 /* =============================================
     #폼 레이아웃 (줄 바꿈 및 간격)
