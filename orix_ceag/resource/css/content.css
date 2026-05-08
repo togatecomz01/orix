@@ -135,7 +135,7 @@
 .complete-desc { font-size: var(--font18); color: var(--color-6); line-height: 1.5; font-weight: var(--font-w-r);margin-bottom: 42px; }
 
 /* 하단 다운로드 박스 */
-.download-box { display: flex; align-items: center; justify-content: space-between; background-color: #F0f6ff; border-radius: 20px; padding: 26px 48px; text-align: left; }
+.download-box { display: flex; align-items: center; justify-content: space-between; padding: 26px 48px; margin-top: 62px; background-color: #F0f6ff; border-radius: 20px; text-align: left; }
 .download-box .txt-area { flex: 1; }
 .download-box .tit { font-size: var(--font24); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 10px; }
 .download-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6);}

@@ -1,12 +1,16 @@
 @charset "utf-8";
 
 /* 기본 버튼 (Primary) */
-.btn-primary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--primary); color: var(--color-f); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
+.btn-primary {  min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--primary); color: var(--color-f); font-size: var(--font20); font-weight: var(--font-w-sb); text-align: center; border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
 .btn-primary:hover {background-color: #156CDF; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);}
 /* .btn-primary:not(:disabled):hover { background-color: #266ac4; } */
 .btn-primary:disabled, .btn-primary.disabled { background-color: var(--color-d); color: var(--color-9); cursor: not-allowed; }
 .btn-primary.disabled:hover { background-color: var(--color-d) ; color: var(--color-9); cursor: not-allowed !important;}
-.btn-secondary { display: inline-flex; justify-content: center; align-items: center; min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--color-f); color: var(--color-45); font-size: var(--font20); font-weight: var(--font-w-sb); border-radius: 12px; border: 1px solid var(--color-c); cursor: pointer; transition: all 0.2s; }
+.btn-secondary { min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--color-f); color: var(--color-45); font-size: var(--font20); font-weight: var(--font-w-sb); text-align: center; border-radius: 12px; border: 1px solid var(--color-c); cursor: pointer; transition: all 0.2s; }
+
+/* input + 버튼 */
+.btn-form { display: inline-block; min-width: 110px; width: auto; height: 60px; padding: 0 20px; border: 1px solid var(--primary); border-radius: 8px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); white-space: nowrap; flex: none; }
+.btn-form:hover { border-color: var(--focus); color: var(--focus); }
 
 /* 아코디언 하단 전용 버튼 레이아웃 */
 .acc-btn-area { display: flex; justify-content: flex-end; gap: 20px; padding-top: 32px; background-color: var(--color-f); padding-bottom: 18px; }
@@ -19,6 +23,17 @@
 /* 다운로드 버튼 및 아이콘 */
 .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: var(--font20); }
 .ico-download { width: 32px; height: 32px; background: url('../svg/download_white.svg') no-repeat center / contain; display: inline-block; }
+
+/* 알럿용 버튼 */
+.alert .button-content {display: flex;justify-content: center;gap: 20px;}
+.btn-pop-primary,
+.btn-pop-secondary { padding:0 20px; width:108px; height: 52px; box-sizing:"border-box"; font-size:var(--font18); border-radius:12px; }
+.btn-pop-primary{ background:var(--primary); font-weight:var(--font-w-sb); color:var(--color-f); }
+.btn-pop-primary:hover { background:#156CDF; color:var(--color-f); }
+.btn-pop-primary:focus-visible,
+.btn-pop-primary:focus { color:var(--color-f); }
+.btn-pop-secondary { border:1px solid var(--color-c); background:var(--color-f); color:var(--color-45); font-weight: var(--font-w-m); }
+.btn-pop-secondary:hover{ border: 1px solid #BBB; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25); }
 
 /* 팝업용 버튼 */
 .pop-footer .btn-secondary, .pop-footer .btn-primary {

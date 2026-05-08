@@ -1,56 +1,75 @@
 @charset "utf-8";
 
-/* 테이블 기본 설정 (내부 선은 유지, 가장 바깥쪽 세로선만 제거) */
-.tbl-contract { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 20px; }
+body {
+    --table-border:1px solid #E0E0E0;
+    --table-th:var(--color-f5);
+    --total:#EDF9FF;
+    --table-pd:18px 20px;
+}
 
-.tbl-contract th, .tbl-contract td { border: 1px solid var(--color-d); padding: 10px 16px; font-size: var(--font12); vertical-align: middle; line-height: 1.5; font-size: var(--font12);}
-.tbl-contract th { background-color: #F5F5F5; color: var(--color-2); font-weight: var(--font-w-m); text-align: center; }
-.tbl-contract td { background-color: var(--color-f); color: var(--color-45); font-weight: var(--font-w-r); text-align: left; }
+.table-content{
+    --mt-20:20px;
+    position:static;
+    overflow:visible;
+}
 
-.tbl-contract th:first-child, .tbl-contract td:first-child { border-left: none; }
-.tbl-contract th:last-child, .tbl-contract td:last-child { border-right: none; }
-.tbl-contract .sub-th { text-align: left !important; }
+table{ margin: 0 auto; border-spacing:0; border-collapse: collapse; table-layout:fixed; max-width: 600px; }
 
-.tbl-contract.tbl-guarantee {margin-bottom: 8px !important;}
-.tbl-contract.tbl-guarantee th, .tbl-contract.tbl-guarantee td {border-top: 1px solid #999;}
-/* [예외] 테이블 배경색 및 당구장 제목 */
-.tbl-contract.bg-e8ecf0 th, .tbl-contract th.bg-e8ecf0 { background-color: #E8ECF0 !important; }
-.tbl-contract th.th-bullet { position: relative; padding: 15px 10px 15px 25px !important; text-align: left !important; vertical-align: top; color: #063963; font-size: var(--font12); font-weight: var(--font-w-m); line-height: 1.4; background-color: var(--color-f) !important; }
-.tbl-contract th.th-bullet::before { content: '※'; position: absolute; left: 10px; color: #063963; }
+table th,
+table td { padding:var(--table-pd); text-align:center; font-size:var(--font18); font-weight:var(--font-w-r); border:var(--table-border); word-break:keep-all !important; }
+table th { background:var(--table-th); border-left: 0; font-weight:var(--font-w-m); color:var(--color-2); }
+table td { border-right:0; color: var(--color-45); }
 
-/* 차량정보 테이블 */
-/* .car-table .car-img-cell { padding: 0 !important; border-right: 1px solid var(--color-d) !important; height: 1px; background: var(--color-f); text-align: center; } */
-/* .car-table .img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; }
-.car-table .img-wrap img { width: 220px; } */
-/* .car-table .car-name { padding: 12px 16px; border-top: 1px solid var(--color-d); font-weight: var(--font-w-sb); font-size: var(--font14); text-align: center; color: var(--color-45); background: var(--color-f); flex-shrink: 0; }
-.car-table .car-trim { padding: 12px 16px; border-top: 1px solid var(--color-d); font-size: var(--font12); color: var(--color-6); text-align: center; background: var(--color-f); flex-shrink: 0; } */
-.car-table th.h-equal { height: 120px; }
-.car-table .h-sub-equal { height: 60px; background: var(--color-f); border-right: 1px solid #e0e0e0; color: #454545;font-size: var(--font12);font-weight: var(--font-w-r);}
-/* --- 대여차량정보 섹션 전용 --- */
-.doc-sec.type-car {display: grid;grid-template-columns: 272px 1fr; align-items: stretch;margin-bottom: 20px; }
-.doc-sec.type-car .sec-tit {grid-column: 1 / 3; }
-.doc-sec.type-car .car-img-box {display: flex;flex-direction: column;border-right: 1px solid var(--color-d); border-bottom: 1px solid var(--color-d); box-sizing: border-box;}
-.doc-sec.type-car .img-wrap {flex: 1;display: flex;align-items: center;justify-content: center; padding: 10px;}
-.doc-sec.type-car .car-name,
-.doc-sec.type-car .car-trim {display: flex;align-items: center;justify-content: center;padding: 10px 16px;border-top: 1px solid var(--color-d);text-align: center;}
-.doc-sec.type-car .car-name {font-size: var(--font14);font-weight: var(--font-w-sb);color: var(--color-2);}
-.doc-sec.type-car .car-trim {font-size: var(--font12);color: var(--color-6);}
-.doc-sec.type-car .car-table {margin-bottom: 0;}
+table .bor-l { border-left:var(--table-border) !important; }
+table .bor-r { border-right:var(--table-border) !important; }
+table th label { font-weight:var(--font-w-m); }
+table td.title { text-align:left; }
+table tbody tr:has(td[rowspan]) + tr th:first-of-type,
+table tbody tr:has(td[rowspan]) + tr td:first-of-type { border-left:var(--table-border); }
 
-/* 보증내용 상세 및 체크박스(ㅁ) */
-.ref-cell { font-size: 9px; color: var(--color-75); }
-.h-100 { height: 100px; }
-.fake-chk { display: inline-block; width: 10px; height: 10px; border: 1px solid var(--color-9); background: var(--color-f); position: relative; margin-right: 4px; }
-.fake-chk.checked { background: var(--color-3); border-color: var(--color-3); }
-.bg-stripe { background: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 5px, #fff 5px, #fff 10px); }
+table.col-row tbody th { background:transparent; font-size:1rem; }
 
-/* 완료 페이지 요약 정보 테이블  */
-.complete-info-tbl { width: 100%; max-width: 600px; margin: 0 auto 80px; border-top: 1px solid #e0e0e0; }
-.complete-info-tbl table { width: 100%; border-collapse: collapse; }
-.complete-info-tbl th, .complete-info-tbl td { border-bottom: 1px solid #e0e0e0; font-size: var(--font18); font-weight: var(--font-w-r); }
-.complete-info-tbl th {padding: 18px 20px; background-color: #f5f5f5; font-weight: var(--font-w-m); color: var(--color-2); text-align: center; border-right: 1px solid #e0e0e0;}
-.complete-info-tbl td {padding: 18px 26px; background-color: var(--color-f); color: var(--color-45); text-align: left; }
+table.td-al td { text-align:left; }
 
+.table-group + .m-dot { margin-top:-22px; }
+
+table th.div_sum { background:var(--white); font-weight:var(--font-w-m); border-right:var(--table-border); font-weight:var(--font-w-r);  }
+
+/* 테이블 위에 텍스트 */
+.total { padding-bottom:20px; font-size:var(--font16); font-weight:var(--font-w-r); color:var(--color-6); text-align:left; }
+.total em { color:var(--color-2); font-weight:var(--font-w-b); }
+.total em span { color:var(--primary); }
+.caption { padding-bottom:20px; font-size:var(--font16); font-weight:var(--font-w-r); color:var(--color-6); text-align:right; }
+.form-content:has(.caption.total) { display:flex; align-items:center; }
+
+/* 테이블 푸터 */
+.table-content { overflow:visible; }
+
+.table-content table tfoot tr:only-child,
+.table-content table tfoot tr:last-child { background-color:#EDF9FF; }
+.table-content table tfoot .sum { font-weight:var(--font-w-m); color:var(--white); background-color:#0072BC; }
+
+/* 조회결과 없음 */
+table:has(.no-results) { border:0; }
+table:has(.no-results) thead { display:none; }
+table:has(.no-results) td { margin:0; padding:0; border:0; }
+.no-results { padding-top:150px; width: 100%; border:var(--table-border); border-radius:8px; }
+.no-results p { padding-top:124px; width:100%; min-height:308px; font-size: var(--font28); font-weight: var(--font-w-m); text-align:center; background: url('../../images/content/no-result.png') no-repeat center top; background-size:120px 100px;}
+
+/* 완료 */
+.completed { padding:100px 0; width: 100%; border:var(--table-border); border-radius:8px; }
+.completed p { padding-top:124px; width:100%;  font-size: var(--font28); font-weight: var(--font-w-b); text-align:center; background: url('../../images/content/contrackComp.png') no-repeat center top; background-size:120px 100px;}
+.completed span {display: block; margin-top: 16px; width: 100%; font-weight: var(--font-w-r); color: var(--color-45); text-align: center;}
+.completed + .rfrnc { margin-top:20px; }
+.completed + .rfrnc li + li { margin-top:12px; }
+
+/* 공지사항 리스트 */
+.mo-list tbody tr td.title,
+.mo-list tbody tr td.title a { max-width:95%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; text-align:left; }
+.mo-list tbody tr td.title span { display:inline-block; max-width:400px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+
+/**테이블**/
+table.round { border:var(--table-border); border-bottom:0; border-collapse:separate; border-radius:16px; overflow:hidden; }
 
 .bdr-none {border-right: none !important;}
 .bdl-none {border-left: none !important;}

@@ -20,7 +20,7 @@
         <div id="contentWrap" role="main">
             <div class="contents">
                 <h2 class="page-tit">Button</h2>
-                <div class="layout-grid">
+                <div class="layout-grid desc">
                     <div class="col-group">
                         <div class="card-box">
                             <h3 class="card-tit">1. 버튼 유형 및 용도</h3>
@@ -32,10 +32,6 @@
                                 <li>
                                     <p class="tit">.btn-secondary</p>
                                     <p class="desc">서브 액션(취소, 이전). 흰색 배경 + 테두리.</p>
-                                </li>
-                                <li>
-                                    <p class="tit">.btn-outline</p>
-                                    <p class="desc">컨텐츠 내부 보조 버튼(PDF 다운로드 등).</p>
                                 </li>
                                 <li>
                                     <p class="tit">.disabled</p>
@@ -52,55 +48,49 @@
                                     <p class="desc">#footerWrap > .btn-area 내부에 배치.</p>
                                 </li>
                                 <li>
-                                    <p class="tit">컨텐츠 버튼</p>
-                                    <p class="desc">.acc-btn-area 내부에 배치 (우측 정렬).</p>
-                                </li>
-                                <li>
-                                    <p class="tit">팝업 버튼</p>
-                                    <p class="desc">.pop-footer 내부에 배치 (중앙 정렬).</p>
+                                    <p class="tit">알럿 버튼</p>
+                                    <p class="desc">.button-content > .btn-pop-primary <br>.button-content > .btn-pop-secondary</p>
                                 </li>
                             </ul>
                         </div>
+
                     </div>
 
                     <div class="col-group">
-                        
-                        <!-- 컨텐츠 내 버튼 예시 -->
                         <div class="card-box">
-                            <h3 class="card-tit">Content / Accordion Buttons</h3>
-                            <p style="margin-bottom:20px; font-size:14px; color:#888;">* 아코디언 하단 등에 쓰이는 우측 정렬 버튼 그룹</p>
-                            
-                            <div class="acc-btn-area" style="padding-top:0; flex-wrap:wrap;"> 
-                                <!-- 가이드에서만 너비를 좀 줄여서 보여줌 -->
-                                <button type="button" class="btn-outline" style="min-width:auto; flex:1;">PDF 다운로드</button>
-                                <button type="button" class="btn-primary" style="min-width:auto; flex:1;">확인 완료</button>
-                            </div>
-                        </div>
-
-                        <!-- 인풋/기능형 버튼 예시 -->
-                        <div class="card-box">
-                            <h3 class="card-tit">Inline / functional Buttons</h3>
-                            <div class="form-item">
-                                <label class="form-label">기능형 버튼 조합 예시</label>
-                                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                                    <button type="button" class="btn-dark-gray" style="position:static; min-width:120px;">주소 검색</button>
-                                    <label class="btn-file-select">파일 선택</label>
-                                    <button type="button" class="btn-reset" style="position:static;">초기화</button>
-                                    <button type="button" class="btn-del-file" style="position:static;">삭제</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 상태별 버튼 예시 -->
-                        <div class="card-box">
-                            <h3 class="card-tit">Button States</h3>
+                            <p class="card-tit">기본</p>
                             <div style="display:flex; gap:10px;">
-                                <button type="button" class="btn-primary">Normal</button>
-                                <button type="button" class="btn-secondary">Normal</button>
+                                <button type="button" class="btn-primary">버튼명</button>
+                                <button type="button" class="btn-secondary">버튼명</button>
                                 <button type="button" class="btn-primary disabled">Disabled</button>
                             </div>
                         </div>
 
+                        <div class="card-box">
+                            <p class="card-tit">hover</p>
+                            <div style="display:flex; gap:10px;">
+                                <button type="button" class="btn-primary" style="background-color: #156CDF;">버튼명</button>
+                                <button type="button" class="btn-secondary" style="border-color: #BBBBBB; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25);">버튼명</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box alert">
+                            <p class="card-tit">Alert Btn</p>
+                            <div class="button-content">
+                                <button type="button" class="btn-pop-primary" data-popup-close="modal">버튼명</button>
+                                <button type="button" class="btn-pop-secondary" data-popup-close="modal">버튼명</button>
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <p class="card-tit">Form Btn</p>
+                            <div style="display:flex; gap:10px;">
+                                <button type="button" class="btn-form">버튼명</button>
+                                <button type="button" class="btn-form" style="border-color:#062D4D; font-weight: 600; color: #062D4D;">hover</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

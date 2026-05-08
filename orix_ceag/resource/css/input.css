@@ -121,8 +121,8 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /* 우편번호 버튼형 인풋 */
 div.addr { position: relative; display: flex; align-items: center; margin-bottom: 12px; }
 div.addr .form-input { padding-right: 150px; }
-div.addr button { position: absolute; right: 8px; top: 8px; bottom: 8px; min-width: 120px; padding: 12px 16px; border: none; border-radius: 6px; background-color: #062D4D; font-size: var(--font16); font-weight: var(--font-w-m); color: var(--color-f); cursor: pointer; transition: 0.2s; }
-div.addr button:hover { background-color: #08131D; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25); }
+.btn-dark-gray { position: absolute; right: 8px; top: 8px; bottom: 8px; min-width: 120px; padding: 12px 16px; border: none; border-radius: 6px; background-color: #062D4D; font-size: var(--font16); font-weight: var(--font-w-m); color: var(--color-f); cursor: pointer; transition: 0.2s; }
+.btn-dark-gray:hover { background-color: #08131D; box-shadow: 1px 2px 8px 0 rgba(221, 221, 221, 0.25); }
 
 /* 데이트피커 커스텀 */
 input[type="date"].form-input {position: relative; -webkit-appearance: none; appearance: none; user-select: none; -webkit-user-select: none;}
