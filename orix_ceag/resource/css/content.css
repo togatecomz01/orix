@@ -30,10 +30,15 @@
 
 /* 스텝 프로그레스 */
 .step-progress { display: flex; width: 100%; padding: 26px 0; margin: 0 0 52px; justify-content: center; align-items: center; gap: 60px; counter-reset: step; }
+
 .step-progress li { display: flex; min-width: 0; align-items: center; counter-increment: step; }
-.step-progress li::before { content: counter(step); display: inline-flex; width: 32px; height: 32px; margin-right: 14px; border: 1px solid var(--primary); border-radius: 50%; background: var(--color-f); font-size: var(--font18); font-weight: var(--font-w-r); color: var(--primary); line-height: 1; justify-content: center; align-items: center; box-sizing: border-box; flex-shrink: 0; }
-.step-progress .step-txt { display: block; font-size: var(--font20); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.4; white-space: nowrap; }
+.step-progress li::before { content: counter(step); display: inline-flex; width: 32px; height: 32px; margin-right: 12px; border: 1px solid #3182EE; border-radius: 50%; font-size: var(--font18); font-weight: var(--font-w-r); color: #3182EE; justify-content: center; align-items: center; flex-shrink: 0; }
+
+.step-progress .step-txt { display: block; font-size: var(--font20); font-weight: var(--font-w-r); color: var(--color-6); white-space: nowrap; }
+
 .step-progress li.done::before { content: ''; border-color: #062D4D; background: #062D4D url('../svg/check_line.svg') no-repeat center / 12px 9px; font-size: 0; color: transparent; }
+.step-progress li.done .step-txt { color: var(--color-2); }
+
 .step-progress li.active::before { border-color: var(--primary); background: var(--primary); font-weight: var(--font-w-m); color: var(--color-f); }
 .step-progress li.active .step-txt { font-weight: var(--font-w-m); color: var(--primary); }
 
