@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-.page-tit { text-align: center; font-size: var(--font38); font-weight: var(--font-w-b); color: var(--color-2); margin-bottom: 56px; }
+/* 페이지 타이틀 */
+.visual-content { width: 100%; margin-bottom: 54px; text-align: center; }
+.visual-content .page-tit { text-align: center; font-size: var(--font38); font-weight: var(--font-w-b); color: var(--color-2); }
+.visual-content .s-tit { margin-top: 12px; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-6); }
 
 /* 메인 시작 페이지 전용 컨텐츠 스타일 */
 .main-page .intro-section { text-align: center; color: #fff; width: 100%; /* transform: translateY(-20px); */ }
@@ -25,10 +28,14 @@
 .error-info-box, .s-ready-info-box { border-top: 1px solid var(--color-d); padding: 32px 24px; display: inline-block; max-width: 730px; }
 .error-desc , .s-ready-desc{ font-size: var(--font26); color: var(--color-6); line-height: 1.6; font-weight: var(--font-w-r); word-break: keep-all; }
 
-/* 스텝 인디케이터 (1-2-3) */
-.step-area { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
-.step-area li { width: 30px; height: 30px; border-radius: 50%; background-color: #DFE4EB; color: var(--color-6); font-size: var(--font18); font-weight: var(--font-w-r); display: flex; justify-content: center; align-items: center; }
-.step-area li.active { background-color: var(--primary); color: #fff; }
+/* 스텝 프로그레스 */
+.step-progress { display: flex; width: 100%; padding: 26px 0; margin: 0 0 52px; justify-content: center; align-items: center; gap: 60px; counter-reset: step; }
+.step-progress li { display: flex; min-width: 0; align-items: center; counter-increment: step; }
+.step-progress li::before { content: counter(step); display: inline-flex; width: 32px; height: 32px; margin-right: 14px; border: 1px solid var(--primary); border-radius: 50%; background: var(--color-f); font-size: var(--font18); font-weight: var(--font-w-r); color: var(--primary); line-height: 1; justify-content: center; align-items: center; box-sizing: border-box; flex-shrink: 0; }
+.step-progress .step-txt { display: block; font-size: var(--font20); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.4; white-space: nowrap; }
+.step-progress li.done::before { content: ''; border-color: #062D4D; background: #062D4D url('../svg/check_line.svg') no-repeat center / 12px 9px; font-size: 0; color: transparent; }
+.step-progress li.active::before { border-color: var(--primary); background: var(--primary); font-weight: var(--font-w-m); color: var(--color-f); }
+.step-progress li.active .step-txt { font-weight: var(--font-w-m); color: var(--primary); }
 
 /* 정보 리스트 */
 .info-list { display: flex;flex-direction: column;gap: 32px; }
