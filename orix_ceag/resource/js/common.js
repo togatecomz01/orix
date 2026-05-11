@@ -137,15 +137,21 @@ $(function() {
         }
 
         /* 주소 API */
-        $(document).on('click', '#zonecode, #address', function() { alert('우편번호 검색을 통해 주소를 입력해 주세요.'); });
-        $(document).on('click', '#btnPostcode', function() {
+        $(document).on('click', '.js-zonecode, .js-address', function() {
+            alert('우편번호 검색을 통해 주소를 입력해 주세요.');
+        });
+        
+        $(document).on('click', '.js-btn-postcode', function() {
+            var $group = $(this).closest('.js-address-group');
+        
             new daum.Postcode({
                 oncomplete: function(data) {
-                    var addr = (data.userSelectedType === 'R') ? data.roadAddress : data.jibunAddress;
-                    $('#zonecode').val(data.zonecode).removeClass('error');
-                    $('#address').val(addr).removeClass('error');
-                    $('#detailAddress').focus();
-                    $('#zonecode').closest('.form-item, .card-box').find('.error-msg').hide();
+                    var addr = data.userSelectedType === 'R' ? data.roadAddress : data.jibunAddress;
+        
+                    $group.find('.js-zonecode').val(data.zonecode).removeClass('error');
+                    $group.find('.js-address').val(addr).removeClass('error');
+                    $group.find('.js-detail-address').focus();
+                    $group.find('.error-msg').hide();
                 }
             }).open();
         });
