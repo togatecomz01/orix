@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - layout</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/common.js"></script>
+
+    <link href="../css/sample.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div data-include-path="../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <div class="visual-content">
+                    <h2 class="page-tit">레이아웃 <span class="blue">모아</span>보기</h2>
+                    <p class="s-tit">서브텍스트</p>
+                </div>
+                <div class="layout">
+                    <div class="layout-item">
+                        <p>1. 진입 가능여부 식별</p>
+                        <!-- s: 진입 가능여부 식별 -->
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">가로 card</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                                <div class="card-box">
+                                    <h3 class="card-tit">가로 card</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- e: 진입 가능여부 식별 -->
+                    </div>
+                    <div class="layout-item">
+                        <p>2. 본인인증</p>
+                        <!-- s: 본인인증 -->
+                        <div class="layout-grid">
+                            <div class="col-group term">
+                                <div class="card-box">
+                                    <h3 class="card-tit">약관</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card1</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card2</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- e: 본인인증 -->
+                    </div>
+                    <div class="layout-item">
+                        <p>3. 계약 요건 및 상품 약관 동의</p>
+                        <!-- s: 계약 요건 및 상품 약관 동의 -->
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card1</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                                <div class="card-box">
+                                    <h3 class="card-tit">card2</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card3</h3>
+                                    <div class="cont" style="height: 280px;">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                            <div class="col-group term">
+                                <div class="card-box">
+                                    <h3 class="card-tit">약관</h3>
+                                    <div class="cont">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- e: 계약 요건 및 상품 약관 동의 -->
+                    </div>
+                    <div class="layout-item">
+                        <p>4. 자동이체 및 납부정보 수집</p>
+                        <!-- s: 자동이체 및 납부정보 수집 -->
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card1</h3>
+                                    <div class="cont" style="height: 520px;">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card2</h3>
+                                    <div class="cont" style="height: 520px;">콘텐츠 내용</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- e: 자동이체 및 납부정보 수집 -->
+                    </div>
+                    <div class="layout-item one">
+                        <p>5. 솔루션 들어가는 화면</p>
+                        <!-- s: 솔루션 들어가는 화면 -->
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">card 1개</h3>
+                                    <div class="cont">솔루션 영역</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- e: 솔루션 들어가는 화면 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-notice">
+                    <p class="notice-tit">ORIX UI STANDARD GUIDE</p>
+                </div>
+                <div class="btn-area">
+                    <button type="button" class="btn-primary">가이드 확인 완료</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
