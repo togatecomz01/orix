@@ -24,11 +24,11 @@
 .font-list { padding-top:34px; }
 .font-item { margin-bottom:76px; }
 .font-item:last-child { margin-bottom:0; }
-.font-table { width:100%; table-layout:fixed; }
-.font-table th { height:52px; padding:0 0 18px; border-bottom:2px solid #222; font-weight:700; font-size:16px; color:#222; line-height:1.5; text-align:center; vertical-align:top; }
+.font-table { width:100%; max-width: none; table-layout:fixed; }
+.font-table th { border-bottom:2px solid #222; font-weight:700; font-size:16px; color:#222; line-height:1.5; text-align:center; }
 .font-table th:first-child { text-align:left; }
-.font-table td { height:86px; padding:0; border-bottom:1px solid #DDD; font-weight:400; font-size:14px; color:#222; line-height:1.5; text-align:center; vertical-align:middle; }
-.font-table td:first-child { text-align:left; }
+.font-table td { height:86px; padding:0; font-weight:400; font-size:14px; color:#222; line-height:1.5; text-align:center; vertical-align:middle; }
+.font-table td:first-child { border-left: 0; text-align:left; }
 
 /* 레이아웃 예시 */
 .layout { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; box-sizing: border-box; }
