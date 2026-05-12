@@ -104,7 +104,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .grid-caption { display:flex; justify-content:space-between; align-items:center; padding:13px 16px 11px; }
 /* 오른쪽 */
 .grid-caption .caption-left .tag-end { margin-right:8px; }
-.grid-caption .caption-left .total { font-family:'S-Core Dream'; font-size:var(--font14); font-weight:var(--font-w200); }
+.grid-caption .caption-left .total { font-family:'S-Core Dream'; font-size:var(--font14); font-weight:var(--font-w200); vertical-align:middle; }
 .grid-caption .caption-left .total::before { content:"·"; margin-right:5px; }
 /* 왼쪽 */
 .grid-caption .m-dot { font-size:0; }
@@ -113,8 +113,8 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .grid-caption .m-dot li::before { font-family:'S-Core Dream'; font-size:var(--font14); font-weight:var(--font-w200); color:var(--color-45); }
 .grid-caption .m-dot li { display:inline-block; margin:0; }
 .grid-caption .m-dot li + li { margin-left:20px; }
-.grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; }
-.grid-caption .server-time { color:var(--secondary); vertical-align:middle; }
+.grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; vertical-align: baseline; }
+.grid-caption .server-time { color:var(--secondary); }
 
 /** 그리드 content **/
 /* 테이블 */
@@ -162,6 +162,7 @@ td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30
 .grid-body .tui-grid-layer-state p { top:60%; left:0; right:0; font-size:var(--font24); font-weight:var(--font-w600); line-height:30px; color:var(--color-2); transform:translateY(-60%); }
 .grid-body .tui-grid-layer-state p::before { content:""; position:absolute; bottom:60px; width:186px; height:175px; background:url("../../images/img_grid_nodata.png") no-repeat center center / 186px 175px; }
 .grid-body .tui-grid-layer-state p::after { content:"조회 조건을 설정한 뒤 공매 입찰관리 내역을 조회해 주세요"; display:block; margin-top:9px; font-size:var(--font18); font-weight:var(--font-w400); line-height:24px; color:var(--color-75); }
+.grid-body.upload .tui-grid-layer-state p::after { content:"업로드"; }
 
 /* 드래그 선택 영역 */
 .tui-grid-content-area .tui-grid-layer-selection {
