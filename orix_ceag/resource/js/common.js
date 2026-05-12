@@ -99,14 +99,18 @@ $(function() {
         });
 
         /* 약관 전체 동의 연동 */
-        $(document).on('change', '#agreeAll', function() {
-            $('input[name="terms"]').prop('checked', $(this).is(':checked'));
+        $(document).on('change', '.agree-header input[type="checkbox"]', function() {
+            var $box = $(this).closest('.card-box');
+        
+            $box.find('.accordion-list input[name="terms"]').prop('checked', $(this).is(':checked'));
         });
-
-        $(document).on('change', 'input[name="terms"]', function() {
-            var total = $('input[name="terms"]').length;
-            var checked = $('input[name="terms"]:checked').length;
-            $('#agreeAll').prop('checked', total === checked);
+        
+        $(document).on('change', '.accordion-list input[name="terms"]', function() {
+            var $box = $(this).closest('.card-box');
+            var total = $box.find('.accordion-list input[name="terms"]').length;
+            var checked = $box.find('.accordion-list input[name="terms"]:checked').length;
+        
+            $box.find('.agree-header input[type="checkbox"]').prop('checked', total > 0 && total === checked);
         });
 
         /* 상세약정서 '확인' 버튼 클릭 시 뱃지 상태 변경 */
@@ -117,7 +121,7 @@ $(function() {
 
             var total = $('.contract-item .badge').length;
             var confirmed = $('.contract-item .badge.state-blue').length;
-            var $footerSubmitBtn = $('#footerWrap .btn-primary');
+            var $footerSubmitBtn = $('#bottom-button-wrap .btn-primary, #footerWrap .btn-primary');
             if (total > 0 && total === confirmed) {
                 $footerSubmitBtn.prop('disabled', false); 
             } else {

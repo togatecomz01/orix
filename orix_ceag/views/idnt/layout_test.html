@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>오릭스 레이아웃 테스트</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+
+    <style>
+        /* layout_test 전용: 공통 layout-grid/card-box/col-group 클래스는 유지 */
+        body { overflow: auto !important; }
+        #contentWrap { padding-bottom: 72px; }
+        .contents { width: 1200px; padding-bottom: 0; }
+        .header-inner { width: 1200px; }
+        .layout-grid.contract-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 28px;
+            align-items: start;
+        }
+        .contract-layout .col-group { gap: 28px; height: auto; }
+        .contract-layout .card-box {
+            border-radius: 18px;
+            padding: 42px;
+        }
+        .contract-layout .card-tit {
+            margin-bottom: 28px;
+            font-size: var(--font22);
+        }
+        .step-progress { margin-bottom: 58px; }
+        .visual-content { margin-bottom: 72px; }
+        .visual-content .page-tit { line-height: 1.35; }
+        .visual-content .s-tit { line-height: 1.6; }
+
+        .terms-card .agree-header {
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--color-e);
+        }
+        .terms-card .agree-header .check-group { margin-bottom: 0; }
+        .terms-card .accordion-list { margin-top: 8px; }
+        .terms-card .term-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 18px;
+        }
+        .terms-card .term-head .check-group { margin-bottom: 0; }
+        .terms-card .acc-body {
+            display: block !important;
+            border-radius: 0;
+            background: transparent;
+        }
+        .terms-card .term-content {
+            max-height: none;
+            padding: 22px 24px;
+            background: var(--color-f8);
+            overflow: visible;
+            color: var(--color-45);
+        }
+        .terms-card .term-tit {
+            margin-bottom: 14px;
+            font-size: var(--font14);
+            color: var(--color-2);
+        }
+        .terms-card .confirm-box {
+            margin-top: 30px;
+            padding: 28px;
+            border: 1px solid var(--color-e);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .terms-card .confirm-box strong {
+            display: block;
+            margin-bottom: 12px;
+            font-size: var(--font18);
+            color: var(--color-2);
+        }
+        .terms-card .confirm-box p {
+            color: var(--color-6);
+            font-size: var(--font14);
+            line-height: 1.6;
+        }
+
+        .notice-card p {
+            color: var(--color-45);
+            font-size: var(--font16);
+            line-height: 1.65;
+        }
+        .notice-card .refer {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+            color: var(--color-9);
+            font-size: var(--font13);
+            line-height: 1.5;
+        }
+        .notice-card .refer::before {
+            content: '!';
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-9);
+            color: var(--color-f);
+            font-size: 10px;
+            font-weight: var(--font-w-b);
+            transform: translateY(2px);
+        }
+
+        .summary-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .summary-card .info-list { gap: 22px; }
+        .summary-card .info-list li { align-items: flex-start; }
+        .summary-card .info-list .tit {
+            font-size: var(--font16);
+            color: var(--color-75);
+        }
+        .summary-card .info-list .desc {
+            max-width: 250px;
+            font-size: var(--font16);
+            font-weight: var(--font-w-sb);
+            line-height: 1.55;
+        }
+        .summary-card-body {
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+        }
+        .summary-card.is-collapsed .is-summary-hidden { display: none; }
+        .summary-card.is-collapsed::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 118px;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 72%);
+        }
+        .summary-card.has-more { padding-bottom: 92px; }
+        .summary-card.is-expanded .summary-card-body {
+            max-height: none !important;
+            overflow: visible;
+        }
+        .summary-card.is-expanded::after { display: none; }
+        .summary-card-more {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 32px;
+            z-index: 2;
+            display: none;
+            justify-content: center;
+        }
+        .summary-card.has-more .summary-card-more { display: flex; }
+        .btn-card-more {
+            min-width: 148px;
+            height: 48px;
+            padding: 0 22px;
+            border-radius: 100px;
+            background: var(--primary);
+            color: var(--color-f);
+            font-size: var(--font16);
+            font-weight: var(--font-w-sb);
+            box-shadow: 0 8px 18px rgba(49, 130, 238, 0.22);
+        }
+
+        #bottom-button-wrap {
+            margin-top: 72px;
+        }
+    </style>
+
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="headerWrap" role="banner">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"><img src="../../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <div class="header-contact"><span class="txt">고객센터</span><span class="tel">02-2050-6700</span></div>
+            </div>
+        </div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <ol class="step-progress">
+                    <li class="active"><span class="step-txt">신청 내역 확인</span></li>
+                    <li><span class="step-txt">약정서 및 약관 동의</span></li>
+                    <li><span class="step-txt">고객 정보 및 자동이체 정보 입력</span></li>
+                    <li><span class="step-txt">약정서 미리보기 및 전자서명</span></li>
+                </ol>
+
+                <div class="visual-content">
+                    <h2 class="page-tit">신청하신 계약 내용을 확인해 주세요.</h2>
+                    <p class="s-tit">담당자가 안내드린 견적을 기준으로 작성된 내용입니다. 전체 내용과 중요 약정사항을 꼼꼼히 확인하신 후 다음 단계로 진행해 주세요.</p>
+                </div>
+
+                <div class="layout-grid contract-layout">
+                    <div class="col-group js-left-column">
+                        <div class="card-box terms-card">
+                            <div class="agree-header">
+                                <div class="check-group">
+                                    <input type="checkbox" id="testAgreeAll">
+                                    <label for="testAgreeAll">주요 약정사항 전체 동의</label>
+                                </div>
+                            </div>
+
+                            <div class="accordion-list">
+                                <div class="acc-item active">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm1" name="terms">
+                                            <label for="testTerm1">종료처리조건</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
+                                            <ul class="bul-refer">
+                                                <li>차량을 인수할 경우, 잔존가치 및 소유권 이전비용은 고객님이 부담하며 하며, 차량가격 기준 매입수수료가 발생할 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm2" name="terms">
+                                            <label for="testTerm2">종료처리조건</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
+                                            <ul class="bul-refer">
+                                                <li>계약 종료 전 차량 상태와 약정 운행거리 초과 여부를 확인해야 합니다.</li>
+                                                <li>반납 시 수리비, 초과운행 부담금 등 추가 비용이 발생할 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm3" name="terms">
+                                            <label for="testTerm3">종료처리조건</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
+                                            <ul class="bul-refer">
+                                                <li>중도해지 시 위약금 및 미납금이 정산될 수 있습니다.</li>
+                                                <li>약정 조건에 따라 차량 회수 일정이 별도 안내됩니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm4" name="terms">
+                                            <label for="testTerm4">종료처리조건</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
+                                            <ul class="bul-refer">
+                                                <li>계약서에 기재된 종료 선택권과 비용 기준을 최종 확인해 주세요.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="confirm-box">
+                                <strong>최종 확인내용</strong>
+                                <p>렌트이용자(임차인) 및 연대보증인은 중요약정 사항을 확인하고 이에 동의합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card-box notice-card">
+                            <h3 class="card-tit">과태료/범칙금</h3>
+                            <p>1차 사전통지서 카카오톡 알림 또는 SMS발송, 미납 시 당사 대납 후 익월 렌트료 포함 청구</p>
+                            <p class="refer">사고발생 시 대표번호 또는 추가운전자 신청하신 경우 대표번호로 접수 부탁드립니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-group js-right-column">
+                            <div class="card-box summary-card">
+                                <h3 class="card-tit">상품 신청 내역</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">신청상품</p><p class="desc">자동차 장기임대</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-box summary-card js-summary-card">
+                                <h3 class="card-tit">차량정보</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">제조사</p><p class="desc">제네시스</p></li>
+                                        <li><p class="tit">차량모델</p><p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD</p></li>
+                                        <li><p class="tit">차량기본가</p><p class="desc">60,500,000원</p></li>
+                                        <li><p class="tit">옵션가격</p><p class="desc">5,000,000원</p></li>
+                                        <li><p class="tit">외장색상</p><p class="desc">우유니 화이트</p></li>
+                                        <li><p class="tit">내장색상</p><p class="desc">애쉬 그레이 / 글레이셔 화이트 투톤</p></li>
+                                        <li><p class="tit">총차량가</p><p class="desc">65,500,000원</p></li>
+                                    </ul>
+                                </div>
+                                <div class="summary-card-more">
+                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                </div>
+                            </div>
+
+                            <div class="card-box summary-card js-summary-card">
+                                <h3 class="card-tit">계약정보</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">대여기간</p><p class="desc">36개월</p></li>
+                                        <li><p class="tit">보증금</p><p class="desc">0원</p></li>
+                                        <li><p class="tit">선납임대료</p><p class="desc">0원</p></li>
+                                        <li><p class="tit">월임대료</p><p class="desc">1,218,800원</p></li>
+                                        <li><p class="tit">계약주행거리</p><p class="desc">연 20,000km</p></li>
+                                    </ul>
+                                </div>
+                                <div class="summary-card-more">
+                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                </div>
+                            </div>
+
+                            <div class="card-box summary-card js-summary-card">
+                                <h3 class="card-tit">보험정보</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">운전자연령</p><p class="desc">만 26세이상</p></li>
+                                        <li><p class="tit">운전자범위</p><p class="desc">개인사업자 계약자, 임직원</p></li>
+                                        <li><p class="tit">의무가입사항</p><p class="desc">대인배상, 대물배상, 긴급출동 5회</p></li>
+                                        <li><p class="tit">필수가입사항</p><p class="desc">자기신체사고, 차량손해면책제도</p></li>
+                                    </ul>
+                                </div>
+                                <div class="summary-card-more">
+                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                </div>
+                            </div>
+
+                            <div class="card-box summary-card">
+                                <h3 class="card-tit">정비상품</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">정비상품</p><p class="desc">Self</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-box summary-card js-summary-card">
+                                <h3 class="card-tit">연대보증 정보</h3>
+                                <div class="summary-card-body">
+                                    <ul class="info-list">
+                                        <li><p class="tit">채무자명</p><p class="desc">김오릭</p></li>
+                                        <li><p class="tit">연대보증인명</p><p class="desc">홍길동</p></li>
+                                        <li><p class="tit">보증종류</p><p class="desc">AA보증</p></li>
+                                        <li><p class="tit">보증기간</p><p class="desc">대여기간과 동일</p></li>
+                                    </ul>
+                                </div>
+                                <div class="summary-card-more">
+                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom-button-wrap">
+                <div class="bottom-button-inner">
+                    <div class="bottom-button-text-wrap">
+                        <div class="bottom-button-notice">
+                            <p class="notice-tit">견적 내역과 약관 상세 내용을 모두 확인하셨다면 [다음] 버튼을 눌러주세요.</p>
+                            <p class="sub-txt">확인하신 정보를 바탕으로 다음 단계에서 자동이체 및 납부 정보 입력을 진행합니다.</p>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <a href="#" class="btn-primary disabled" aria-disabled="true">다음</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    <span>ORIX Capital Korea Corporation</span>
+                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
+                </div>
+                <div class="footer-add">
+                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
+                    <span>대표이사 : 박철수</span>
+                    <span>사업자등록번호 : 120-86-63282</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            var DEFAULT_VISIBLE_COUNT = 3;
+            var MIN_VISIBLE_COUNT = 3;
+
+            function getVisibleCount($card) {
+                return Number($card.attr('data-visible-count')) || DEFAULT_VISIBLE_COUNT;
+            }
+
+            function collapseCard($card, visibleCount) {
+                var $rows = $card.find('.info-list > li');
+
+                $rows.removeClass('is-summary-hidden');
+
+                if ($rows.length > visibleCount) {
+                    $rows.slice(visibleCount).addClass('is-summary-hidden');
+                    $card
+                        .addClass('has-more is-collapsed')
+                        .removeClass('is-expanded')
+                        .data('visible-count-current', visibleCount);
+                } else {
+                    $card
+                        .removeClass('has-more is-collapsed is-expanded')
+                        .data('visible-count-current', $rows.length);
+                }
+            }
+
+            function syncSummaryCards() {
+                var $leftColumn = $('.js-left-column');
+                var $rightColumn = $('.js-right-column');
+                var $targets = $rightColumn.find('.js-summary-card').not('.is-expanded');
+                var leftHeight = $leftColumn.outerHeight();
+                var iteration;
+
+                $targets.each(function () {
+                    var $card = $(this);
+                    collapseCard($card, getVisibleCount($card));
+                });
+
+                for (iteration = 0; iteration < 12; iteration += 1) {
+                    var $collapsedTargets = $targets.filter('.is-collapsed');
+                    var overflowHeight = $rightColumn.outerHeight() - leftHeight;
+                    var changed = false;
+
+                    if (overflowHeight <= 0 || !$collapsedTargets.length) {
+                        break;
+                    }
+
+                    $collapsedTargets.each(function () {
+                        var $card = $(this);
+                        var currentCount = Number($card.data('visible-count-current')) || getVisibleCount($card);
+
+                        if (currentCount > MIN_VISIBLE_COUNT) {
+                            collapseCard($card, currentCount - 1);
+                            changed = true;
+                        }
+                    });
+
+                    if (!changed) {
+                        break;
+                    }
+                }
+            }
+
+            syncSummaryCards();
+
+            $(document).on('click', '.js-card-more', function () {
+                var $card = $(this).closest('.js-summary-card');
+                var expanded = !$card.hasClass('is-expanded');
+
+                if (expanded) {
+                    $card
+                        .addClass('is-expanded')
+                        .removeClass('is-collapsed')
+                        .find('.info-list > li')
+                        .removeClass('is-summary-hidden');
+                } else {
+                    collapseCard($card, getVisibleCount($card));
+                }
+
+                $(this).text(expanded ? '접기' : '더보기');
+
+                syncSummaryCards();
+            });
+
+            $(window).on('resize', function () {
+                syncSummaryCards();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,8 +3,17 @@
 /* 전체 레이아웃 구조 (fixed Footer) */
 #wrap { display: flex; flex-direction: column; min-height: 100vh; min-width: 1200px; background-color: #F2F3F8; }
 #headerWrap { flex-shrink: 0; height: 70px; background-color: #F2F3F8; }
-#contentWrap { flex: 1; width: 100%; padding: 52px 0 216px; } /* 216px : footer의 min-height + 카드박스와 footer사이 간격 */
-#footerWrap { /*position: fixed; bottom: 0; left: 0;*/ width: 100%; max-height: 136px; z-index: 1000; background-color: var(--color-f); padding: 32px 0; box-shadow: 0 -5px 20px 0 rgba(221, 221, 221, 0.25); }
+#contentWrap { flex: 1; width: 100%; padding: 52px 0 0; }
+#bottom-button-wrap { width: 100%; padding: 68px 0 72px; box-sizing: border-box; }
+#footerWrap { flex-shrink: 0; display: flex; align-items: center; width: 100%; min-height: 140px; background-color: var(--color-f); }
+
+.footer-inner { width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 80px; box-sizing: border-box; }
+.footer-copy { font-size: var(--font14); font-weight: var(--font-w-r); line-height: 1.4; color: var(--color-9); }
+.footer-copy span { display: inline-flex; align-items: center; font-size: var(--font16); color: var(--color-6); }
+.footer-copy span::before { content: ''; display: inline-block; flex: 0 0 76px; width: 76px; height: 20px; margin-right: 26px; background: url('../images/ORIX_logo.png') no-repeat center / contain; }
+.footer-copy p { margin: 0 0 0 102px; font-size: var(--font14); color: var(--color-9);}
+.footer-add {display: flex;flex-direction: column;align-items: flex-end;gap: 8px;font-size: var(--font14);font-weight: var(--font-w-r);color: var(--color-9);white-space: nowrap;}
+.footer-add p:last-child {display: flex;gap: 15px;}
 
 /* 메인 시작 페이지 전용 레이아웃 + 헤더  */
 #wrap.main-page { background: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
@@ -29,14 +38,15 @@
 .complete-page , .complete-page #headerWrap,
 .s-ready-page, .s-ready-page #headerWrap { background-color: #fff !important; }
 
-.error-page #contentWrap, 
-.complete-page #contentWrap,
-.s-ready-page #contentWrap { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 70px); padding: 0; }
+/* .error-page #contentWrap, */ 
+/* .complete-page #contentWrap, */
+/* .s-ready-page #contentWrap { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 70px); padding: 0; } */
 /* .complete-page #contentWrap {padding-top: 72px;} */ /* 이따가 복구 */
+.complete-page #contentWrap {padding: 0;}
 .error-container, .complete-container, .s-ready-container { text-align: center;}
 
 /* Inner 공통 (1200px 중앙 정렬) */
-.header-inner, .contents, .footer-inner { width: 1200px; margin: 0 auto; position: relative; box-sizing: border-box; }
+.header-inner, .contents, .bottom-button-inner { width: 1200px; margin: 0 auto; position: relative; box-sizing: border-box;}
 
 /* 텍스트 스타일 공통 */
 h2 { font-size: var(--font38); font-weight: var(--font-w-b); color: var(--color-2); }
@@ -57,19 +67,22 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 .header-contact .tel { display: flex; align-items: center; font-weight: var(--font-w-r); color: var(--color-6); font-size: var(--font18); }
 .header-contact .tel::before { content: ''; display: inline-block; width: 20px; height: 20px; margin-right: 4px; background: url('../../resource/svg/call-filled.svg') no-repeat center / contain; }
 
-/* 푸터 (Footer) */
-.footer-inner { display: flex; justify-content: space-between; align-items: center; }
-.footer-text-wrap { display: flex; align-items: center; }
+/* 컨텐츠 바텀에 버튼 컨텐츠츠 */
+.bottom-button-inner { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 32px; text-align: center; }
+.bottom-button-text-wrap { display: flex; align-items: center; justify-content: center; }
 .sub-txt { font-size: var(--font16); color: var(--color-6); font-weight: var(--font-w-r); }
-/* 푸터 내 사업자 정보 레이아웃 */
+/* 컨텐츠 바텀 내 사업자 정보 레이아웃 */
 .biz-info { display: flex; flex-direction: column; gap: 16px; font-size: var(--font18); color: var(--color-6); font-weight: var(--font-w-r); }
 .biz-info dl { display: flex; align-items: center; margin: 0; gap: 12px; }
 .biz-info dt { display: inline-block; }
 .biz-info dd { font-weight: var(--font-w-m); color: var(--color-45); margin: 0; }
 
-.footer-notice { display: flex; flex-direction: column; gap: 12px; }
-.footer-notice .notice-tit { font-size: var(--font18); font-weight: var(--font-w-b); color: var(--color-2); line-height: 1.4; }
-
+.bottom-button-notice { display: flex; flex-direction: column; gap: 5px; }
+.bottom-button-notice .notice-tit { font-size: var(--font18); font-weight: var(--font-w-b); color: var(--color-2); line-height: 1.4; }
+.bottom-button-notice .notice { font-size: var(--font24); font-weight: var(--font-w-m); color: var(--color-6); }
+.bottom-check-list {align-items: center;gap: 10px;}
+.bottom-check-list .check-group {margin-bottom: 0;}
+.bottom-check-list .check-group label {font-size: var(--font24);font-weight: var(--font-w-m);color: var(--color-6);}
 /* 그리드 (Grid & Container) */
 .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
 .layout-grid > .col-group:only-child,
