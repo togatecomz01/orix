@@ -35,7 +35,7 @@
                     <button type="button" class="btn-primary">파일 읽기</button>
                 </div>
             </div>
-            <div class="grid-body">
+            <div class="grid-body upload">
                 <div class="grid-caption">
                     <ul class="m-dot">
                         <li>시작일시 : <input type="text" class="noline" id="bidStartText" readonly value="2026-03-09 12:00:00"></li>
@@ -67,175 +67,175 @@
 
         //******* [D]s : 퍼블 테스트용 *******//
         var sampleGridData = [
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
-            {
-                BIDNO_IDX: '260501',
-                CAR_NO: '123가1234',
-                CAR_MAKER: '현대',
-                CAR_NAME: '그랜저',
-                CAR_COLOR: '검정',
-                CAR_OLD: '2023',
-                CAR_CC: '2497',
-                CAR_DRIVEKM: '15234',
-                CAR_PARK: '오릭스 주차장',
-                CAR_BODY_NO: 'KMHF241DBPA000001',
-                BID_PRICE: '1850'
-            },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
+            // {
+            //     BIDNO_IDX: '260501',
+            //     CAR_NO: '123가1234',
+            //     CAR_MAKER: '현대',
+            //     CAR_NAME: '그랜저',
+            //     CAR_COLOR: '검정',
+            //     CAR_OLD: '2023',
+            //     CAR_CC: '2497',
+            //     CAR_DRIVEKM: '15234',
+            //     CAR_PARK: '오릭스 주차장',
+            //     CAR_BODY_NO: 'KMHF241DBPA000001',
+            //     BID_PRICE: '1850'
+            // },
         ];
         //******* [D]e : 퍼블 테스트용 *******//
 
@@ -286,7 +286,7 @@
 
             gridBodyHeight = $popupContent.innerHeight() - $gridBody.position().top - 16;
             gridBodyHeight -= $gridCaption.outerHeight(true) || 0;
-            gridBodyHeight = Math.max(gridBodyHeight, 180);
+            gridBodyHeight = Math.max(gridBodyHeight, 520);
 
             if (typeof grid.setBodyHeight === 'function') {
                 grid.setBodyHeight(gridBodyHeight);
