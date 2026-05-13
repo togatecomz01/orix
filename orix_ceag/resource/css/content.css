@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 페이지 타이틀 */
-.visual-content { width: 100%; margin-bottom: 54px; text-align: center; }
+.visual-content { width: 100%; margin:52px 0 54px; text-align: center; }
 .visual-content .page-tit { text-align: center; font-size: var(--font38); font-weight: var(--font-w-b); color: var(--color-2); }
 .visual-content .s-tit { margin-top: 12px; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-6); }
 
@@ -29,7 +29,7 @@
 .error-desc , .s-ready-desc{ font-size: var(--font26); color: var(--color-6); line-height: 1.6; font-weight: var(--font-w-r); word-break: keep-all; }
 
 /* 스텝 프로그레스 */
-.step-progress { display: flex; width: 100%; padding: 26px 0; margin: 0 0 52px; justify-content: center; align-items: center; gap: 60px; counter-reset: step; }
+.step-progress { position: sticky; top: 70px; z-index: 90; display: flex; width: 100%; padding: 26px 0; background-color: #F2F3F8; justify-content: center; align-items: center; gap: 60px; counter-reset: step; }
 
 .step-progress li { display: flex; min-width: 0; align-items: center; counter-increment: step; }
 .step-progress li::before { content: counter(step); display: inline-flex; width: 32px; height: 32px; margin-right: 12px; border: 1px solid #3182EE; border-radius: 50%; font-size: var(--font18); font-weight: var(--font-w-r); color: #3182EE; justify-content: center; align-items: center; flex-shrink: 0; }

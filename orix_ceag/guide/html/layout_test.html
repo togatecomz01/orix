@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - layout</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/common.js"></script>
+    <style>
+        /* 주요 약정사항 전체 동의 */
+        .card-box.terms .agree-header { padding-bottom: 24px; border-bottom: 1px solid var(--color-e); }
+        .card-box.terms .agree-header .check-group { margin-bottom: 0; }
+        .card-box.terms .accordion-list { margin-top: 8px; }
+        .card-box.terms .acc-item { border: 0; }
+
+        .card-box.terms .term-head { display: flex; justify-content: space-between; align-items: center; padding: 32px 0 24px; }
+        .card-box.terms .term-head .check-group { margin-bottom: 0; }
+
+        .card-box.terms .acc-body { display: block; border-radius: 0; background: transparent; }
+        .card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-f8); color: var(--color-45); overflow: visible; }
+        .card-box.terms .term-content > p { font-size: var(--font16); color: var(--color-6); }
+        .card-box.terms .term-content .term-tit { margin-bottom: 14px; font-weight: var(--font-w-m); color: var(--color-45); }
+        .card-box.terms .term-content .bul-refer,
+        .card-box.terms .acc-item:last-child .acc-body { margin: 0; }
+        .card-box.terms .term-content .bul-refer li { color: var(--color-6); }
+
+        .card-box.terms .final-desc { margin-top: 30px; padding: 36px 26px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
+        .card-box.terms .final-desc strong { display: block; margin-bottom: 12px; font-size: var(--font18); color: var(--color-2); }
+        .card-box.terms .final-desc p { font-size: var(--font14); color: var(--color-6); line-height: 1.6; }
+
+        /* 과태료/범칙금 */
+        .card-box.notice .tit { margin-bottom: 14px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); }
+        .card-box.notice .info { position: relative; padding-left: 26px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); }
+        .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
+
+        /* 상품 신청 내역 */
+        .card-box.summary { flex: none; margin-bottom: 20px; }
+        .card-box.summary .info-list .tit,
+        .card-box.summary .info-list .desc { font-size: var(--font18); }
+        .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
+        .card-wrap.is-all-expanded { flex: none; }
+        .card-wrap > .card-box { position: relative; display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; padding: 42px 50px 58px; overflow: hidden; }
+        .card-wrap > .card-box.has-more::after { content: ''; position: absolute; left: 0; right: 0; bottom: 58px; height: 46px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 78%); pointer-events: none; }
+        .card-wrap > .card-box.is-expanded { display: block; flex: none; height: auto; overflow: visible; }
+        .card-wrap > .card-box.is-expanded::after { display: none; }
+        .card-wrap > .card-box .info-list { gap: 20px; }
+        .card-wrap > .card-box .info-list li { align-items: flex-start; }
+        .card-wrap > .card-box .info-list .desc { max-width: 300px; font-size: var(--font18); font-weight: var(--font-w-m); line-height: 1.5; }
+        .card-content { display: block; flex: 1; min-height: 0; overflow: hidden; }
+        .card-wrap > .card-box.has-more .card-content { padding-bottom: 46px; }
+        .card-wrap > .card-box.is-expanded .card-content { overflow: visible; }
+        .card-more { position: absolute; right: 0; bottom: 20px; left: 0; z-index: 1; display: none; text-align: center; }
+        .card-wrap > .card-box.has-more .card-more { display: block; }
+        .btn-card-more { display: inline-block; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; font-size: 0; color: transparent; line-height: 0; }
+        .btn-card-more::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-top: 6px; border-right: 1px solid var(--color-6); border-bottom: 1px solid var(--color-6); transform: rotate(45deg); }
+        .card-wrap > .card-box.is-expanded .btn-card-more::before { margin-top: 12px; transform: rotate(225deg); }
+
+        /* 차량정보 */
+        .info-list li.depth2 { flex-direction: column; }
+        .info-list li.depth2 > div,
+        .info-list li.depth2 .sub-info li { display: flex; justify-content: space-between; width: 100%; }
+        .info-list li.depth2 .sub-info { width: 100%; padding: 24px 0 10px; }
+        .info-list li.depth2 .sub-info li .tit { font-size: var(--font18); font-weight: var(--font-w-l); }
+        .info-list li.depth2 .sub-info li .desc { font-size: var(--font18); font-weight: var(--font-w-r); }
+    </style>
+
+</head>
+<body>
+    <div id="wrap">
+        <div data-include-path="../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap">
+            <div class="contents">
+                <ol class="step-progress">
+                    <li class="done">
+                        <span class="step-txt">신청 내역 확인</span>
+                    </li>
+                    <li class="active">
+                        <span class="step-txt">약정서 및 약관 동의</span>
+                    </li>
+                    <li>
+                        <span class="step-txt">고객 정보 및 자동이체 정보 입력</span>
+                    </li>
+                    <li>
+                        <span class="step-txt">약정서 미리보기 및 전자서명</span>
+                    </li>
+                </ol>
+                <div class="visual-content">
+                    <h2 class="page-tit">타<span class="blue">이</span>틀</h2>
+                    <p class="s-tit">서브텍스트</p>
+                </div>
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box terms">
+                            <div class="agree-header">
+                                <div class="check-group">
+                                    <input type="checkbox" id="testAgreeAll">
+                                    <label for="testAgreeAll">주요 약정사항 전체 동의</label>
+                                </div>
+                            </div>
+
+                            <div class="accordion-list">
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm1" name="terms">
+                                            <label for="testTerm1">중도해지 수수료</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">잔여임대료 X 해지위약금율(잔여 임대료 = 월임대료(VAT미포함) / 30 X 미경과일수)해지위약금율 = 대여기간 1년이하 40%, 2년이하 35%, 3년이하 30%, 3년초과 25% 입니다.</p>
+                                            <ul class="bul-refer">
+                                                <li>수리비용이 장부가액의 60%를 초과하여 해지되는 경우, 50%의 중도해지수수료가 발생됩니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm2" name="terms">
+                                            <label for="testTerm2">승계수수료</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p>승계시 수수료 발생됩니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm3" name="terms">
+                                            <label for="testTerm3">반환지연금</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p>월임대(VAT미포함) / 30 X 경과일수 X 200%</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm4" name="terms">
+                                            <label for="testTerm4">종료처리조건</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
+                                            <ul class="bul-refer">
+                                                <li>차량을 인수할 경우, 잔존가치 및 소유권 이전비용은 고객님이 부담하셔야 하며, 차량가격 기준 매입수수료가 발생 할 수 있습니다.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="acc-item">
+                                    <div class="term-head">
+                                        <div class="check-group line-type">
+                                            <input type="checkbox" id="testTerm5" name="terms">
+                                            <label for="testTerm5">기타(특약)사항</label>
+                                        </div>
+                                    </div>
+                                    <div class="acc-body">
+                                        <div class="term-content">
+                                            <p>자동차 장기임대차 약정서 체결 이후에 관계법령의 제정, 개정, 폐지 등 임대인의 책임있는 사유가 아닌 사유로 임대료의 변경 사유가 발생할 경우, 본 ‘상품조건’ 상의 월임대료를 조정하기로 한다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="final-desc">
+                                <strong>최종 확인내용</strong>
+                                <p>렌트이용자(임차인) 및 연대보증인은 중요약정 사항을 확인하고 이에 동의합니다.</p>
+                            </div>
+                        </div>
+                        <div class="card-box notice">
+                            <h3 class="card-tit">과태료/범칙금</h3>
+                            <p class="tit">1차 사전통지서 카카오톡 알림 또는 SMS발송, 미납 시 당사 대납 후 익월 렌트료 포함 청구</p>
+                            <p class="info">사고발생 시 대표번호 또는 추가운전자 신청하신 경우 대표번호로 접수 부탁드립니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-group">
+                        <!-- 상품 신청 내역 -->
+                        <div class="card-box summary">
+                            <h3 class="card-tit">상품 신청 내역</h3>
+                            <ul class="info-list">
+                                <li><p class="tit">신청상품</p><p class="desc">자동차 장기임대</p></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-wrap">
+                            <!-- 차량정보 -->
+                            <div class="card-box">
+                                <h3 class="card-tit">차량정보</h3>
+                                <ul class="info-list">
+                                    <li>
+                                        <p class="tit">제조사</p>
+                                        <p class="desc">제네시스</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">차량모델</p>
+                                        <p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD (3,470cc)</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">총차량가</p>
+                                        <p class="desc">65,500,000원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">차량기본가</p>
+                                        <p class="desc">60,500,000원</p>
+                                    </li>
+                                    <li class="depth2">
+                                        <div>
+                                            <p class="tit">옵션가격</p>
+                                            <p class="desc">5,000,000원</p>
+                                        </div>
+                                        <ul class="sub-info">
+                                            <li>
+                                                <p class="tit">1)[악세사리] 차량보호필름</p>
+                                                <p class="desc">1,000000원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">2)드라이빙 어시스턴스 패키지II</p>
+                                                <p class="desc">1,000000원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">3)빌트인 캠 패키지II</p>
+                                                <p class="desc">1,000000원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">4)시그니처 디자인 컬렉션</p>
+                                                <p class="desc">1,000000원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">5)하이테크 패키지</p>
+                                                <p class="desc">1,000000원</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p class="tit">정비상품</p>
+                                        <p class="desc">Self</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">외장색상</p>
+                                        <p class="desc">우유니 화이트</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">내장색상</p>
+                                        <p class="desc">애쉬 그레이 / 글레이셔 화이트 투톤</p>
+                                    </li>
+                                </ul>
+                                <div class="card-more">
+                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                </div>
+                            </div>
+
+                            <!-- 계약정보 -->
+                            <div class="card-box">
+                                <h3 class="card-tit">계약정보</h3>
+                                <ul class="info-list">
+                                    <li>
+                                        <p class="tit">대여기간</p>
+                                        <p class="desc">36개월</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">월임대료</p>
+                                        <p class="desc">1,218,800원 <span>(VAT포함)</span></p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">보증금</p>
+                                        <p class="desc">0원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">선납임대료</p>
+                                        <p class="desc">0원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">계약주행거리</p>
+                                        <p class="desc">연 20,000km</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">정비상품</p>
+                                        <p class="desc">오릭스 정비 Premium</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">잔존가치</p>
+                                        <p class="desc">52% / 34,060,000원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">차량인도 예정일</p>
+                                        <p class="desc">2026년 05월 20일</p>
+                                    </li>
+                                </ul>
+                                <div class="card-more">
+                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                </div>
+                            </div>
+
+                            <!-- 보험정보 -->
+                            <div class="card-box">
+                                <h3 class="card-tit">보험정보</h3>
+                                <ul class="info-list">
+                                    <li>
+                                        <p class="tit">운전자연령</p>
+                                        <p class="desc">만 26세이상 <span>(운전면허 취득 1년이상 경과)</span></p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">임직원 한정 운전 특약 가입</p>
+                                        <p class="desc">가입</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">운전자범위</p>
+                                        <p class="desc">[개인사업자] 계약자, 임직원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">대인배상</p>
+                                        <p class="desc">무한</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">대물배상</p>
+                                        <p class="desc">1억원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">자기신체사고</p>
+                                        <p class="desc">1억원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">차량손해면책제도</p>
+                                        <p class="desc">자기부담금 30만원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">긴급출동</p>
+                                        <p class="desc">연 5회</p>
+                                    </li>
+                                </ul>
+                                <div class="card-more">
+                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                </div>
+                            </div>
+
+                            <!-- 연대보증 정보 -->
+                            <div class="card-box">
+                                <h3 class="card-tit">연대보증 정보</h3>
+                                <ul class="info-list">
+                                    <li>
+                                        <p class="tit">채무자명</p>
+                                        <p class="desc">김오릭</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">연대보증인명</p>
+                                        <p class="desc">홍길동</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">일부자격</p>
+                                        <p class="desc">가나다</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">보증종류</p>
+                                        <p class="desc">AA보증</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">보증한도</p>
+                                        <p class="desc">1억원</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">보증기간</p>
+                                        <p class="desc">대여기간과 동일</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">연락처</p>
+                                        <p class="desc">010-0000-0000</p>
+                                    </li>
+                                    <li>
+                                        <p class="tit">관계</p>
+                                        <p class="desc">배우자</p>
+                                    </li>
+                                </ul>
+                                <div class="card-more">
+                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-button-wrap">
+                <div class="bottom-button-inner">
+                    <div class="bottom-button-text-wrap">
+                        <div class="bottom-button-notice">
+                            <p class="notice-tit">견적 내역과 약관 상세 내용을 모두 확인하셨다면 [다음] 버튼을 눌러주세요.</p>
+                            <p class="sub-txt">확인하신 정보를 바탕으로 다음 단계에서 자동이체 및 납부 정보 입력을 진행합니다.</p>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <a href="#" class="btn-primary disabled" aria-disabled="true">다음</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    <span>ORIX Capital Korea Corporation</span>
+                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
+                </div>
+                <div class="footer-add">
+                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
+                    <span>대표이사 : 박철수</span>
+                    <span>사업자등록번호 : 120-86-63282</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var $cards = $('.card-wrap > .card-box');
+
+            function prepareMoreCards() {
+                $cards.each(function () {
+                    var $card = $(this);
+
+                    if (!$card.children('.card-content').length) {
+                        var contentLayer = document.createElement('div');
+                        contentLayer.className = 'card-content';
+                        $card.contents().wrapAll(contentLayer);
+                    }
+
+                    if (!$card.children('.card-more').length) {
+                        var moreLayer = document.createElement('div');
+                        var moreButton = document.createElement('button');
+
+                        moreLayer.className = 'card-more';
+                        moreButton.type = 'button';
+                        moreButton.className = 'btn-card-more';
+                        moreButton.appendChild(document.createTextNode('더보기'));
+                        moreLayer.appendChild(moreButton);
+                        $card.append(moreLayer);
+                    }
+                });
+            }
+
+            function syncCardWrapHeight($wrap) {
+                var $layout = $wrap.closest('.layout-grid, .layout');
+                var $leftColumn = $layout.children('.col-group').first();
+                var $rightColumn = $wrap.closest('.col-group');
+                var $summary = $rightColumn.children('.summary');
+                var targetHeight = $leftColumn.outerHeight() - ($summary.outerHeight(true) || 0);
+
+                $wrap.css('height', Math.max(targetHeight, 0));
+            }
+
+            function syncCardWrapState() {
+                $('.card-wrap').each(function () {
+                    var $wrap = $(this);
+                    var $items = $wrap.children('.card-box');
+                    var isAllExpanded = $items.length > 0 && $items.length === $items.filter('.is-expanded').length;
+
+                    $wrap.toggleClass('is-all-expanded', isAllExpanded);
+
+                    if (isAllExpanded) {
+                        $wrap.css('height', 'auto');
+                    } else {
+                        syncCardWrapHeight($wrap);
+                    }
+                });
+            }
+
+            function syncMoreCards() {
+                $('.card-wrap').removeClass('is-all-expanded').each(function () {
+                    syncCardWrapHeight($(this));
+                });
+
+                $cards.each(function () {
+                    var $card = $(this);
+                    var content = $card.children('.card-content')[0];
+
+                    if (!content || $card.hasClass('is-expanded')) return;
+
+                    $card.removeClass('has-more');
+                    $card.find('.btn-card-more').text('더보기');
+                    $card.toggleClass('has-more', content.scrollHeight > content.clientHeight + 1);
+                });
+
+                syncCardWrapState();
+            }
+
+            prepareMoreCards();
+            syncMoreCards();
+
+            $(document).on('click', '.btn-card-more', function () {
+                var $button = $(this);
+                var $card = $button.closest('.card-box');
+                var isExpanded = !$card.hasClass('is-expanded');
+
+                $card.toggleClass('is-expanded', isExpanded);
+                $card.addClass('has-more');
+                $button.text(isExpanded ? '접기' : '더보기');
+
+                if (!isExpanded) {
+                    syncMoreCards();
+                } else {
+                    syncCardWrapState();
+                }
+            });
+
+            $(window).on('load resize', function () {
+                syncMoreCards();
+            });
+        });
+    </script>
+</body>
+</html>
