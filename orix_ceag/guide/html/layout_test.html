@@ -37,26 +37,19 @@
         .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
 
         /* 상품 신청 내역 */
-        .card-box.summary { flex: none; margin-bottom: 20px; }
         .card-box.summary .info-list .tit,
         .card-box.summary .info-list .desc { font-size: var(--font18); }
         .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
-        .card-wrap.is-all-expanded { flex: none; }
         .card-wrap > .card-box { position: relative; display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; padding: 42px 50px 58px; overflow: hidden; }
-        .card-wrap > .card-box.has-more::after { content: ''; position: absolute; left: 0; right: 0; bottom: 58px; height: 46px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 78%); pointer-events: none; }
         .card-wrap > .card-box.is-expanded { display: block; flex: none; height: auto; overflow: visible; }
-        .card-wrap > .card-box.is-expanded::after { display: none; }
-        .card-wrap > .card-box .info-list { gap: 20px; }
         .card-wrap > .card-box .info-list li { align-items: flex-start; }
         .card-wrap > .card-box .info-list .desc { max-width: 300px; font-size: var(--font18); font-weight: var(--font-w-m); line-height: 1.5; }
-        .card-content { display: block; flex: 1; min-height: 0; overflow: hidden; }
-        .card-wrap > .card-box.has-more .card-content { padding-bottom: 46px; }
-        .card-wrap > .card-box.is-expanded .card-content { overflow: visible; }
-        .card-more { position: absolute; right: 0; bottom: 20px; left: 0; z-index: 1; display: none; text-align: center; }
-        .card-wrap > .card-box.has-more .card-more { display: block; }
+        .card-more { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: 70px; padding-bottom: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 78%); text-align: center; }
+        .card-more[hidden] { display: none; }
+        .card-wrap > .card-box.is-expanded .card-more { background: transparent; }
         .btn-card-more { display: inline-block; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; font-size: 0; color: transparent; line-height: 0; }
-        .btn-card-more::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-top: 6px; border-right: 1px solid var(--color-6); border-bottom: 1px solid var(--color-6); transform: rotate(45deg); }
-        .card-wrap > .card-box.is-expanded .btn-card-more::before { margin-top: 12px; transform: rotate(225deg); }
+        .btn-card-more::before { content: ''; display: inline-block; width: 20px; height: 20px; margin-top: 6px; background: url("../../resource/svg/ico_arr_down.svg") no-repeat center center; }
+        .card-wrap > .card-box.is-expanded .btn-card-more::before { margin-top: 12px; transform: rotate(180deg); }
 
         /* 차량정보 */
         .info-list li.depth2 { flex-direction: column; }
@@ -262,8 +255,8 @@
                                         <p class="desc">애쉬 그레이 / 글레이셔 화이트 투톤</p>
                                     </li>
                                 </ul>
-                                <div class="card-more">
-                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                <div class="card-more" hidden>
+                                    <button type="button" class="btn-card-more">더보기</button>
                                 </div>
                             </div>
 
@@ -304,8 +297,8 @@
                                         <p class="desc">2026년 05월 20일</p>
                                     </li>
                                 </ul>
-                                <div class="card-more">
-                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                <div class="card-more" hidden>
+                                    <button type="button" class="btn-card-more">더보기</button>
                                 </div>
                             </div>
 
@@ -315,7 +308,7 @@
                                 <ul class="info-list">
                                     <li>
                                         <p class="tit">운전자연령</p>
-                                        <p class="desc">만 26세이상 <span>(운전면허 취득 1년이상 경과)</span></p>
+                                        <p class="desc">만 26세이상<br/>(운전면허 취득 1년이상 경과)</p>
                                     </li>
                                     <li>
                                         <p class="tit">임직원 한정 운전 특약 가입</p>
@@ -346,8 +339,8 @@
                                         <p class="desc">연 5회</p>
                                     </li>
                                 </ul>
-                                <div class="card-more">
-                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                <div class="card-more" hidden>
+                                    <button type="button" class="btn-card-more">더보기</button>
                                 </div>
                             </div>
 
@@ -388,8 +381,8 @@
                                         <p class="desc">배우자</p>
                                     </li>
                                 </ul>
-                                <div class="card-more">
-                                    <button type="button" class="btn-card-more js-card-more">접기</button>
+                                <div class="card-more" hidden>
+                                    <button type="button" class="btn-card-more">더보기</button>
                                 </div>
                             </div>
                         </div>
@@ -425,80 +418,73 @@
             </div>
         </div>
     </div>
-    <script>
+        <script>
         $(function () {
-            var $cards = $('.card-wrap > .card-box');
+            function getColumnContentHeight($column) {
+                var $items = $column.children();
+                var gap = parseFloat($column.css('row-gap')) || parseFloat($column.css('gap')) || 0;
+                var height = 0;
 
-            function prepareMoreCards() {
-                $cards.each(function () {
-                    var $card = $(this);
-
-                    if (!$card.children('.card-content').length) {
-                        var contentLayer = document.createElement('div');
-                        contentLayer.className = 'card-content';
-                        $card.contents().wrapAll(contentLayer);
-                    }
-
-                    if (!$card.children('.card-more').length) {
-                        var moreLayer = document.createElement('div');
-                        var moreButton = document.createElement('button');
-
-                        moreLayer.className = 'card-more';
-                        moreButton.type = 'button';
-                        moreButton.className = 'btn-card-more';
-                        moreButton.appendChild(document.createTextNode('더보기'));
-                        moreLayer.appendChild(moreButton);
-                        $card.append(moreLayer);
-                    }
+                $items.each(function () {
+                    height += $(this).outerHeight();
                 });
+
+                return height + (gap * Math.max($items.length - 1, 0));
             }
 
-            function syncCardWrapHeight($wrap) {
-                var $layout = $wrap.closest('.layout-grid, .layout');
+            function getCardLayout($wrap) {
+                var $layout = $wrap.closest('.layout-grid');
                 var $leftColumn = $layout.children('.col-group').first();
                 var $rightColumn = $wrap.closest('.col-group');
-                var $summary = $rightColumn.children('.summary');
-                var targetHeight = $leftColumn.outerHeight() - ($summary.outerHeight(true) || 0);
+                var $items = $wrap.children('.card-box');
+                var gap = parseFloat($wrap.css('row-gap')) || parseFloat($wrap.css('gap')) || 0;
+                var wrapTop = $wrap[0].getBoundingClientRect().top - $rightColumn[0].getBoundingClientRect().top;
+                var targetHeight = Math.max(getColumnContentHeight($leftColumn) - wrapTop, 0);
+                var cardHeight = Math.max((targetHeight - (gap * ($items.length - 1))) / $items.length, 0);
 
-                $wrap.css('height', Math.max(targetHeight, 0));
-            }
-
-            function syncCardWrapState() {
-                $('.card-wrap').each(function () {
-                    var $wrap = $(this);
-                    var $items = $wrap.children('.card-box');
-                    var isAllExpanded = $items.length > 0 && $items.length === $items.filter('.is-expanded').length;
-
-                    $wrap.toggleClass('is-all-expanded', isAllExpanded);
-
-                    if (isAllExpanded) {
-                        $wrap.css('height', 'auto');
-                    } else {
-                        syncCardWrapHeight($wrap);
-                    }
-                });
+                return {
+                    cardHeight: cardHeight,
+                    targetHeight: targetHeight
+                };
             }
 
             function syncMoreCards() {
-                $('.card-wrap').removeClass('is-all-expanded').each(function () {
-                    syncCardWrapHeight($(this));
+                $('.card-wrap').each(function () {
+                    var $wrap = $(this);
+                    var $items = $wrap.children('.card-box');
+                    var layout = getCardLayout($wrap);
+                    var hasExpanded = $items.filter('.is-expanded').length > 0;
+
+                    if (hasExpanded) {
+                        $wrap.css({ height: 'auto', flex: 'none' });
+                    } else {
+                        $wrap.css({ height: layout.targetHeight, flex: '' });
+                    }
+
+                    $items.each(function () {
+                        var $card = $(this);
+                        var $more = $card.children('.card-more');
+                        var isExpanded = $card.hasClass('is-expanded');
+
+                        $card.css({
+                            flex: 'none',
+                            height: isExpanded ? 'auto' : layout.cardHeight
+                        });
+
+                        if (isExpanded) {
+                            $more.prop('hidden', false).find('.btn-card-more').text('접기');
+                            return;
+                        }
+
+                        $more.prop('hidden', true).find('.btn-card-more').text('더보기');
+
+                        if (this.scrollHeight > this.clientHeight + 1) {
+                            $more.prop('hidden', false);
+                        }
+                    });
                 });
-
-                $cards.each(function () {
-                    var $card = $(this);
-                    var content = $card.children('.card-content')[0];
-
-                    if (!content || $card.hasClass('is-expanded')) return;
-
-                    $card.removeClass('has-more');
-                    $card.find('.btn-card-more').text('더보기');
-                    $card.toggleClass('has-more', content.scrollHeight > content.clientHeight + 1);
-                });
-
-                syncCardWrapState();
             }
 
-            prepareMoreCards();
             syncMoreCards();
 
             $(document).on('click', '.btn-card-more', function () {
@@ -507,14 +493,10 @@
                 var isExpanded = !$card.hasClass('is-expanded');
 
                 $card.toggleClass('is-expanded', isExpanded);
-                $card.addClass('has-more');
+                $button.closest('.card-more').prop('hidden', false);
                 $button.text(isExpanded ? '접기' : '더보기');
 
-                if (!isExpanded) {
-                    syncMoreCards();
-                } else {
-                    syncCardWrapState();
-                }
+                syncMoreCards();
             });
 
             $(window).on('load resize', function () {
