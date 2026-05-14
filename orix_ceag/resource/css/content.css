@@ -222,12 +222,15 @@
     #wrap.main-page {
         width: 100%;
         min-width: 1200px;
-        height: 100vh;
-        min-height: 760px;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
     }
 
-    .main-page #headerWrap {
-        height: 76px;
+    #wrap.main-page > #headerWrap {
+        position: relative;
+        top: auto;
+        z-index: 20;
     }
 
     .main-page #headerWrap .header-inner,
@@ -235,7 +238,7 @@
     .main-page #footerWrap .footer-inner {
         width: 1200px;
     }
-    .main-copy {margin-top: 50px;}
+
     .main-page #headerWrap .header-inner {
         padding: 18px 0;
     }
@@ -246,12 +249,19 @@
     }
 
     .main-page #contentWrap {
-        flex: 1 1 auto;
+        flex: none;
     }
 
     .main-visual {
+        height: auto;
+        min-height: 0;
         padding-top: 24px;
+        padding-bottom: 80px;
         gap: 100px;
+    }
+
+    .main-copy {
+        margin-top: 50px;
     }
 
     .main-start-btn {
@@ -274,52 +284,7 @@
         padding: 6px;
     }
 
-   /*  .main-page #footerWrap {
-        min-height: 92px;
+    .main-page #footerWrap {
+        flex-shrink: 0;
     }
-
-    .main-page #footerWrap .footer-inner {
-        gap: 8px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-
-    .main-page #footerWrap .footer-add {
-        gap: 20px;
-        font-size: var(--font12);
-    }
-
-    .main-page #footerWrap .footer-add p:last-child {
-        gap: 20px;
-    }
-
-    .main-page #footerWrap .footer-copy span {
-        font-size: var(--font14);
-    }
-
-    .main-page #footerWrap .footer-copy span::before {
-        width: 60px;
-        height: 20px;
-        margin-right: 12px;
-    } */
 }
-/* @media (max-width: 1200px) {
-    #wrap.main-page {
-        width: 1200px;
-        min-width: 1200px;
-    }
-
-    .main-page #headerWrap .header-inner,
-    .main-copy,
-    .main-page #footerWrap .footer-inner {
-        width: 1120px;
-    }
-
-    .main-start-btn {
-        right: 40px;
-    }
-
-    .main-notice {
-        margin-left: 40px;
-    }
-} */
