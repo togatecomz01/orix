@@ -159,6 +159,46 @@
 .download-box .tit { font-size: var(--font24); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 10px; }
 .download-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6);}
 
+.complete-notice-box {
+    width: 1000px;
+    margin: 62px auto 0;
+    padding: 32px 50px 42px;
+    background-color: #F0F6FF;
+    border-radius: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.complete-notice-box .tit {
+    display: flex;
+    align-items: center;
+    margin-bottom:12px;
+    font-size: var(--font18);
+    font-weight: var(--font-w-sb);
+    color: var(--primary);
+}
+
+.complete-notice-box .tit::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    background: url('../images/svg/ico-warning-blue.svg') no-repeat center / contain;
+    flex-shrink: 0;
+}
+
+.complete-notice-box .desc {
+    font-size: var(--font16);
+    font-weight: var(--font-w-r);
+    color: var(--color-6);
+    line-height: 1.5;
+}
+
+.complete-notice-box .desc p + p {
+    margin-top: 12px;
+}
+
 /* 전자약정 */
 .pay-sub-area { margin: 20px 0 32px; }
 

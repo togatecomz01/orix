@@ -18,7 +18,7 @@ table{ margin: 0 auto; border-spacing:0; border-collapse: collapse; table-layout
 table th,
 table td { padding:var(--table-pd); text-align:center; font-size:var(--font18); font-weight:var(--font-w-r); border:var(--table-border); word-break:keep-all !important; }
 table th { background:var(--table-th); border-left: 0; font-weight:var(--font-w-m); color:var(--color-2); }
-table td { border-right:0; color: var(--color-45); }
+table td { border-right:0; color: var(--color-45); padding: 18px 26px; text-align: left;}
 
 table .bor-l { border-left:var(--table-border) !important; }
 table .bor-r { border-right:var(--table-border) !important; }

@@ -52,8 +52,8 @@
 /* .complete-page #contentWrap, */
 /* .s-ready-page #contentWrap { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 70px); padding: 0; } */
 /* .complete-page #contentWrap {padding-top: 72px;} */ /* 이따가 복구 */
-.complete-page #contentWrap {padding: 0;}
-.complete-page #contentWrap, .error-page #contentWrap {border: 1px solid var(--color-d);}
+.complete-page #contentWrap {padding-top: 62px; padding-bottom: 72px;}
+.complete-page #contentWrap, .error-page #contentWrap {border-bottom: 1px solid var(--color-d);}
 
 .error-container, .complete-container, .s-ready-container { text-align: center;}
 
