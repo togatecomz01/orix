@@ -159,45 +159,11 @@
 .download-box .tit { font-size: var(--font24); font-weight: var(--font-w-m); color: var(--color-2); margin-bottom: 10px; }
 .download-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6);}
 
-.complete-notice-box {
-    width: 1000px;
-    margin: 62px auto 0;
-    padding: 32px 50px 42px;
-    background-color: #F0F6FF;
-    border-radius: 20px;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-.complete-notice-box .tit {
-    display: flex;
-    align-items: center;
-    margin-bottom:12px;
-    font-size: var(--font18);
-    font-weight: var(--font-w-sb);
-    color: var(--primary);
-}
-
-.complete-notice-box .tit::before {
-    content: '';
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin-right: 8px;
-    background: url('../images/svg/ico-warning-blue.svg') no-repeat center / contain;
-    flex-shrink: 0;
-}
-
-.complete-notice-box .desc {
-    font-size: var(--font16);
-    font-weight: var(--font-w-r);
-    color: var(--color-6);
-    line-height: 1.5;
-}
-
-.complete-notice-box .desc p + p {
-    margin-top: 12px;
-}
+.complete-notice-box {width: 1000px;margin: 62px auto 0;padding: 32px 50px 42px;background-color: #F0F6FF;border-radius: 20px;box-sizing: border-box;text-align: left;}
+.complete-notice-box .tit {display: flex;align-items: center;margin-bottom:12px;font-size: var(--font18);font-weight: var(--font-w-sb);color: var(--primary);}
+.complete-notice-box .tit::before {content: '';display: inline-block;width: 22px;height: 22px;margin-right: 8px;background: url('../images/svg/ico-warning-blue.svg') no-repeat center / contain;flex-shrink: 0;}
+.complete-notice-box .desc {font-size: var(--font16);font-weight: var(--font-w-r);color: var(--color-6);line-height: 1.5;}
+.complete-notice-box .desc p + p {margin-top: 12px;}
 
 /* 전자약정 */
 .pay-sub-area { margin: 20px 0 32px; }
@@ -219,72 +185,20 @@
 }
 
 @media (max-width: 1600px) {
-    #wrap.main-page {
-        width: 100%;
-        min-width: 1200px;
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
-    }
-
-    #wrap.main-page > #headerWrap {
-        position: relative;
-        top: auto;
-        z-index: 20;
-    }
-
+    #wrap.main-page { width: 100%; min-width: 1200px; height: auto; min-height: 100vh; overflow: visible; }
+    #wrap.main-page > #headerWrap { position: relative; top: auto; z-index: 20; }
     .main-page #headerWrap .header-inner,
     .main-copy,
-    .main-page #footerWrap .footer-inner {
-        width: 1200px;
-    }
-
-    .main-page #headerWrap .header-inner {
-        padding: 18px 0;
-    }
-
-    .main-page .cs-badge {
-        min-height: 40px;
-        padding: 0 18px;
-    }
-
-    .main-page #contentWrap {
-        flex: none;
-    }
-
-    .main-visual {
-        height: auto;
-        min-height: 0;
-        padding-top: 24px;
-        padding-bottom: 80px;
-        gap: 100px;
-    }
-
-    .main-copy {
-        margin-top: 50px;
-    }
-
-    .main-start-btn {
-        right: calc((100% - 1200px) / 2);
-        width: 200px;
-        height: 200px;
-        gap: 12px;
-        font-size: var(--font24);
-    }
-
-    .main-start-btn::after {
-        width: 28px;
-        height: 28px;
-    }
-
-    .main-notice {
-        width: 900px;
-        margin-top: 44px;
-        margin-left: calc((100% - 1200px) / 2);
-        padding: 6px;
-    }
-
-    .main-page #footerWrap {
-        flex-shrink: 0;
-    }
+    .main-page #footerWrap .footer-inner { width: min(1200px, calc(100% - 60px)); min-width: 1140px; margin-left: auto; margin-right: auto; }
+    .main-page #headerWrap .header-inner { padding: 18px 0; }
+    .main-page .cs-badge { min-height: 40px; padding: 0 18px; }
+    .main-page #contentWrap { flex: none; }
+    .main-visual { align-items: center; height: auto; min-height: 0; padding-top: 24px; padding-bottom: 80px; gap: 100px; }
+    .main-copy { margin-top: 50px; }
+    .main-start-btn {right: max(30px, calc(100px - ((1400px - 100vw) / 2)));}
+    .main-start-btn::after { width: 28px; height: 28px; }
+    .main-notice { width: 800px;margin-top: 44px;margin-left: max(30px, calc((100% - 1200px) / 2));padding: 6px;}
+    .main-page #footerWrap { flex-shrink: 0; }
+    .main-notice .notice-content {font-size: var(--font14);}
+    .main-notice .notice-main {font-size: var(--font18); margin-bottom: 18px;}
 }
