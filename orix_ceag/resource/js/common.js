@@ -181,6 +181,27 @@ $(function() {
         });
     }
 
+    // /* 메인 페이지 축소 화면 진입 시 가로 스크롤 중앙 정렬 */
+    // function initMainPageScroll() {
+    //     if (!$('#wrap').hasClass('main-page')) return;
+
+    //     function centerScroll() {
+    //         var scrollWidth = Math.max(
+    //             document.documentElement.scrollWidth,
+    //             document.body.scrollWidth
+    //         );
+    //         var scrollLeft = Math.max(0, (scrollWidth - window.innerWidth) / 2);
+
+    //         window.scrollTo(scrollLeft, window.pageYOffset || document.documentElement.scrollTop || 0);
+    //     }
+
+    //     if (window.requestAnimationFrame) {
+    //         window.requestAnimationFrame(centerScroll);
+    //     } else {
+    //         setTimeout(centerScroll, 0);
+    //     }
+    // }
+
     /*------------ 시뮬레이션용 납부일 변경----------- */
     function calcFirstPayDate() {
         if ($('.payment-result-box.pay-date').length === 0) return;
@@ -222,4 +243,5 @@ $(function() {
     initFormControls();
     initAccordion();
     initEtcUI();
+    // initMainPageScroll();
 });
