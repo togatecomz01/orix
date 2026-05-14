@@ -118,6 +118,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 
 /** 그리드 content **/
 /* 테이블 */
+.tui-grid-container {font-family: Inter !important;}
 th.tui-grid-cell-header,
 td.tui-grid-cell > div { font-size:var(--font14); }
 th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500); color:#97989A; }
@@ -126,6 +127,7 @@ th.tui-grid-cell-header { background-color:#F8FAFB; font-weight:var(--font-w500)
 td.tui-grid-cell { padding:0 8px; border:1px solid var(--color-d); background-color:var(--color-f); color:var(--color-45); }
 td.tui-grid-cell.edit-sell {position: relative; background: #FEFFDC; color: var(--color-2); z-index: 10;}
 td.tui-grid-cell .tui-grid-cell-content { height:30px; padding:0; line-height:30px; }
+td.tui-grid-cell.tui-grid-cell-editable .tui-grid-cell-content {font-size:16px !important;}
 
 /* 숫자 체크 */
 .tui-grid-container .grid-row-check { display:inline-block; width:14px; height:14px; background:url("../../images/ico_num_chk.png") no-repeat center center / 14px auto; vertical-align:middle; }
