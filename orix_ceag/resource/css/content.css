@@ -203,17 +203,17 @@
 .pay-sub-area { margin: 20px 0 32px; }
 
 @media (max-width: 1600px) {
-    .complete-visual { width: 196px; height: 175px;}
+    /* .complete-visual { width: 196px; height: 175px;}
     .complete-tit { font-size: var(--font34);}
     .complete-desc { font-size: var(--font14);}
     .download-box .tit { font-size: var(--font20);}
-    .download-box .desc { font-size: var(--font14);}
+    .download-box .desc { font-size: var(--font14);} */
 
-    .intro-top-txt .eng { font-size: var(--font18); margin-bottom: 12px; }
+    /* .intro-top-txt .eng { font-size: var(--font18); margin-bottom: 12px; }
     .intro-top-txt .sub { font-size: var(--font24);}
     .main-page .intro-tit { font-size: 64px;}
     .cta-inner { width: 1060px; }
     .badge-start { padding: 16px 24px; font-size: var(--font18);}
     .cta-desc { font-size: var(--font18);}
-    .main-page .intro-section { transform: translateY(-23px); }
+    .main-page .intro-section { transform: translateY(-23px); } */
 }

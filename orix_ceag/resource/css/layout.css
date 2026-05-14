@@ -17,7 +17,7 @@
 .footer-add p:last-child {display: flex;gap: 15px;}
 
 /* 메인 시작 페이지 전용 레이아웃 + 헤더 + 푸터  */
-#wrap.main-page { height: 100vh; overflow: hidden; display: flex; flex-direction: column; background: url("../../resource/images/mbg.png") no-repeat center / cover; }
+#wrap.main-page { width: max(1920px, 100vw); min-width: 1920px; height: max(900px, 100vh); min-height: 900px; overflow: hidden; display: flex; flex-direction: column; background: url("../../resource/images/mbg.png") no-repeat center / cover; }
 .main-page #headerWrap { height: 84px; background: transparent; flex-shrink: 0; display: flex; align-items: center; }
 .main-page #headerWrap .header-inner { padding: 20px 0 19px 0; width: 1600px;}
 .main-page #headerWrap .header-inner .logo a { display: block; width: 124px; height: 32px; }
