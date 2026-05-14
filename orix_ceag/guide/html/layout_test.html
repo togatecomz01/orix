@@ -11,23 +11,22 @@
     <script src="../../resource/js/common.js"></script>
     <style>
         /* 주요 약정사항 전체 동의 */
-        .card-box.terms .agree-header { padding-bottom: 24px; border-bottom: 1px solid var(--color-e); }
-        .card-box.terms .agree-header .check-group { margin-bottom: 0; }
-        .card-box.terms .accordion-list { margin-top: 8px; }
+        .card-box.terms .agree-header label { font-size: var(--font22); font-weight: var(--font-w-sb); }
+        .card-box.terms .agree-header label::before { width: 32px; height: 32px; }
         .card-box.terms .acc-item { border: 0; }
 
-        .card-box.terms .term-head { display: flex; justify-content: space-between; align-items: center; padding: 32px 0 24px; }
+        .card-box.terms .term-head { padding: 32px 0 24px; }
         .card-box.terms .term-head .check-group { margin-bottom: 0; }
 
         .card-box.terms .acc-body { display: block; border-radius: 0; background: transparent; }
-        .card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-f8); color: var(--color-45); overflow: visible; }
+        .card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-f8); overflow: visible; }
         .card-box.terms .term-content > p { font-size: var(--font16); color: var(--color-6); }
         .card-box.terms .term-content .term-tit { margin-bottom: 14px; font-weight: var(--font-w-m); color: var(--color-45); }
         .card-box.terms .term-content .bul-refer,
         .card-box.terms .acc-item:last-child .acc-body { margin: 0; }
         .card-box.terms .term-content .bul-refer li { color: var(--color-6); }
 
-        .card-box.terms .final-desc { margin-top: 30px; padding: 36px 26px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
+        .card-box.terms .final-desc { margin-top: 42px; padding: 36px 26px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
         .card-box.terms .final-desc strong { display: block; margin-bottom: 12px; font-size: var(--font18); color: var(--color-2); }
         .card-box.terms .final-desc p { font-size: var(--font14); color: var(--color-6); line-height: 1.6; }
 
@@ -88,10 +87,11 @@
                 <div class="layout-grid">
                     <div class="col-group">
                         <div class="card-box terms">
+                            <h3 class="card-tit">중요 약정사항</h3>
                             <div class="agree-header">
                                 <div class="check-group">
                                     <input type="checkbox" id="testAgreeAll">
-                                    <label for="testAgreeAll">주요 약정사항 전체 동의</label>
+                                    <label for="testAgreeAll">중요 약정사항 전체 동의</label>
                                 </div>
                             </div>
 
