@@ -110,10 +110,7 @@
             transform: translateY(2px);
         }
 
-        .summary-card {
-            position: relative;
-            overflow: hidden;
-        }
+        .summary-card { position: relative; overflow: hidden; }
         .summary-card .info-list { gap: 22px; }
         .summary-card .info-list li { align-items: flex-start; }
         .summary-card .info-list .tit {
@@ -126,48 +123,34 @@
             font-weight: var(--font-w-sb);
             line-height: 1.55;
         }
-        .summary-card-body {
-            overflow: hidden;
-            transition: max-height 0.25s ease;
-        }
-        .summary-card.is-collapsed .is-summary-hidden { display: none; }
-        .summary-card.is-collapsed::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 118px;
-            pointer-events: none;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 72%);
-        }
-        .summary-card.has-more { padding-bottom: 92px; }
-        .summary-card.is-expanded .summary-card-body {
-            max-height: none !important;
-            overflow: visible;
-        }
+        .summary-card-body { overflow: hidden; transition: max-height 0.25s ease; }
+        .summary-card.has-more { padding-bottom: 64px; }
+        .summary-card.is-expanded .summary-card-body { max-height: none !important; overflow: visible; }
         .summary-card.is-expanded::after { display: none; }
         .summary-card-more {
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 32px;
+            bottom: 22px;
             z-index: 2;
             display: none;
             justify-content: center;
         }
         .summary-card.has-more .summary-card-more { display: flex; }
         .btn-card-more {
-            min-width: 148px;
-            height: 48px;
-            padding: 0 22px;
-            border-radius: 100px;
-            background: var(--primary);
-            color: var(--color-f);
-            font-size: var(--font16);
-            font-weight: var(--font-w-sb);
-            box-shadow: 0 8px 18px rgba(49, 130, 238, 0.22);
+            width: 28px;
+            height: 28px;
+            border: 0;
+            border-radius: 50%;
+            background: url('../../resource/svg/arrow-down-666.svg') no-repeat center / 18px auto;
+            font-size: 0;
+            line-height: 0;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
+        .btn-card-more:hover { opacity: 1; }
+        .summary-card.is-expanded .btn-card-more { transform: rotate(180deg); }
 
         #bottom-button-wrap {
             margin-top: 72px;
@@ -202,7 +185,7 @@
                 </div>
 
                 <div class="layout-grid contract-layout">
-                    <div class="col-group js-left-column">
+                    <div class="col-group">
                         <div class="card-box terms-card">
                             <div class="agree-header">
                                 <div class="check-group">
@@ -277,6 +260,7 @@
                                             <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
                                             <ul class="bul-refer">
                                                 <li>계약서에 기재된 종료 선택권과 비용 기준을 최종 확인해 주세요.</li>
+                                            
                                             </ul>
                                         </div>
                                     </div>
@@ -306,41 +290,41 @@
                                 </div>
                             </div>
 
-                            <div class="card-box summary-card js-summary-card">
+                            <div class="card-box summary-card js-summary-card" data-visible-count="3">
                                 <h3 class="card-tit">차량정보</h3>
                                 <div class="summary-card-body">
                                     <ul class="info-list">
                                         <li><p class="tit">제조사</p><p class="desc">제네시스</p></li>
                                         <li><p class="tit">차량모델</p><p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD</p></li>
+                                        <li><p class="tit">총차량가</p><p class="desc">65,500,000원</p></li>
                                         <li><p class="tit">차량기본가</p><p class="desc">60,500,000원</p></li>
                                         <li><p class="tit">옵션가격</p><p class="desc">5,000,000원</p></li>
                                         <li><p class="tit">외장색상</p><p class="desc">우유니 화이트</p></li>
                                         <li><p class="tit">내장색상</p><p class="desc">애쉬 그레이 / 글레이셔 화이트 투톤</p></li>
-                                        <li><p class="tit">총차량가</p><p class="desc">65,500,000원</p></li>
                                     </ul>
                                 </div>
                                 <div class="summary-card-more">
-                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                    <button type="button" class="btn-card-more js-card-more" aria-label="차량정보 더보기" aria-expanded="false"></button>
                                 </div>
                             </div>
 
-                            <div class="card-box summary-card js-summary-card">
+                            <div class="card-box summary-card js-summary-card" data-visible-count="4">
                                 <h3 class="card-tit">계약정보</h3>
                                 <div class="summary-card-body">
                                     <ul class="info-list">
                                         <li><p class="tit">대여기간</p><p class="desc">36개월</p></li>
+                                        <li><p class="tit">월임대료</p><p class="desc">1,218,800원</p></li>
                                         <li><p class="tit">보증금</p><p class="desc">0원</p></li>
                                         <li><p class="tit">선납임대료</p><p class="desc">0원</p></li>
-                                        <li><p class="tit">월임대료</p><p class="desc">1,218,800원</p></li>
                                         <li><p class="tit">계약주행거리</p><p class="desc">연 20,000km</p></li>
                                     </ul>
                                 </div>
                                 <div class="summary-card-more">
-                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                    <button type="button" class="btn-card-more js-card-more" aria-label="계약정보 더보기" aria-expanded="false"></button>
                                 </div>
                             </div>
 
-                            <div class="card-box summary-card js-summary-card">
+                            <div class="card-box summary-card js-summary-card" data-visible-count="3">
                                 <h3 class="card-tit">보험정보</h3>
                                 <div class="summary-card-body">
                                     <ul class="info-list">
@@ -351,31 +335,25 @@
                                     </ul>
                                 </div>
                                 <div class="summary-card-more">
-                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                    <button type="button" class="btn-card-more js-card-more" aria-label="보험정보 더보기" aria-expanded="false"></button>
                                 </div>
                             </div>
 
-                            <div class="card-box summary-card">
-                                <h3 class="card-tit">정비상품</h3>
-                                <div class="summary-card-body">
-                                    <ul class="info-list">
-                                        <li><p class="tit">정비상품</p><p class="desc">Self</p></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="card-box summary-card js-summary-card">
+                            <div class="card-box summary-card js-summary-card js-fit-card" data-visible-count="4">
                                 <h3 class="card-tit">연대보증 정보</h3>
                                 <div class="summary-card-body">
                                     <ul class="info-list">
                                         <li><p class="tit">채무자명</p><p class="desc">김오릭</p></li>
                                         <li><p class="tit">연대보증인명</p><p class="desc">홍길동</p></li>
+                                        <li><p class="tit">입보자격</p><p class="desc">가나다</p></li>
                                         <li><p class="tit">보증종류</p><p class="desc">AA보증</p></li>
                                         <li><p class="tit">보증기간</p><p class="desc">대여기간과 동일</p></li>
+                                        <li><p class="tit">보증채무최고액</p><p class="desc">0,000,000,000원</p></li>
+                                        <li><p class="tit">보증내용</p><p class="desc">대여기간 내 발생 채무</p></li>
                                     </ul>
                                 </div>
                                 <div class="summary-card-more">
-                                    <button type="button" class="btn-card-more js-card-more">더보기</button>
+                                    <button type="button" class="btn-card-more js-card-more" aria-label="연대보증 정보 더보기" aria-expanded="false"></button>
                                 </div>
                             </div>
                     </div>
@@ -415,64 +393,95 @@
     <script>
         $(function () {
             var DEFAULT_VISIBLE_COUNT = 3;
-            var MIN_VISIBLE_COUNT = 3;
 
             function getVisibleCount($card) {
                 return Number($card.attr('data-visible-count')) || DEFAULT_VISIBLE_COUNT;
             }
 
-            function collapseCard($card, visibleCount) {
+            function getRowsHeight($card, count) {
+                var $body = $card.find('.summary-card-body');
+                var $rows = $body.find('.info-list > li');
+                var $target;
+
+                if (!$rows.length) {
+                    return 0;
+                }
+
+                if ($rows.length <= count) {
+                    return $body[0].scrollHeight;
+                }
+
+                $target = $rows.eq(count - 1);
+                return Math.ceil($target.offset().top - $body.offset().top + $target.outerHeight());
+            }
+
+            function setBodyHeight($card, height) {
+                var nextHeight = Math.ceil(height);
+
+                $card
+                    .find('.summary-card-body')
+                    .css('max-height', nextHeight + 'px');
+
+                $card.data('current-body-height', nextHeight);
+            }
+
+            function collapseCard($card) {
                 var $rows = $card.find('.info-list > li');
+                var visibleCount = getVisibleCount($card);
+                var fullHeight;
+                var visibleHeight;
 
-                $rows.removeClass('is-summary-hidden');
+                $card.find('.summary-card-body').css('max-height', 'none');
+                fullHeight = $card.find('.summary-card-body')[0].scrollHeight;
+                visibleHeight = getRowsHeight($card, visibleCount);
 
-                if ($rows.length > visibleCount) {
-                    $rows.slice(visibleCount).addClass('is-summary-hidden');
+                if ($rows.length > visibleCount && fullHeight > visibleHeight) {
                     $card
                         .addClass('has-more is-collapsed')
                         .removeClass('is-expanded')
-                        .data('visible-count-current', visibleCount);
+                        .data('full-body-height', fullHeight);
+                    setBodyHeight($card, visibleHeight);
+                    $card.find('.js-card-more').attr('aria-expanded', 'false');
                 } else {
                     $card
                         .removeClass('has-more is-collapsed is-expanded')
-                        .data('visible-count-current', $rows.length);
+                        .removeData('full-body-height current-body-height');
+                    $card.find('.summary-card-body').css('max-height', 'none');
+                    $card.find('.js-card-more').attr('aria-expanded', 'false');
                 }
             }
 
+            function fitRightColumn() {
+                var $leftColumn = $('.contract-layout > .col-group').first();
+                var $rightColumn = $('.js-right-column');
+                var diff = $leftColumn.outerHeight() - $rightColumn.outerHeight();
+
+                if (diff <= 1) {
+                    return;
+                }
+
+                var $fitCard = $rightColumn.find('.js-fit-card.is-collapsed').first();
+                var currentHeight = Number($fitCard.data('current-body-height')) || 0;
+                var fullHeight = Number($fitCard.data('full-body-height')) || 0;
+                var growHeight = Math.min(diff, fullHeight - currentHeight);
+
+                if (!$fitCard.length || growHeight <= 0) {
+                    return;
+                }
+
+                setBodyHeight($fitCard, currentHeight + growHeight);
+            }
+
             function syncSummaryCards() {
-                var $leftColumn = $('.js-left-column');
                 var $rightColumn = $('.js-right-column');
                 var $targets = $rightColumn.find('.js-summary-card').not('.is-expanded');
-                var leftHeight = $leftColumn.outerHeight();
-                var iteration;
 
                 $targets.each(function () {
-                    var $card = $(this);
-                    collapseCard($card, getVisibleCount($card));
+                    collapseCard($(this));
                 });
 
-                for (iteration = 0; iteration < 12; iteration += 1) {
-                    var $collapsedTargets = $targets.filter('.is-collapsed');
-                    var overflowHeight = $rightColumn.outerHeight() - leftHeight;
-                    var changed = false;
-
-                    if (overflowHeight <= 0 || !$collapsedTargets.length) {
-                        break;
-                    }
-
-                    $collapsedTargets.each(function () {
-                        var $card = $(this);
-                        var currentCount = Number($card.data('visible-count-current')) || getVisibleCount($card);
-
-                        if (currentCount > MIN_VISIBLE_COUNT) {
-                            collapseCard($card, currentCount - 1);
-                            changed = true;
-                        }
-                    });
-
-                    if (!changed) {
-                        break;
-                    }
+                if (!$rightColumn.find('.js-summary-card.is-expanded').length) {
+                    fitRightColumn();
                 }
             }
 
@@ -486,15 +495,13 @@
                     $card
                         .addClass('is-expanded')
                         .removeClass('is-collapsed')
-                        .find('.info-list > li')
-                        .removeClass('is-summary-hidden');
+                        .find('.summary-card-body')
+                        .css('max-height', 'none');
+                    $(this).attr('aria-expanded', 'true');
                 } else {
-                    collapseCard($card, getVisibleCount($card));
+                    collapseCard($card);
+                    $(this).attr('aria-expanded', 'false');
                 }
-
-                $(this).text(expanded ? '접기' : '더보기');
-
-                syncSummaryCards();
             });
 
             $(window).on('resize', function () {

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>컨펌알럿</title>
+    
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
+    <script src="../../resource/js/include.js"></script>
+</head>
+<body style="overflow: hidden;">
+    <div id="wrap">
+        <div data-include-path="../include/inc-header.html"></div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <div class="visual-content">
+                    <h2 class="page-tit">상세약정서 확인 및 전자서명</h2>
+                </div>
+                <!-- 배경용 -->
+                <div class="card-box mb-42" style="height: 300px;"></div>
+                <div class="layout-grid">
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-container">
+        <div id="com01" class="layerPopup modal on">
+            <div class="pop-content alert">
+                <div class="pop-body">
+                    <div class="pop-alert-message">
+                        아직 동의하지 않은 필수 약관 항목이 있습니다. <br>
+                        모든 약관을 확인하고 동의해 주세요.
+                    </div>
+                </div>
+                <div class="pop-footer">
+                    <div class="button-content">
+                        <button type="button" class="btn-pop-secondary" data-popup-close="modal">취소</button>
+                        <button type="button" class="btn-pop-primary" data-popup-close="modal">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

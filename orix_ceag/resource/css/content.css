@@ -6,20 +6,28 @@
 .visual-content .s-tit { margin-top: 12px; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-6); }
 
 /* 메인 시작 페이지 전용 컨텐츠 스타일 */
-.main-page .intro-section { text-align: center; color: #fff; width: 100%; /* transform: translateY(-20px); */ }
-.intro-top-txt { margin-bottom: 34px; }
-.intro-top-txt .eng { font-size: var(--font24); font-weight: var(--font-w-r); margin-bottom: 22px; }
-.intro-top-txt .sub { font-size: var(--font32);}
-.main-page .intro-tit { font-size: 86px; font-weight: var(--font-w-r); color: var(--color-f);}
+.main-copy { position: relative; z-index: 5; width: 1600px; color: #fff; }
+.main-eyebrow { margin-bottom: 22px; font-size: var(--font32); font-weight: var(--font-w-r); }
+.main-title { font-size: 72px; font-weight: var(--font-w-b); color: #fff; }
+.main-title .lg { font-size: 80px; }
+.main-title em { color: #4ADDFD; }
+.main-desc { margin-top: 25px; font-size: var(--font24); font-weight: var(--font-w-r);}
 
-.intro-cta-bar { position: absolute; bottom: 0; right: 0; z-index: 10; transform: translateY(50%); text-decoration: none; }
-.intro-cta-bar:hover .cta-inner { background-color: #0F5FCB; } /* 호버 시 바 전체 색상 살짝 변경 임시*/
-.intro-cta-bar:hover .badge-start { color: #0f5fcb; }
+.main-start-btn { position: absolute; right: calc((100% - 1600px) / 2); top: 300px; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; width: 200px; height: 200px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 30px; font-weight: var(--font-w-b); box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.25); }
+.main-start-btn::after { content: ''; display: block; width: 32px; height: 32px; background: url("../../resource/svg/mdi_arrow-up.svg") no-repeat center / contain; }
 
-.cta-inner { display: flex; align-items: center; background: var(--primary); border-radius: 60px 0 0 0; width: 1250px; padding: 28px 62px 28px 48px; box-sizing: border-box; position: relative; transition: background-color 0.2s; }
-.cta-inner::after { content: ''; position: absolute; right: 62px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: url("../svg/guidance_right-arrow-40.svg") no-repeat center / contain; }
-.badge-start { display: inline-block; background: #fff; color: var(--primary); padding: 20px 24px; border-radius: 100px; font-size: var(--font22); font-weight: var(--font-w-b); white-space: nowrap; transition: 0.2s; }
-.cta-desc { flex: 1; margin-left: 28px; text-align: left; font-size: var(--font22); color: var(--color-f); font-weight: var(--font-w-r); white-space: nowrap; }
+.main-notice { position: relative; z-index: 5; display: flex; align-self: flex-start; width: 1096px; height: 204px; margin: 156px 0 0 calc((100% - 1600px) / 2); padding: 8px; background: rgba(255, 255, 255, 0.60); box-sizing: border-box; }
+.main-notice .notice-label { flex: 0 0 224px; width: 224px; height: 188px; display: flex; align-items: center; justify-content: center; background: #fff; font-size: var(--font24); font-weight: var(--font-w-b); color: var(--color-2); }
+.main-notice .notice-content { flex: 1; height: 188px; padding: 12px 24px 0; box-sizing: border-box; overflow: hidden; color: var(--color-45); font-size: var(--font16); line-height: 1.6; }
+.main-notice .notice-main { margin-bottom: 22px; font-size: 20px; line-height: 1.5; font-weight: var(--font-w-b); color: var(--color-2); }
+.main-notice .notice-sub {margin-bottom: 8px;}
+
+/* 진입 가능여부 식별 */
+.verify-row {display: flex;align-items: flex-end;gap: 38px;}
+.verify-row .form-item {flex: 1;min-width: 0;margin-bottom: 0;}
+.masked-field { display: flex; align-items: center; width: 100%; height: 60px; padding: 18px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-sizing: border-box; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-9); }
+.verify-arrow {  flex: 0 0 42px;width: 42px;height: 42px;margin-bottom: 10px; border-radius: 50%; background: #6dacff url('../images/svg/arrow-right.svg') no-repeat center / 20px 20px; }
+.verify-error { width: calc((100% - 116px) / 2); margin-left: calc(((100% - 116px) / 2) + 116px); }
 
 
 .error-visual { width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/main_error.png') no-repeat center / contain; aspect-ratio: 272 / 251; }
