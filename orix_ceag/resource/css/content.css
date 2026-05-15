@@ -17,9 +17,9 @@
 .main-start-btn::after { content: ''; display: block; width: 32px; height: 32px; background: url("../../resource/svg/mdi_arrow-up.svg") no-repeat center / contain; }
 
 .main-notice { position: relative; z-index: 5; display: flex; align-self: flex-start; width: 1096px; height: 204px; margin: 156px 0 0 calc((100% - 1600px) / 2); padding: 8px; background: rgba(255, 255, 255, 0.60); box-sizing: border-box; }
-.main-notice .notice-label { flex: 0 0 224px; width: 224px; height: 188px; display: flex; align-items: center; justify-content: center; background: #fff; font-size: var(--font24); font-weight: var(--font-w-b); color: var(--color-2); }
+.main-notice .notice-label { flex: 0 0 224px; width: 224px; height: 188px; display: flex; align-items: center; justify-content: center; background: #fff; font-size: var(--font24); font-weight: var(--font-w-sb); color: var(--color-2); }
 .main-notice .notice-content { flex: 1; height: 188px; padding: 12px 24px 0; box-sizing: border-box; overflow: hidden; color: var(--color-45); font-size: var(--font16); line-height: 1.6; }
-.main-notice .notice-main { margin-bottom: 22px; font-size: 20px; line-height: 1.5; font-weight: var(--font-w-b); color: var(--color-2); }
+.main-notice .notice-main { margin-bottom: 22px; font-size: 20px; line-height: 1.5; font-weight: var(--font-w-sb); color: var(--color-2); }
 .main-notice .notice-sub {margin-bottom: 8px;}
 
 /* 진입 가능여부 식별 */
