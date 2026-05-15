@@ -63,11 +63,33 @@ $(function() {
             $('#dateSelectArea').toggle(!isDirect);
             $('#directInputArea').toggle(isDirect);
         });
+        /* 데이트피커 오늘 + 15일 이전, 오늘 + 56일 이후 선택 안되게 */
+        var todayObj = new Date();
 
-        /* 데이트피커 오늘 날짜 이전 선택 안되게 */
-        var today = new Date().toLocaleDateString('en-CA'); 
-        $('.js-min-today').attr('min', today);
+        function formatDate(date) {
+            var year = date.getFullYear();
+            var month = String(date.getMonth() + 1).padStart(2, '0');
+            var day = String(date.getDate()).padStart(2, '0');
 
+            return year + '-' + month + '-' + day;
+        }
+
+        var minDateObj = new Date(
+            todayObj.getFullYear(),
+            todayObj.getMonth(),
+            todayObj.getDate() + 15
+        );
+
+        var maxDateObj = new Date(
+            todayObj.getFullYear(),
+            todayObj.getMonth(),
+            todayObj.getDate() + 56
+        );
+
+        $('.js-min-today')
+            .attr('min', formatDate(minDateObj))
+            .attr('max', formatDate(maxDateObj));
+            
         /* 인풋 전체 선택시 데이트피커 뜨도록*/
         $(document).on('click', 'input[type="date"].form-input', function() {
             if (typeof this.showPicker === 'function') {
