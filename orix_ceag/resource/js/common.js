@@ -63,8 +63,9 @@ $(function() {
             $('#dateSelectArea').toggle(!isDirect);
             $('#directInputArea').toggle(isDirect);
         });
-        /* 데이트피커 오늘 + 15일 이전, 오늘 + 56일 이후 선택 안되게 */
-        var todayObj = new Date();
+        /* 데이트피커 계약진행일 + 15일까지 disabled, disabled된 날짜의 다음달 같은 일자까지 선택 */
+        var contractDateObj = new Date();
+        var blockDays = 15;
 
         function formatDate(date) {
             var year = date.getFullYear();
@@ -74,17 +75,32 @@ $(function() {
             return year + '-' + month + '-' + day;
         }
 
-        var minDateObj = new Date(
-            todayObj.getFullYear(),
-            todayObj.getMonth(),
-            todayObj.getDate() + 15
+        function getLastDayOfMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        function addMonthsClamp(date, months) {
+            var targetYear = date.getFullYear();
+            var targetMonth = date.getMonth() + months;
+            var targetDay = date.getDate();
+            var lastDay = getLastDayOfMonth(targetYear, targetMonth);
+
+            return new Date(targetYear, targetMonth, Math.min(targetDay, lastDay));
+        }
+
+        var disabledUntilObj = new Date(
+            contractDateObj.getFullYear(),
+            contractDateObj.getMonth(),
+            contractDateObj.getDate() + blockDays
         );
 
-        var maxDateObj = new Date(
-            todayObj.getFullYear(),
-            todayObj.getMonth(),
-            todayObj.getDate() + 56
+        var minDateObj = new Date(
+            disabledUntilObj.getFullYear(),
+            disabledUntilObj.getMonth(),
+            disabledUntilObj.getDate() + 1
         );
+
+        var maxDateObj = addMonthsClamp(disabledUntilObj, 1);
 
         $('.js-min-today')
             .attr('min', formatDate(minDateObj))
