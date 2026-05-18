@@ -71,14 +71,24 @@
 
             function syncDateLimit() {
                 var todayObj = new Date();
-                var today = formatDate(todayObj);
-                var nextMonthLastDay = formatDate(new Date(todayObj.getFullYear(), todayObj.getMonth() + 2, 0));
+
+                var minDateObj = new Date(
+                    todayObj.getFullYear(),
+                    todayObj.getMonth(),
+                    todayObj.getDate() + 15
+                );
+
+                var maxDateObj = new Date(
+                    todayObj.getFullYear(),
+                    todayObj.getMonth(),
+                    todayObj.getDate() + 56
+                );
 
                 $('.js-min-today')
-                    .attr('min', today)
-                    .attr('max', nextMonthLastDay);
+                    .attr('min', formatDate(minDateObj))
+                    .attr('max', formatDate(maxDateObj));
             }
-
+            
             function getCacheBuster() {
                 return new Date().getTime();
             }
@@ -149,12 +159,10 @@
                         return;
                     }
 
-                    $primary
-                        .attr('href', 'javascript:void(0);')
-                        .attr('data-role', 'next');
-
-                    if (step === maxStep) {
-                        $primary.text('완료');
+                    if (step < maxStep) {
+                        $primary
+                            .attr('href', 'javascript:void(0);')
+                            .attr('data-role', 'next');
                     }
                 });
             }
@@ -176,7 +184,7 @@
             function updateButtons(step) {
                 var $active = $('.prog-step-panel.active');
                 var $primary = $active.find('[data-role="next"]').last();
-
+                /* ui , action , role 최대한 제외 */
                 $active.find('[data-role="prev"]').toggle(step > 1);
 
                 if (step === maxStep) {
@@ -225,10 +233,7 @@
 
                 if (currentStep < maxStep) {
                     setStep(currentStep + 1);
-                    return;
                 }
-
-                location.href = finalUrl;
             });
 
             $(document).on('click', '[data-role="prev"]', function (e) {
