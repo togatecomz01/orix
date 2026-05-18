@@ -82,7 +82,8 @@
 
 .agree-header {border-bottom: 1px solid var(--color-d);}
 .agree-header .check-group { margin-bottom: 32px; }
-.agree-header label {font-size: var(--font24); font-weight: var(--font-w-b);color: var(--color-2);}
+.agree-header label {font-size: var(--font22); font-weight: var(--font-w-sb);color: var(--color-2);}
+.agree-header label::before { width: 32px; height: 32px; }
 
 /* 약관 리스트 당구장 표시 정렬 */
 .bul-refer { margin-bottom: 20px; }
