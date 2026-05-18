@@ -57,10 +57,11 @@
 
     <script>
         $(function () {
-            var currentStep = 1;
-            var maxStep = $('.prog-step-panel').length;
-            var finalUrl = '../prog/ORIX-CEAG-PROG-003.html';
-
+            var $groups = $('.prog-step-panel');
+            var $stepLis = $('.step-progress li');
+            var PROC = $stepLis.length;
+            var cur = 1;
+    
             function formatDate(date) {
                 var year = date.getFullYear();
                 var month = String(date.getMonth() + 1).padStart(2, '0');
@@ -68,31 +69,31 @@
 
                 return year + '-' + month + '-' + day;
             }
-
+    
             function syncDateLimit() {
                 var todayObj = new Date();
-
+    
                 var minDateObj = new Date(
                     todayObj.getFullYear(),
                     todayObj.getMonth(),
                     todayObj.getDate() + 15
                 );
-
+    
                 var maxDateObj = new Date(
                     todayObj.getFullYear(),
                     todayObj.getMonth(),
                     todayObj.getDate() + 56
                 );
-
+    
                 $('.js-min-today')
                     .attr('min', formatDate(minDateObj))
                     .attr('max', formatDate(maxDateObj));
             }
-            
+    
             function getCacheBuster() {
                 return new Date().getTime();
             }
-
+    
             function getStepContent(response) {
                 var $parsed = $('<div></div>').append($.parseHTML(response, document, false));
                 var $contentWrap = $parsed.find('#contentWrap').first();
@@ -100,29 +101,29 @@
                 var $bottom = $contentWrap.children('#bottom-button-wrap').first();
                 var $body = $parsed.find('body').first();
                 var $result = $();
-
+    
                 if ($contents.length) {
                     $result = $result.add($contents.children().not('.step-progress').clone());
                     $result = $result.add($bottom.clone());
-
+    
                     return $result;
                 }
-
+    
                 if ($body.length) {
                     return $body.children().clone();
                 }
-
+    
                 return $parsed.contents().clone();
             }
-
+    
             function loadStepPanels(callback) {
                 var requests = [];
-
+    
                 $('.prog-step-panel[data-step-path]').each(function () {
                     var $panel = $(this);
                     var path = $panel.attr('data-step-path');
                     var separator = path.indexOf('?') > -1 ? '&' : '?';
-
+    
                     requests.push(
                         $.ajax({
                             url: path + separator + '_v=' + getCacheBuster(),
@@ -140,113 +141,94 @@
                         })
                     );
                 });
-
+    
                 $.when.apply($, requests).always(function () {
                     if (typeof callback === 'function') {
                         callback();
                     }
                 });
             }
-
+    
             function syncStepButtons() {
-                $('.prog-step-panel').each(function () {
-                    var $panel = $(this);
-                    var step = parseInt($panel.attr('data-step'), 10);
-                    var $btnArea = $panel.find('#bottom-button-wrap .btn-area').last();
-                    var $primary = $btnArea.find('.btn-primary').last();
-
-                    if (!$btnArea.length || !$primary.length) {
+                $groups.each(function () {
+                    var $group = $(this);
+                    var step = parseInt($group.attr('data-step'), 10);
+                    var $primary = $group.find('#bottom-button-wrap .btn-primary').last();
+    
+                    if (!$primary.length) {
                         return;
                     }
-
-                    if (step < maxStep) {
+    
+                    if (step < PROC) {
                         $primary
                             .attr('href', 'javascript:void(0);')
                             .attr('data-role', 'next');
                     }
                 });
             }
-
-            function scrollToTop() {
+    
+            function scrollToActive() {
                 $('html, body').stop(true).animate({ scrollTop: 0 }, 300);
             }
-
-            function updateStepProgress(step) {
-                $('.step-progress li').each(function (index) {
-                    var itemStep = index + 1;
-
+    
+            function updateIndicator(step) {
+                $stepLis.each(function (i) {
+                    var idx = i + 1;
+    
                     $(this)
-                        .toggleClass('done', itemStep < step)
-                        .toggleClass('active', itemStep === step);
+                        .toggleClass('done', idx < step)
+                        .toggleClass('active', idx === step)
+                        .attr('aria-selected', idx === step ? 'true' : 'false');
                 });
             }
-
-            function updateButtons(step) {
-                var $active = $('.prog-step-panel.active');
-                var $primary = $active.find('[data-role="next"]').last();
-                /* ui , action , role 최대한 제외 */
-                $active.find('[data-role="prev"]').toggle(step > 1);
-
-                if (step === maxStep) {
-                    $primary.text('완료');
-                }
-            }
-
-            function setStep(step) {
-                currentStep = Math.max(1, Math.min(step, maxStep));
-
-                $('.prog-step-panel')
+    
+            function setStep(n) {
+                cur = Math.max(1, Math.min(n, PROC));
+    
+                $groups
                     .removeClass('active')
-                    .filter('[data-step="' + currentStep + '"]')
+                    .eq(cur - 1)
                     .addClass('active');
-
-                updateStepProgress(currentStep);
-                updateButtons(currentStep);
+    
+                updateIndicator(cur);
                 syncDateLimit();
-                scrollToTop();
+                scrollToActive();
             }
-
-            function getStepFromHash() {
-                var hash = (location.hash || '').replace('#', '');
-                var match = hash.match(/^step([1-9]\d*)$/);
-                var step;
-
-                if (!match) {
-                    return 1;
-                }
-
-                step = parseInt(match[1], 10);
-
-                if (isNaN(step)) {
-                    return 1;
-                }
-
-                return Math.max(1, Math.min(step, maxStep));
-            }
-
+    
             $(document).on('click', '[data-role="next"]', function (e) {
                 e.preventDefault();
-
+    
                 if ($(this).hasClass('disabled') || $(this).attr('aria-disabled') === 'true') {
                     return;
                 }
-
-                if (currentStep < maxStep) {
-                    setStep(currentStep + 1);
+    
+                if (cur < PROC) {
+                    setStep(cur + 1);
                 }
             });
-
+    
             $(document).on('click', '[data-role="prev"]', function (e) {
                 e.preventDefault();
-
-                if (currentStep > 1) {
-                    setStep(currentStep - 1);
+    
+                if (cur > 1) {
+                    setStep(cur - 1);
                 }
             });
-
+    
+            function initFromHash() {
+                var h = (location.hash || '').replace('#', '');
+    
+                if (/^step[1-9]\d*$/.test(h)) {
+                    var n = parseInt(h.replace('step', ''), 10);
+                    setStep(isNaN(n) ? 1 : Math.min(Math.max(n, 1), PROC));
+                } else {
+                    setStep(1);
+                }
+            }
+    
             loadStepPanels(function () {
                 syncStepButtons();
-                setStep(getStepFromHash());
+                initFromHash();
             });
         });
     </script>

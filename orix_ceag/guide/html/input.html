@@ -162,13 +162,26 @@
                             </div>
 
                             <!-- 주소 -->
-                            <div class="form-item">
+                            <!-- <div class="form-item">
                                 <label class="form-label">주소 검색</label>
                                 <div class="addr">
                                     <input type="text" class="form-input" placeholder="우편번호" readonly>
                                     <button type="button" class="btn-dark-gray">검색</button>
                                 </div>
                                 <input type="text" class="form-input" placeholder="기본주소" readonly>
+                            </div> -->
+
+                            <div class="form-item js-address-group">
+                                <label class="form-label">주소 검색</label>
+                    
+                                <div class="form-row mb-12">
+                                    <input type="text" id="homeZonecode" placeholder="우편번호" class="form-input js-zonecode" readonly>
+                                    <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
+                                </div>
+                    
+                                <input type="text" id="homeAddress" placeholder="기본 주소" class="form-input mb-12 js-address" readonly>
+                                <input type="text" id="homeDetailAddress" placeholder="상세 주소" class="form-input js-detail-address">
+                                <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
                             </div>
 
                             <!-- 데이트피커 -->

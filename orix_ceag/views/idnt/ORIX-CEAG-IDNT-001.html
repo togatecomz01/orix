@@ -231,34 +231,35 @@
                     <div class="col-group">
                         <div class="card-box">
                             <h3 class="card-tit">법인 등록 주소지</h3>
-
+                    
                             <div class="form-item js-address-group">
                                 <label class="form-label">직장주소</label>
-                            
-                                <div class="addr">
-                                    <input type="text" id="workZonecode" class="form-input js-zonecode" readonly>
-                                    <button type="button" class="btn-dark-gray js-btn-postcode">우편번호 검색</button>
+                    
+                                <div class="form-row mb-12">
+                                    <input type="text" id="workZonecode" placeholder="직장주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                                    <button type="button" class="btn-form js-btn-postcode">주소 검색</button>
                                 </div>
-                            
+                    
                                 <input type="text" id="workAddress" class="form-input mb-12 js-address" readonly>
-                                <input type="text" id="workDetailAddress" class="form-input js-detail-address" placeholder="상세주소를 입력해 주세요.">
+                                <input type="text" id="workDetailAddress" class="form-input js-detail-address">
                                 <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
                             </div>
-                            
+                    
                             <div class="form-item js-address-group">
                                 <label class="form-label">자택주소</label>
-                            
-                                <div class="addr">
-                                    <input type="text" id="homeZonecode" class="form-input js-zonecode" readonly>
-                                    <button type="button" class="btn-dark-gray js-btn-postcode">우편번호 검색</button>
+                    
+                                <div class="form-row mb-12">
+                                    <input type="text" id="homeZonecode" placeholder="자택주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                                    <button type="button" class="btn-form js-btn-postcode">주소 검색</button>
                                 </div>
-                            
+                    
                                 <input type="text" id="homeAddress" class="form-input mb-12 js-address" readonly>
-                                <input type="text" id="homeDetailAddress" class="form-input js-detail-address" placeholder="상세주소를 입력해 주세요.">
+                                <input type="text" id="homeDetailAddress" class="form-input js-detail-address">
                                 <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
                             </div>
                         </div>
                     </div>
+                    
 
                 </div>
             </div>
