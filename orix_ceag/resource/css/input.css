@@ -5,7 +5,7 @@
 .form-item { margin-bottom: 32px; }
 .form-item:last-child { margin-bottom: 0; }
 .form-label { display: flex; align-items: center; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--color-45); margin-bottom: 14px; }
-
+.form-label .required {margin-left: 5px; color: #F00;}
 .form-input { width: 100%; height: 60px; padding: 18px; border: 1px solid #ddd; border-radius: 8px; font-size: var(--font18); color: var(--color-2); background-color: #fff; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
 .form-input:focus { border-color: #032D50; }
 .form-input:disabled { background-color: #F8F8F8; color: var(--color-75); cursor: not-allowed; }
@@ -32,8 +32,8 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 ============================================= */
 .form-row { display: flex; align-items: center; gap: 10px; width: 100%; }
 .form-row #tel1 {max-width: 136px;}
-.col-bank { width: 180px; flex: none; }
-.col-account { flex: 1; }
+.col-select { width: 180px; flex: none; }
+.col-input { flex: 1; }
 .at-mark { color: var(--color-6); font-weight: var(--font-w-r); padding: 0 2px; }
 
 /* =============================================
@@ -112,6 +112,9 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .radio-group.r-btn label { display: flex; align-items: center; justify-content: center; width: 100%; height: 40px; padding: 0 12px; border: 1px solid transparent; border-radius: 4px; background-color: var(--color-f3); cursor: pointer; box-sizing: border-box; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6); transition: border-color 0.2s, background-color 0.2s, color 0.2s; }
 .radio-group.r-btn input[type="radio"]:checked + label { border-color: var(--primary); background-color: var(--color-f); font-weight: var(--font-w-sb); color: var(--primary); }
 .radio-group.r-btn input[type="radio"]:disabled + label { background-color: var(--color-f5); cursor: default; color: var(--color-9); }
+
+/* 라디오 박스 row버전 */
+.radio-list.form-row .r-box + .r-box {margin-top: 0px;}
 
 /* 키보드 포커싱 */
 .check-group input[type="checkbox"]:focus-visible + label::before { outline: 2px solid var(--color-2); outline-offset: 2px; }
