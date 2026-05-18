@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - layout</title>
+
+    <link href="../../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../../resource/js/include.js"></script>
+    <script src="../../../resource/js/common.js"></script>
+    <script src="./step.js"></script>
+    <style>
+        /* 주요 약정사항 전체 동의 */
+        .card-box.terms .acc-item { border: 0; }
+        .card-box.terms .term-head { padding: 32px 0 24px; }
+        .card-box.terms .term-head .check-group { margin-bottom: 0; }
+        .card-box.terms .acc-body { display: block; border-radius: 0; background: transparent; }
+        .card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-f8); overflow: visible; }
+        .card-box.terms .term-content > p { font-size: var(--font16); color: var(--color-6); }
+        .card-box.terms .term-content .term-tit { margin-bottom: 14px; font-weight: var(--font-w-m); color: var(--color-45); }
+        .card-box.terms .term-content .bul-refer,
+        .card-box.terms .acc-item:last-child .acc-body { margin: 0; }
+        .card-box.terms .term-content .bul-refer li { color: var(--color-6); }
+        .card-box.terms .final-desc { margin-top: 42px; padding: 36px 26px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
+        .card-box.terms .final-desc strong { display: block; margin-bottom: 12px; font-size: var(--font18); color: var(--color-2); }
+        .card-box.terms .final-desc p { font-size: var(--font14); color: var(--color-6); line-height: 1.6; }
+
+        /* 과태료/범칙금 */
+        .card-box.notice .tit { margin-bottom: 14px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); }
+        .card-box.notice .info { position: relative; padding-left: 26px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); }
+        .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../../resource/images/svg/ico_info.svg") no-repeat center center; }
+
+        /* 상품 신청 내역 */
+        .card-box.summary .info-list .tit,
+        .card-box.summary .info-list .desc { font-size: var(--font18); }
+        .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
+        .card-wrap > .card-box { position: relative; display: flex; flex: 1 1 0; flex-direction: column; min-height: 0; padding: 42px 50px 58px; overflow: hidden; }
+        .card-wrap > .card-box.is-expanded { display: block; flex: none; height: auto; overflow: visible; }
+        .card-wrap > .card-box .info-list li { align-items: flex-start; }
+        .card-wrap > .card-box .info-list .desc { max-width: 300px; font-size: var(--font18); font-weight: var(--font-w-m); line-height: 1.5; }
+        .card-more { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: 70px; padding-bottom: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 78%); text-align: center; }
+        .card-more[hidden] { display: none; }
+        .card-wrap > .card-box.is-expanded .card-more { background: transparent; }
+        .btn-card-more { display: inline-block; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; font-size: 0; color: transparent; line-height: 0; }
+        .btn-card-more::before { content: ''; display: inline-block; width: 20px; height: 20px; margin-top: 6px; background: url("../../../resource/svg/ico_arr_down.svg") no-repeat center center; }
+        .card-wrap > .card-box.is-expanded .btn-card-more::before { margin-top: 12px; transform: rotate(180deg); }
+
+        /* 차량정보 */
+        .info-list li.depth2 { flex-direction: column; }
+        .info-list li.depth2 > div,
+        .info-list li.depth2 .sub-info li { display: flex; justify-content: space-between; width: 100%; }
+        .info-list li.depth2 .sub-info { width: 100%; padding: 24px 0 10px; }
+        .info-list li.depth2 .sub-info li .tit { font-size: var(--font18); font-weight: var(--font-w-l); }
+        .info-list li.depth2 .sub-info li .desc { font-size: var(--font18); font-weight: var(--font-w-r); }
+
+        /* 인크루드 스텝 */
+        .page-container .group { display: none; }
+        .page-container .group.active { display: block; }
+        .page-container.is-preview .group { display: block; margin-top: 60px; }
+        .page-container.is-preview .group:first-child { margin-top: 0; }
+        .page-container.is-preview .group #bottom-button-wrap { display: none; }
+        .page-container.is-preview input,
+        .page-container.is-preview select,
+        .page-container.is-preview textarea { pointer-events: none; }
+        .page-container.is-preview button { display: none; }
+        .preview-cta { display: none; }
+        .page-container.is-preview + .preview-cta { display: block; }
+        .page-container #bottom-button-wrap .btn-area,
+        .preview-cta .btn-area { display: flex; justify-content: flex-end; gap: 12px; }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div data-include-path="../../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap">
+            <div class="contents">
+                <ol class="step-progress">
+                    <li class="active">
+                        <span class="step-txt">신청내역 확인</span>
+                    </li>
+                    <li>
+                        <span class="step-txt">약정서 및 약관동의</span>
+                    </li>
+                    <li>
+                        <span class="step-txt">고객 정보 및 자동이체 정보 입력</span>
+                    </li>
+                    <li>
+                        <span class="step-txt">약정서 미리보기 및 전자서명</span>
+                    </li>
+                </ol>
+
+                <div class="page-container">
+                    <div class="group step1 active" data-include-path="./step1.html"></div>
+                    <div class="group step2" data-include-path="./step2.html"></div>
+                    <div class="group step3" data-include-path="./step3.html"></div>
+                    <div class="group step4" data-include-path="./step4.html"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    <span>ORIX Capital Korea Corporation</span>
+                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
+                </div>
+                <div class="footer-add">
+                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
+                    <span>대표이사 : 박철수</span>
+                    <span>사업자등록번호 : 120-86-63282</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
