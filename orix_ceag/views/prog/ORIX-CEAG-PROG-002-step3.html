@@ -1,31 +1,168 @@
 <div class="visual-content">
-    <h2 class="page-tit">약정서 요약본을 확인해주세요</h2>
+    <h2 class="page-tit">고객 정보 및 자동이체 정보를 입력해 주세요.</h2>
+    <p class="s-tit">작성하신 정보는 약정서 발송 및 자동이체 등록에 활용됩니다. 자택 주소, 직장 정보, 이메일 등 약정서 수령을 위한 고객 정보와 자동이체에 사용할<br>
+        계좌 정보 등 입력하신 정보는 암호화되어 안전하게 처리됩니다.</p>
 </div>
 
-<div class="layout" style="width: 1200px; height: 900px; border: 1px solid #000;">
-        
+<div class="layout-grid">
+    <div class="col-group">
+        <div class="card-box mh-100">
+            <h3 class="card-tit">고객정보</h3>
+
+            <div class="form-item">
+                <label for="userName" class="form-label">예금주</label>
+                <input type="text" title="예금주" id="userName" class="form-input" maxlength="20" placeholder="예금주명을 입력해주세요.">
+                <p class="error-msg">예금주명을 입력해주세요.</p>
+            </div>
+
+            <div class="form-item">
+                <label for="bankSelect" class="form-label label-tooltip">
+                    계좌번호
+                    <span class="tooltip-area">
+                        <span class="tooltip-icon"></span>
+                        <span class="tooltip-box">
+                            핸드폰번호의 평생 계좌번호는 자동이체 출금용 계좌로 등록할 수 없습니다.
+                        </span>
+                    </span>
+                </label>
+                
+                <div class="form-row">
+                    <div class="col-bank">
+                        <select id="bankSelect" class="form-input is-placeholder">
+                            <option value="" class="select-placeholder" selected disabled hidden>은행 선택</option>
+                            <option value="shinhan">신한은행</option>
+                            <option value="kb">국민은행</option>
+                            <option value="woori">우리은행</option>
+                        </select>
+                    </div>
+                    <div class="col-account">
+                        <input type="tel" id="userAccount" class="form-input" maxlength="16" inputmode="numeric" placeholder="'-' 없이 숫자만 입력해 주세요.">
+                        
+                    </div>
+                    
+                </div>
+                <p class="error-msg" style="display:none;">계좌번호를 입력해 주세요.</p>
+            </div>
+
+            <div class="form-item">
+                <label for="emailId" class="form-label label-tooltip">
+                    이메일
+                    <span class="tooltip-area">
+                        <span class="tooltip-icon"></span>
+                        <span class="tooltip-box short">
+                            매달 결제 내역과 영수증을 수신 받을 메일 주소를 입력해 주세요. (재무 담당자 메일 권장)
+                        </span>
+                    </span>
+                </label>
+                <div class="form-row email-top mb-12">
+                    <input type="text" id="emailId" class="form-input" placeholder="이메일을 입력해주세요." title="">
+                    <span class="at-mark">@</span>
+                    <input type="text" id="emailDomain" class="form-input ellipsis" placeholder="" title="">
+                </div>
+                <!-- <p class="error-msg">이메일을 입력해 주세요.</p> -->
+                <!-- <div class="email-bottom">
+                    <select class="form-input"> 
+                        <option value="">직접입력</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="gmail.com">daum.net</option>
+                    </select>
+                </div> -->
+                <div class="check-group rec sm mt-10">
+                    <input type="checkbox" id="emailSame">
+                    <label for="emailSame">계약서 및 안내문 수신 메일 정보와 동일</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-group">
+        <div class="col-group">
+            <div class="card-box">
+                <h3 class="card-tit">납부일 설정</h3>
+    
+                <div class="payment-setting">
+                    <div class="radio-list">
+                        <!-- 익월납부 -->
+                        <div class="radio-group r-box">
+                            <input type="radio" id="payNext" name="payType" value="next" checked>
+                            <label for="payNext">
+                                <span class="radio-check"></span>
+                                <span class="txt">익월납부</span>
+                            </label>
+                        </div>
+                        <!-- 당월납부 -->
+                        <div class="radio-group r-box">
+                            <input type="radio" id="payCurrent" name="payType" value="current">
+                            <label for="payCurrent">
+                                <span class="radio-check"></span>
+                                <span class="txt">당월납부</span>
+                            </label>
+                        </div>
+                        <!-- 직접입력 -->
+                        <div class="radio-group r-box">
+                            <input type="radio" id="payDirect" name="payType" value="direct">
+                            <label for="payDirect">
+                                <span class="radio-check"></span>
+                                <span class="txt">직접입력</span>
+                            </label>
+                        </div>
+                    </div>
+    
+                    <!-- 선택에 따라 노출/비노출 -->
+                    <div class="pay-sub-area">
+                        <!-- 날짜 선택 버튼 (익월/당월일 때 노출) -->
+                        <div id="dateSelectArea" class="date-selection">
+                            <div class="radio-list">
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="date5" name="payDate" value="5">
+                                    <label for="date5">5일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="date15" name="payDate" value="15" checked>
+                                    <label for="date15">15일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="date25" name="payDate" value="25">
+                                    <label for="date25">25일</label>
+                                </div>
+                                <div class="radio-group r-btn">
+                                    <input type="radio" id="dateLast" name="payDate" value="말일">
+                                    <label for="dateLast">말일</label>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- 직접 입력 인풋 (직접입력일 때 노출) -->
+                        <div id="directInputArea" class="direct-input-wrap" style="display:none;">
+                            <input type="date" id="payDirectInput" class="form-input js-min-today" data-placeholder="납부일을 선택해 주세요." required>
+                            <p class="error-msg" style="display:none;">날짜를 선택해 주세요.</p>
+                        </div>
+                    </div>
+                    <div class="payment-notice">
+                        은행 휴무일, 공휴일에는 자동이체가 진행되지 않으며, 돌아오는 첫 영업일에 지연 출금됩니다.
+                    </div>
+                    <div class="payment-result-box pay-date">
+                        <span class="label">첫회차 납부일</span>
+                        <span class="date">2026.03.15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="bottom-button-wrap">
     <div class="bottom-button-inner">
         <div class="bottom-button-text-wrap">
-            <div class="bottom-button-notice bottom-check-list">
-                <div class="check-group rec">
-                    <input type="checkbox" id="agreeContractAll">
-                    <label for="agreeContractAll">모든 약정서의 내용을 끝까지 확인하였으며, 기재된 정보에 오류가 없음을 확인했습니다.</label>
-                </div>
-            
-                <div class="check-group rec">
-                    <input type="checkbox" id="agreeLegalGuide">
-                    <label for="agreeLegalGuide">법인 공동인증서 인증 후, 심사가 진행되며 이후에는 정보 수정 및 약정 취소가 불가함을 이해하였습니다.</label>
-                </div>
+            <div class="bottom-button-notice">
+                <p class="notice">올바른 정보를 입력하셨는지 다시 한번 확인 후 [다음] 버튼을 눌러주세요.</p>
+                <p class="notice">입력하신 내용을 기반으로 다음 단계에서 약정서 최종 확인 및 법인공동인증서 인증을 진행합니다.</p>
             </div>
         </div>
         <div class="btn-area">
             <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
             <!-- 기본으로 disabled 속성, 유효성 검사 후 disabled 해제가 맞지만 테스트를 위해 풀어놓음 -->
-            <a href="#" class="btn-primary">법인 공동인증서 인증하기</a> 
+            <a href="#" class="btn-primary">다음</a> 
         </div>
     </div>
 </div>
-
