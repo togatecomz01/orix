@@ -41,10 +41,11 @@ $(function () {
             var layout = getCardLayout($wrap);
             var hasExpanded = $items.filter('.is-expanded').length > 0;
 
-            $wrap.css({
-                height: hasExpanded ? 'auto' : layout.targetHeight,
-                flex: hasExpanded ? 'none' : ''
-            });
+            if (hasExpanded) {
+                $wrap.css({ height: 'auto', flex: 'none' });
+            } else {
+                $wrap.css({ height: layout.targetHeight, flex: '' });
+            }
 
             $items.each(function () {
                 var $card = $(this);
@@ -70,13 +71,21 @@ $(function () {
         });
     }
 
+    window.syncLayoutMoreCards = syncMoreCards;
+    syncMoreCards();
+
     // 카드 더보기: 더보기/접기 버튼 클릭
     $(document).on('click', '.btn-card-more', function () {
         var $card = $(this).closest('.card-box');
+        var isExpanded = !$card.hasClass('is-expanded');
 
-        $card.toggleClass('is-expanded');
+        $card.toggleClass('is-expanded', isExpanded);
         $(this).closest('.card-more').prop('hidden', false);
 
+        syncMoreCards();
+    });
+
+    $(document).on('include:loaded', '.page-container .group', function () {
         syncMoreCards();
     });
 
@@ -143,8 +152,6 @@ $(function () {
             var $target = $(this);
             var $group = $target.closest('.group');
             var id = this.id;
-            var groupIndex = $group.index() + 1;
-            var count;
             var newId;
 
             if (!$group.length || id === 'bottom-button-wrap') {
@@ -152,37 +159,33 @@ $(function () {
             }
 
             if (!ids[id]) {
-                ids[id] = 1;
+                ids[id] = true;
                 return;
             }
 
-            ids[id] += 1;
-            count = ids[id];
-            newId = id + '-step' + groupIndex + '-' + count;
-
+            newId = id + '-step' + ($group.index() + 1);
             $target.attr('id', newId);
-            $group.find('label[for="' + escapeSelector(id) + '"]').first().attr('for', newId);
+            $group.find('label[for="' + escapeSelector(id) + '"]').attr('for', newId);
+            ids[newId] = true;
         });
     }
 
-    // 하단 버튼: 각 step의 이전/다음/인증 버튼 역할 지정
+    // 하단 버튼: step1~3 다음 버튼 역할 지정
     function updateStepButtons() {
         $groups.each(function (index) {
             var step = index + 1;
             var $group = $(this);
-            var $primary = $group.find('#bottom-button-wrap .btn-primary').last();
-            var $secondary = $group.find('#bottom-button-wrap .btn-secondary').last();
+            var $btnArea = $group.find('#bottom-button-wrap .btn-area').last();
+            var $primary = $btnArea.find('.btn-primary').last();
 
-            if ($primary.length) {
-                $primary
-                    .attr('href', 'javascript:void(0);')
-                    .attr('data-step-role', step === GROUP_MAX ? 'cert-auth' : 'next');
+            if (!$btnArea.length || !$primary.length) {
+                return;
             }
 
-            if ($secondary.length) {
-                $secondary
+            if (step < GROUP_MAX) {
+                $primary
                     .attr('href', 'javascript:void(0);')
-                    .attr('data-step-role', 'prev');
+                    .attr('data-step-role', 'next');
             }
         });
     }
@@ -195,32 +198,33 @@ $(function () {
             var itemStep = index + 1;
 
             $(this)
+                .removeClass('prev on next')
                 .toggleClass('done', itemStep < indicatorStep)
-                .toggleClass('active', itemStep === indicatorStep)
-                .attr('aria-selected', itemStep === indicatorStep ? 'true' : 'false');
+                .toggleClass('active', itemStep === indicatorStep);
         });
     }
 
     // 카드 더보기 높이 재계산: include 완료/step 변경 직후 DOM 반영 뒤 실행
     function syncLayoutCards() {
-        setTimeout(syncMoreCards, 0);
+        window.setTimeout(function () {
+            if (typeof window.syncLayoutMoreCards === 'function') {
+                window.syncLayoutMoreCards();
+            }
+        }, 0);
     }
 
     // step 이동 시 상단으로 이동
     function scrollToTop() {
-        $('html, body').stop(true).animate({ scrollTop: 0 }, 300);
+        $('html, body').stop(true).animate({ scrollTop: 0 }, 250);
     }
 
     // step 화면 전환
     function setStep(step, skipScroll) {
         cur = Math.max(1, Math.min(step, GROUP_MAX));
 
-        $groups
-            .removeClass('active')
-            .eq(cur - 1)
-            .addClass('active');
-
+        $groups.removeClass('active').eq(cur - 1).addClass('active');
         updateIndicator(cur);
+        updateStepButtons();
         syncDateLimit();
         syncLayoutCards();
 
@@ -241,34 +245,7 @@ $(function () {
             return;
         }
 
-        if (cur < GROUP_MAX) {
-            setStep(cur + 1);
-        }
-    });
-
-    // 이전 버튼: 현재 활성화된 step에서만 동작
-    $(document).on('click', '.page-container [data-step-role="prev"]', function (e) {
-        e.preventDefault();
-
-        if (!$(this).closest('.group').hasClass('active')) {
-            return;
-        }
-
-        if (cur > 1) {
-            setStep(cur - 1);
-        }
-    });
-
-    // 법인 공동인증서 인증: 솔루션 연결 자리
-    $(document).on('click', '.page-container [data-step-role="cert-auth"]', function (e) {
-        e.preventDefault();
-
-        if (!$(this).closest('.group').hasClass('active')) {
-            return;
-        }
-
-        // TODO: 법인 공동인증서 솔루션 호출 후 완료 팝업 연결
-        // 예) window.openCorporateCertificateSolution();
+        setStep(cur + 1);
     });
 
     // include 완료 후 버튼 역할/중복 id/데이트피커/카드 높이 다시 계산
@@ -280,7 +257,6 @@ $(function () {
     });
 
     syncDuplicateIds();
-    updateStepButtons();
     syncDateLimit();
     setStep(cur, true);
 });
