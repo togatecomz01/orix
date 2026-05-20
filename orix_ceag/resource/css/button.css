@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 /* 기본 버튼 (Primary) */
 .btn-primary {  min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--primary); color: var(--color-f); font-size: var(--font20); font-weight: var(--font-w-sb); text-align: center; border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
@@ -22,7 +22,7 @@
 
 /* 다운로드 버튼 및 아이콘 */
 .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: var(--font20); }
-.ico-download { width: 32px; height: 32px; background: url('../svg/download_white.svg') no-repeat center / contain; display: inline-block; }
+/* .ico-download { width: 32px; height: 32px; background: url('../images/svg/download_white.svg') no-repeat center / contain; display: inline-block; } */
 
 /* 알럿용 버튼 */
 .alert .button-content {display: flex;justify-content: center;gap: 20px;}

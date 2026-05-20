@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* =============================================
     #기본 인풋 + 셀렉 스타일
 ============================================= */
@@ -10,7 +10,7 @@
 .form-input:focus { border-color: #032D50; }
 .form-input:disabled { background-color: #F8F8F8; color: var(--color-75); cursor: not-allowed; }
 
-select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('../../resource/svg/arrow-dropdown.svg'); background-repeat: no-repeat; background-position: right 16px center; background-size: 24px auto; padding-right: 40px; }
+select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('../../resource/images/svg/ico_select_dropdown.svg'); background-repeat: no-repeat; background-position: right 16px center; background-size: 24px auto; padding-right: 40px; }
 .form-input::placeholder, .form-input.is-placeholder { color: var(--color-9); opacity: 1; }
 .form-input option { color: var(--color-2); }
 
@@ -22,8 +22,8 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 ============================================= */
 .label-tooltip { display: inline-flex; align-items: center; line-height: 1.5;}
 .tooltip-area { position: relative; display: inline-block; width: 20px; height: 20px; margin-left: 6px; flex: none; cursor: pointer; }
-.tooltip-icon { display: block; width: 20px; height: 20px; background: url('../../resource/svg/info-rounded.svg') no-repeat center / contain; }
-.tooltip-area:hover .tooltip-icon { background: url('../svg/info-rounded-2e78b5.svg') no-repeat center / contain; }
+.tooltip-icon { display: block; width: 20px; height: 20px; background: url('../../resource/images/svg/ico_tooltip.svg') no-repeat center / contain; }
+.tooltip-area:hover .tooltip-icon { background: url('../images/svg/ico_tooltip_hover.svg') no-repeat center / contain; }
 .tooltip-box { position: absolute; display: none; bottom: 0; left: calc(100% + 8px); z-index: 100; max-width: 440px; width: max-content; padding: 12px 16px 14px; border-radius: 8px; background-color: #2E78B5; font-size: var(--font14); font-weight: var(--font-w-r); color: var(--color-f); line-height: 1.5; word-break: keep-all; pointer-events: none; }
 .tooltip-area:hover .tooltip-box { display: block; }
 
@@ -50,14 +50,14 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group input[type="checkbox"]:disabled + label { color: var(--color-9); }
 
 .check-group input[type="checkbox"]:checked:disabled + label::before,
-.check-group input[type="checkbox"]:disabled + label::before { border-color: var(--color-d); background-color: var(--color-d); background-image: url('../../resource/svg/ico_check_dis.svg'); }
+.check-group input[type="checkbox"]:disabled + label::before { border-color: var(--color-d); background-color: var(--color-d); background-image: url('../../resource/images/svg/ico_check_dis.svg'); }
 
 /* checked */
 .check-group input[type="checkbox"]:checked + label { color: var(--color-45); }
 .check-group input[type="checkbox"]:checked + label::before { background-color: var(--primary); border-color: var(--primary); }
 
 /** 기본 원형 체크박스 **/
-.check-group label::before { width: 36px; height: 36px; margin-right: 18px; border: none; border-radius: 50%; background-color: var(--color-d); background-image: url('../../resource/svg/check_line.svg'); }
+.check-group label::before { width: 36px; height: 36px; margin-right: 18px; border: none; border-radius: 50%; background-color: var(--color-d); background-image: url('../../resource/images/svg/ico_check_circle.svg'); }
 
 /** 사각형 체크박스 (28*28) **/
 .check-group.rec label::before { width: 28px; height: 28px; margin-right: 8px; border: 1px solid #CCC; border-radius: 4px; background-color: var(--color-f); }
@@ -67,12 +67,12 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group.sm label { font-size: var(--font16); color: var(--color-75); font-weight: var(--font-w-r); }
 
 /** 라인 체크박스 **/
-.check-group.line-type label::before { width: 24px; height: 24px; margin-right: 12px; border-radius: 0; border: none; background-color: transparent; background-image: url('../../resource/svg/ico_check_gray.svg'); }
+.check-group.line-type label::before { width: 24px; height: 24px; margin-right: 12px; border-radius: 0; border: none; background-color: transparent; background-image: url('../../resource/images/svg/ico_check_line_off.svg'); }
 /* 라인 체크 상태 */
-.check-group.line-type input:checked + label::before { background-color: transparent; background-image: url("../../resource/svg/ico_check_primary.svg"); }
+.check-group.line-type input:checked + label::before { background-color: transparent; background-image: url("../../resource/images/svg/ico_check_line.svg"); }
 
 /* 라인 체크 상태 */
-.check-group.line-type input:disabled + label::before { background-color: transparent; background-image: url("../../resource/svg/ico_check_dis.svg"); }
+.check-group.line-type input:disabled + label::before { background-color: transparent; background-image: url("../../resource/images/svg/ico_check_dis.svg"); }
 
 /* =============================================
     #라디오 버튼
@@ -133,10 +133,10 @@ input[type="date"].form-input:invalid::-webkit-datetime-edit { visibility: hidde
 input[type="date"].form-input:invalid::before {content: attr(data-placeholder); position: absolute; left: 18px;top: 50%; transform: translateY(-50%); color: var(--color-9); pointer-events: none; z-index: 1; visibility: visible;}
 input[type="date"].form-input:valid::-webkit-datetime-edit {visibility: visible !important;color: var(--color-45);}
 input[type="date"].form-input:valid::before {display: none;}
-input[type="date"].form-input::-webkit-calendar-picker-indicator {background: url("../../resource/svg/icon_date.svg") no-repeat center / contain; cursor: pointer; position: absolute; right: 18px; top: 0; width: 24px; height: 100%; z-index: 2; opacity: 1;}
+input[type="date"].form-input::-webkit-calendar-picker-indicator {background: url("../../resource/images/svg/icon_date.svg") no-repeat center / contain; cursor: pointer; position: absolute; right: 18px; top: 0; width: 24px; height: 100%; z-index: 2; opacity: 1;}
 
 /* 에러 메시지 */
 .form-input.error { border-color: var(--error);  }
 .error-msg { display: flex; align-items: center; color: var(--error); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; }
 .error-msg:not(:last-child) { margin-bottom: 14px; }
-.error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../svg/ico-warning.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
+.error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
