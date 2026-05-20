@@ -5,6 +5,12 @@
 <meta charset="UTF-8">
 <title>공매 조회 Toast Grid</title>
 
+<!-- favicon -->
+<link rel="icon" type="image/x-icon" href="../../resource/images/com/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../../resource/images/com/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../resource/images/com/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../../resource/images/com/favicon/apple-touch-icon.png">
+
 <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.min.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.min.js"></script>
