@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ORIX UI GUIDE - card radio</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/common.js"></script>
+    <style>
+        /* card-radio.html 연습용 스타일 */
+        #contractSelectPractice .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        #contractSelectPractice .js-contract-card {
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #contractSelectPractice .js-contract-card:has(input[type="checkbox"]:checked) {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary) inset;
+        }
+
+        #contractSelectPractice .card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        #contractSelectPractice .card-head .card-tit {
+            margin-bottom: 0;
+        }
+
+        #contractSelectPractice .card-head .check-group {
+            flex-shrink: 0;
+            margin-bottom: 0;
+        }
+
+        #contractSelectPractice .card-head .check-group label::before {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div data-include-path="../../views/include/inc-header.html"></div>
+
+        <div id="contentWrap">
+            <div class="contents" id="contractSelectPractice">
+                <div class="visual-content">
+                    <h2 class="page-tit">진행할 계약을 선택해 주세요.</h2>
+                    <p class="s-tit">여러 건의 계약이 있는 경우 하나의 계약만 선택할 수 있습니다.</p>
+                </div>
+
+                <div class="layout-grid">
+                    <div class="col-group">
+                        <div class="card-box mh-100 js-contract-card">
+                            <div class="card-head">
+                                <h3 class="card-tit">계약 1</h3>
+
+                                <div class="check-group">
+                                    <input type="checkbox" id="contractSelect1" name="contractSelect" checked>
+                                    <label for="contractSelect1">
+                                        <span class="sr-only">계약 1 선택</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">계약번호</p>
+                                    <p class="desc">ORIX-2026-0001</p>
+                                </li>
+                                <li>
+                                    <p class="tit">신청상품</p>
+                                    <p class="desc">자동차 장기임대</p>
+                                </li>
+                                <li>
+                                    <p class="tit">차량모델</p>
+                                    <p class="desc">제네시스 G80</p>
+                                </li>
+                                <li>
+                                    <p class="tit">대여기간</p>
+                                    <p class="desc">36개월</p>
+                                </li>
+                                <li>
+                                    <p class="tit">월임대료</p>
+                                    <p class="desc">1,218,800원</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box mh-100 js-contract-card">
+                            <div class="card-head">
+                                <h3 class="card-tit">계약 2</h3>
+
+                                <div class="check-group">
+                                    <input type="checkbox" id="contractSelect2" name="contractSelect">
+                                    <label for="contractSelect2">
+                                        <span class="sr-only">계약 2 선택</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <ul class="info-list">
+                                <li>
+                                    <p class="tit">계약번호</p>
+                                    <p class="desc">ORIX-2026-0002</p>
+                                </li>
+                                <li>
+                                    <p class="tit">신청상품</p>
+                                    <p class="desc">자동차 장기임대</p>
+                                </li>
+                                <li>
+                                    <p class="tit">차량모델</p>
+                                    <p class="desc">GV70</p>
+                                </li>
+                                <li>
+                                    <p class="tit">대여기간</p>
+                                    <p class="desc">48개월</p>
+                                </li>
+                                <li>
+                                    <p class="tit">월임대료</p>
+                                    <p class="desc">980,000원</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bottom-button-wrap">
+                    <div class="bottom-button-inner">
+                        <div class="bottom-button-text-wrap">
+                            <div class="bottom-button-notice">
+                                <p class="notice">진행할 계약을 선택하신 후 [다음] 버튼을 눌러주세요.</p>
+                                <p class="notice">선택한 계약 내용 기준으로 전자약정을 진행합니다.</p>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <a href="#" class="btn-primary">다음</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    <span>ORIX Capital Korea Corporation</span>
+                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
+                </div>
+                <div class="footer-add">
+                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
+                    <span>대표이사 : 박철수</span>
+                    <span>사업자등록번호 : 120-86-63282</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            var $wrap = $('#contractSelectPractice');
+
+            function selectContract($card) {
+                $wrap.find('input[name="contractSelect"]').prop('checked', false);
+                $card.find('input[name="contractSelect"]').prop('checked', true);
+            }
+
+            $wrap.on('click', '.js-contract-card', function (e) {
+                e.preventDefault();
+                selectContract($(this));
+            });
+
+            $wrap.on('change', 'input[name="contractSelect"]', function () {
+                selectContract($(this).closest('.js-contract-card'));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,4 +1,32 @@
 $(function() {
+    /* 데이트피커 날짜 형식 변환 */
+    function formatDate(date) {
+        var year = date.getFullYear();
+        var month = String(date.getMonth() + 1).padStart(2, '0');
+        var day = String(date.getDate()).padStart(2, '0');
+
+        return year + '-' + month + '-' + day;
+    }
+
+    /* 데이트피커 오늘 + 15일 이전, 선택 가능일로부터 31일 이후 선택 안되게 */
+    function syncDateLimit() {
+        var todayObj = new Date();
+
+        var minDateObj = new Date(
+            todayObj.getFullYear(),
+            todayObj.getMonth(),
+            todayObj.getDate() + 16
+        );
+
+        var maxDateObj = new Date(minDateObj);
+        // min 날짜도 선택 가능한 1일차로 포함되기 떄문에 31일 범위는 +30
+        maxDateObj.setDate(maxDateObj.getDate() + 30);
+
+        $('.js-min-today')
+            .attr('min', formatDate(minDateObj))
+            .attr('max', formatDate(maxDateObj));
+    }
+
     /* 폼 관련 (Input 필터링, 포커스, 데이트피커 등) */
     function initFormControls() {
         var REGEX_MAP = {
@@ -63,33 +91,7 @@ $(function() {
             $('#dateSelectArea').toggle(!isDirect);
             $('#directInputArea').toggle(isDirect);
         });
-        /* 데이트피커 오늘 + 15일 이전, 오늘 + N일 (현재 56일일) 이후 선택 안되게 */
-        var todayObj = new Date();
-
-        function formatDate(date) {
-            var year = date.getFullYear();
-            var month = String(date.getMonth() + 1).padStart(2, '0');
-            var day = String(date.getDate()).padStart(2, '0');
-
-            return year + '-' + month + '-' + day;
-        }
-
-        var minDateObj = new Date(
-            todayObj.getFullYear(),
-            todayObj.getMonth(),
-            todayObj.getDate() + 15
-        );
-
-        var maxDateObj = new Date(
-            todayObj.getFullYear(),
-            todayObj.getMonth(),
-            todayObj.getDate() + 56
-        );
-
-        $('.js-min-today')
-            .attr('min', formatDate(minDateObj))
-            .attr('max', formatDate(maxDateObj));
-            
+        
         /* 인풋 전체 선택시 데이트피커 뜨도록*/
         $(document).on('click', 'input[type="date"].form-input', function() {
             if (typeof this.showPicker === 'function') {
@@ -263,6 +265,7 @@ $(function() {
     calcFirstPayDate(); /* 시뮬레이션용 납부일 변경 함수 (추후 제거 가능) */
 
     initFormControls();
+    syncDateLimit();
     initAccordion();
     initEtcUI();
     // initMainPageScroll();

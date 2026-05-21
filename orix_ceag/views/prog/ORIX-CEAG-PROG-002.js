@@ -119,21 +119,19 @@ $(function () {
         return year + '-' + month + '-' + day;
     }
 
-    // 데이트피커 오늘 + 15일 이전, 오늘 + N일 (현재 56일) 이후 선택 안되게
+    // 데이트피커 오늘 + 15일 이전, 선택 가능일로부터 31일 이후 선택 안되게
     function syncDateLimit() {
         var todayObj = new Date();
 
         var minDateObj = new Date(
             todayObj.getFullYear(),
             todayObj.getMonth(),
-            todayObj.getDate() + 15
+            todayObj.getDate() + 16
         );
 
-        var maxDateObj = new Date(
-            todayObj.getFullYear(),
-            todayObj.getMonth(),
-            todayObj.getDate() + 56
-        );
+        var maxDateObj = new Date(minDateObj);
+        // min 날짜도 선택 가능한 1일차로 포함되기 떄문에 31일 범위는 +30
+        maxDateObj.setDate(maxDateObj.getDate() + 30);
 
         $('.js-min-today')
             .attr('min', formatDate(minDateObj))
