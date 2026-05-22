@@ -63,7 +63,6 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 
 .form-content > .form-wrap > .form-group > .flex-row { display:flex; width:100%; align-items:center; }
 .form-group > .flex-row .label-tit { display:block; padding-left:10px; padding-right:10px; white-space:nowrap; }
-.notice-write-pop .form-group > .flex-row .label-tit.noti-title { width:78px;letter-spacing:30px; }
 .form-group > .flex-row .field-box { flex:1; min-width:0; }
 .form-group .field-box input,
 .form-group .field-box select { width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
@@ -114,6 +113,7 @@ main.contentWrap > .page-control { margin:0 auto; padding-top:30px; }
 .grid-caption .m-dot li { display:inline-block; margin:0; }
 .grid-caption .m-dot li + li { margin-left:20px; }
 .grid-caption input.noline { display:inline; width:auto; height:auto; padding:0; border:0; border-radius:0; cursor:unset; vertical-align: baseline; }
+.grid-caption input.noline.server-time { color: var(--secondary) !important;} /* 26.05.22 현행화 (공매 입찰관리 파일 업로드 팝업용) */
 .grid-caption .server-time { color:var(--secondary); }
 
 /** 그리드 content **/
@@ -134,6 +134,7 @@ td.tui-grid-cell.tui-grid-cell-editable .tui-grid-cell-content {font-size:16px !
 .tui-grid-container .grid-row-check { display:inline-block; width:14px; height:14px; background:url("../../images/ico_num_chk.png") no-repeat center center / 14px auto; vertical-align:middle; }
 .tui-grid-container .is-checked-row .tui-grid-cell,
 .tui-grid-container .tui-grid-cell.is-checked-cell { background-color:#E5EFFF; }
+.tui-grid-container .tui-grid-cell.is-checked-edit-cell { font-weight: 700; background-color: #F2F7EE; } /* 26.05.22 현행화 */
 .tui-grid-container .tui-grid-cell.is-checked-cell .grid-fake-input { background-color:#E5EFFF; }
 
 /* 가로 스크롤 */
@@ -165,8 +166,7 @@ td.tui-grid-cell.tui-grid-cell-editable .tui-grid-cell-content {font-size:16px !
 .grid-caption .caption-left .bid-status-tag.is-hidden { display:none; }
 .grid-body .tui-grid-layer-state p { top:60%; left:0; right:0; font-size:var(--font24); font-weight:var(--font-w600); line-height:30px; color:var(--color-2); transform:translateY(-60%); }
 .grid-body .tui-grid-layer-state p::before { content:""; position:absolute; bottom:60px; width:186px; height:175px; background:url("../../images/img_grid_nodata.png") no-repeat center center / 186px 175px; }
-.grid-body .tui-grid-layer-state p::after { display:block; margin-top:9px; font-size:var(--font18); font-weight:var(--font-w400); color:var(--color-75); line-height:24px; }
-.grid-body .tui-grid-layer-state p::after { content:"조회 조건을 설정한 뒤 공매 입찰관리 내역을 조회해 주세요"; }
+.grid-body .tui-grid-layer-state p::after { content:"조회 조건을 설정한 뒤 공매 입찰관리 내역을 조회해 주세요"; display:block; margin-top:9px; font-size:var(--font18); font-weight:var(--font-w400); line-height:24px; color:var(--color-75);}
 .grid-body.upload .tui-grid-layer-state p::after { content:"양식 다운로드 후, 작성된 파일을 업로드하여 등록을 진행해 주세요."; }
 
 /* 드래그 선택 영역 */
@@ -199,8 +199,14 @@ td.tui-grid-cell.tui-grid-cell-editable .tui-grid-cell-content {font-size:16px !
 /** info-text **/
 .user-list.info-text .form-content { display:flex; align-items:flex-end; gap:20px; }
 .user-list.info-text .form-content > .form-wrap { flex-wrap: nowrap; width: auto; margin-bottom:0; } /* 2026.04.24 */
-.user-list.info-text .info-blue { position:relative; padding-left:34px; color:var(--secondary); font-size:var(--font16); font-weight: var(--font-w400); /* word-break:keep-all; */ }
-.user-list.info-text .info-blue::before { content:""; position:absolute; top:0; left:0; width:28px; height:28px; background:url("../../images/com/svg/info_rounded_blue.svg") no-repeat center / contain; }
+/* 2026.05.22 인포 웹 추가 */
+.user-list.info-text .info-wrap {display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 10px;}
+/* 2026.05.22 폰트사이즈 14(0.875rem)으로 수정 */
+.user-list.info-text .info-blue { position:relative; padding-left:30px; color:var(--secondary); font-size:var(--font14); font-weight: var(--font-w400); /* word-break:keep-all; */ }
+/* 2026.05.22 아이콘 넓이 높이 top 포지션 수정 */
+.user-list.info-text .info-blue::before { content:""; position:absolute; top:-1px; left:0; width:24px; height:24px; background:url("../../images/com/svg/info_rounded_blue.svg") no-repeat center / contain; }
+/* 2026.05.22 아이콘 출력 X 추가 */
+.user-list.info-text .info-blue.no-icon::before {background: unset;}
 
 /* =============================================
     #새 창 팝업 newPop
@@ -228,6 +234,9 @@ body.popup { overflow:hidden; }
 .file-wrap .ipt-file .ipt-clear > .uploadInput { width:100%; padding-right:56px; }
 .file-wrap .ipt-file .ipt-clear > .btn-clear { right:8px; }
 .file-wrap .ipt-file > .upload-label { -ms-flex:0 0 auto; flex:0 0 auto; }
+.file-wrap .no-file { padding: 6px 0 6px 0; }  /* 26.05.22 현행화 */
+li[data-ui='file'] {cursor: pointer;} /* 26.05.22 현행화 */
+li[data-ui='file']:hover .file-link { text-decoration: underline; } /* 26.05.22 현행화 */
 
 /* pop-footer */
 .newPop .pop-main .pop-footer { flex:0 0 auto; margin-top:18px; }
@@ -244,8 +253,13 @@ body.popup { overflow:hidden; }
 .notice-write-pop .file-wrap { margin-top:23px; }
 .notice-write-pop .ipt-file { margin-bottom:5px; }
 .notice-write-pop .ipt-file:last-child { margin-bottom:0; }
-.notice-write-pop .notice-editor-area {width: 100%; min-height: 460px;}
+.notice-write-pop .notice-editor-area {width: 100%; min-height: 310px;} /* 26.05.22 현행화 */
 .notice-write-pop .notice-editor-area > * {height: 100%;}
+.notice-write-pop input[name="TITLE"] {padding-right: 120px;}
+.notice-write-pop .count-row {display: block; position: absolute; top: 10px; right: 15px; font-size: 0.875rem; color: var(--color-9); z-index: 15;} /* 26.05.22 현행화 */
+.notice-write-pop .count-row .count.ok { color: var(--active); } /* 26.05.22 현행화 */
+.notice-write-pop .count-row .count.error { color: var(--error-text); } /* 26.05.22 현행화 */
+.notice-write-pop .jodit-container .jodit-wysiwyg { overflow-y: auto !important; } /* 26.05.22 현행화 */
 
 /* 메인 공지사항 view editor 모달 */
 .notice-layer {display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
@@ -258,6 +272,7 @@ body.popup { overflow:hidden; }
 .pop-content.notice-pop.notice-detl .pop-body { max-height:680px; }
 .pop-content.notice-pop .pop-body::-webkit-scrollbar-thumb { border-radius:999px; background:rgba(49, 74, 137, 0.72); }
 .pop-content.notice-pop .pop-body::-webkit-scrollbar { width:6px; }
+
 /* 메인 공지사항 view editor 모달 파이어폭스 대응 스크롤바 */
 @-moz-document url-prefix() {
     .pop-content.notice-pop .pop-body {
@@ -288,7 +303,7 @@ body.popup { overflow:hidden; }
 .download-pop .guide-tit, .password-pop .guide-tit { margin:0; color:var(--color-2); font-size:var(--font20); font-weight:var(--font-w600); text-align:center; }
 
 /* 파일 다운로드 팝업 전용 */
-.download-pop .download-alert { flex:0 0 auto; margin:0 0 10px; padding: 14px 0 14px 0; border-radius:10px; background-color:#FBDEDE; color:var(--error-text); font-size:var(--font14); /* font-weight:var(--font-w500); */ text-align:center; }
+/* .download-pop .download-alert { flex:0 0 auto; margin:0 0 10px; padding: 14px 0 14px 0; border-radius:10px; background-color:#FBDEDE; color:var(--error-text); font-size:var(--font14); font-weight:var(--font-w500); text-align:center; } */
 .download-pop .download-guide-list { margin:30px 0 0; padding:0; list-style:none; }
 .download-pop .download-guide-list li { position:relative; margin-top:10px; padding-left:14px; color:var(--color-45); font-size:var(--font16); font-weight: var(--font-w300); word-break:keep-all; }
 .download-pop .download-guide-list li:first-child { margin-top:0; }
@@ -298,6 +313,7 @@ body.popup { overflow:hidden; }
 
 /* 사용자확인 암호입력 팝업 전용*/
 .layerPopup.modal .pop-content.password-pop { max-width:600px;}
+.layerPopup.modal .password-pop .pop-body { padding-bottom: 10px; } /* 26.05.22 현행화 */
 .password-pop .pop-form-box { width:100%; max-width:500px; margin:30px auto 0; }
 .password-pop .pop-form-row { display:table; width:100%; table-layout:auto; }
 .password-pop .pop-form-row .label-tit { position:relative; display:table-cell; width:1%; padding:0 12px 0 18px; white-space:nowrap; vertical-align:middle; font-size:var(--font16); font-weight:var(--font-w500); color:var(--color-75); }
@@ -409,6 +425,9 @@ body.main-body .wrap {min-width: 0;}
 .main-page .notice-action img { display:block; width:70px; height:70px; }
 .main-page .notice-head, .main-page .notice-list { position:relative; z-index:1; }
 .main-page .notice-list { max-height:490px; overflow-y:auto; overflow-x:hidden; margin-right:-50px; padding-right:44px; box-sizing:content-box; }
+/* S: 조회결과없음 2026.05.07추가 */
+.main-page .notice-list.no-data {display: flex; justify-content: center; align-items: center;}
+/* E: 조회결과없음 2026.05.07추가 */
 .main-page .notice-list li + li a { border-top:1px solid rgba(255, 255, 255, 0.2); }
 .main-page .notice-list li:first-child { border-top:0; }
 .main-page .notice-list a {  position:relative; display:block; min-height:95px; padding:15px 74px 15px 0; box-sizing:border-box; color:var(--color-f); font-size:var(--font20); font-weight:var(--font-w500); cursor:default; }

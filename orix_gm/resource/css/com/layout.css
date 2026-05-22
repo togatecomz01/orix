@@ -186,16 +186,6 @@ h3.rfrnc::before { content:"※ "; display:inline; position:relative; left:inher
 .page-container.indent .text-group .text-list > li > .text-list,
 .pop-body.indent .text-group .text-list > li > ol { margin-left:20px; margin-top:12px; }
 
-/**유의사항**/
-.note-group { padding:32px 40px 42px; border:var(--board); }
-.note-content .tit,
-.note-group .tit { position:relative; padding-left:46px; padding-bottom:29px; font-size:var(--font22); font-weight:var(--font-w500); color:var(--color-2); }
-.note-content .tit::before,
-.note-group .tit::before,
-.note-group .detail-tit::before { content:""; position:absolute; top:6px; left:8px; display:block; width:24px; height:24px; background:var(--ico-info)no-repeat center; background-size:auto 24px; }
-.note-group ul li + li { margin-top:16px; }
-
-
 /** 인풋 레이아웃 **/
 .form-content > .form-wrap { display:flex; gap:20px; margin-bottom:40px; }
 .form-content > .form-wrap:first-of-type { margin-top:0; }
@@ -262,6 +252,7 @@ main.contentWrap > .bottom-container { margin-top:72px; }
 .layerPopup.modal .pop-content { max-width:400px; padding:32px 32px 28px 32px; min-width:auto; height:auto; width:calc(100% - 40px); border-radius:20px;  }
 .layerPopup.modal .pop-header { padding:0; }
 .layerPopup.modal .pop-body {  margin-bottom:30px; padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:1rem; text-align:center; }
+.layerPopup.modal .pop-body.notice-write-pop { overflow-y: hidden; } /* 2026.05.22 현행화 */
 .layerPopup.modal .pop-body:focus { border:0; outline:0; }
 .layerPopup.modal .pop-body .tit { margin-bottom:12px; font-size:1.111rem; font-weight:500;}
 /* .layerPopup.modal .pop-body p { font-size:1rem; text-align:center; } */ /* 260414 삭제, pop-body로 css 이동 */

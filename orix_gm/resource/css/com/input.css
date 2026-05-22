@@ -46,7 +46,7 @@ body{
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
-label.button:has(:focus-visible) { outline:2px solid var(--form-active); outline-offset:4px; z-index:2;  }
+label.button:has(:focus-visible) { outline:2px solid var(--color-45); outline-offset:4px; z-index:2;  }
 
 /* =============================================
     #레이블
@@ -68,9 +68,12 @@ input[type="search"],
 input[type="date"],
 input[type="month"],
 input[type="datepicker"],
-select{ width:100%; height:var(--form-height); max-height:var(--form-height); background:var(--form-bg); border: 1px solid var(--form-board); border-radius:var(--form-radius); padding:var(--form-padding); color:var(--from-font-color); box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+select{ width:100%; height:var(--form-height); max-height:var(--form-height); background:var(--form-bg); border: 1px solid var(--form-board); border-radius:var(--form-radius); padding:var(--form-padding); color:var(--form-font-color); box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 input[type="password"] { letter-spacing:-5px; } /* 2026.04.24 */
-textarea { width:100%; border:1px solid var(--form-board); padding:12px 16px; color:var(--from-font-color); font-size:var(--font18); box-sizing:border-box; }
+textarea { width:100%; border:1px solid var(--form-board); padding:12px 16px; color:var(--form-font-color); font-size:var(--font18); box-sizing:border-box; }
+
+/* input placeholder 색상 지정 */
+input:not([type=file])::placeholder {color: var(--color-9) !important;} /* 2026.05.22 현행화 */
 
 /*
     2026.04.24 safari에서 input 장식 숨김
@@ -102,10 +105,12 @@ input[type="password"]::placeholder { letter-spacing:normal; } /* 2026.04.24 */
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder { color: var(--form-placeholder-color); }
 input[type="password"]::-webkit-input-placeholder { letter-spacing:normal; } /* 2026.04.24 */
+
 /* Firefox */
 input::-moz-placeholder,
 textarea::-moz-placeholder { color: var(--form-placeholder-color); opacity: 1; }
 input[type="password"]::-moz-placeholder { letter-spacing:normal; } /* 2026.04.24 */
+
 /* IE11 */
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder { color: var(--form-placeholder-color); }
@@ -169,42 +174,7 @@ mask-image:var(--ico-search); mask-position:center; mask-repeat:no-repeat; mask-
 .form-group .txt-unit > input { text-align:right; padding-right:40px; }
 .form-group .txt-unit > span { z-index:2; position:absolute; top:50%; right:16px; transform:translate(0, -50%); color:var(--color-75); }
 
-/* =============================================
-    #체크박스 / 라디오
-    기본 : label > input
-    style2 : input + label
-============================================= */
-label:has(input) { display:inline-flex; align-items:center; font-size:var(--form-font-size) }
-label.check,
-label.radio { gap:14px; padding:6px 24px 8px 0; }
 
-/* 체크 여부에 따른 span 스타일 */
-.radio-item.style2 input[type="radio"] + label,
-label input:not(:checked) + span { flex:1; width:100%; font-weight:var(--font-w500); color:var(--color-45); }
-.radio-item.style2 input[type="radio"]:checked + label,
-label input:checked + span { flex:1; width:100%; color:var(--form-font-color); font-weight:500; }
-.radio-item.style2 input[type="radio"]:not(:checked) + label,
-label input:not(:checked) + span { font-weight:400; }
-
-/* 라디오 */
-label input[type="radio"] { position:relative; width:var(--radio-s); height:var(--radio-s); border-radius:50%; background:var(--color-f); overflow:hidden; }
-.radio-item.style2 label.radio::before,
-label input[type="radio"]:not(:checked) { border:2px solid #8d8d8d;  }
-.radio-item.style2 input[type="radio"]:checked + label.radio::before,
-label input[type="radio"]:checked { border:7px solid var(--form-checked);  }
-.radio-item.style2 input[type="radio"]:disabled + label.radio::before,
-label input[type="radio"]:disabled { border:7px solid var(--form-check-dissbled); }
-
-/* style2 */
-.form-group .radio-item.style2,
-.form-group .check-item.style2 { position:relative; display:inline-block; }
-.check-item.style2 input[type="checkbox"],
-.radio-item.style2 input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
-.radio-item.style2 input[type="radio"] + label.radio,
-.check-item.style2 input[type="checkbox"] + label.check { padding-left:40px; }
-.radio-item.style2 input[type="radio"] +  label.radio::before { content:""; position:absolute; top:50%; transform:translateY(-50%); left:0; display:inline-block; width:var(--radio-s2); height:var(--radio-s2); border-radius:50%; background:var(--color-f); overflow:hidden; }
-.radio-item.style2 input[type="radio"]:checked + label.radio::before,
-.radio-item.style2 input[type="radio"]:disabled + label.radio::before { width:var(--radio-s-s2); height:var(--radio-s-s2); }
 
 /* guide type : input + label */
 .check-group,
@@ -244,32 +214,6 @@ label input[type="radio"]:disabled { border:7px solid var(--form-check-dissbled)
 .radio-group input[type="radio"]:disabled + label.radio::before { border-color:var(--color-d); background-color:var(--color-d); }
 
 .radio-group input[type="radio"]:disabled + label.radio::after { background-color:#E9E7E7; }
-
-/* 체크박스 */
-label input[type="checkbox"],
-.terms input[type="checkbox"] { position:relative; width:var(--check-s); height:var(--check-s); border:1px solid var(--form-checkbox-border); overflow:hidden; border-radius:50%;  }
-.terms input[type="checkbox"]:checked { background:var(--form-board); }
-
-label input[type="checkbox"]::before,
-.terms input[type="checkbox"]::before { content:""; display:block; width:100%; height:100%; background:var(--color-f); mask-image:var(--form-checkbox); mask-position:center; mask-repeat:no-repeat; mask-size:15px auto; --webkit-mask-image:var(--form-checkbox); --webkit-mask-position:center; --webkit-mask-repeat:no-repeat; --webkit-mask-size:15px auto; }
-
-label input[type="checkbox"]:not(:checked)::before,
-.terms input[type="checkbox"]:not(:checked)::before,
-.check-item.style2 input[type="checkbox"]:not(:checked) + label.check::before { mask-image:none;  -webkit-mask-image:none; }
-label input[type="checkbox"]:checked,
-.terms input[type="checkbox"]:checked,
-.check-item.style2 input[type="checkbox"]:checked + label.check::before  { background:var(--form-checked); }
-label input[type="checkbox"]:disabled,
-.terms input[type="checkbox"]:disabled { background:var(--form-check-dissbled); }
-
-/* style2 */
-.check-item.style2 input[type="checkbox"] + label.check { padding-left:40px; }
-.check-item.style2 input[type="checkbox"] + label.check::before,
-.check-item.style2 input[type="checkbox"]:checked + label.check::after { content: ""; position: absolute; top: 50%; transform: translateY(-50%); left: 0; display: inline-block; border:1px solid var(--form-checkbox-border); overflow:hidden; border-radius:50%; }
-.check-item.style2 input[type="checkbox"] + label.check::before { width:var(--check-s); height:var(--check-s); border: 1px solid #BBBBBB; background-color: #FFFFFF; }
-.check-item.style2 input[type="checkbox"]:checked + label.check::before { width:var(--check-s); height:var(--check-s); background:var(--form-checked); }
-.check-item.style2 input[type="checkbox"]:checked + label.check::after { width:var(--check-s); height:var(--check-s); background:var(--color-f); mask-image:var(--form-checkbox); mask-position:center; mask-repeat:no-repeat; mask-size:15px auto; --webkit-mask-image:var(--form-checkbox); --webkit-mask-position:center; --webkit-mask-repeat:no-repeat; --webkit-mask-size:15px auto; }
-.check-item.style2 input[type="checkbox"]:disabled + label.check::before { background:var(--form-check-dissbled); }
 
 /** textxarea 글자수 **/
 .textarea-wrap { position:relative; padding-bottom:0; }
@@ -390,7 +334,7 @@ input[type="date"] + button { position:absolute; right:10px; top:50%; transform:
 
 /* 달력 열림 상태 */
 .date.is-open,
-.date[aria-expanded="true"] { border:1px solid var(--form-active); outline:2px solid var(--form-active); outline-offset:4px; z-index:2;  }
+.date[aria-expanded="true"] { border:1px solid var(--color-45); outline:2px solid var(--color-45); outline-offset:4px; z-index:2;  }
 
 /** jQuery UI 달력 **/
 .ui-widget.ui-widget-content  {
@@ -422,7 +366,7 @@ input[type="date"] + button { position:absolute; right:10px; top:50%; transform:
 .terms:not(:has(.check-all-area)) li:first-child { border-top:1px solid var(--color-2); }
 .terms input[type="checkbox"] { display:inline-block; }
 .terms input[type="checkbox"] + label { display:inline-block; position:relative; margin:0; min-height:30px; line-height:30px; color:var(--color-45); font-weight:var(--font-w500); font-size:1rem; }
-.terms input[type="checkbox"]:checked  + label span { font-weight:var(--font-w500); color:var(--from-font-color); }
+.terms input[type="checkbox"]:checked  + label span { font-weight:var(--font-w500); color:var(--form-font-color); }
 
 /* 전체동의 */
 .terms li.check-all-area { margin-bottom:9px; border-bottom:1px solid var(--color-2); }
@@ -485,7 +429,7 @@ ul.check-box.terms li .modal { position:absolute; top:50%; right:20px; transform
     label.button { display:inline-flex; align-items:center; }
 
     /* focus */
-    label.button:focus-within { outline:2px solid var(--form-active); outline-offset:4px; z-index:2; }
+    label.button:focus-within { outline:2px solid var(--color-45); outline-offset:4px; z-index:2; }
 
     /* 라디오 버튼 탭 */
     .r-button input[type="radio"]:checked + label.radio { background:var(--color-f); border-color:var(--primary); color:var(--primary); font-weight:var(--font-w700); }
@@ -493,7 +437,7 @@ ul.check-box.terms li .modal { position:absolute; top:50%; right:20px; transform
     /* form-group 에러 */
     .form-group.is-error input,
     .form-group.is-error select,
-    .form-group.is-error textarea { border:1px solid var(--error); }
+    .form-group.is-error textarea { border:1px solid var(--error-text); }
 
     /* 약관 */
     .terms.no-check-all li:first-child { border-top:1px solid var(--color-2); }
