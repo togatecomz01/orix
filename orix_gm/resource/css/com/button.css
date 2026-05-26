@@ -121,6 +121,8 @@ mask-image:var(--ico-download); mask-repeat:no-repeat; mask-size:auto 40px; mask
 
 /* primary */
 .btn-primary { border:1px solid var(--primary); background-color:var(--primary); color:var(--color-f); }
+.btn-primary:focus,
+.btn-primary:focus-visible { color: var(--color-f); }
 
 /* secondary */
 .btn-secondary { border:1px solid var(--secondary); background-color:var(--secondary); color:var(--color-f); }

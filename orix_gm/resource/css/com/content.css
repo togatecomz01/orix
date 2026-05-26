@@ -2,9 +2,12 @@
 /*** 색상 ***/
 .color-b { color:var(--secondary); }
 .color-r { color:#E44B4B; }
+.color-9 { color: var(--color-9); }
+
 /*** 태그 ***/
 input[class*="tag-"] { display:inline-block; min-width:unset; min-width:76px; max-width:120px; width:100%; max-height:unset; height:30px; padding:0 8px; border:0; border-radius:30px; font-size:var(--font16); font-weight:var(--font-w400); line-height:30px; text-align:center; cursor:unset; }
-[class*="tag-"]:focus { border:0; }
+[class*="tag-"]:focus,
+[class*="tag-"]:focus-visible { border:0; outline: 0; }
 input.tag-ing { background-color:var(--ing-bg); color:var(--ing-text); }
 input.tag-end { background-color:var(--end-bg); color:var(--end-text); }
 input.tag-success { background-color:var(--success-bg); color:var(--success-text); }
