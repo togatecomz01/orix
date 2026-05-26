@@ -12,7 +12,7 @@
     <script src="../../resource/js/common.js"></script>
     <script src="../../resource/js/include.js"></script>
 </head>
-<body> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
+<body style="overflow: hidden;"> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
     <div id="wrap">
         <div data-include-path="../include/inc-header.html"></div>
 
@@ -26,26 +26,28 @@
                     </div>
                 </div>
 
-                <div class="card-box mb-42">
-                    <h3 class="card-tit">약관 동의</h3>
+                <div class="card-box mb-42"> 
 
-                    <div class="terms-guide">
-                        각 약관의 상세 내용을 펼쳐 끝까지 확인해 주세요. 각 약관의 상세내용 하단에 위치한 [동의] 버튼을 클릭해야만 해당 약관의 확인 상태가 자동으로 변경되며, 모든 필수 약관 동의 완료 시 다음 단계를 진행하실 수 있습니다.
+                    <div class="agree-header">
+                        <div class="check-group">
+                            <input type="checkbox" id="agreeAll">
+                            <label for="agreeAll">전체 약관동의</label>
+                        </div>
                     </div>
 
                     <div class="accordion-list">
-                        <div class="acc-item">
+                        <div class="acc-item active">
                             <div class="acc-head">
                                 <div class="check-group line-type">
                                     <input type="checkbox" id="term1" name="terms">
                                     <label for="term1">
-                                        <span class="term-badge is-pending">미확인</span>
-                                        <span class="acc-trigger term-title">[필수] 개인정보 수집 · 이용 동의</span>
+                                        
+                                        <span class="acc-trigger"><span class="blue-txt">(필수)</span>개인정보 수집 · 이용 동의</span>
                                     </label>
                                 </div>
                                 <button type="button" class="btn-toggle" aria-label="내용 열기/닫기"></button>
                             </div>
-                            <div class="acc-body">
+                            <div class="acc-body" style="display: block;"> <!-- 초기 인라인 스타일 -> js로 제어 -->
                                 <div class="term-content">
                                     <p class="term-tit">[필수]개인정보 수집이용 동의</p>
                                     <ul class="bul-refer">
@@ -61,73 +63,46 @@
                                             <li>이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 처리하는 것에 동의합니다.</li>
                                         </ul>
                                     </div>
-                                    <div class="btn-area">
-                                        <button class="btn-form">동의</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="acc-item">
+                        <div class="acc-item active">
                             <div class="acc-head">
                                 <div class="check-group line-type">
                                     <input type="checkbox" id="term2" name="terms">
-                                    <label for="term2">
-                                        <span class="term-badge is-pending">미확인</span>
-                                        <span class="term-title">[필수] 고유식별 정보처리 동의</span>
-                                    </label>
+                                    <label for="term2"><span class="blue-txt">(필수)</span> 고유식별정보처리동의</label>
                                 </div>
                                 <button type="button" class="btn-toggle"></button>
                             </div>
-                            <div class="acc-body">
-                                <div class="term-content">
-                                    내용이 들어갑니다.
-                                    <div class="btn-area">
-                                        <button class="btn-form">동의</button>
-                                    </div>
-                                </div>
+                            <div class="acc-body" style="display: block;">
+                                <div class="term-content">내용이 들어갑니다.</div>
                             </div>
                         </div>
 
-                        <div class="acc-item">
+                        <div class="acc-item active">
                             <div class="acc-head">
                                 <div class="check-group line-type">
                                     <input type="checkbox" id="term3" name="terms">
-                                    <label for="term3">
-                                        <span class="term-badge is-pending">미확인</span>
-                                        <span class="term-title">[필수] 통신사 이용약관 동의</span>
-                                    </label>
+                                    <label for="term3"><span class="blue-txt">(필수)</span> 통신사 이용약관 동의</label>
                                 </div>
                                 <button type="button" class="btn-toggle"></button>
                             </div>
-                            <div class="acc-body">
-                                <div class="term-content">
-                                    내용이 들어갑니다.
-                                    <div class="btn-area">
-                                        <button class="btn-form">동의</button>
-                                    </div>
-                                </div>
+                            <div class="acc-body" style="display: block;">
+                                <div class="term-content">내용이 들어갑니다.</div>
                             </div>
                         </div>
 
-                        <div class="acc-item">
+                        <div class="acc-item active">
                             <div class="acc-head">
                                 <div class="check-group line-type">
                                     <input type="checkbox" id="term4" name="terms">
-                                    <label for="term4">
-                                        <span class="term-badge is-pending">미확인</span>
-                                        <span class="term-title">[필수] 서비스 이용약관 동의</span>
-                                    </label>
+                                    <label for="term4"><span class="blue-txt">(필수)</span> 서비스 이용약관 동의</label>
                                 </div>
                                 <button type="button" class="btn-toggle"></button>
                             </div>
-                            <div class="acc-body">
-                                <div class="term-content">
-                                    내용이 들어갑니다.
-                                    <div class="btn-area">
-                                        <button class="btn-form">동의</button>
-                                    </div>
-                                </div>
+                            <div class="acc-body" style="display: block;">
+                                <div class="term-content">내용이 들어갑니다.</div>
                             </div>
                         </div>
                     </div>
@@ -230,7 +205,7 @@
         <div data-include-path="../include/inc-footer.html"></div>
     </div>
     
-    <!-- <div id="popLoading" class="layer-popup on">
+    <div id="popLoading" class="layer-popup on">
         <div class="pop-dimmed"></div>
         <div class="pop-container type-loading">
             <div class="loading-body">
@@ -246,6 +221,6 @@
                 </p>
             </div>
         </div>
-    </div> -->
+    </div>
 </body>
 </html>

@@ -3,86 +3,67 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>오릭스 A시안 (진입 가능여부 식별)</title>
-
+    <title>오릭스 전자약정</title>
+    
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
 
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
     <script src="../../resource/js/jquery.form.min.js"></script>
     <script src="../../resource/js/common.js"></script>
-    <script src="../../resource/js/include.js"></script>
-
 </head>
-<body> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
-    <div id="wrap">
-        <div data-include-path="../include/inc-header.html"></div>
-
-        <div id="contentWrap" role="main">
-            <div class="contents">
-                <div class="visual-content">
-                    <h2 class="page-tit">
-                        안녕하세요! 
-                        <span class="blue">약정 대상 인증 후, </span>
-                        약정을 시작할게요.
-                    </h2>
-                    <p class="s-tit">안전한 법인전자약정을 위해, 계약 시 등록하신 정보를 확인하고 있습니다. 일부 숨겨진 이메일과 전화번호의 빈칸을 채워 인증을 진행해 주세요.</p>
-                </div>
-                <div class="layout-grid">
-                    <div class="col-group term">
-                        <div class="card-box">
-                            <h3 class="card-tit">이메일</h3>
-                            <div class="verify-row">
-                                <div class="form-item">
-                                    <p class="form-label">등록하신 이메일 주소</p>
-                                    <div class="masked-field">orix ●●●●●● @orix.co.kr</div>
-                                </div>
-
-                                <span class="verify-arrow" aria-hidden="true"></span>
-
-                                <div class="form-item">
-                                    <label for="verifyEmail" class="form-label">빈칸을 모두 채워 입력해주세요.</label>
-                                    <input type="text" id="verifyEmail" class="form-input" value="orix123@orix.co.kr">
-                                    <p class="error-msg">이메일 주소를 확인해 주세요.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-box">
-                            <h3 class="card-tit">연락처</h3>
-                            <div class="verify-row">
-                                <div class="form-item">
-                                    <p class="form-label">등록하신 연락처</p>
-                                    <div class="masked-field">010-●●●●-1234</div>
-                                </div>
-
-                                <span class="verify-arrow" aria-hidden="true"></span>
-
-                                <div class="form-item">
-                                    <label for="verifyTel" class="form-label">빈칸을 모두 채워 입력해주세요.</label>
-                                    <input type="tel" id="verifyTel" class="form-input" value="01012341234" inputmode="numeric">
-                                    <p class="error-msg">연락처를 확인해주세요</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="bottom-button-wrap">
-                <div class="bottom-button-inner">
-                    <div class="bottom-button-text-wrap">
-                        <div class="bottom-button-notice">
-                            <p class="notice">타인의 접근을 차단하고, 약정 대상임을 안전하게 확인하기 위한 절차로</p>
-                            <p class="notice">계약 시 등록하신 정보가 기억나지 않으실 경우, 고객센터 또는 계약 담당자에게 문의하시기 바랍니다.</p>
-                        </div>
-                    </div>
-                    <div class="btn-area">
-                        <a href="../prog/ORIX-CEAG-PROG-003.html" class="btn-primary disabled">인증하기</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
-                    </div>
+<body>
+    <div id="wrap" class="error-page">
+        <div id="headerWrap">
+            <div class="header-inner">
+                <h1 class="logo"><a href="#"><img src="../../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
+                <div class="header-contact">
+                    <span class="txt">고객센터</span>
+                    <span class="tel">02-2050-6700</span>
                 </div>
             </div>
         </div>
 
-        <div data-include-path="../include/inc-footer.html"></div>
+        <div id="contentWrap">
+            <div class="contents">
+                <div class="error-container">
+
+                    <div class="error-visual"></div>
+
+                    <h2 class="error-tit">
+                        <span class="red-txt">서비스장애</span>가 발생하였습니다.
+                    </h2>
+
+                    <div class="error-info-box">
+                        <p class="error-desc">
+                            진행 가능한 전자약정 내역이 존재하지 않습니다. <br>
+                            오릭스캐피탈코리아 고객센터 또는 계약 담당자에게 연락해 주세요
+                        </p>
+                        <!-- URL 유효기간이 만료된 경우 주석 해제 -->
+                        <!-- <p class="error-desc">
+                            URL 유효기간이 만료되었습니다. <br>
+                            오릭스캐피탈 고객센터 또는 담당자에게 연락해주세요.
+                        </p>
+ -->
+                        <!-- 화면설계서 오류 메시지 참고 하여 error-desc 수정 -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="footerWrap" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    <span>ORIX Capital Korea Corporation</span>
+                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
+                </div>
+
+                <div class="footer-add">
+                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
+                    <span>대표이사 : 박철수</span>
+                    <span>사업자등록번호 : 120-86-63282</span>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

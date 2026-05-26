@@ -43,7 +43,7 @@
 
 
 /* 에러 페이지, 완료 페이지 전용 레이아웃 (Main Error)*/
-.error-container { padding-top: 52px; }
+.error-container { padding-top: 113px; }
 .error-page, 
 .error-page #headerWrap, 
 .complete-page , .complete-page #headerWrap,

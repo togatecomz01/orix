@@ -134,7 +134,7 @@ td.tui-grid-cell.tui-grid-cell-editable .tui-grid-cell-content {font-size:16px !
 .tui-grid-container .grid-row-check { display:inline-block; width:14px; height:14px; background:url("../../images/ico_num_chk.png") no-repeat center center / 14px auto; vertical-align:middle; }
 .tui-grid-container .is-checked-row .tui-grid-cell,
 .tui-grid-container .tui-grid-cell.is-checked-cell { background-color:#E5EFFF; }
-.tui-grid-container .tui-grid-cell.is-checked-edit-cell { font-weight: 700; background-color: #F2F7EE; } /* 26.05.22 현행화 */
+.tui-grid-container .tui-grid-cell.is-checked-edit-cell { font-weight: 800; color: var(--color-f); background-color: #3182EE; font-size: var(--font16); } /* 26.05.22 현행화 */
 .tui-grid-container .tui-grid-cell.is-checked-cell .grid-fake-input { background-color:#E5EFFF; }
 
 /* 가로 스크롤 */

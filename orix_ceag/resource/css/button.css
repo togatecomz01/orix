@@ -45,3 +45,6 @@
     .btn-download { font-size: var(--font16); }
     .ico-download { width: 24px; height: 24px; }
 }
+
+/* 2026.05.22 acc-body 내부 버튼 area */
+.term-content .btn-area {margin-top: 20px; display: flex; justify-content: center;}
