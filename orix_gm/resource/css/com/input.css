@@ -22,7 +22,6 @@ body{
 
     --form-focus:var(--color-45);
     --form-focus-font-color:var(--color-45);
-    --form-checkbox:url("../../images/com/svg/ico_form_check.svg");
     --form-checked:#0098CB;
     --form-check-dissbled:#9CB1C4;
     --form-checkbox-border:#8D8D8D;
@@ -30,14 +29,12 @@ body{
     --th-form-label-font-size:1rem;
 
     --form-radio-bg:var(--color-75);
-    --form-date-ico:url("../../images/com/svg/ico_date.svg");
-    --ico-search:url("../../images/com/svg/ico_search.svg");
 
     --radio-s:28px;
     --radio-s2:23px;
     --radio-s-s2:14px;
 
-    --ico-file:url("../../images/com/svg/ico_file.svg")
+    --ico-file:url("../../images/com/svg/ico_file.svg");
 }
 
 /* =============================================
@@ -68,9 +65,9 @@ input[type="search"],
 input[type="date"],
 input[type="month"],
 input[type="datepicker"],
-select{ width:100%; height:var(--form-height); max-height:var(--form-height); background:var(--form-bg); border: 1px solid var(--form-board); border-radius:var(--form-radius); padding:var(--form-padding); color:var(--form-font-color); box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+select{ width:100%; height:var(--form-height); max-height:var(--form-height); background:var(--form-bg); border: 1px solid var(--form-board); border-radius:var(--form-radius); padding:var(--form-padding); box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 input[type="password"] { letter-spacing:-5px; } /* 2026.04.24 */
-textarea { width:100%; border:1px solid var(--form-board); padding:12px 16px; color:var(--form-font-color); font-size:var(--font18); box-sizing:border-box; }
+textarea { width:100%; border:1px solid var(--form-board); padding:12px 16px; font-size:var(--font18); box-sizing:border-box; }
 
 /* input placeholder 색상 지정 */
 input:not([type=file])::placeholder {color: var(--color-9) !important;} /* 2026.05.22 현행화 */
@@ -91,7 +88,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 select { padding:0 26px 0 12px; -webkit-appearance:none; -moz-appearance:none; appearance:none; background:url("../../images/com/svg/ico_select.svg") no-repeat right 8px center; line-height:var(--form-height); background-color:#ffffff; }
 
 /** 검색 인풋 아이콘 **/
-input[type="search"] { background-image:var(--ico-search); background-size:18px; background-repeat:no-repeat; background-position:right 14px center;  }
+/* input[type="search"] { background-image:var(--ico-search); background-size:18px; background-repeat:no-repeat; background-position:right 14px center;  } */
 
 /** 파일 숨김 처리 **/
 input.upload { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
@@ -166,8 +163,8 @@ textarea:disabled { background-color:var(--form-disabled); color:var(--form-disa
 /** 검색 인풋 with 버튼 **/
 .form-group .search input[type="search"] { background:transparent; padding-left:16px; padding-right:56px;  }
 .form-group .search input + button.btn-sch {position:absolute; top:50%; right:16px; transform:translate(0, -50%); font-size:0; }
-.form-group .search input + button.btn-sch::before { content:""; display:block; width:24px; height:24px; background-color:var(--color-2);
-mask-image:var(--ico-search); mask-position:center; mask-repeat:no-repeat; mask-size:80%; --webkit-mask-image:var(--ico-search); --webkit-mask-position:center; --webkit-mask-repeat:no-repeat; --webkit-mask-size:80%; }
+/* .form-group .search input + button.btn-sch::before { content:""; display:block; width:24px; height:24px; background-color:var(--color-2);
+mask-image:var(--ico-search); mask-position:center; mask-repeat:no-repeat; mask-size:80%; --webkit-mask-image:var(--ico-search); --webkit-mask-position:center; --webkit-mask-repeat:no-repeat; --webkit-mask-size:80%; } */
 
 /** 단위 텍스트 (txt-unit) **/
 .form-group .txt-unit { position:relative; }
@@ -286,7 +283,7 @@ label.toggle.style2 input:checked + span { left:6px; width:auto; color:var(--pri
 /* =============================================
     #유효성체크
 ============================================= */
-input[aria-invalid="true"] { border:1px solid var(--error) !important; }
+input[aria-invalid="true"] { border:1px solid var(--error-text) !important; }
 input[aria-invalid="true"]:focus-visible,
 select[aria-invalid="true"]:focus-visible,
 .form-group:has(.error) input:focus-visible,
@@ -294,14 +291,14 @@ select[aria-invalid="true"]:focus-visible,
 .form-group:has(.error) textarea:focus-visible,
 tr td:has(.error) input:focus-visible,
 tr td:has(.error) select:focus-visible,
-tr td:has(.error) textarea:focus-visible { outline:2px solid var(--error); outline-offset:4px; z-index:2;  }
+tr td:has(.error) textarea:focus-visible { outline:2px solid var(--error-text); outline-offset:4px; z-index:2;  }
 
 .form-group:has(.error) input,
 .form-group:has(.error) select,
 .form-group:has(.error) textarea,
 tr td:has(.error) input,
 tr td:has(.error) select,
-tr td:has(.error) textarea { border:1px solid var(--error); }
+tr td:has(.error) textarea { border:1px solid var(--error-text); }
 
 
 .form-group:has(input[aria-invalid="true"]) span + .error,
@@ -396,6 +393,10 @@ ul.check-box.terms li .modal { position:absolute; top:50%; right:20px; transform
 .upload-label .fileLabel { display:block; line-height:38px; font-weight:var(--font-w500); }
 .upload-text.up + .upload-label { border-color:var(--active); }
 .upload { display:none; }
+/* 파일 인풋 포커스 예외처리 (26.05.26) */
+.file-wrap .ipt-file .ipt-clear > .uploadInput {border: 0; outline: none; }
+.file-wrap .ipt-file .ipt-clear > .uploadInput:focus,
+.file-wrap .ipt-file .ipt-clear > .uploadInput:focus-visible {border: 0; outline: none;}
 
 /* 이미지 첨부 */
 /* .photo-content { display:flex; gap:28px; }

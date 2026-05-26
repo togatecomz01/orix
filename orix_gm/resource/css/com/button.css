@@ -41,15 +41,9 @@ body{
 
     --btn-text:var(--primary);
 
-    --lst-btn-pprev:url("../../images/com/svg/ico_pprev.svg");
-    --lst-btn-prev:url("../../images/com/svg/ico_prev.svg");
     --ico-file:url("../../images/com/svg/ico_file.svg");
     --ico-close: url("../../images/com/svg/ico_close.svg");
-    --ico-login: url("../../images/content/register/w/ico_login.svg");
-    --ico-login2: url("../../images/content/register/w/ico_login2.png");
-    --ico-register: url("../../images/content/register/w/ico_register.svg");
-    --ico-add:url("../../images/com/svg/ico_add.svg");
-    --ico-del:url("../../images/com/svg/ico_del.svg");
+    
     --tab-active:var(--primary);
 }
 
@@ -101,7 +95,7 @@ mask-image:var(--ico-download); mask-repeat:no-repeat; mask-size:auto 40px; mask
 #scrollTop { position:fixed; right:30px; bottom:30px; opacity:0; visibility:hidden; transition:opacity 0.3s ease, visibility 0.3s ease; z-index:11; }
 #scrollTop.on { opacity: 1; visibility: visible; }
 #scrollTop .scrollUpBtn { width:48px; height:48px; background-color:var(--color-f); border:1px solid var(--color-d); border-radius: 50%; cursor: pointer; box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.08); transition: background-color 0.3s ease, transform 0.2s ease; font-size:0; }
-#scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-75); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; }
+/* #scrollTop .scrollUpBtn::before { content:""; display:block; margin:0 auto; width:24px; height:24px; background-color:var(--color-75); mask-image:url("../../images/com/svg/ico_top_scroll.svg"); -webkit-mask-image:url("../../images/com/svg/ico_top_scroll.svg"); mask-repeat:no-repeat; mask-size:24px auto; mask-position:center; -webkit-mask-repeat:no-repeat; -webkit-mask-size:24px auto; -webkit-mask-position:center; } */
 #scrollTop .scrollUpBtn:hover { border-color:var(--primary); transform: translateY(-2px); }
 #scrollTop .scrollUpBtn:hover::before { background-color:var(--primary); }
 

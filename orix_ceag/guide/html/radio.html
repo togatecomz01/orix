@@ -16,7 +16,7 @@
     <div id="wrap">
         <div data-include-path="../../views/include/inc-header.html"></div>
 
-        <div id="contentWrap" role="main">
+        <div id="contentWrap" role="main" style="padding-bottom:60px;">
             <div class="contents">
                 <div class="visual-content">
                     <h2 class="page-tit">Radio</h2>
@@ -37,6 +37,17 @@
                                 <li>
                                     <p class="tit">type3 구조</p>
                                     <p class="desc">.radio-group.r-box > input + label</p>
+                                </li>
+                                <li>
+                                    <p class="tit">type4 구조</p>
+                                    <p class="desc">.radio-group.r-check > input + label</p>
+                                </li>
+                                <li>
+                                    <p class="tit">카드형 구조</p>
+                                    <p class="desc">
+                                        .radio-group.r-card.r-check > <br> input + label.card-box <br>
+                                        (체크 불필요시) .radio-group.r-card > <br> input + label.card-box
+                                    </p>
                                 </li>
                             </ul>
                         </div>
@@ -117,6 +128,63 @@
                                     </label>
                                 </div>
                             </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-group">
+                        <div class="card-box">
+                            <h3 class="card-tit">라디오 type4</h3>
+                        
+                            <div class="radio-list">
+                                <div class="radio-group r-check">
+                                    <input type="radio" id="radioType4Agree1" name="radioType4" value="agree1" checked>
+                                    <label for="radioType4Agree1">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">계약 1</span>
+                                    </label>
+                                </div>
+                        
+                                <div class="radio-group r-check">
+                                    <input type="radio" id="radioType4Agree2" name="radioType4" value="agree2">
+                                    <label for="radioType4Agree2">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">계약 2</span>
+                                    </label>
+                                </div>
+                        
+                                <div class="radio-group r-check">
+                                    <input type="radio" id="radioType4Agree3" name="radioType4" value="agree3" disabled>
+                                    <label for="radioType4Agree3">
+                                        <span class="radio-check"></span>
+                                        <span class="txt">계약 3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-group">
+                        <div class="radio-group r-card r-check">
+                            <input type="radio" id="radioType4Card1" name="radioType4Card" value="card1" checked>
+                    
+                            <label for="radioType4Card1" class="card-box mh-100">
+                                <div class="card-head">
+                                    <h3 class="card-tit">카드형 라디오</h3>
+                                    <span class="radio-check"></span>
+                                </div>
+                            </label>
+                        </div>
+                    
+                        <div class="radio-group r-card r-check">
+                            <input type="radio" id="radioType4Card2" name="radioType4Card" value="card2">
+                    
+                            <label for="radioType4Card2" class="card-box mh-100">
+                                <div class="card-head">
+                                    <h3 class="card-tit">카드형 라디오</h3>
+                                    <span class="radio-check"></span>
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
