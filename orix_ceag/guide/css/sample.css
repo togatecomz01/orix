@@ -38,3 +38,5 @@
 
 .layout .layout-item.one { width: 100%; }
 .layout .layout-item.one .cont { height: 280px; }
+
+.contents { margin-bottom: 40px; }
