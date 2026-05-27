@@ -29,39 +29,16 @@ $(function() {
 
     /* 폼 관련 (Input 필터링, 포커스, 데이트피커 등) */
     function initFormControls() {
-        var REGEX_MAP = {
-            'userName': /[^a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣 ]/g,
-            'userAccount': /[^0-9]/g,
-            'contactTel': /[^0-9]/g,
-            'tel2': /[^0-9]/g, 
-            'tel3': /[^0-9]/g, 
-            'emailId': /[^a-zA-Z0-9._-]/g,
-            'emailDomain': /[^a-zA-Z0-9.]/g
-        };
-
-        /* 금지어 필터링, 인풋 title 추가 */
+        /* 인풋 title 추가 */
         $(document).on('input', '.form-input', function() {
             var id = this.id;
             var val = $(this).val(); /* 인풋에 입력된 밸류 저장 */
 
-            if (REGEX_MAP[id]) {
-                var clean = val.replace(REGEX_MAP[id], '');
-                if (val !== clean) { $(this).val(clean); val = clean; }
-            }
             $(this).attr('title', val); /* 인풋에 입력된 밸류값을 타이틀로 추가해서 보이게 */
 
             /* 이메일일 경우, 진짜 타이핑된 원본 값을 real에 저장해둠 */
             if (id === 'emailId' || id === 'emailDomain') {
                 $(this).data('real', val);
-            }
-        });
-
-        $(document).on('blur', '#emailId, #emailDomain', function() {
-            var realVal = $(this).data('real') || $(this).val();
-            
-            if (realVal.length > 15) {
-                /* 진짜 값은 놔두고 화면에 보이는 값만 15자 + '...' 로 변경 */
-                $(this).val(realVal.substring(0, 15) + '...');
             }
         });
 
@@ -75,17 +52,12 @@ $(function() {
             }
         });
 
-        /* 연락처 자동 포커스 */
-        $(document).on('input', '#tel2', function() {
-            if ($(this).val().length === 4) $('#tel3').focus();
-        });
-
         /* 셀렉트박스 placeholder 제어 */
         $(document).on('change', 'select.form-input', function() {
             $(this).toggleClass('is-placeholder', $(this).val() === "");
         });
 
-        /* 직접입력(라디오버튼) 체크 시 인풋 노출 */
+        /* 직접입력(라디오버튼) 체크 시 인풋 노출 (26.05.27 삭제 예정, 디자인 바뀌면 클래스만 바꿔서 쓸 수도 있음 */
         $(document).on('change', 'input[name="payType"]', function() {
             var isDirect = $(this).val() === 'direct';
             $('#dateSelectArea').toggle(!isDirect);
@@ -192,7 +164,7 @@ $(function() {
         });
     }
 
-    /* 로딩, 주소 API, 알럿 등 */
+    /* 로딩 */
     function initEtcUI() {
         /* 로딩 팝업 자동 닫힘 */
         if ($('#popLoading').length > 0 && $('#popLoading').hasClass('on')) {
@@ -201,26 +173,6 @@ $(function() {
                 $('body').css('overflow', 'auto');
             }, 2000);
         }
-
-        /* 주소 API */
-        $(document).on('click', '.js-zonecode, .js-address', function() {
-            alert('우편번호 검색을 통해 주소를 입력해 주세요.');
-        });
-        
-        $(document).on('click', '.js-btn-postcode', function() {
-            var $group = $(this).closest('.js-address-group');
-        
-            new daum.Postcode({
-                oncomplete: function(data) {
-                    var addr = data.userSelectedType === 'R' ? data.roadAddress : data.jibunAddress;
-        
-                    $group.find('.js-zonecode').val(data.zonecode).removeClass('error');
-                    $group.find('.js-address').val(addr).removeClass('error');
-                    $group.find('.js-detail-address').focus();
-                    $group.find('.error-msg').hide();
-                }
-            }).open();
-        });
 
         /* 공통 팝업 열기 (data-target) */
         /* 버튼은 primary, secondary, outline 세가지 종류 있는데 그 클래스에 btn-pop-open or close 붙혀서 제어 */
@@ -243,64 +195,6 @@ $(function() {
         });
     }
 
-    /* 메인 페이지 축소 화면 진입 시 가로 스크롤 중앙 정렬 */
-    // function initMainPageScroll() {
-    //     if (!$('#wrap').hasClass('main-page')) return;
-
-    //     function centerScroll() {
-    //         var scrollWidth = Math.max(
-    //             document.documentElement.scrollWidth,
-    //             document.body.scrollWidth
-    //         );
-    //         var scrollLeft = Math.max(0, (scrollWidth - window.innerWidth) / 2);
-
-    //         window.scrollTo(scrollLeft, window.pageYOffset || document.documentElement.scrollTop || 0);
-    //     }
-
-    //     if (window.requestAnimationFrame) {
-    //         window.requestAnimationFrame(centerScroll);
-    //     } else {
-    //         setTimeout(centerScroll, 0);
-    //     }
-    // }
-
-    /*------------ 시뮬레이션용 납부일 변경----------- */
-    function calcFirstPayDate() {
-        if ($('.payment-result-box.pay-date').length === 0) return;
-
-        var type = $('input[name="payType"]:checked').val(); /* next, current, direct */
-        var dayVal = $('input[name="payDate"]:checked').val(); /* 5, 15, 25, 말일 */
-        var direct = $('#payDirectInput').val();
-        var $targetText = $('.payment-result-box.pay-date .date');
-
-        /* 직접입력인 경우 */
-        if (type === 'direct') {
-            $targetText.text(direct ? direct.replace(/-/g, '.') : "");
-            return;
-        }
-
-        /* 익월/당월 계산 로직 */
-        var d = new Date();
-        var targetMonth = d.getMonth() + (type === 'next' ? 1 : 0);
-        var targetDay = (dayVal === '말일') ? 0 : dayVal; 
-        
-        var result = (dayVal === '말일') 
-            ? new Date(d.getFullYear(), targetMonth + 1, 0) 
-            : new Date(d.getFullYear(), targetMonth, targetDay);
-
-        /* 화면에 출력 */
-        var fmt = result.getFullYear() + '.' + 
-                String(result.getMonth() + 1).padStart(2, '0') + '.' + 
-                String(result.getDate()).padStart(2, '0');
-
-        $targetText.text(fmt);
-    }
-
-    /* 값 변경될 때마다 함수 실행 */
-    $(document).on('change', 'input[name="payType"], input[name="payDate"], #payDirectInput', calcFirstPayDate);
-    
-
-    calcFirstPayDate(); /* 시뮬레이션용 납부일 변경 함수 (추후 제거 가능) */
 
     initFormControls();
     syncDateLimit();

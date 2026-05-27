@@ -17,7 +17,7 @@
 .footer-add p:last-child {display: flex;gap: 15px;}
 
 /* 메인 시작 페이지 전용 레이아웃 + 헤더 + 푸터  */
-#wrap.main-page { width: max(1920px, 100vw); min-width: 1920px; height: max(900px, 100vh); min-height: 900px; overflow: hidden; display: flex; flex-direction: column; background: url("../../resource/images/mbg.png") no-repeat center / cover; }
+#wrap.main-page { width: 100vw; height: 100vh; overflow: hidden; display: flex; flex-direction: column; background: url("../../resource/images/mbg.png") no-repeat center / cover; }
 
 .main-page #headerWrap { height: 84px; background: transparent; flex-shrink: 0; display: flex; align-items: center; }
 .main-page #headerWrap .header-inner { padding: 20px 0 19px 0; width: 1600px;}
@@ -32,7 +32,7 @@
 .main-page #contentWrap { position: relative; width: 100%; margin: 0; padding: 0; overflow: visible; flex: 1; }
 .main-visual { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; min-height: 0; padding: 52px 0 0; overflow: hidden; background: transparent; box-sizing: border-box; }
 
-.main-page #footerWrap { z-index: 5; flex-shrink: 0; width: 100%; min-height: var(--main-footer-height); background: transparent; }
+.main-page #footerWrap { z-index: 5; flex-shrink: 0; width: 100%; min-height: 110px; background: transparent; }
 .main-page #footerWrap .footer-inner { width: 1600px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding-top: 24px; padding-bottom: 24px; }
 .main-page #footerWrap .footer-add { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 32px; color: #fff; font-size: var(--font14); }
 .main-page #footerWrap .footer-add p { margin: 0; }

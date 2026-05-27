@@ -25,6 +25,10 @@
     --font-w-m: 500;
     --font-w-r: 400;
     --font-w-l: 300;
+
+    --outline: #454545;
+
+    --ico-close:url("../images/svg/ico_Xbutton.svg");
 }
 
 body {
