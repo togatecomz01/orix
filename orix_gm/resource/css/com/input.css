@@ -273,6 +273,9 @@ select[data-ui=maker] option,
 select[data-ui=carName] option,
 select[data-ui=contractYn] option{color: #454545;}
 
+select:invalid { color: var(--color-9); }
+select option { color: var(--color-45); }
+
 /* 모션 민감 사용자 배려 */
 @media (prefers-reduced-motion: reduce) {
     label.toggle,
