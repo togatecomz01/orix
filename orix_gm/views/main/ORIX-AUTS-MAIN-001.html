@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>오릭스 공매입찰관리 메인</title>
+        <title>메인화면</title>
 
         <!-- favicon -->
         <link rel="icon" type="image/x-icon" href="../../resource/images/com/favicon/favicon.ico">
@@ -31,14 +31,14 @@
                     <div class="hero-layout">
                         <div class="hero-copy">
                             <p class="sub-copy">
-                                <strong>공매입찰관리의 새로운 기준</strong>
+                                <strong>공매관리의 새로운 기준</strong>
                                 The New Standard in Vehicle Auction Management
                             </p>
                             <p class="main-copy">
-                                공매입찰 정보를<br />
+                                공매 정보를<br />
                                 <em>[ 한눈에 ]</em> 정리해 확인하세요
                             </p>
-                            <a href="../bidg/ORIX-AUTS-BIDG-001.html" class="hero-btn">공매입찰관리 바로가기</a>
+                            <a href="../bidg/ORIX-AUTS-BIDG-001.html" class="hero-btn">공매관리 바로가기</a>
                         </div>
 
                         <div class="notice-panel">
@@ -59,7 +59,7 @@
                 </section>
 
                 <div class="page-footer">
-                    Copyright(c) 2014 ORIX Capital Korea Corporation. All rights reserved.
+                    Copyright(c) 2026 ORIX Capital Korea Corporation. All rights reserved.
                 </div>
             </main>
         </div>
@@ -77,7 +77,7 @@
                     <div class="popup">
                         <div class="newPop">
                             <div class="pop-header">
-                                <h1>공매 공지사항 관리</h1>
+                                <h1>공매 공지사항</h1>
                                 <button type="button" class="pop-close-btn">닫기</button>
                             </div>
             
@@ -104,14 +104,13 @@
                                     </div>
                                 </div>
             
-                                <!-- view는 footer 없으면 그대로 생략 -->
-                                <!--
-                                <div class="pop-footer">
+                                <!-- S : 관리자 계정으로 접속 시 주석 해제 후 사용 -->
+                           <!--  <div class="pop-footer">
                                     <div class="button-content">
-                                        <button type="button" class="btn-pop-secondary btn-close-pop">닫기</button>
+                                        <button type="button" class="btn-pop-primary" data-action="update">수정</button>
                                     </div>
-                                </div>
-                                -->
+                                </div> -->
+                            <!-- E -->
                             </div>
                         </div>
                     </div>
@@ -155,7 +154,7 @@
                                         <div class="form-wrap">
                                             <div class="form-group">
                                                 <div class="flex-row">
-                                                    <label for="noticeTitle" class="label-tit">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
+                                                    <label for="noticeTitle" class="label-tit noti-title">제목</label>
                                                     <div class="field-box">
                                                         <input type="text" id="noticeTitle">
                                                     </div>

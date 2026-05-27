@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width:1200px, initial-scale=1.0" />
-    <title>공매입찰관리</title>
+    <title>공매관리화면 &gt; 메인화면</title>
 
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../../resource/images/com/favicon/favicon.ico">
@@ -42,7 +42,7 @@
             <!-- S: 페이지 상단 -->
             <section class="page-control">
                 <div class="control-header">
-                    <h2>공매입찰관리</h2>
+                    <h2>공매관리</h2>
                     <div class="la-button">
                         <button type="button" class="btn-icon excel" data-popup-target="excelPopup">EXCEL</button>
                         <button type="button" class="btn-primary" id="searchBtn">조회</button>
@@ -55,7 +55,8 @@
                                 <label for="bidNo" class="label-tit">관리번호</label>
                                 <div class="field-box">
                                     <select name="bidNo" id="bidNo">
-                                        <option value="260501" selected="selected">228차 2026년 05-1회 05-04~05-06</option>
+                                        <option value="" selected="selected">→ 입찰 회차선택</option>
+                                        <option value="260501">228차 2026년 05-1회 05-04~05-06</option>
                                         <option value="260401">227차 2026년 04-1회 04-06~04-08</option>
                                         <option value="260301">226차 2026년 03-1회 03-09~03-11</option>
                                         <option value="260201">225차 2026년 02-1회 02-02~02-04</option>
@@ -67,7 +68,7 @@
                             <div class="flex-row">
                                 <label for="carNo" class="label-tit">차량번호</label>
                                 <div class="field-box">
-                                    <input id="carNo" type="text" name="carNo" placeholder="차량번호" />
+                                    <input id="carNo" type="text" name="carNo"/>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
                                 <label for="maker" class="label-tit">제조사</label>
                                 <div class="field-box">
                                     <select name="maker" id="maker">
-                                        <option value="" selected="selected">제조사 선택</option>
+                                        <option value="" selected="selected">→ 제조사 선택</option>
                                         <option value="현대">현대</option>
                                         <option value="기아">기아</option>
                                     </select>
@@ -88,7 +89,7 @@
                                 <label for="carName" class="label-tit">차종</label>
                                 <div class="field-box">
                                     <select name="carName" id="carName">
-                                        <option value="" selected="selected"></option>
+                                        <option value="" selected="selected">→ 차종 선택</option>
                                         <option value="그랜저">그랜저</option>
                                         <option value="K5">K5</option>
                                     </select>
@@ -121,7 +122,7 @@
                             <button type="button" class="btn-primary disabled">입찰</button>
                             <button type="button" class="btn-icon bid disabled">일괄 입찰</button>
                             <!-- s: 관리자 계정 접속시에만 노출 -->
-                            <button type="button" class="btn-icon download">공매 입찰 기록</button>
+                            <button type="button" class="btn-icon download">입찰 기록</button>
                             <!-- e: 관리자 계정 접속시에만 노출 -->
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>공매입찰관리 - popup</title>
+    <title>공매 일괄입찰 파일 업로드 팝업 &gt; 공매관리화면 &gt; 메인화면</title>
     
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../../resource/images/com/favicon/favicon.ico">
@@ -32,9 +32,8 @@
         <div class="pop-content">
             <div class="upload-wrap">
                 <div class="upload-tit">
-                    <p>업로드 엑셀 파일은 <span class="color-b">파일형식(*.xls)</span>과 <span class="color-b">암호화 해제</span> 확인 후 업로드 진행</p>
+                    <p>업로드 엑셀 파일은 <span class="color-b">파일형식(*.xls, *.xlsx)</span>과 <span class="color-b">암호화 해제</span> 확인 후 업로드 진행</p>
                     <ul>
-                        <li>*파일형식 변경 : 다른 이름으로 저장 &rarr; 파일 형식을 Excel 97-2003 통합문서(*.xls)</li>
                         <li class="color-r">*양식에서 입찰 가격만 수정, 미 입찰 대상인 경우 금액을 0원으로 유지</li>
                     </ul>
                 </div>
@@ -45,7 +44,7 @@
             <div class="grid-body upload">
                 <div class="grid-caption">
                     <ul class="m-dot">
-                        <li>시작일시 : <input type="text" class="noline" id="bidStartText" readonly value="2026-03-09 12:00:00"></li>
+                        <li>시작일시 : <input type="text" class="noline server-time" id="bidStartText" readonly value="2026-03-09 12:00:00"></li>
                     </ul>
                     <div class="form-content">
                         <div class="flex-row">
@@ -61,7 +60,7 @@
                         </div>
                         <div class="sm-button">
                             <button type="button" class="btn-icon download">양식 다운로드</button>
-                            <button type="button" class="btn-secondary">일괄입찰하기</button>
+                            <button type="button" class="btn-secondary">일괄입찰</button>
                         </div>
                     </div>
                 </div>
