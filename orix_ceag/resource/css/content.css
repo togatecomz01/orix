@@ -36,7 +36,7 @@
 
 .step-progress .step-txt { display: block; font-size: var(--font20); font-weight: var(--font-w-r); color: var(--color-6); white-space: nowrap; }
 
-.step-progress li.done::before { content: ''; border-color: #062D4D; background: #062D4D url('../images/svg/ico_check_type_circle.svg') no-repeat center / 12px 9px; font-size: 0; color: transparent; }
+.step-progress li.done::before { content: ''; border-color: #062D4D; background: #062D4D url('../images/svg/ico_check_circle.svg') no-repeat center / 12px 9px; font-size: 0; color: transparent; }
 .step-progress li.done .step-txt { color: var(--color-2); }
 
 .step-progress li.active::before { border-color: var(--primary); background: var(--primary); font-weight: var(--font-w-m); color: var(--color-f); }

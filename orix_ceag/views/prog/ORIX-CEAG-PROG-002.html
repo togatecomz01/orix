@@ -3,63 +3,56 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ORIX UI GUIDE - layout</title>
+    <title>적합성 확인 화면 &gt; 전자약정진행</title>
 
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
+
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
-    <script src="../../resource/js/include.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
     <script src="../../resource/js/common.js"></script>
-    <script src="./ORIX-CEAG-PROG-002.js"></script>
-    <style>
-        /* 인크루드 스텝 */
-        .page-container .group { display: none; }
-        .page-container .group.active { display: block; }
-    </style>
+    <script src="../../resource/js/include.js"></script>
 </head>
-<body>
+<body> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
     <div id="wrap">
-        <div data-include-path="../../views/include/inc-header.html"></div>
+        <div data-include-path="../include/inc-header.html"></div>
 
-        <div id="contentWrap">
+        <div id="contentWrap" role="main">
             <div class="contents">
-                <ol class="step-progress">
-                    <li class="active">
-                        <span class="step-txt">신청내역 확인</span>
-                    </li>
-                    <li>
-                        <span class="step-txt">약정서 및 약관동의</span>
-                    </li>
-                    <li>
-                        <span class="step-txt">고객 정보 및 자동이체 정보 입력</span>
-                    </li>
-                    <li>
-                        <span class="step-txt">약정서 미리보기 및 전자서명</span>
-                    </li>
-                </ol>
+                <div class="visual-content">
+                    <div class="visual-content">
+                        <h2 class="page-tit">금융소비자 보호를 위한 <span class="blue">법인 적합성 정보</span>를 확인해 주세요.</h2>
+                        <p class="s-tit">금융소비자보호법에 따라 귀사(법인)의 재무 상태 및 이용 목적의 적정성을 확인하고 있습니다. <br>
+                            입력하신 정보는 안전한 금융거래를 위한 심사자료로 활용되오니, 정확한 정보를 입력해 주시기 바랍니다.</p>
+                    </div>
+                </div>
+                <div class="layout-grid">
+                    <div class="col-group term">
+                        <div class="card-box">
+                            <h3 class="card-tit">약관</h3>
+                            <div style="width: 100%; height: 1556px; border: 1px solid #000; display: flex; justify-content: center; align-items: center;">
+                                크로노스 솔루션 노출 영역
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="page-container">
-                    <div class="group step1 active" data-include-path="./ORIX-CEAG-PROG-002-step1.html"></div>
-                    <div class="group step2" data-include-path="./ORIX-CEAG-PROG-002-step2.html"></div>
-                    <div class="group step3" data-include-path="./ORIX-CEAG-PROG-002-step3.html"></div>
-                    <div class="group step4" data-include-path="./ORIX-CEAG-PROG-002-step4.html"></div>
+            <div id="bottom-button-wrap">
+                <div class="bottom-button-inner">
+                    <div class="bottom-button-text-wrap">
+                        <div class="bottom-button-notice">
+                            <p class="notice">항목별 답변을 모두 완료하신 후 [다음] 버튼을 눌러주세요.</p>
+                            <p class="notice">작성하신 적합성 정보는 약정 승인과 법적 효력을 입증하는 자료로 안전하게 보관됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <a href="./ORIX-CEAG-PROG-003.html" class="btn-primary">다음</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="footerWrap" role="contentinfo">
-            <div class="footer-inner">
-                <div class="footer-copy">
-                    <span>ORIX Capital Korea Corporation</span>
-                    <p>Copyrightⓒ 2014 ORIX Capital Korea Corporation. All right reserved.</p>
-                </div>
-                <div class="footer-add">
-                    <span>06210 서울시 강남구 테헤란로 306(역삼동) 카이트타워13층</span>
-                    <span>대표이사 : 박철수</span>
-                    <span>사업자등록번호 : 120-86-63282</span>
-                </div>
-            </div>
-        </div>
+        <div data-include-path="../include/inc-footer.html"></div>
     </div>
-
 </body>
 </html>

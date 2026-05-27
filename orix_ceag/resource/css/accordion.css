@@ -19,7 +19,7 @@
 /* 아코디언 바디 및 내부 스크롤 영역 */
 .acc-body { display: none; background-color: #FAFAFA; padding: 0; overflow: hidden; }
 .acc-item:last-child .acc-body { margin-top: 32px; }
-.term-content { font-size: var(--font16); color: var(--color-6); line-height: 1.5; padding: 20px; max-height: 230px; overflow-y: auto; font-weight: var(--font-w-r); }
+.term-content { font-size: var(--font16); color: var(--color-9); line-height: 1.5; padding: 20px; max-height: 230px; overflow-y: auto; font-weight: var(--font-w-r); }
 
 /* 26.05.16 아코디언 뱃지, 상단 안내사항 */
 .terms-guide { margin-bottom: 32px; padding: 20px; background: #FAFAFA; font-size: var(--font16); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5; }

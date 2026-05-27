@@ -263,6 +263,16 @@ label.toggle:focus-within { outline: 2px solid transparent; }
 label.toggle input[type="checkbox"] { position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; clip: rect(0 0 0 0); overflow:hidden; white-space:nowrap; }
 label.toggle input + span { font-size:0; }
 
+/* 공매 select 구분 (개발용 css) */
+select[data-ui=bidMgmtNo]:has(option:nth-of-type(1):checked),
+select[data-ui=maker]:has(option:checked[value=""]),
+select[data-ui=carName]:has(option:checked[value=""]),
+select[data-ui=contractYn]:has(option:checked[value=""]) { color: var(--color-9); };
+select[data-ui=bidMgmtNo] option,
+select[data-ui=maker] option,
+select[data-ui=carName] option,
+select[data-ui=contractYn] option{color: #454545;}
+
 /* 모션 민감 사용자 배려 */
 @media (prefers-reduced-motion: reduce) {
     label.toggle,
