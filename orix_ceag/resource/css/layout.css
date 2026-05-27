@@ -5,7 +5,7 @@
 #wrap > div:first-child, #headerWrap { position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
 #headerWrap { height: 70px; background-color: #F2F3F8; }
 #contentWrap { flex: 1; width: 100%; /*padding: 52px 0 0;*/ }
-#bottom-button-wrap { width: 100%; padding: 68px 0 72px; box-sizing: border-box; }
+#bottom-button-wrap { width: 100%; padding: 64px 0 72px; box-sizing: border-box; }
 #footerWrap { flex-shrink: 0; display: flex; align-items: center; width: 100%; min-height: 140px; background-color: var(--color-f); }
 
 .footer-inner { width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 80px; box-sizing: border-box; }

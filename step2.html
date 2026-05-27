@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>입사지원서 작성</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", "맑은 고딕", sans-serif; margin:0; padding:0; background:#fafafa; }
+    .bodyWrap { padding:32px; }
+    h2, h3 { margin:0 0 16px; }
+    .location-container { font-size:14px; color:#666; margin-bottom:8px; }
+    .breadcrumb { padding:0; margin:0; list-style:none; }
+    .breadcrumb li { display:inline; }
+    .breadcrumb li+li::before { content:" > "; color:#aaa; }
+
+    /* 스텝바 */
+    .step-container { margin:16px 0 24px; }
+    .step-container ul { display:flex; gap:8px; padding:0; margin:0; list-style:none; }
+    .step-container ul li { flex:1; text-align:center; padding:10px 6px; background:#eee; border-radius:6px; opacity:.45; transition:all .2s; }
+    .step-container ul li.prev { opacity:.75; background:#e4e4e4; }
+    .step-container ul li.on { opacity:1; background:#0072ce; color:#fff; font-weight:700; }
+    .step-container.is-hidden { display:none; }
+
+    /* 그룹(스텝) */
+    .group { display:none; }
+    .group.active { display:block; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+
+    /* 폼/버튼 */
+    .form-content label { display:inline-block; min-width:96px; font-weight:600; }
+    .form-content input, .form-content select, .form-content textarea { padding:8px 10px; border:1px solid #ddd; border-radius:6px; }
+    .form-content textarea { width:100%; max-width:720px; }
+    .row { margin:10px 0; }
+    .bottom-container { text-align:right; margin-top:18px; }
+    .button-group a { display:inline-block; padding:8px 18px; border-radius:6px; text-decoration:none; margin-left:8px; }
+    .btn-primary { background:#0072ce; color:#fff; }
+    .btn-secondary { background:#ccc; color:#111; }
+
+    /* 미리보기 모드: 모든 그룹 펼침 */
+    .page-container.is-preview .group { display:block; }
+    .page-container.is-preview .group.active { display:block; } /* 의미상 유지 */
+    .page-container.is-preview .group .bottom-container { display:none; } /* 그룹 내부 버튼 숨김 */
+    .step-container.is-hidden { display:none; }
+
+    /* 미리보기 하단 고정 CTA */
+    .preview-cta { display:none; text-align:right; margin-top:16px; }
+    .preview-cta .button-group a {
+      display:inline-block; padding:8px 18px; border-radius:6px; text-decoration:none; margin-left:8px;
+    }
+    .preview-cta .btn-primary { background:#0072ce; color:#fff; }
+    .preview-cta .btn-secondary { background:#ccc; color:#111; }
+    .page-container.is-preview .preview-cta { display:block; }
+  </style>
+</head>
+<body>
+  <div class="bodyWrap">
+    <main class="contentWrap">
+
+      <nav class="location-container">
+        <ol class="breadcrumb">
+          <li><span>홈</span></li>
+          <li><span>회사소개</span></li>
+          <li><span>채용정보</span></li>
+          <li><span>입사지원서 작성</span></li>
+        </ol>
+      </nav>
+
+      <section class="visual-container">
+        <h2>입사지원서 작성</h2>
+      </section>
+
+      <!-- 스텝바 (1~5까지만 표시) -->
+      <section class="step-container">
+        <div class="step-content">
+          <ul class="col2">
+            <li class="on"><span>기본정보</span></li>
+            <li class="next"><span>학력사항  및 자격면허</span></li>
+            <li class="next"><span>경력사항</span></li>
+            <li class="next"><span>자기소개</span></li>
+            <li class="next"><span>기타사항</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="page-container WCR50202DS">
+        <div class="table-content">
+          <!-- STEP 1 -->
+          <div class="group step1 active">
+            <h3 class="essential">기본정보</h3>
+            <form class="form-content">
+              <div class="row">
+                <label for="name" class="req">이름</label>
+                <input type="text" id="name" name="name" data-label="이름" placeholder="홍길동" />
+              </div>
+              <div class="row">
+                <label for="birth">생년월일</label>
+                <input type="date" id="birth" name="birth" data-label="생년월일" />
+              </div>
+              <div class="bottom-container">
+                <div class="button-group">
+                  <a href="#" class="btn-primary">다음</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="group step2">
+            <h3 class="essential">학력사항  및 자격면허</h3>
+            <form class="form-content">
+              <div class="row">
+                <label for="school">최종학력</label>
+                <input type="text" id="school" name="school" data-label="최종학력" placeholder="○○대학교 ○○학과" />
+              </div>
+              <div class="row">
+                <label for="license">자격증</label>
+                <input type="text" id="license" name="license" data-label="자격증" placeholder="정보처리기사 등" />
+              </div>
+              <div class="bottom-container">
+                <div class="button-group">
+                  <a href="#" class="btn-secondary">이전</a>
+                  <a href="#" class="btn-primary">다음</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="group step3">
+            <h3 class="essential">경력사항</h3>
+            <form class="form-content">
+              <div class="row">
+                <label for="company">근무회사</label>
+                <input type="text" id="company" name="company" data-label="근무회사" placeholder="○○주식회사" />
+              </div>
+              <div class="row">
+                <label for="position">직책</label>
+                <input type="text" id="position" name="position" data-label="직책" placeholder="대리/과장 등" />
+              </div>
+              <div class="bottom-container">
+                <div class="button-group">
+                  <a href="#" class="btn-secondary">이전</a>
+                  <a href="#" class="btn-primary">다음</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="group step4">
+            <h3 class="essential">자기소개</h3>
+            <form class="form-content">
+              <div class="row">
+                <label for="intro">자기소개</label>
+                <textarea id="intro" name="intro" rows="5" data-label="자기소개" placeholder="간단한 자기소개를 작성해주세요."></textarea>
+              </div>
+              <div class="bottom-container">
+                <div class="button-group">
+                  <a href="#" class="btn-secondary">이전</a>
+                  <a href="#" class="btn-primary">다음</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 5 -->
+          <div class="group step5">
+            <h3 class="essential">기타사항</h3>
+            <form class="form-content">
+              <div class="row">
+                <label for="hobby">취미</label>
+                <input type="text" id="hobby" name="hobby" data-label="취미" placeholder="등산, 독서 등" />
+              </div>
+              <div class="row">
+                <label for="strength">특기</label>
+                <input type="text" id="strength" name="strength" data-label="특기" placeholder="문제해결, 커뮤니케이션 등" />
+              </div>
+              <div class="bottom-container">
+                <div class="button-group">
+                  <a href="#" class="btn-secondary">이전</a>
+                  <a href="#" class="btn-primary">미리보기</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- 미리보기 하단 CTA (미리보기 단계에서만 노출) -->
+          <div class="preview-cta">
+            <div class="button-group">
+              <a href="#" class="btn-secondary" data-role="preview-back">이전</a>
+              <a href="#" class="btn-primary" data-role="preview-submit">최종제출</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(function () {
+    const $stepsbar = $('.step-container');
+    const $stepLis  = $stepsbar.find('ul li');        // 1~N (입력 단계)
+    const $page     = $('.page-container');
+    const $groups   = $page.find('.group');           // 입력 단계들
+    const PROC      = $stepLis.length;                // 입력 단계 수(예: 5)
+    const PREVIEW   = PROC + 1;                       // 미리보기 단계
+    let cur = 1;
+
+    const primaryText = (step)=> step===PREVIEW ? '최종제출' : (step===PROC ? '미리보기' : '다음');
+
+    function updateButtons(step){
+      const $active = $groups.eq(Math.max(0, step-1));
+      const $pri = $active.find('.btn-primary');
+      const $sec = $active.find('.btn-secondary');
+      if (step === PREVIEW) return; // 미리보기에서는 그룹 내 버튼 숨김(CSS), 별도 CTA 사용
+      $pri.text(primaryText(step));
+      (step === 1) ? $sec.hide() : $sec.show();
+    }
+
+    function updateIndicator(step){
+      $stepLis.each((i, li)=>{
+        const idx = i + 1;
+        $(li)
+          .toggleClass('prev', idx < step)
+          .toggleClass('on',   idx === step)
+          .toggleClass('next', idx > step);
+      });
+    }
+
+    function setStep(n){
+      cur = Math.max(1, Math.min(n, PREVIEW));
+
+      if (cur === PREVIEW) {
+        // 미리보기: 모든 그룹 펼침 + 스텝바 숨김
+        $page.addClass('is-preview');
+        $groups.removeClass('active');
+        $stepsbar.addClass('is-hidden');
+      } else {
+        // 일반 모드: 한 그룹만 표시
+        $page.removeClass('is-preview');
+        $groups.removeClass('active').eq(cur-1).addClass('active');
+        $stepsbar.removeClass('is-hidden');
+        updateButtons(cur);
+      }
+      updateIndicator(cur);
+    }
+
+    // 다음(또는 미리보기/제출)
+    $(document).on('click', '.btn-primary', function(e){
+      e.preventDefault();
+      if (cur < PREVIEW) {
+        setStep(cur + 1);        // 마지막 입력 단계에서 누르면 PREVIEW 진입
+      }
+    });
+
+    // 이전
+    $(document).on('click', '.btn-secondary', function(e){
+      e.preventDefault();
+      if (cur > 1) setStep(cur - 1);
+    });
+
+    // 미리보기 하단 CTA: 이전
+    $(document).on('click', '[data-role="preview-back"]', function(e){
+      e.preventDefault();
+      setStep(PROC);             // 미리보기 이전으로 복귀(마지막 입력 스텝)
+    });
+
+    // 미리보기 하단 CTA: 최종제출
+    $(document).on('click', '[data-role="preview-submit"]', function(e){
+      e.preventDefault();
+      // 실제 제출 처리로 교체 가능:
+      // $('form').first().trigger('submit');
+      alert('제출이 완료되었습니다.');
+      // 필요 시 초기화:
+      // setStep(1);
+    });
+
+    // 초기 진입
+    setStep(1);
+  });
+  </script>
+</body>
+</html>
