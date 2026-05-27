@@ -1,6 +1,10 @@
 ﻿@charset "utf-8";
 /* 아코디언 리스트 레이아웃 */
-.accordion-list { display: flex; flex-direction: column; border-top: 1px solid var(--color-e); }
+.accordion-list, .check-list { display: flex; flex-direction: column; border-top: 1px solid var(--color-e); }
+/* 체크 리스트: 아코디언 동작 없이 체크만 필요한 약관 리스트 */
+.check-list { border-top: none; }
+.check-list .acc-item:first-child .term-head{padding-top: 0;}
+
 .acc-item { border-bottom: 1px solid var(--color-e); }
 .acc-item:last-child { border-bottom: 0; }
 .acc-head { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; cursor: pointer;  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
