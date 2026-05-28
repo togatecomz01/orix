@@ -32,17 +32,18 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 ============================================= */
 .form-row { display: flex; align-items: center; gap: 10px; width: 100%; }
 .form-row #tel1 {max-width: 136px;}
-.col-select { width: 180px; flex: none; }
-.col-input { flex: 1; }
+/* .col-select { width: 180px; flex: none; }
+.col-input { flex: 1; } */
 .at-mark { color: var(--color-6); font-weight: var(--font-w-r); padding: 0 2px; }
 
+.form-stack {display: flex; flex-direction: column; gap: 12px;}
 /* =============================================
     #체크박스
 ============================================= */
-.check-group { display: flex; align-items: center; margin-bottom: 16px; }
+.check-group { display: flex; align-items: center; margin-bottom: 24px; }
 .check-group input[type="checkbox"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-.check-group label { display: flex; align-items: center; font-size: var(--font18); color: var(--color-75); font-weight: var(--font-w-sb); cursor: pointer; }
+.check-group label { display: flex; align-items: center; font-size: var(--font18); color: var(--color-75); font-weight: var(--font-w-m); cursor: pointer; }
 .check-group label::before { content: ''; display: inline-block; width: 28px; height: 28px; margin-right: 8px; background-repeat: no-repeat; background-position: center; background-size: 14px auto; flex-shrink: 0; box-sizing: border-box; transition: background-color 0.2s; }
 
 /* disabled */
@@ -60,7 +61,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group label::before { width: 36px; height: 36px; margin-right: 18px; border: none; border-radius: 50%; background-color: var(--color-d); background-image: url('../../resource/images/svg/ico_check_circle.svg'); }
 
 /** 사각형 체크박스 (28*28) **/
-.check-group.rec label::before { width: 28px; height: 28px; margin-right: 8px; border: 1px solid #CCC; border-radius: 4px; background-color: var(--color-f); }
+.check-group.rec label::before { width: 28px; height: 28px; margin-right: 18px; border: 1px solid #CCC; border-radius: 4px; background-color: var(--color-f); }
 
 /* 작은 사각형 체크박스 (20*20) */
 .check-group.rec.sm label::before { width: 20px; height: 20px; background-size: 12px auto; }
@@ -150,7 +151,13 @@ input[type="date"].form-input:valid::before {display: none;}
 input[type="date"].form-input::-webkit-calendar-picker-indicator {background: url("../../resource/images/svg/icon_date.svg") no-repeat center / contain; cursor: pointer; position: absolute; right: 18px; top: 0; width: 24px; height: 100%; z-index: 2; opacity: 1;}
 
 /* 에러 메시지 */
-.form-input.error { border-color: var(--error);  }
+.form-input.error,
+.form-input[aria-invalid="true"] { border-color: var(--error);  }
 .error-msg { display: flex; align-items: center; color: var(--error); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; }
 .error-msg:not(:last-child) { margin-bottom: 14px; }
 .error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
+
+/* 유의사항 메시지 */
+.info-msg { display: flex; color: var(--color-75); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; }
+.info-msg:not(:last-child) { margin-bottom: 14px; }
+.info-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_info.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }

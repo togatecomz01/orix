@@ -9,146 +9,181 @@
         <div class="card-box mh-100">
             <h3 class="card-tit">고객정보</h3>
 
+            <div class="form-item js-address-group">
+                <label class="form-label">자택주소<span class="required">*</span></label>
+    
+                <div class="form-row mb-12">
+                    <input type="text" id="homeZonecode" placeholder="자택주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                    <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
+                </div>
+    
+                <input type="text" id="homeAddress" placeholder="" class="form-input mb-12 js-address" readonly>
+                <input type="text" id="homeDetailAddress" placeholder="" class="form-input js-detail-address">
+                <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
+            </div>
+
+            <div class="form-item js-address-group">
+                <label class="form-label">직장주소<span class="required">*</span></label>
+    
+                <div class="form-row mb-12">
+                    <input type="text" id="companyZonecode" placeholder="직장주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                    <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
+                </div>
+    
+                <input type="text" id="companyAddress" placeholder="" class="form-input mb-12 js-address" readonly>
+                <input type="text" id="companyDetailAddress" placeholder="" class="form-input js-detail-address">
+                <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
+                <p class="info-msg">세금계산서 발급용과 동일한 직장주소를 입력해 주세요.</p>
+            </div>
+            
             <div class="form-item">
-                <label for="userName" class="form-label">예금주</label>
-                <input type="text" title="예금주" id="userName" class="form-input" maxlength="20" placeholder="예금주명을 입력해주세요.">
-                <p class="error-msg">예금주명을 입력해주세요.</p>
+                <label class="form-label" for="cNumber">직장/사업장 전화번호<span class="required">*</span></label>
+                <input id="cNumber" type="text" name="cNumber" class="form-input" placeholder="전화번호를 입력해 주세요.">
             </div>
 
             <div class="form-item">
-                <label for="bankSelect" class="form-label label-tooltip">
-                    계좌번호
-                    <span class="tooltip-area">
-                        <span class="tooltip-icon"></span>
-                        <span class="tooltip-box">
-                            핸드폰번호의 평생 계좌번호는 자동이체 출금용 계좌로 등록할 수 없습니다.
-                        </span>
-                    </span>
-                </label>
+                <label class="form-label" for="eMail">이메일<span class="required">*</span></label>
+                <input id="eMail" type="text" name="eMail" class="form-input" placeholder="예) hong@gmail.com">
+                <p class="info-msg">세금계산서 발급용과 동일한 이메일 주소를 입력해 주세요.</p>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label" for="inVoice">청구서 수령방법<span class="required">*</span></label>
+                <div class="radio-list form-row">
+                    <div class="radio-group r-box">
+                        <input type="radio" id="invoicePost" name="invoiceType" value="post" checked>
+                        <label for="invoicePost">
+                            <span class="radio-check"></span>
+                            <span class="txt">우편</span>
+                        </label>
+                    </div>
                 
-                <div class="form-row">
-                    <div class="col-bank">
-                        <select id="bankSelect" class="form-input is-placeholder">
-                            <option value="" class="select-placeholder" selected disabled hidden>은행 선택</option>
-                            <option value="shinhan">신한은행</option>
-                            <option value="kb">국민은행</option>
-                            <option value="woori">우리은행</option>
-                        </select>
+                    <div class="radio-group r-box">
+                        <input type="radio" id="invoiceEmail" name="invoiceType" value="email">
+                        <label for="invoiceEmail">
+                            <span class="radio-check"></span>
+                            <span class="txt">이메일</span>
+                        </label>
                     </div>
-                    <div class="col-account">
-                        <input type="tel" id="userAccount" class="form-input" maxlength="16" inputmode="numeric" placeholder="'-' 없이 숫자만 입력해 주세요.">
-                        
-                    </div>
-                    
                 </div>
-                <p class="error-msg" style="display:none;">계좌번호를 입력해 주세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-group">
+        <div class="card-box mh-100">
+            <h3 class="card-tit">자동이체 설정</h3>
+
+            <div class="form-item">
+                <label for="accHoldername" class="form-label">예금주 <span class="required">*</span></label>
+                <input type="text" id="accHoldername" class="form-input" placeholder="예금주명을 입력해 주세요.">
+                <p class="error-msg" style="display:none;">예금주명을 입력해 주세요.</p> 
             </div>
 
             <div class="form-item">
-                <label for="emailId" class="form-label label-tooltip">
-                    이메일
-                    <span class="tooltip-area">
-                        <span class="tooltip-icon"></span>
-                        <span class="tooltip-box short">
-                            매달 결제 내역과 영수증을 수신 받을 메일 주소를 입력해 주세요. (재무 담당자 메일 권장)
-                        </span>
-                    </span>
-                </label>
-                <div class="form-row email-top mb-12">
-                    <input type="text" id="emailId" class="form-input" placeholder="이메일을 입력해주세요." title="">
-                    <span class="at-mark">@</span>
-                    <input type="text" id="emailDomain" class="form-input ellipsis" placeholder="" title="">
+                <label class="form-label">계좌번호 <span class="required">*</span></label>
+            
+                <div class="radio-list mb-14">
+                    <div class="radio-group">
+                        <input type="radio" id="accountTypeBank" name="accountType" value="bank" checked>
+                        <label for="accountTypeBank">
+                            <span class="radio-check"></span>
+                            <span class="txt">은행</span>
+                        </label>
+                    </div>
+        
+                    <div class="radio-group">
+                        <input type="radio" id="accountTypeStock" name="accountType" value="stock">
+                        <label for="accountTypeStock">
+                            <span class="radio-check"></span>
+                            <span class="txt">증권사</span>
+                        </label>
+                    </div>
                 </div>
-                <!-- <p class="error-msg">이메일을 입력해 주세요.</p> -->
-                <!-- <div class="email-bottom">
-                    <select class="form-input"> 
-                        <option value="">직접입력</option>
-                        <option value="naver.com">naver.com</option>
-                        <option value="gmail.com">gmail.com</option>
-                        <option value="gmail.com">daum.net</option>
+
+                <div class="form-stack mb-14">
+                    <select class="form-input is-placeholder">
+                        <option value="" disabled selected hidden>선택</option>
+                        <option value="신한">신한</option>
+                        <option value="국민">국민</option>
+                        <option value="하나">하나</option>
                     </select>
-                </div> -->
-                <div class="check-group rec sm mt-10">
-                    <input type="checkbox" id="emailSame">
-                    <label for="emailSame">계약서 및 안내문 수신 메일 정보와 동일</label>
+                    <!-- <select class="form-input is-placeholder">
+                        <option value="" disabled selected hidden>증권사 선택</option>
+                        <option value="한국투자">한국투자증권</option>
+                        <option value="삼성">삼성증권</option>
+                        <option value="키움">키움증권</option>
+                    </select> -->
+            
+                    <input type="tel" class="form-input" placeholder="'-'를 제외하고 입력해 주세요.">
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-group">
-        <div class="col-group">
-            <div class="card-box">
-                <h3 class="card-tit">납부일 설정</h3>
-    
-                <div class="payment-setting">
-                    <div class="radio-list">
-                        <!-- 익월납부 -->
-                        <div class="radio-group r-box">
-                            <input type="radio" id="payNext" name="payType" value="next" checked>
-                            <label for="payNext">
-                                <span class="radio-check"></span>
-                                <span class="txt">익월납부</span>
-                            </label>
-                        </div>
-                        <!-- 당월납부 -->
-                        <div class="radio-group r-box">
-                            <input type="radio" id="payCurrent" name="payType" value="current">
-                            <label for="payCurrent">
-                                <span class="radio-check"></span>
-                                <span class="txt">당월납부</span>
-                            </label>
-                        </div>
-                        <!-- 직접입력 -->
-                        <div class="radio-group r-box">
-                            <input type="radio" id="payDirect" name="payType" value="direct">
-                            <label for="payDirect">
-                                <span class="radio-check"></span>
-                                <span class="txt">직접입력</span>
-                            </label>
-                        </div>
-                    </div>
-    
-                    <!-- 선택에 따라 노출/비노출 -->
-                    <div class="pay-sub-area">
-                        <!-- 날짜 선택 버튼 (익월/당월일 때 노출) -->
-                        <div id="dateSelectArea" class="date-selection">
-                            <div class="radio-list">
-                                <div class="radio-group r-btn">
-                                    <input type="radio" id="date5" name="payDate" value="5">
-                                    <label for="date5">5일</label>
-                                </div>
-                                <div class="radio-group r-btn">
-                                    <input type="radio" id="date15" name="payDate" value="15" checked>
-                                    <label for="date15">15일</label>
-                                </div>
-                                <div class="radio-group r-btn">
-                                    <input type="radio" id="date25" name="payDate" value="25">
-                                    <label for="date25">25일</label>
-                                </div>
-                                <div class="radio-group r-btn">
-                                    <input type="radio" id="dateLast" name="payDate" value="말일">
-                                    <label for="dateLast">말일</label>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <!-- 직접 입력 인풋 (직접입력일 때 노출) -->
-                        <div id="directInputArea" class="direct-input-wrap" style="display:none;">
-                            <input type="date" id="payDirectInput" class="form-input js-min-today" data-placeholder="납부일을 선택해 주세요." required>
-                            <p class="error-msg" style="display:none;">날짜를 선택해 주세요.</p>
-                        </div>
-                    </div>
-                    <div class="payment-notice">
-                        은행 휴무일, 공휴일에는 자동이체가 진행되지 않으며, 돌아오는 첫 영업일에 지연 출금됩니다.
-                    </div>
-                    <div class="payment-result-box pay-date">
-                        <span class="label">첫회차 납부일</span>
-                        <span class="date">2026.03.15</span>
+
+                <div class="btn-area full mb-14">
+                    <button type="button" class="btn-primary">계좌 확인</button>
+                </div>
+
+                <div class="info-guide">
+                    <p class="tit">확인해 주세요!</p>
+                    <div class="desc">
+                        <p>입금 전용 가상계좌 또는 평생계좌(휴대폰 번호 등)는 자동이체 출금 계좌로 등록할 수 없습니다.</p>
+                        <p>법인 명의 계좌만 납부 수단으로 등록할 수 있습니다.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="form-item">
+                <label class="form-label" for="inVoice">자동이체일<span class="required">*</span></label>
+                <div class="radio-list form-row mb-14">
+                    <div class="radio-group r-box">
+                        <input type="radio" id="choice" name="Autopay" value="choice" checked>
+                        <label for="choice">
+                            <span class="radio-check"></span>
+                            <span class="txt">이체일 선택</span>
+                        </label>
+                    </div>
+                
+                    <div class="radio-group r-box">
+                        <input type="radio" id="direct" name="Autopay" value="direct">
+                        <label for="direct">
+                            <span class="radio-check"></span>
+                            <span class="txt">직접입력</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="dateSelectArea" class="radio-list">
+                    <div class="radio-group r-btn">
+                        <input type="radio" id="radioType3Date5" name="radioType3" value="5">
+                        <label for="radioType3Date5">5일</label>
+                    </div>
+                    <div class="radio-group r-btn">
+                        <input type="radio" id="radioType3Date15" name="radioType3" value="15" checked>
+                        <label for="radioType3Date15">15일</label>
+                    </div>
+                    <div class="radio-group r-btn">
+                        <input type="radio" id="radioType3Date25" name="radioType3" value="25">
+                        <label for="radioType3Date25">25일</label>
+                    </div>
+                    <div class="radio-group r-btn">
+                        <input type="radio" id="radioType3DateLast" name="radioType3" value="last">
+                        <label for="radioType3DateLast">말일</label>
+                    </div>
+                </div>
+
+                <div id="directInputArea" class="direct-input-wrap" style="display:none;">
+                    <input type="date" id="payDirectInput" class="form-input js-min-today" data-placeholder="납부일을 선택해 주세요." required>
+                    <p class="error-msg" style="display:none;">날짜를 선택해 주세요.</p>
+                </div>
+
+                <div class="payment-result-box pay-date">
+                    <span class="label">첫회차 납부일</span>
+                    <span class="date">2026.03.15</span>
+                </div>
+                <p class="info-msg" style="display: none;">첫 납부일은 안전한 약정 처리를 위해 오늘 기준 15일 뒤부터 지정가능하며, 오픈된 날짜로부터 최대 31일 이내로만 선택하실 수 있습니다.</p>
+            </div>
         </div>
     </div>
+
 </div>
 
 <div id="bottom-button-wrap">
@@ -156,7 +191,7 @@
         <div class="bottom-button-text-wrap">
             <div class="bottom-button-notice">
                 <p class="notice">올바른 정보를 입력하셨는지 다시 한번 확인 후 [다음] 버튼을 눌러주세요.</p>
-                <p class="notice">입력하신 내용을 기반으로 다음 단계에서 약정서 최종 확인 및 법인공동인증서 인증을 진행합니다.</p>
+                <p class="notice">입력하신 내용을 기반으로 다음 단계에서 법인공동인증서 인증을 진행합니다.</p>
             </div>
         </div>
         <div class="btn-area">

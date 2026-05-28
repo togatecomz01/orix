@@ -48,3 +48,7 @@
 
 /* 2026.05.22 acc-body 내부 버튼 area */
 .term-content .btn-area {margin-top: 20px; display: flex; justify-content: center;}
+
+/* 2026.05.28 계좌번호 input 버튼크기 */
+.btn-area.full {display: block;}
+.btn-area.full .btn-primary {width: 100%; padding: 16px 32px; color: #F2F3F8; font-weight: var(--font-w-m); font-size: var(--font18);}

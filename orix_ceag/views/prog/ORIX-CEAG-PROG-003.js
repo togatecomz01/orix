@@ -126,7 +126,7 @@ $(function () {
         var minDateObj = new Date(
             todayObj.getFullYear(),
             todayObj.getMonth(),
-            todayObj.getDate() + 16
+            todayObj.getDate() + 15
         );
 
         var maxDateObj = new Date(minDateObj);

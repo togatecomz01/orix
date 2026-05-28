@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>법인공동인증서 인증 &gt; 전자약정진행</title>
+
+    <link href="../../resource/css/ui-util.css" rel="stylesheet">
+
+    <script src="../../resource/js/jquery-1.11.3.min.js"></script>
+    <script src="../../resource/js/jquery.form.min.js"></script>
+    <script src="../../resource/js/common.js"></script>
+    <script src="../../resource/js/include.js"></script>
+
+</head>
+<body> <!-- js로 로딩 팝업 끝날 시 auto로 변경 -->
+    <div id="wrap">
+        <div data-include-path="../include/inc-header.html"></div>
+
+        <div id="contentWrap" role="main">
+            <div class="contents">
+                <div class="visual-content">
+                    <h2 class="page-tit">법인 공동인증서로 인증을 완료해 주세요.</h2>
+                    <p class="s-tit">앞선 모든 정보를 정확하게 입력하셨다면 법인 공동인증서 인증을 진행해 주세요. 본 페이지에서 뒤로가기 또는 페이지 이탈 시,<br> 입력하신 모든 정보가 초기화되므로, 처음부터 다시 작성하시지 않도록 화면 전환에 주의해 주세요.</p>
+                </div>
+                <div class="layout-grid">
+                    <div class="col-group term">
+                        <div class="card-box">
+                            <h3 class="card-tit cert">인증 전 꼭 확인해주세요!</h3>
+                            <div class="info-guide type-big">
+                                <ul class="guide-list">
+                                    <li>
+                                        법인전자약정을 진행하고 있는 현재 PC에 법인용 공동인증서가 저장되어 있는지 확인해 주세요.
+                                        <ul class="bul-refer">
+                                            <li>개인용/금융투자용 사용 불가</li>
+                                        </ul>
+                                    </li>
+                                    <li>인증서의 유효기간이 만료되지 않았는지 확인해 주세요.</li>
+                                    <li>법인 공동인증서 인증 완료 후, 안전한 계약 체결을 위해 대표자 명의의 휴대폰으로 인증 문자(SMS)가 발송됩니다.</li>
+                                    <li>
+                                        대표자의 최종 문자 인증까지 완료되어야 전자약정 신청 접수가 정상적으로 마무리 됩니다.
+                                        <ul class="bul-refer">
+                                            <li>대리인이 약정 진행중인 경우, 대표자께 사전 안내를 부탁드립니다.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="check-group rec mt-32">
+                                <input type="checkbox" id="check1">
+                                <label for="check1">모든 정보를 정확하고 사실에 기반하여 작성했으며, 약정서의 내용을 끝까지 확인하고 기재된 정보에 오류가 없음을 확인했습니다.</label>
+                            </div>
+                        
+                            <div class="check-group rec mb-0">
+                                <input type="checkbox" id="check2">
+                                <label for="check2">법인 공동인증서 인증 이후에는 정보 수정 및 약정 취소가 불가함을 이해하였습니다.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom-button-wrap">
+                <div class="bottom-button-inner">
+                    <div class="btn-area">
+                        <a href="#" class="btn-primary">법인 공동인증서 인증하기</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-include-path="../include/inc-footer.html"></div>
+    </div>
+</body>
+</html>

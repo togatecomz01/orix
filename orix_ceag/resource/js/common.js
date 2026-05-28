@@ -15,7 +15,7 @@ $(function() {
         var minDateObj = new Date(
             todayObj.getFullYear(),
             todayObj.getMonth(),
-            todayObj.getDate() + 16
+            todayObj.getDate() + 15
         );
 
         var maxDateObj = new Date(minDateObj);
@@ -57,19 +57,32 @@ $(function() {
             $(this).toggleClass('is-placeholder', $(this).val() === "");
         });
 
-        /* 직접입력(라디오버튼) 체크 시 인풋 노출 (26.05.27 삭제 예정, 디자인 바뀌면 클래스만 바꿔서 쓸 수도 있음 */
-        $(document).on('change', 'input[name="payType"]', function() {
-            var isDirect = $(this).val() === 'direct';
-            $('#dateSelectArea').toggle(!isDirect);
-            $('#directInputArea').toggle(isDirect);
-        });
-        
         /* 인풋 전체 선택시 데이트피커 뜨도록*/
         $(document).on('click', 'input[type="date"].form-input', function() {
             if (typeof this.showPicker === 'function') {
                 this.showPicker(); /* showpicker 메서드가 브라우저에 따라 안될수도 있다 하여 문제 생길 시 다른 방법 사용 */
             }
         });
+
+        /* 자동이체일 선택 방식(라디오 버튼)에 따라 이체일 선택/직접입력 영역 노출 */
+        $(document).on('change', 'input[name="Autopay"]', function() {
+            var $wrap = $(this).closest('.form-item');
+            var isDirect = $('input[name="Autopay"]:checked').val() === 'direct';
+
+            $wrap.find('#dateSelectArea')
+                .toggle(!isDirect)
+                .find('input')
+                .prop('disabled', isDirect);
+
+            $wrap.find('#directInputArea')
+                .toggle(isDirect)
+                .find('input')
+                .prop('disabled', !isDirect);
+
+            $wrap.children('.info-msg').toggle(isDirect);
+        });
+
+        $('input[name="Autopay"]:checked').trigger('change');
     }
 
 
