@@ -161,7 +161,7 @@
 .complete-notice-box .desc p::before { content: "•"; position: absolute; left: 0; top: 0; }
 
 /* 안내 가이드 폰트 큰 버전 (.info-guide.type-big) */
-.info-guide { padding: 32px 0 12px 25px; background: #FAFAFA; border-radius: 20px;}
+.info-guide { padding:24px; background: #FAFAFA; border-radius: 20px;}
 .info-guide.type-big .guide-list > li {position: relative;padding-left: 18px;font-size: var(--font20);font-weight: var(--font-w-r);color: var(--color-45);line-height: 1.5;}
 .info-guide.type-big .guide-list > li + li {margin-top: 8px;}
 .info-guide.type-big .guide-list > li::before {content: '•';position: absolute;left: 0;top: 0;}

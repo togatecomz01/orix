@@ -82,26 +82,24 @@
 
             <div class="form-item">
                 <label class="form-label">계좌번호 <span class="required">*</span></label>
+                <div class="form-stack">
+                    <div class="radio-list">
+                        <div class="radio-group">
+                            <input type="radio" id="accountTypeBank" name="accountType" value="bank" checked>
+                            <label for="accountTypeBank">
+                                <span class="radio-check"></span>
+                                <span class="txt">은행</span>
+                            </label>
+                        </div>
             
-                <div class="radio-list mb-14">
-                    <div class="radio-group">
-                        <input type="radio" id="accountTypeBank" name="accountType" value="bank" checked>
-                        <label for="accountTypeBank">
-                            <span class="radio-check"></span>
-                            <span class="txt">은행</span>
-                        </label>
+                        <div class="radio-group">
+                            <input type="radio" id="accountTypeStock" name="accountType" value="stock">
+                            <label for="accountTypeStock">
+                                <span class="radio-check"></span>
+                                <span class="txt">증권사</span>
+                            </label>
+                        </div>
                     </div>
-        
-                    <div class="radio-group">
-                        <input type="radio" id="accountTypeStock" name="accountType" value="stock">
-                        <label for="accountTypeStock">
-                            <span class="radio-check"></span>
-                            <span class="txt">증권사</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-stack mb-14">
                     <select class="form-input is-placeholder">
                         <option value="" disabled selected hidden>선택</option>
                         <option value="신한">신한</option>
@@ -118,7 +116,7 @@
                     <input type="tel" class="form-input" placeholder="'-'를 제외하고 입력해 주세요.">
                 </div>
 
-                <div class="btn-area full mb-14">
+                <div class="btn-area full">
                     <button type="button" class="btn-primary">계좌 확인</button>
                 </div>
 

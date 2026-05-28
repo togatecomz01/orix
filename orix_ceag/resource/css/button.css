@@ -9,7 +9,7 @@
 .btn-secondary { min-width: 150px; max-height: 72px; padding: 24px 40px; background-color: var(--color-f); color: var(--color-45); font-size: var(--font20); font-weight: var(--font-w-sb); text-align: center; border-radius: 12px; border: 1px solid var(--color-c); cursor: pointer; transition: all 0.2s; }
 
 /* input + 버튼 */
-.btn-form { display: inline-block; min-width: 110px; width: auto; height: 60px; padding: 0 20px; border: 1px solid var(--primary); border-radius: 8px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); white-space: nowrap; flex: none; }
+.btn-form { display: inline-block; min-width: 110px; width: auto; height: 60px; padding: 0 20px; border: 1px solid var(--primary); border-radius: 8px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); background-color: var(--color-f); white-space: nowrap; flex: none; }
 .btn-form:hover { border-color: var(--focus); color: var(--focus); }
 
 /* 아코디언 하단 전용 버튼 레이아웃 */
@@ -50,5 +50,5 @@
 .term-content .btn-area {margin-top: 20px; display: flex; justify-content: center;}
 
 /* 2026.05.28 계좌번호 input 버튼크기 */
-.btn-area.full {display: block;}
+.btn-area.full {display: block; margin-top: 14px; margin-bottom: 14px;}
 .btn-area.full .btn-primary {width: 100%; padding: 16px 32px; color: #F2F3F8; font-weight: var(--font-w-m); font-size: var(--font18);}
