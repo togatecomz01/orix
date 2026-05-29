@@ -187,23 +187,37 @@ $(function() {
             }, 2000);
         }
 
-        /* 공통 팝업 열기 (data-target) */
+        /* 공통 팝업 열기, 닫기 (data-target) */
         /* 버튼은 primary, secondary, outline 세가지 종류 있는데 그 클래스에 btn-pop-open or close 붙혀서 제어 */
-        $(document).on('click', '.btn-pop-open', function(e) {
+        /* $(document).on('click', '.btn-pop-open', function(e) {
             e.preventDefault();
             var targetId = $(this).attr('data-target'); 
             if (targetId) {
                 $(targetId).addClass('on');
                 $('body').css('overflow', 'hidden');
             }
-        });
-
-        /* 공통 팝업 닫기 */
-        $(document).on('click', '.btn-pop-close, .btn-close-pop', function(e) {
+        }); */
+    }
+    
+    function initLayerPopup() {
+        $(document).on('click', '[data-popup-open], [data-modal-open]', function(e) {
             e.preventDefault();
-            if (!$(this).closest('#popSignature').length) {
-                $(this).closest('.layer-popup').removeClass('on');
-                $('body').css('overflow', 'auto');
+    
+            var targetId = $(this).data('popup-open') || $(this).data('modal-open');
+    
+            $('#' + targetId).addClass('on');
+            $('body').css('overflow', 'hidden');
+        });
+    
+        $(document).on('click', '[data-popup-close]', function(e) {
+            e.preventDefault();
+    
+            var targetId = $(this).data('popup-close');
+    
+            $('#' + targetId).removeClass('on');
+    
+            if ($('.layerPopup.on').length === 0) {
+                $('body').css('overflow', '');
             }
         });
     }
@@ -213,5 +227,5 @@ $(function() {
     syncDateLimit();
     initAccordion();
     initEtcUI();
-    // initMainPageScroll();
+    initLayerPopup();
 });
