@@ -13,7 +13,7 @@
 select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('../../resource/images/svg/ico_select_dropdown.svg'); background-repeat: no-repeat; background-position: right 16px center; background-size: 24px auto; padding-right: 40px; }
 .form-input::placeholder, .form-input.is-placeholder { color: var(--color-9); opacity: 1; }
 .form-input option { color: var(--color-2); }
-
+/* .col-select {min-width: 156px;} */
 /* 폼 내부 말줄임표 필요할 때 */
 .form-input.ellipsis {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
@@ -30,10 +30,9 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /* =============================================
     #폼 레이아웃 (줄 바꿈 및 간격)
 ============================================= */
-.form-row { display: flex; align-items: center; gap: 10px; width: 100%; }
-.form-row #tel1 {max-width: 136px;}
-/* .col-select { width: 180px; flex: none; }
-.col-input { flex: 1; } */
+.form-row { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; }
+.form-row select {width: 156px; flex: none;}
+
 .at-mark { color: var(--color-6); font-weight: var(--font-w-r); padding: 0 2px; }
 
 .form-stack {display: flex; flex-direction: column; gap: 12px;}
@@ -126,10 +125,12 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /** r-card : 카드형 라디오 **/
 .radio-group.r-card { display: block; width: 100%; }
 .radio-group.r-card label.card-box { display: block; width: 100%; cursor: pointer; }
-.radio-group.r-card input[type="radio"]:checked + label.card-box { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary) inset; }
+.radio-group.r-card input[type="radio"]:checked + label.card-box {border: 3px solid var(--primary);}
+.radio-group.r-card input[type="radio"]:checked + label.card-box .card-tit {color: var(--primary);}
 .radio-group.r-card .card-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 32px; }
 .radio-group.r-card .card-head .card-tit { margin-bottom: 0; }
 .radio-group.r-card .radio-check { margin-right: 0; }
+
 
 /* 키보드 포커싱 */
 .check-group input[type="checkbox"]:focus-visible + label::before { outline: 2px solid var(--color-2); outline-offset: 2px; }

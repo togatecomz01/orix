@@ -11,6 +11,7 @@
 /* input + 버튼 */
 .btn-form { display: inline-block; min-width: 110px; width: auto; height: 60px; padding: 0 20px; border: 1px solid var(--primary); border-radius: 8px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); background-color: var(--color-f); white-space: nowrap; flex: none; }
 .btn-form:hover { border-color: var(--focus); color: var(--focus); }
+.btn-form.send-btn {min-width: 140px;}
 .btn-form:disabled, .btn-form.disabled { background-color: #F3F3F3; border: none; color: var(--color-6); cursor: not-allowed; }
 /* 아코디언 하단 전용 버튼 레이아웃 */
 .acc-btn-area { display: flex; justify-content: flex-end; gap: 20px; padding-top: 32px; background-color: var(--color-f); padding-bottom: 18px; }
