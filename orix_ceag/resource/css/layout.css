@@ -124,8 +124,8 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 .layerPopup.modal.on::before,
 .layerPopup.on::before { content: ''; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.3); z-index:-1; }
 /* 팝업_헤더 */
-.layerPopup .pop-header { display:flex; justify-content:space-between; align-items:center;  margin-bottom:24px;  width:100%;  }
-.layerPopup .pop-header .pop-tit h2 { display:block; font-size:var(--font28); font-weight:600; }
+/* .layerPopup .pop-header { display:flex; justify-content:space-between; align-items:center;  margin-bottom:24px;  width:100%;  }
+.layerPopup .pop-header .pop-tit h2 { display:block; font-size:var(--font28); font-weight:600; } */
 
 /* 팝업_콘텐츠 */
 .layerPopup > .pop-content { position:fixed; padding:32px 34px 38px 38px; max-width:800px; min-width:540px; width:100%; height:auto; top:50%; left:50%; transform:translate(-50%, -50%); border-radius:12px; overflow:hidden; background-color:var(--color-f);}
@@ -142,28 +142,43 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 
 
 /* 팝업_풀팝업 */
-.layerPopup .pop-area:focus-visible { outline: 2px solid var(--outline); outline-offset: -2px; }
+/* .layerPopup .pop-area:focus-visible { outline: 2px solid var(--outline); outline-offset: -2px; }
 .layerPopup.full { display:initial; min-height:auto; }
 .layerPopup.full > .pop-area { display:flex; flex-direction:column;  position:fixed; width:80%; height:80%; max-width:800px; max-height:688px; top:50%; left:50%; transform:translate(-50%, -50%); background:var(--color-f); border-radius:28px; }
 .layerPopup.full .pop-header { padding:44px 34px 12px; margin-bottom:0; }
 .layerPopup.full .pop-header h2 { font-size:var(--font24); font-weight:var(--font-w700); color:var(--color-2); }
 .layerPopup.full .pop-body { padding:24px 34px 20px; flex:1; overflow-y:auto; }
-.layerPopup.full .pop-footer { margin-top:0; padding:28px 34px 38px; display:flex; align-items:center; justify-content:center; }
+.layerPopup.full .pop-footer { margin-top:0; padding:28px 34px 38px; display:flex; align-items:center; justify-content:center; } */
 
 
 
 /* 팝업_모달팝업*/
 .layerPopup.modal .pop-content { max-width:500px; padding:40px; min-width:auto; height:auto; width:calc(100% - 80px); border-radius:20px;  }
-.layerPopup.modal .pop-header { padding:0; }
+.layerPopup.modal .pop-header { display: block; text-align: center; }
+.layerPopup.modal .pop-tit {font-size: var(--font20);font-weight: var(--font-w-sb);color: var(--color-2);line-height: 1.5;}
 .layerPopup.modal .pop-body {  margin-bottom:30px; padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:1rem; text-align:center; }
+.layerPopup.modal .pop-desc {margin-top: 8px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-45); line-height: 1.5;}
 .layerPopup.modal .pop-body:focus { border:0; outline:0; }
-.layerPopup.modal .pop-body .tit { margin-bottom:12px; font-size:1.111rem; font-weight:500;}
+/* .layerPopup.modal .pop-body .tit { margin-bottom:12px; font-size:1.111rem; font-weight:500;} */
+
+.pop-alert-list,
+.pop-info-list { padding: 20px 0; margin-top: 24px; border-top: 1px solid var(--color-d); border-bottom: 1px solid var(--color-d);}
+
+.pop-alert-list li,
+.pop-info-list li {display: flex; align-items: center; justify-content: space-between; font-size: var(--font18); color: var(--color-45); font-weight: var(--font-w-r); line-height: 1.5;}
+.pop-info-list li .tit {font-weight: var(--font-w-l); color: var(--color-6);}
+.pop-info-list li .desc {font-weight: var(--font-w-m);}
+.pop-alert-list li + li,
+.pop-info-list li + li { margin-top: 14px;}
+
+.carrier-badge {display: inline-flex; align-items: center; justify-content: center; min-width: 54px; height: 23px; margin-right: 8px; padding: 2px 12px; border-radius: 12px; background: #F0F6FF; color: var(--primary); font-size: var(--font16); font-weight: var(--font-w-m); box-sizing: border-box;}
+
 /* .layerPopup.modal .pop-body p { font-size:1rem; text-align:center; } */ /* 260414 삭제, pop-body로 css 이동 */
 .layerPopup.modal .pop-body table { min-width:unset; }
 .layerPopup.modal .pop-footer { margin-top:32px; }
 
-/* 알럿 */
-.pop-alert-message { font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-45); line-height: 1.5; }
+
+/* .pop-alert-message { font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-45); line-height: 1.5; } */
 
 /**팜업 버튼*/
 .btn-close { display:block; position:absolute; top:44px; right:34px; width:40px; height:40px; background: var(--ico-close) no-repeat center; background-size:22px; font-size:0;  }

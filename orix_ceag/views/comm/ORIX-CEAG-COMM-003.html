@@ -22,27 +22,66 @@
                     <h2 class="page-tit">상세약정서 확인 및 전자서명</h2>
                 </div>
                 <!-- 배경용 -->
-                <div class="card-box mb-42" style="height: 300px;"></div>
+                <div class="card-box mb-42" style="height: 300px; display: flex; gap: 10px;">
+                    <button class="btn-pop-primary" data-popup-open="com04" style="width: 200px;">컨펌 알럿 기본</button>
+                    <button class="btn-pop-primary" data-popup-open="com05" style="width: 300px;">컨펌 알럿 + 사용자 입력 정보 체크</button>
+                </div>
                 <div class="layout-grid">
-                    <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
+                    <div class="col-group">
+                        <div class="card-box" style="height: 400px;">
+                            
+                        </div>
+                    </div>
                     <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal-container">
-        <div id="com02" class="layerPopup modal on">
-            <div class="pop-content alert">
-                <div class="pop-body">
-                    <div class="pop-alert-message">
-                        아직 동의하지 않은 필수 약관 항목이 있습니다. <br>
-                        모든 약관을 확인하고 동의해 주세요.
-                    </div>
+    <div id="com04" class="layerPopup modal">
+        <div class="pop-content alert">
+            <div class="pop-header">
+                <h2 class="pop-tit">안내문구 노출</h2>
+            </div>
+            <div class="pop-body">
+                <p class="pop-desc">안내 문구 노출 하시겠습니까??</p>  <!-- desc가 없는 알럿일 시 지우고 사용 -->
+            </div>
+            <div class="pop-footer">
+                <div class="button-content">
+                    <button type="button" class="btn-pop-secondary" data-popup-close="com04">취소</button>
+                        <button type="button" class="btn-pop-primary" data-popup-close="com04">확인</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-container">
+        <div id="com05" class="layerPopup modal">
+            <div class="pop-content alert">
+                <div class="pop-header">
+                    <h2 class="pop-tit">
+                        입력하신 정보에 해당하는 전자약정 목록<br>
+                        조회를 진행할 예정입니다.
+                    </h2>
+                    
+                </div>
+    
+                <div class="pop-body">
+                    <p class="pop-desc">하단의 인증 정보가 정확한지 확인 후 [확인] 버튼을 눌러주세요.</p> <!-- desc가 없는 알럿일 시 지우고 사용 -->
+                    <ul class="pop-info-list">
+                        <li><span class="tit">성명</span><span class="desc">홍길동</span></li>
+                        <li><span class="tit">생년월일</span><span class="desc">2000.01.22</span></li>
+                        <li><span class="tit">성별</span><span class="desc">남성</span></li>
+                        <li>
+                            <span class="tit">휴대전화</span>
+                            <span class="desc"><span class="carrier-badge">SKT</span>010-1234-5678</span>
+                        </li>
+                    </ul>
+                </div>
+    
                 <div class="pop-footer">
                     <div class="button-content">
-                        <button type="button" class="btn-pop-secondary" data-popup-close="com02">취소</button>
-                        <button type="button" class="btn-pop-primary" data-popup-close="com02">확인</button>
+                        <button type="button" class="btn-pop-secondary" data-popup-close="com05">취소</button>
+                        <button type="button" class="btn-pop-primary" data-popup-close="com05">확인</button>
                     </div>
                 </div>
             </div>

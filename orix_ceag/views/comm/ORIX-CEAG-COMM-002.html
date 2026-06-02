@@ -8,7 +8,7 @@
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
 
     <style>
-        .alert-box {
+        /* .alert-box {
             display: flex;
             flex-direction: column;
             padding: .5rem;
@@ -17,7 +17,7 @@
             border-radius: 6px;
             text-align: left;
             gap: .5rem;
-        }
+        } */
     </style>
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
     <script src="../../resource/js/jquery.form.min.js"></script>
@@ -34,7 +34,12 @@
                     <h2 class="page-tit">상세약정서 확인 및 전자서명</h2>
                 </div>
                 <!-- 배경용 -->
-                <div class="card-box mb-42" style="height: 300px; display: flex; gap: 10px;"><button class="btn-pop-primary" data-popup-open="com01">알럿 기본</button> <button class="btn-pop-primary" data-popup-open="com02">알럿 > 내부박스</button></div>
+                <div class="card-box mb-42" style="height: 300px; display: flex; gap: 10px;">
+                    <button class="btn-pop-primary" data-popup-open="com01">알럿 기본</button>
+                    <button class="btn-pop-primary" data-popup-open="com02" style="width: 300px;">알럿 기본 + 추가 텍스트</button>
+                    <button class="btn-pop-primary" data-popup-open="com03" style="width: 200px;">알럿 + 약관 컨텐츠</button>
+                    <button class="btn-pop-primary" data-popup-open="com04" style="width: 300px;">알럿 + 추가 텍스트 + 약관 컨텐츠</button>
+                </div>
                 <div class="layout-grid">
                     <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
                     <div class="col-group"><div class="card-box" style="height: 400px;"></div></div>
@@ -45,12 +50,10 @@
     <div class="modal-container">
         <div id="com01" class="layerPopup modal">
             <div class="pop-content alert">
-                <div class="pop-body">
-                    <div class="pop-alert-message">
-                        아직 동의하지 않은 필수 약관 항목이 있습니다. <br>
-                        모든 약관을 확인하고 동의해 주세요.
-                    </div>
+                <div class="pop-header">
+                    <h2 class="pop-tit">안내문구 노출</h2>
                 </div>
+                
                 <div class="pop-footer">
                     <div class="button-content">
                         <button type="button" class="btn-pop-primary" data-popup-close="com01">확인</button>
@@ -63,21 +66,67 @@
     <div class="modal-container">
         <div id="com02" class="layerPopup modal">
             <div class="pop-content alert">
+                <div class="pop-header">
+                    <h2 class="pop-tit">안내문구 노출</h2>
+                </div>
                 <div class="pop-body">
-                    <div class="pop-alert-message tal">
-                        <p>아직 동의하지 않은 필수 약관 항목이 있습니다. <br> 모든 약관을 확인하고 동의해 주세요. </p>
-                        <br>
-                        <div class="alert-box">
-                            <p>[필수] 개인정보 수집 · 이용 동의</p>
-                            <p>[필수] 고유식별 정보처리 동의</p>
-                            <p>[필수] 통신사 이용약관 동의</p>
-                            <p>[필수] 서비스 이용약관 동의</p>
-                        </div>
-                    </div>
+                    <p class="pop-desc">안내 문구 노출 하시겠습니까??</p>
                 </div>
                 <div class="pop-footer">
                     <div class="button-content">
                         <button type="button" class="btn-pop-primary" data-popup-close="com02">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-container">
+        <div id="com03" class="layerPopup modal">
+            <div class="pop-content alert">
+                <div class="pop-header">
+                    <h2 class="pop-tit">아직 동의하지 않은 필수 약관 항목이 있습니다. <br> 모든 약관을 확인하고 동의해주세요.</h2>
+                </div>
+    
+                <div class="pop-body">
+                    <ul class="pop-alert-list">
+                        <li>[필수] 개인정보 수집 · 이용 동의</li>
+                        <li>[필수] 고유식별 정보처리 동의</li>
+                        <li>[필수] 통신사 이용약관 동의</li>
+                        <li>[필수] 서비스 이용약관 동의</li>
+                    </ul>
+                </div>
+    
+                <div class="pop-footer">
+                    <div class="button-content">
+                        <button type="button" class="btn-pop-primary" data-popup-close="com03">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-container">
+        <div id="com04" class="layerPopup modal">
+            <div class="pop-content alert">
+                <div class="pop-header">
+                    <h2 class="pop-tit">아직 동의하지 않은 필수 약관 항목이 있습니다.</h2>
+
+                </div>
+    
+                <div class="pop-body">
+                    <p class="pop-desc">모든 약관을 확인하고 동의해주세요.</p>
+                    <ul class="pop-alert-list">
+                        <li>[필수] 개인정보 수집 · 이용 동의</li>
+                        <li>[필수] 고유식별 정보처리 동의</li>
+                        <li>[필수] 통신사 이용약관 동의</li>
+                        <li>[필수] 서비스 이용약관 동의</li>
+                    </ul>
+                </div>
+    
+                <div class="pop-footer">
+                    <div class="button-content">
+                        <button type="button" class="btn-pop-primary" data-popup-close="com04">확인</button>
                     </div>
                 </div>
             </div>
