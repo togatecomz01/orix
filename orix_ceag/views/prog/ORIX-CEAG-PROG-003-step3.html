@@ -44,6 +44,7 @@
             <div class="form-item">
                 <label class="form-label" for="eMail">이메일<span class="required">*</span></label>
                 <input id="eMail" type="text" name="eMail" class="form-input" placeholder="예) hong@gmail.com">
+                <p class="error-msg" style="display:none;">세금계산서 발급용과 동일한 이메일 주소가 아닙니다.</p>
                 <p class="info-msg">세금계산서 발급용과 동일한 이메일 주소를 입력해 주세요.</p>
             </div>
 
@@ -77,7 +78,8 @@
             <div class="form-item">
                 <label for="accHoldername" class="form-label">예금주 <span class="required">*</span></label>
                 <input type="text" id="accHoldername" class="form-input" placeholder="예금주명을 입력해 주세요.">
-                <p class="error-msg" style="display:none;">예금주명을 입력해 주세요.</p> 
+                <p class="error-msg" style="display:none;">올바른 예금주명을 입력해 주세요.</p>
+                <p class="error-msg" style="display:none;">예금주를 입력해 주세요.</p>
             </div>
 
             <div class="form-item">
@@ -113,7 +115,8 @@
                         <option value="키움">키움증권</option>
                     </select> -->
             
-                    <input type="tel" class="form-input" placeholder="'-'를 제외하고 입력해 주세요.">
+                    <input type="tel" class="form-input error" placeholder="'-'를 제외하고 입력해 주세요.">
+                    <p class="error-msg">올바른 계좌번호를 입력해 주세요.</p>
                 </div>
 
                 <div class="btn-area full">

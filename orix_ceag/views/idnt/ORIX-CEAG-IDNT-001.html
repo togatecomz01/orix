@@ -178,19 +178,23 @@
                             <h3 class="card-tit">휴대전화 번호 인증</h3>
                     
                             <div class="form-item">
+                                <label class="form-label">통신사 <span class="required">*</span></label>
+                                <select class="form-input is-placeholder">
+                                    <option value="" disabled selected hidden>통신사 선택</option>
+                                    <option value="SKT">SKT</option>
+                                    <option value="KT">KT</option>
+                                    <option value="LGU+">LGU+</option>
+                                    <option value="SKT MVNO">SKT 알뜰폰</option>
+                                    <option value="KT MVNO">KT 알뜰폰</option>
+                                    <option value="LGU+ MVNO">LGU+ 알뜰폰</option>
+                                </select>
+                            </div>
+                            <div class="form-item">
                                 <label class="form-label">휴대전화 번호 <span class="required">*</span></label>
                                 <div class="form-row">
-                                    <select class="form-input is-placeholder">
-                                        <option value="" disabled selected hidden>통신사 선택</option>
-                                        <option value="SKT">SKT</option>
-                                        <option value="KT">KT</option>
-                                        <option value="LGU+">LGU+</option>
-                                        <option value="SKT MVNO">SKT 알뜰폰</option>
-                                        <option value="KT MVNO">KT 알뜰폰</option>
-                                        <option value="LGU+ MVNO">LGU+ 알뜰폰</option>
-                                    </select>
 
                                     <input type="tel" class="form-input" placeholder="휴대폰 번호 입력">
+                                    <button type="button" class="btn-form send-btn">인증번호 발송</button>
                                 </div>
                                 <!-- <p class="error-msg" style="display:none;">통신사를 선택해 주세요.</p> -->
                             </div>
@@ -200,10 +204,10 @@
                                 <div class="form-row">
                                     <input type="text" class="form-input" placeholder="6자리 입력">
                                     <!-- <button type="button" class="btn-form">인증번호 발송</button> -->
-                                    <button type="button" class="btn-form send-btn">재발송</button>
+                                    <button type="button" class="btn-form send-btn" disabled>인증번호 확인</button>
                                     <span class="auth-timer on">3:00</span>
                                 </div>
-                                <!-- <p class="error-msg" style="display:none;">올바른 인증번호를 입력해 주세요.</p> -->
+                                <!-- <p class="error-msg" style="display:none;">인증번호가 일치하지 않습니다. 올바른 인증번호를 입력해 주세요.</p> -->
                             </div>
                         </div>
                     </div>

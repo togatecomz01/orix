@@ -235,6 +235,8 @@
 /* 기존 depth2 쓰면 스타일이 또 달라짐으로 인해 중첩클래스가 너무 많아져서 따로 빼서 구현 */
 .info-list .desc-list {display: flex;flex-direction: column;gap: 16px;}
 
+/* 계좌번호 */
+.form-stack .error-msg { margin-top: 0; }
 
 @media (max-width: 1600px) {
     /* .complete-visual { width: 196px; height: 175px;}
