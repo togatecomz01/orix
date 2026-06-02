@@ -237,6 +237,10 @@
 
 /* 계좌번호 */
 .form-stack .error-msg { margin-top: 0; }
+/* step 버튼 툴팁 안내문구 */
+.btn-area { position: relative; }
+.btn-area .tooltip { display: none; visibility: hidden; opacity: 0; z-index: 15; }
+.btn-area .tooltip.on { visibility: visible; opacity: 1; position: absolute; display: flex; justify-content: center; align-items: center; left: 50%; bottom: -40px; transform: translateX(-50%); width: 200px; padding: 0.3rem 0.5rem; border: 1px solid #999; border-radius: 8px; background-color: #999; color: #FFF; font-size: var(--font14); }
 
 @media (max-width: 1600px) {
     /* .complete-visual { width: 196px; height: 175px;}

@@ -145,7 +145,9 @@
         <div class="btn-area">
             <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
             <!-- 기본으로 disabled 속성, 유효성 검사 후 disabled 해제가 맞지만 테스트를 위해 풀어놓음 -->
-            <a href="#" class="btn-primary">다음</a> 
+            <!-- data-action, data-ui는 개발용 삭제 X -->
+            <button type="button" class="btn-primary" data-action="goAgree" data-ui="nextBtn">다음</button>
+            <span class="tooltip">모든 약관에 동의해주세요.</span>
         </div>
     </div>
 </div>

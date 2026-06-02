@@ -110,6 +110,32 @@ $(function () {
         cur = 1;
     }
 
+    /* URL에 있는 step 값을 읽어서 해당 step으로 시작하기 위한 함수 */
+    /* 개발단에서는 삭제 필요 퍼블용!!!! */
+    function getStepFromUrl() {
+        /* 현재 주소의 query string에서 step=숫자 형태를 찾음 */
+        var match = window.location.search.match(/[?&]step=([0-9]+)/);
+
+        /* step 값이 있으면 숫자로 변환하고, 없으면 null 처리 */
+        var step = match ? parseInt(match[1], 4) : null;
+
+        /* step 값이 없거나, 1보다 작거나, 실제 step 개수보다 크면 무시 */
+        if (!step || step < 1 || step > GROUP_MAX) {
+            return null;
+        }
+
+        /* 정상적인 step 값이면 해당 숫자를 반환 */
+        return step;
+    }
+
+    /* URL에서 읽어온 step 값을 저장 */
+    var urlStep = getStepFromUrl();
+
+    /* URL에 유효한 step 값이 있으면 현재 step 값을 URL 기준으로 변경 */
+    if (urlStep) {
+        cur = urlStep;
+    }
+
     // 데이트피커 날짜 형식 변환
     function formatDate(date) {
         var year = date.getFullYear();
@@ -252,6 +278,14 @@ $(function () {
         updateStepButtons();
         syncDateLimit();
         syncLayoutCards();
+    });
+
+    /* step1~3 disabled 버튼 툴팁 */
+    /* 퍼블용!!!! 개발단에서는 삭제 필요 */
+    $(document).on('mouseenter mouseleave', '.btn-area', function(e) {
+        var isDisabled = $(this).find('.btn-primary').first().prop('disabled');
+    
+        $(this).find('.tooltip').toggleClass('on', e.type === 'mouseenter' && isDisabled);
     });
 
     syncDuplicateIds();
