@@ -156,7 +156,7 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 .layerPopup.modal .pop-content { max-width:500px; padding:40px; min-width:auto; height:auto; width:calc(100% - 80px); border-radius:20px;  }
 .layerPopup.modal .pop-header { display: block; text-align: center; }
 .layerPopup.modal .pop-tit {font-size: var(--font20);font-weight: var(--font-w-sb);color: var(--color-2);line-height: 1.5;}
-.layerPopup.modal .pop-body {  margin-bottom:30px; padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:1rem; text-align:center; }
+.layerPopup.modal .pop-body {padding:0; max-height:508px; height:100%; overflow-x:hidden; overflow-y:auto; font-size:1rem; text-align:center; }
 .layerPopup.modal .pop-desc {margin-top: 8px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-45); line-height: 1.5;}
 .layerPopup.modal .pop-body:focus { border:0; outline:0; }
 /* .layerPopup.modal .pop-body .tit { margin-bottom:12px; font-size:1.111rem; font-weight:500;} */
