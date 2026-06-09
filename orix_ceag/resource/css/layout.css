@@ -38,8 +38,9 @@
 .main-page #footerWrap .footer-add p { margin: 0; }
 .main-page #footerWrap .footer-add p:last-child { display: flex; gap: 32px; }
 .main-page #footerWrap .footer-copy { display: flex; align-items: center; justify-content: center; margin: 0;}
-.main-page #footerWrap .footer-copy span { display: inline-flex; align-items: center; color: var(--color-6); font-size: var(--font16); }
-.main-page #footerWrap .footer-copy span::before { content: ''; display: inline-block; width: 72px; height: 24px; margin-right: 16px; background: url("../../resource/images/svg/logo_666.svg") no-repeat center / contain; }
+.main-page #footerWrap .footer-copy span {display: inline-block;color: var(--color-6);font-size: var(--font16);}
+.main-page #footerWrap .footer-copy span em {font-weight: var(--font-w-m);}
+.main-page #footerWrap .footer-copy span::before {content: '';display: inline-block;width: 72px;height: 24px;margin-right: 16px;background: url("../../resource/images/svg/logo_666.svg") no-repeat center / contain;vertical-align: middle;}
 
 
 /* 에러 페이지, 완료 페이지 전용 레이아웃 (Main Error)*/
