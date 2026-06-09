@@ -34,11 +34,11 @@
 
 .main-page #footerWrap { z-index: 5; flex-shrink: 0; width: 100%; min-height: 110px; background: transparent; }
 .main-page #footerWrap .footer-inner { width: 1600px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding-top: 24px; padding-bottom: 24px; }
-.main-page #footerWrap .footer-add { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 32px; color: var(--color-6); font-size: var(--font14); }
+.main-page #footerWrap .footer-add { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; color: var(--color-6); font-size: var(--font14); }
 .main-page #footerWrap .footer-add p { margin: 0; }
-.main-page #footerWrap .footer-add p:last-child { display: flex; gap: 32px; }
+.main-page #footerWrap .footer-add p:last-child { display: flex; gap: 20px; }
 .main-page #footerWrap .footer-copy { display: flex; align-items: center; justify-content: center; margin: 0;}
-.main-page #footerWrap .footer-copy span {display: inline-block;color: var(--color-6);font-size: var(--font16);}
+.main-page #footerWrap .footer-copy span {display: inline-block;color: var(--color-6);font-size: var(--font16); font-weight: var(--font-w-l);}
 .main-page #footerWrap .footer-copy span em {font-weight: var(--font-w-m);}
 .main-page #footerWrap .footer-copy span::before {content: '';display: inline-block;width: 72px;height: 24px;margin-right: 16px;background: url("../../resource/images/svg/logo_666.svg") no-repeat center / contain;vertical-align: middle;}
 
