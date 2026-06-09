@@ -6,12 +6,12 @@
 .visual-content .s-tit { margin-top: 12px; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.5; }
 
 /* 메인 시작 페이지 전용 컨텐츠 스타일 */
-.main-copy { position: relative; z-index: 5; width: 1600px; color: #fff; }
+.main-copy { position: relative; z-index: 5; width: 1600px; color: var(--color-45); }
 .main-eyebrow { margin-bottom: 22px; font-size: var(--font32); font-weight: var(--font-w-r); }
-.main-title { font-size: 72px; font-weight: var(--font-w-b); color: #fff; }
+.main-title { font-size: 72px; font-weight: var(--font-w-b); color: var(--color-2); }
 .main-title .lg { font-size: 80px; }
-.main-title em { color: #4ADDFD; }
-.main-desc { margin-top: 25px; font-size: var(--font24); font-weight: var(--font-w-r);}
+.main-title em { color: var(--primary); }
+.main-desc { margin-top: 25px; font-size: var(--font24); font-weight: var(--font-w-r); color: var(--color-6);}
 
 .main-start-btn { position: absolute; right: calc((100% - 1600px) / 2); top: 300px; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; width: 200px; height: 200px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 30px; font-weight: var(--font-w-b); box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.25); }
 .main-start-btn::after { content: ''; display: block; width: 32px; height: 32px; background: url("../../resource/images/svg/ico_arrow_enter.svg") no-repeat center / contain; }
