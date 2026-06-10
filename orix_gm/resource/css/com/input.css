@@ -332,6 +332,9 @@ tr td .error,
 .date-wrap:has(button) input[type="month"]::-webkit-calendar-picker-indicator { display:none; }
 /* 달력 input 두개일 때 .date-wrap { position:relative; display:inline-flex; } */
 
+/* 공매 조회 select 기본 placeholder 처리 */
+select[data-ui=bidMgmtNo]:has(option:nth-of-type(1):checked), select[data-ui=maker]:has(option:checked[value=""]), select[data-ui=carName]:has(option:checked[value=""]), select[data-ui=contractYn]:has(option:checked[value=""]){color: var(--color-9);}
+
 /* 캘린더 아이콘 */
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="month"]::-webkit-calendar-picker-indicator { width:18px; height:18px; background:var(--form-date-ico) no-repeat center/18px 18px; opacity:1; cursor:pointer; filter:none; }
