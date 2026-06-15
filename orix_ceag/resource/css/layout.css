@@ -111,7 +111,7 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 .complete-notice-box .tit {font-size: var(--font24); font-weight: var(--font-w-b); margin-bottom: 12px;}
 /* 26.05.28 이미지가 왼쪽에 붙어있는 타이틀 */
 .card-tit.cert, .complete-notice-box .tit {display: flex;align-items: center;}
-.card-tit.cert::before, .complete-notice-box .tit::before {content: '';display: inline-block;width: 60px;height: 64px; margin-right: 10px; background: url('../images/certification.png') no-repeat center / contain; flex-shrink: 0;}
+.card-tit.cert::before, .complete-notice-box .tit::before {content: '';display: inline-block;width: 60px;height: 60px; margin-right: 10px; background: url('../images/certification.png') no-repeat center / contain; flex-shrink: 0;}
 .flex-none {flex: none !important;}
 /* 구분선 */
 .divider { border: 0; border-top: 1px solid var(--color-e); margin-top: 32px; margin-bottom: 40px; }
