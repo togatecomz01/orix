@@ -21,39 +21,57 @@
             <div class="contents">
                 <div class="visual-content">
                     <h2 class="page-tit">
-                        계약 시, 
-                        <span class="blue">등록하신 정보 </span>
-                        를 입력해 주세요.
+                        법인 공동인증서로 로그인 해주세요.
                     </h2>
-                    <p class="s-tit">입력하신 정보와 일치하는 전자약정 대상 계약 건을 조회합니다. 정확한 계약 건 조회를 위해 계약 시, 등록하신 정보와 동일하게 입력해 주세요.</p>
+                    <p class="s-tit">
+                        안전한 약정거래를 위한 본인 확인절차로 사업자등록번호를 정확하게 입력하신 후, 법인 공동인증서로 로그인을 진행해 주세요.
+                        <br>
+                        페이지 이탈 또는 뒤로가기를 진행하실 경우 입력하신 모든 정보가 초기화 되어 재인증이 필요할 수 있습니다. 화면전환에 주의해 주세요.
+                    </p>
                 </div>
                 <div class="layout-grid">
                     <div class="col-group term">
                         <div class="card-box">
-                            <h3 class="card-tit">이메일/전화번호</h3>
-                            <div class="form-item">
-                                <label class="form-label" for="eMail">이메일</label>
-                                <input id="eMail" type="text" name="eMail" class="form-input" placeholder="계약 시 등록하신 이메일 주소를 입력해 주세요.">
+                            <h3 class="card-tit cert">인증 전 꼭 확인해주세요!</h3>
+                            <div class="info-guide type-big">
+                                <ul class="guide-list">
+                                    <li>
+                                        현재 사용중인 PC 또는 보안매체(USB 등)에 법인용 공동인증서가 저장되어 있는지 확인해 주세요.
+                                        <ul class="bul-refer">
+                                            <li>개인용/금융투자용 사용 불가</li>
+                                        </ul>
+                                    </li>
+                                    <li>인증서의 유효기간이 만료되지 않았는지 확인해 주세요.</li>
+                                    <li>법인 공동인증서의 비밀번호를 미리 준비해 주세요.</li>
+                                    <li>대리인이 진행하는 경우에도 개인명의가 아닌 법인 명의의 공동인증서가 필요합니다.</li>
+                                </ul>
                             </div>
+
+                        </div>
+                        <!-- S: 컨텐츠 좌우로 추가 시 col-group 생성 후(좌1 우1 생성) card-box를 col-group으로 빼는 작업 필요 -->
+                        <div class="card-box">
+                            <h3 class="card-tit">법인 정보 확인</h3>
                             <div class="form-item">
-                                <label class="form-label" for="pNumber">전화번호</label>
-                                <input id="pNumber" type="text" name="pNumber" class="form-input" placeholder="계약 시 등록하신 전화번호를 입력해 주세요.">
+                                <label class="form-label" for="BRN">사업자 등록번호<span class="required">*</span></label>
+                                <input id="BRN" type="text" name="BRN" class="form-input" placeholder="사업자 등록번호를 입력해 주세요.">
+                                <p class="error-msg" style="display: none;">사업자 등록번호를 입력해 주세요.</p>
                             </div>
                         </div>
+                        <!-- E: 컨텐츠 좌우로 추가 시 col-group 생성 후(좌1 우1 생성) card-box를 col-group으로 빼는 작업 필요 -->
                     </div>
                 </div>
             </div>
 
             <div id="bottom-button-wrap">
                 <div class="bottom-button-inner">
-                    <div class="bottom-button-text-wrap">
+                    <!-- <div class="bottom-button-text-wrap">
                         <div class="bottom-button-notice">
                             <p class="notice">타인의 접근을 차단하고, 계약 대상을 식별하기 위한 절차로</p>
                             <p class="notice">계약 시 등록하신 정보가 기억나지 않으실 경우, 고객센터 또는 계약 담당자에게 문의하시기 바랍니다.</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="btn-area">
-                        <a href="../prog/ORIX-CEAG-PROG-003.html" class="btn-primary">다음</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                        <a href="../prog/ORIX-CEAG-PROG-003.html" class="btn-primary">법인 공동인증서로 로그인</a> <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
                     </div>
                 </div>
             </div>

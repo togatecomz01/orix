@@ -107,9 +107,11 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 /* .card-box.mh-100 {flex: 1;} */
 /* .col-group .card-box:last-child {flex: 1;} */ /*  */
 .card-tit { font-size: var(--font24); font-weight: var(--font-w-b); margin-bottom: 32px; display: block; }
+/* 완료 박스 타이틀 추가 (기존 card-box cert랑 동일)*/
+.complete-notice-box .tit {font-size: var(--font24); font-weight: var(--font-w-b); margin-bottom: 12px;}
 /* 26.05.28 이미지가 왼쪽에 붙어있는 타이틀 */
-.card-tit.cert {display: flex;align-items: center;}
-.card-tit.cert::before {content: '';display: inline-block;width: 60px;height: 64px; margin-right: 10px; background: url('../images/certification.png') no-repeat center / contain; flex-shrink: 0;}
+.card-tit.cert, .complete-notice-box .tit {display: flex;align-items: center;}
+.card-tit.cert::before, .complete-notice-box .tit::before {content: '';display: inline-block;width: 60px;height: 64px; margin-right: 10px; background: url('../images/certification.png') no-repeat center / contain; flex-shrink: 0;}
 .flex-none {flex: none !important;}
 /* 구분선 */
 .divider { border: 0; border-top: 1px solid var(--color-e); margin-top: 32px; margin-bottom: 40px; }

@@ -25,7 +25,7 @@
 .error-visual { width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/main_error.png') no-repeat center / contain; aspect-ratio: 272 / 251; }
 .s-ready-visual {width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/service_ready.png') no-repeat center / contain; aspect-ratio: 272 / 251;}
 .error-tit, .s-ready-tit { font-size: 54px; font-weight: var(--font-w-sb); color: #000; margin-bottom: 42px;}
-.error-info-box, .s-ready-info-box { border-top: 1px solid var(--color-d); padding: 32px 24px; display: inline-block; max-width: 730px; }
+.error-info-box, .s-ready-info-box { border-top: 1px solid var(--color-d); padding: 32px 24px; display: inline-block; min-width: 1132px; }
 .error-desc , .s-ready-desc{ font-size: var(--font26); color: var(--color-6); line-height: 1.6; font-weight: var(--font-w-r); word-break: keep-all; }
 
 /* 스텝 프로그레스 */
@@ -144,13 +144,10 @@
 /* 완료 페이지 안내 박스 */
 .complete-notice-box { width: 1000px; margin: 62px auto 0; padding: 32px 50px 42px; background-color: #F0F6FF; border-radius: 20px; box-sizing: border-box; text-align: left; }
 
+/* 안내 박스 타이틀 */
+.info-guide .tit{ display: flex; align-items: center; margin-bottom: 12px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); }
+.info-guide .tit::before { content: ''; display: inline-block; width: 22px; height: 22px; margin-right: 8px; background: url('../images/svg/ico_warning_blue.svg') no-repeat center / contain; flex-shrink: 0; }
 /* 안내 박스, 완료 페이지 안내박스 공통 */
-.info-guide .tit,
-.complete-notice-box .tit { display: flex; align-items: center; margin-bottom: 12px; font-size: var(--font18); font-weight: var(--font-w-sb); color: var(--primary); }
-
-.info-guide .tit::before,
-.complete-notice-box .tit::before { content: ''; display: inline-block; width: 22px; height: 22px; margin-right: 8px; background: url('../images/svg/ico_warning_blue.svg') no-repeat center / contain; flex-shrink: 0; }
-
 .info-guide .desc,
 .complete-notice-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.5; }
 
