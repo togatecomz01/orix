@@ -14,15 +14,15 @@
 </head>
 <body>
     <div id="wrap" class="error-page">
-        <div id="headerWrap">
-            <div class="header-inner">
-                <h1 class="logo"><a href="#"><img src="../../resource/images/ORIX_logo.png" alt="오릭스"></a></h1>
-                <div class="header-contact">
-                    <span class="txt">고객센터</span>
-                    <span class="tel">02-2050-6700</span>
-                </div>
-            </div>
-        </div>
+        <!-- 
+            D : 아래 inc-header.js는 퍼블용 인클루드 소스입니다.
+            개발에서는 ../include/inc-header.html 확인하시면 됩니다.
+        -->
+        <div id="headerWrap"></div>
+        <script src="../include/inc-header.js"></script>
+
+        <!-- 개발 확인용 헤더 인클루드 -->
+        <!-- <div data-include-path="../include/inc-header.html"></div> -->
 
         <div id="contentWrap">
             <div class="contents">
@@ -52,7 +52,16 @@
             </div>
         </div>
 
-        <div data-include-path="../include/inc-footer.html"></div>
+        
+        <!-- 
+            D : 아래 inc-footer.js는 퍼블용 인클루드 소스입니다.
+            개발에서는 ../include/inc-footer.html 확인하시면 됩니다.
+        -->
+        <div id="footerWrap"></div>
+        <script src="../include/inc-footer.js"></script>
+
+        <!-- 개발 확인용 푸터 인클루드 -->
+        <!-- <div data-include-path="../include/inc-footer.html"></div> -->
     </div>
 </body>
 </html>

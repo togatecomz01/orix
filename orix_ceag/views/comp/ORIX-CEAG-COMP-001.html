@@ -15,7 +15,15 @@
 <body>
     <div id="wrap" class="complete-page">
         <!-- 헤더 -->
-        <div data-include-path="../include/inc-header.html"></div>
+        <!-- 
+            D : 아래 inc-header.js는 퍼블용 인클루드 소스입니다.
+            개발에서는 ../include/inc-header.html 확인하시면 됩니다.
+        -->
+        <div id="headerWrap"></div>
+        <script src="../include/inc-header.js"></script>
+
+        <!-- 개발 확인용 헤더 인클루드 -->
+        <!-- <div data-include-path="../include/inc-header.html"></div> -->
 
         <!-- 중앙 컨텐츠 -->
         <div id="contentWrap" role="main" >
@@ -64,7 +72,15 @@
             </div>
         </div>
 
-        <div data-include-path="../include/inc-footer.html"></div>
+        <!-- 
+            D : 아래 inc-footer.js는 퍼블용 인클루드 소스입니다.
+            개발에서는 ../include/inc-footer.html 확인하시면 됩니다.
+        -->
+        <div id="footerWrap"></div>
+        <script src="../include/inc-footer.js"></script>
+
+        <!-- 개발 확인용 푸터 인클루드 -->
+        <!-- <div data-include-path="../include/inc-footer.html"></div> -->
     </div>
 </body>
 </html>
