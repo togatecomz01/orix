@@ -99,7 +99,7 @@ h4 { font-weight: var(--font-w-r); color: var(--color-2); letter-spacing: 0; }
 .bottom-check-list .check-group label {font-size: var(--font24);font-weight: var(--font-w-m);color: var(--color-6);}
 /* 그리드 (Grid & Container) */
 .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
-.layout-grid > .col-group:only-child,
+/* .layout-grid > .col-group:only-child, */
 .col-group.term { grid-column: 1 / -1; }
 .col-group { display: flex; flex-direction: column; gap: 20px; height: 100%; }
 .card-box { flex: 1; background: var(--color-f); border-radius: 16px; padding: 50px; width: 100%; box-sizing: border-box; }
