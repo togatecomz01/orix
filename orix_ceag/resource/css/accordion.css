@@ -26,7 +26,7 @@
 .term-content { font-size: var(--font16); color: var(--color-9); line-height: 1.5; padding: 20px; max-height: 230px; overflow-y: auto; font-weight: var(--font-w-r); }
 
 /* 26.05.16 아코디언 뱃지, 상단 안내사항 */
-.terms-guide { margin-bottom: 32px; padding: 20px; background: #FAFAFA; font-size: var(--font16); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5; }
+.terms-guide { margin-bottom: 32px; padding: 20px; background: var(--color-fa); font-size: var(--font16); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5; }
 .term-badge { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 32px; margin-right: 12px; padding: 5px 10px; border-radius: 100px; box-sizing: border-box; font-size: var(--font18) !important; line-height: 1; text-align: center; white-space: nowrap; }
 .term-badge.is-pending { background: #FFE7E7; color: var(--error); font-weight: var(--font-w-r); }
 .term-badge.is-complete { background: #F0F6FF; color: var(--primary); font-weight: var(--font-w-m); }

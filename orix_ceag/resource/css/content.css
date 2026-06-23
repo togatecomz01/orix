@@ -21,6 +21,7 @@
 .main-notice .notice-content { flex: 1; height: 188px; padding: 12px 24px 0; box-sizing: border-box; overflow: hidden; color: var(--color-45); font-size: var(--font16); line-height: 1.6; }
 .main-notice .notice-main { margin-bottom: 22px; font-size: 20px; line-height: 1.5; font-weight: var(--font-w-sb); color: var(--color-2); }
 .main-notice .notice-sub {margin-bottom: 8px;}
+.notice-content p {font-weight: var(--font-w-r);}
 
 .error-visual { width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/main_error.png') no-repeat center / contain; aspect-ratio: 272 / 251; }
 .s-ready-visual {width: 285px; height: 263px; margin: 0 auto 20px; background: url('../images/service_ready.png') no-repeat center / contain; aspect-ratio: 272 / 251;}
@@ -82,7 +83,7 @@
 .agree-header label::before { width: 32px; height: 32px; }
 .agree-header .check-group input[type="checkbox"]:checked + label { color: var(--color-2); }
 
-.term-head .check-group label { font-weight: var(--font-w-m); color: var(--color-45); }
+.term-head .check-group label { font-weight: var(--font-w-m); color: var(--color-45); font-size: var(--font20); }
 
 /* 약관 리스트 당구장 표시 정렬 */
 .bul-refer { margin-bottom: 20px; }
@@ -191,16 +192,16 @@
 .card-box.terms .term-head { padding: 32px 0 24px; }
 .card-box.terms .term-head .check-group { margin-bottom: 0; }
 .card-box.terms .acc-body { display: block; border-radius: 0; background: transparent; }
-.card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-f8); overflow: visible; }
-.card-box.terms .term-content > p { font-size: var(--font16); color: var(--color-6); }
+.card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-fa); overflow: visible; }
+.card-box.terms .term-content > p { font-size: var(--font16);}
 .card-box.terms .term-content .term-tit { margin-bottom: 14px; }
 .card-box.terms .term-content .term-tit:last-child { margin-bottom: 0; }
 .card-box.terms .term-content .bul-refer,
 .card-box.terms .acc-item:last-child .acc-body { margin: 0; }
 .card-box.terms .term-content .bul-refer li { color: var(--color-6); }
-.card-box.terms .final-desc { margin-top: 42px; padding: 36px 26px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
+.card-box.terms .final-desc { margin-top: 42px; padding: 36px; border: 1px solid var(--color-e); border-radius: 10px; text-align: center; }
 .card-box.terms .final-desc strong { display: block; margin-bottom: 16px; font-size: var(--font22); color: var(--color-45); }
-.card-box.terms .final-desc p { font-size: var(--font18); color: var(--color-45); line-height: 1.5; }
+.card-box.terms .final-desc p { font-size: var(--font18); color: var(--color-45); font-weight: var(--font-w-r); line-height: 1.5; }
 
 /* 과태료/범칙금 */
 .card-box.notice .tit { margin-bottom: 14px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5;}
@@ -208,8 +209,6 @@
 .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
 
 /* 상품 신청 내역 */
-.card-box.summary .info-list .tit,
-.card-box.summary .info-list .desc { font-size: var(--font18); }
 .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
 .card-wrap > .card-box { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 42px 50px 58px; overflow: hidden; }
 .card-wrap > .card-box.is-expanded { display: block; flex: none; height: auto; overflow: visible; }
@@ -227,7 +226,7 @@
 .info-list li.depth2 > div,
 .info-list li.depth2 .sub-info li { display: flex; justify-content: space-between; width: 100%; }
 .info-list li.depth2 .sub-info {display: flex; flex-direction: column; gap: 16px; width: 100%; padding: 24px 0 10px; }
-.info-list li.depth2 .sub-info li .tit { font-size: var(--font18); font-weight: var(--font-w-l); }
+.info-list li.depth2 .sub-info li .tit { font-size: var(--font18);}
 .info-list li.depth2 .sub-info li .desc { font-size: var(--font18); font-weight: var(--font-w-r); }
 /* 기존 depth2 쓰면 스타일이 또 달라짐으로 인해 중첩클래스가 너무 많아져서 따로 빼서 구현 */
 .info-list .desc-list {display: flex;flex-direction: column;gap: 16px;}

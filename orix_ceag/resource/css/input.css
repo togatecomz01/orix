@@ -42,7 +42,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group { display: flex; align-items: center; margin-bottom: 24px; }
 .check-group input[type="checkbox"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-.check-group label { display: flex; align-items: center; font-size: var(--font18); color: var(--color-75); font-weight: var(--font-w-m); cursor: pointer; }
+.check-group label { display: flex; align-items: center; font-size: var(--font18); color: var(--color-2); font-weight: var(--font-w-m); cursor: pointer; }
 .check-group label::before { content: ''; display: inline-block; width: 28px; height: 28px; margin-right: 8px; background-repeat: no-repeat; background-position: center; background-size: 14px auto; flex-shrink: 0; box-sizing: border-box; transition: background-color 0.2s; }
 
 /* disabled */
@@ -53,7 +53,6 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .check-group input[type="checkbox"]:disabled + label::before { border-color: var(--color-d); background-color: var(--color-d); background-image: url('../../resource/images/svg/ico_check_dis.svg'); }
 
 /* checked */
-.check-group input[type="checkbox"]:checked + label { color: var(--color-45); }
 .check-group input[type="checkbox"]:checked + label::before { background-color: var(--primary); border-color: var(--primary); }
 
 /** 기본 원형 체크박스 **/
@@ -94,7 +93,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 /* checked */
 .radio-group input[type="radio"]:checked + label .radio-check { background-color: var(--primary); }
 .radio-group input[type="radio"]:checked + label .radio-check::after { width: 10px; height: 10px; }
-.radio-group input[type="radio"]:checked + label .txt { font-weight: var(--font-w-m); color: var(--color-2); }
+.radio-group input[type="radio"]:checked + label .txt { font-weight: var(--font-w-m); }
 
 /* disabled */
 .radio-group input[type="radio"]:disabled + label { cursor: default; color: var(--color-9); }
