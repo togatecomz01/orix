@@ -155,7 +155,7 @@
 .info-guide .desc,
 .complete-notice-box .desc { font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.5; }
 
-.info-guide .desc p { position: relative; padding-left: 18px; margin-left: 7px; }
+.info-guide .desc p { position: relative; padding-left: 18px; margin-left: 7px; word-break: break-all; }
 .complete-notice-box .desc p { position: relative; padding-left: 18px; margin-left: 0; }
 
 .info-guide .desc p + p,
@@ -163,6 +163,9 @@
 
 .info-guide .desc p::before,
 .complete-notice-box .desc p::before { content: "•"; position: absolute; left: 0; top: 0; }
+
+.form-item input + .info-guide,
+.form-item p + .info-guide {margin-top: 14px;} /* 26.06.25 추가 수정*/
 
 /* 안내 가이드 폰트 큰 버전 (.info-guide.type-big) */
 .info-guide { padding:24px; background: #FAFAFA; border-radius: 20px;}
@@ -246,8 +249,8 @@
 /* 보험정보 중간 안내 박스 */
 .info-list > li.info-sub-row { display: block; }
 
-/* info-sub-box 안에서 info-msg 재사용 */
-.info-sub-box .info-msg { margin: 0; font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5; }
+/* info-sub-box 안에서 info-msg 재사용 */ /* 25.06.25 추가 or 수정 */
+.info-sub-box .info-msg { margin: 0; font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-45); line-height: normal;}
 .info-sub-box .info-msg:not(:last-child) { margin-bottom: 0; }
 
 /* 안내 박스 본문 */

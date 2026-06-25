@@ -10,61 +10,48 @@
             <h3 class="card-tit">고객정보</h3>
 
             <div class="form-item js-address-group">
-                <label class="form-label">자택주소<span class="required">*</span></label>
+                <label class="form-label">사업장주소<span class="required">*</span></label>
     
                 <div class="form-row mb-12">
-                    <input type="text" id="homeZonecode" placeholder="자택주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                    <input type="text" id="Zonecode" placeholder="사업장주소를 검색해 주세요." class="form-input js-zonecode" readonly>
                     <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
                 </div>
     
-                <input type="text" id="homeAddress" placeholder="" class="form-input mb-12 js-address" readonly>
-                <input type="text" id="homeDetailAddress" placeholder="" class="form-input js-detail-address">
+                <input type="text" id="Address" placeholder="" class="form-input mb-12 js-address" readonly>
+                <input type="text" id="DetailAddress" placeholder="" class="form-input js-detail-address">
                 <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
             </div>
 
-            <div class="form-item js-address-group">
-                <label class="form-label">직장주소<span class="required">*</span></label>
-    
-                <div class="form-row mb-12">
-                    <input type="text" id="companyZonecode" placeholder="직장주소를 검색해 주세요." class="form-input js-zonecode" readonly>
-                    <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
-                </div>
-    
-                <input type="text" id="companyAddress" placeholder="" class="form-input mb-12 js-address" readonly>
-                <input type="text" id="companyDetailAddress" placeholder="" class="form-input js-detail-address">
-                <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
-                <p class="info-msg">세금계산서 발급용과 동일한 직장주소를 입력해 주세요.</p>
-            </div>
-            
             <div class="form-item">
-                <label class="form-label" for="cNumber">직장/사업장 전화번호<span class="required">*</span></label>
-                <input id="cNumber" type="text" name="cNumber" class="form-input" placeholder="전화번호를 입력해 주세요.">
+                <label class="form-label" for="TPCName">담당자명<span class="required">*</span></label>
+                <input id="TPCName" type="text" name="TPCName" class="form-input" placeholder="현재 전자약정을 진행중인 분의 성명을 입력해 주세요.">
+            </div>
+
+            <div class="form-item">
+                <label class="form-label" for="TPC">담당자 구분<span class="required">*</span></label>
+                <select class="form-input is-placeholder">
+                    <option value="" disabled selected hidden>담당자 구분을 선택해 주세요.</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label" for="CNumber">직장/사업장 전화번호<span class="required">*</span></label>
+                <input id="CNumber" type="text" name="CNumber" class="form-input" placeholder="전화번호를 입력해 주세요.">
             </div>
 
             <div class="form-item">
                 <label class="form-label" for="eMail">이메일<span class="required">*</span></label>
-                <input id="eMail" type="text" name="eMail" class="form-input" placeholder="예) hong@gmail.com">
-                <p class="error-msg" style="display:none;">세금계산서 발급용과 동일한 이메일 주소가 아닙니다.</p>
-                <p class="info-msg">세금계산서 발급용과 동일한 이메일 주소를 입력해 주세요.</p>
-            </div>
-
-            <div class="form-item">
-                <label class="form-label" for="inVoice">청구서 수령방법<span class="required">*</span></label>
-                <div class="radio-list form-row">
-                    <div class="radio-group r-box">
-                        <input type="radio" id="invoicePost" name="invoiceType" value="post" checked>
-                        <label for="invoicePost">
-                            <span class="radio-check"></span>
-                            <span class="txt">우편</span>
-                        </label>
-                    </div>
+                <input id="eMail" type="text" name="eMail" class="form-input" placeholder="예) capital@orix.co.kr">
+                <p class="error-msg" style="display:none;">영문 대소문자와 숫자, 마침표(.), 하이픈(-), 언더바(_), 골뱅이(@)만 입력 가능합니다.</p>
                 
-                    <div class="radio-group r-box">
-                        <input type="radio" id="invoiceEmail" name="invoiceType" value="email">
-                        <label for="invoiceEmail">
-                            <span class="radio-check"></span>
-                            <span class="txt">이메일</span>
-                        </label>
+                <div class="info-guide">
+                    <p class="tit">확인해 주세요!</p>
+                    <div class="desc">
+                        <p>세금계산서 발급용과 동일한 이메일 주소를 입력해 주시기 바랍니다.</p>
+                        <p>입력하신 이메일 주소로 전자약정 및 자동이체 청구서가 발송되므로 정확한 이메일 주소 입력을 부탁드립니다.</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +167,7 @@
                     <span class="label">첫회차 납부일</span>
                     <span class="date">2026.03.15</span>
                 </div>
-                <p class="info-msg" style="display: none;">첫 납부일은 안전한 약정 처리를 위해 오늘 기준 15일 뒤부터 지정가능하며, 오픈된 날짜로부터 최대 31일 이내로만 선택하실 수 있습니다.</p>
+                <p class="info-msg" style="display: none;">안전한 약정 처리를 위해 첫 납부일은 오늘(전자약정 진행일)을 기준으로 15일 후부터 31일 이내로만 설정이 가능합니다.</p>
             </div>
         </div>
     </div>

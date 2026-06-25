@@ -158,6 +158,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {background: ur
 .error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
 
 /* 유의사항 메시지 */
-.info-msg { display: flex; color: var(--color-75); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; align-items: center; }/* 260625 추가 or 수정 */
+.info-msg { display: flex; color: var(--color-75); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; line-height: 1.5; }/* 260625 추가 or 수정 */
 .info-msg:not(:last-child) { margin-bottom: 14px; }
 .info-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_info.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
