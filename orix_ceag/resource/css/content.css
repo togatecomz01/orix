@@ -29,6 +29,12 @@
 .error-info-box, .s-ready-info-box { border-top: 1px solid var(--color-d); padding: 32px 24px; display: inline-block; min-width: 1132px; }
 .error-desc , .s-ready-desc{ font-size: var(--font26); color: var(--color-6); line-height: 1.6; font-weight: var(--font-w-r); word-break: keep-all; }
 
+/* 서비스 이용시간 오류 페이지 시간 박스 */
+.service-time-box {display: inline-flex;align-items: center;justify-content: center;gap: 42px;min-width: 600px;padding: 12px 26px;border-radius: 12px;background: #F0F6FF;box-sizing: border-box;}
+.service-time-box .label {font-size: var(--font26);font-weight: var(--font-w-m);color: var(--color-2);}
+.service-time-box .label span {font-weight: var(--font-w-r);color: var(--color-6);}
+.service-time-box .time {font-size: var(--font32);font-weight: var(--font-w-sb);color: var(--primary);}
+
 /* 스텝 프로그레스 */
 .step-progress { position: sticky; top: 70px; z-index: 90; display: flex; width: 100%; padding: 26px 0; background-color: #F2F3F8; justify-content: center; align-items: center; gap: 60px; counter-reset: step; }
 

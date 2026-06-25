@@ -44,7 +44,8 @@
 
 
 /* 에러 페이지, 완료 페이지 전용 레이아웃 (Main Error)*/ /* 260625 추가 or 수정 */
-.error-container, .s-ready-container { padding-top: 113px; }
+.error-container { padding-top: 113px; }
+.s-ready-container {padding-top: 64px;} 
 .error-page, 
 .error-page #headerWrap, 
 .complete-page , .complete-page #headerWrap,
