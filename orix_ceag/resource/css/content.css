@@ -45,7 +45,7 @@
 
 /* 정보 리스트 */
 .info-list { display: flex;flex-direction: column;gap: 32px; }
-.info-list li { display: flex; justify-content: space-between;}
+.info-list li { display: flex; justify-content: space-between; gap: 4px;} /* 260625 추가 or 수정 */
 .info-list .tit {flex-shrink: 0; margin-right: 20px; font-size: var(--font20); font-weight: var(--font-w-l); color: var(--color-6); white-space: nowrap;}
 .info-list .desc {display: flex; /* flex-direction: column; */ gap: 6px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); text-align: right; word-break: break-all;}
 .info-list .desc span {font-size: var(--font18); font-weight: var(--font-w-l); color: var(--color-6);}
@@ -85,10 +85,13 @@
 
 .term-head .check-group label { font-weight: var(--font-w-m); color: var(--color-45); font-size: var(--font20); }
 
-/* 약관 리스트 당구장 표시 정렬 */
-.bul-refer { margin-bottom: 20px; }
-.bul-refer li { position: relative; padding-left: 15px; line-height: 1.5; font-size: var(--font16); color: var(--color-45); }
+/* 약관 리스트 당구장 표시, 별 표시 정렬 */ /* 260625 추가 or 수정 */
+.bul-refer { margin-bottom: 20px; color: var(--color-45);}
+.bul-refer li, .bul-star li { position: relative; padding-left: 15px; line-height: 1.5; font-size: var(--font16); }
+.bul-star li {color: var(--color-6);}
 .bul-refer li::before { content: '※'; position: absolute; left: 0; top: 0; color: inherit; }
+.bul-star li::before {content: '*'; position: absolute; left: 0; top: 0; color: inherit; }
+.bul-star li .sub-hyphen li::before {content: '-';position: absolute;left: 0;top: 0;color: inherit;}
 
 /* 전자서명 전용 카드 박스 및 바디 레이아웃 */
 .card-box.contract-item { padding: 32px 50px; margin-bottom: 28px; overflow: hidden; min-height: 99px; }
@@ -194,7 +197,7 @@
 .card-box.terms .acc-body { display: block; border-radius: 0; background: transparent; }
 .card-box.terms .term-content { max-height: none; padding: 20px; background: var(--color-fa); overflow: visible; }
 .card-box.terms .term-content > p { font-size: var(--font16);}
-.card-box.terms .term-content .term-tit { margin-bottom: 14px; }
+.card-box.terms .term-content .term-tit { margin-bottom: 12px; } /* 260625 추가 or 수정 */
 .card-box.terms .term-content .term-tit:last-child { margin-bottom: 0; }
 .card-box.terms .term-content .bul-refer,
 .card-box.terms .acc-item:last-child .acc-body { margin: 0; }
@@ -207,13 +210,16 @@
 .card-box.notice .tit { margin-bottom: 14px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5;}
 .card-box.notice .info { position: relative; padding-left: 26px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); line-height: 1.5;}
 .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
+/* prog-003 과태료 범칙금 임시 추가 (디자인 확정 시 주석 수정예정) */ /* 260625 추가 or 수정 */
+.card-box.notice > ul {display: flex; justify-content: center; align-items: flex-start; flex-direction: column; width: 100%; font-weight: var(--font-w-m); font-size: var(--font20); color: var(--color-45); gap: 24px;}
+.card-box.notice > ul > li {display: flex; align-items: center; justify-content: flex-start; width: 100%; background: var(--color-fa); color: var(--color-45); border: 1px solid var(--color-fa); padding: 20px; font-size: var(--font16); font-weight: var(--font-w-m);}
+.card-box.notice > ul + ul { margin-top: 32px; }
 
 /* 상품 신청 내역 */
 .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
 .card-wrap > .card-box { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 42px 50px 58px; overflow: hidden; }
 .card-wrap > .card-box.is-expanded { display: block; flex: none; height: auto; overflow: visible; }
-.card-wrap > .card-box .info-list li { align-items: flex-start; }
-.card-wrap > .card-box .info-list .desc { max-width: 300px; font-size: var(--font18); font-weight: var(--font-w-m); line-height: 1.5; }
+.card-wrap > .card-box .info-list .desc { max-width: 360px; line-height: 1.5; } /* 260625 추가 or 수정 */
 .card-more { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: 70px; padding-bottom: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--color-f) 78%); text-align: center; }
 .card-more[hidden] { display: none; }
 .card-wrap > .card-box.is-expanded .card-more { background: transparent; }
@@ -221,15 +227,40 @@
 .btn-card-more::before { content: ''; display: inline-block; width: 20px; height: 20px; margin-top: 6px; background: url("../../resource/images/svg/ico_arrow_toggle.svg") no-repeat center center; }
 .card-wrap > .card-box.is-expanded .btn-card-more::before { margin-top: 12px; transform: rotate(180deg); }
 
-/* 차량정보 */
-.info-list li.depth2 { flex-direction: column; }
-.info-list li.depth2 > div,
-.info-list li.depth2 .sub-info li { display: flex; justify-content: space-between; width: 100%; }
-.info-list li.depth2 .sub-info {display: flex; flex-direction: column; gap: 16px; width: 100%; padding: 24px 0 10px; }
-.info-list li.depth2 .sub-info li .tit { font-size: var(--font18);}
-.info-list li.depth2 .sub-info li .desc { font-size: var(--font18); font-weight: var(--font-w-r); }
+/*----------------------- S : 260625 추가 or 수정 -----------------------------*/
+/* 공통 회색 안내/상세 박스 */
+.info-sub-box { width: 100%; padding: 20px; background: var(--color-fa); box-sizing: border-box; }
+
+/* 차량정보 - 옵션가격 상세 */
+.info-list li.depth2 { display: flex; flex-direction: column; }
+.info-list li.depth2 > div { display: flex; justify-content: space-between; width: 100%; margin-bottom: 20px; }
+.info-list li.depth2 .sub-info .tit {font-size: var(--font18);}
+.info-list li.depth2 .sub-info .desc {font-weight: var(--font-w-r); font-size: var(--font18);}
+.info-list li.depth2 .sub-info,
+.info-list li.depth2 .sub-info.info-sub-box { display: flex; flex-direction: column; gap: 16px; width: 100%;}
+.info-list li.depth2 .sub-info.info-sub-box li { display: flex; align-items: flex-start; gap: 20px; width: 100%; }
+.info-list li.depth2 .sub-info.info-sub-box li .tit { flex: 1; max-width: none; margin-right: 0; white-space: normal; font-size: var(--font18); }
+.info-list li.depth2 .sub-info.info-sub-box li .desc { flex-shrink: 0; max-width: none; margin-left: auto; font-size: var(--font18); font-weight: var(--font-w-r); }
+.info-list li.depth2 .sub-info.info-sub-box li .desc:empty { display: none; }
+
+/* 보험정보 중간 안내 박스 */
+.info-list > li.info-sub-row { display: block; }
+
+/* info-sub-box 안에서 info-msg 재사용 */
+.info-sub-box .info-msg { margin: 0; font-size: var(--font18); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5; }
+.info-sub-box .info-msg:not(:last-child) { margin-bottom: 0; }
+
+/* 안내 박스 본문 */
+.info-sub-box .info-desc { margin-top: 6px; font-size: var(--font18); font-weight: var(--font-w-r); color: var(--color-6); line-height: 1.5; }
+.info-sub-box .info-desc span { color: var(--error); font-weight: var(--font-w-m); }
+ 
+.tit .num-tab,
+.desc .num-tab { font-variant-numeric: tabular-nums; }
+
 /* 기존 depth2 쓰면 스타일이 또 달라짐으로 인해 중첩클래스가 너무 많아져서 따로 빼서 구현 */
-.info-list .desc-list {display: flex;flex-direction: column;gap: 16px;}
+.info-list .desc-list {display: flex;flex-direction: column;align-items: flex-end;gap: 16px;font-size: var(--font20);color: var(--color-45);}
+.info-list .desc-list span {color: var(--error);}
+/*----------------------- E : 260625 추가 or 수정 -----------------------------*/
 
 /* 계좌번호 */
 .form-stack .error-msg { margin-top: 0; }

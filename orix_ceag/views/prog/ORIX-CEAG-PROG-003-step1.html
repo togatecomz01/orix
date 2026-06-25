@@ -12,15 +12,23 @@
                 <div class="acc-item">
                     <div class="term-head">
                         <div class="check-group line-type">
-                            <input type="checkbox" id="testTerm1" name="terms">
-                            <label for="testTerm1">중도해지 수수료</label>
+                            <input type="checkbox" id="agreement1" name="agreementTerms">
+                            <label for="agreement1">중도해지 수수료</label>
                         </div>
                     </div>
                     <div class="acc-body">
                         <div class="term-content">
-                            <p class="term-tit">잔여임대료 X 해지위약금율(잔여 임대료 = 월임대료(VAT미포함) / 30 X 미경과일수)해지위약금율 = 대여기간 1년이하 40%, 2년이하 35%, 3년이하 30%, 3년초과 25% 입니다.</p>
-                            <ul class="bul-refer">
-                                <li>수리비용이 장부가액의 60%를 초과하여 해지되는 경우, 50%의 중도해지수수료가 발생됩니다.</li>
+                            <p class="term-tit">잔여임대료 × 해지위약금율</p>
+                            <ul class="bul-star">
+                                <li>잔여 렌트료 : 월 렌트료(부가세 제외) ÷ 30 × 미경과일수</li>
+                                <li>
+                                    해지위약금율 (계약체결일 기준)
+                                    <ul class="sub-hyphen">
+                                        <li>2년 이하 35%</li>
+                                        <li>2년 ~ 3년 이하 30%</li>
+                                        <li>3년 초과 25%</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -29,8 +37,8 @@
                 <div class="acc-item">
                     <div class="term-head">
                         <div class="check-group line-type">
-                            <input type="checkbox" id="testTerm2" name="terms">
-                            <label for="testTerm2">승계수수료</label>
+                            <input type="checkbox" id="agreement2" name="agreementTerms">
+                            <label for="agreement2">승계수수료</label>
                         </div>
                     </div>
                     <div class="acc-body">
@@ -43,29 +51,15 @@
                 <div class="acc-item">
                     <div class="term-head">
                         <div class="check-group line-type">
-                            <input type="checkbox" id="testTerm3" name="terms">
-                            <label for="testTerm3">반환지연금</label>
+                            <input type="checkbox" id="agreement3" name="agreementTerms">
+                            <label for="agreement3">반환지연금</label>
                         </div>
                     </div>
                     <div class="acc-body">
                         <div class="term-content">
-                            <p class="term-tit">월임대료(VAT미포함) / 30 X 경과일수 X 200%</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="acc-item">
-                    <div class="term-head">
-                        <div class="check-group line-type">
-                            <input type="checkbox" id="testTerm4" name="terms">
-                            <label for="testTerm4">종료처리조건</label>
-                        </div>
-                    </div>
-                    <div class="acc-body">
-                        <div class="term-content">
-                            <p class="term-tit">인수/반납/재렌탈 종료 시점에 선택가능</p>
-                            <ul class="bul-refer">
-                                <li>차량을 인수할 경우, 잔존가치 및 소유권 이전비용은 고객님이 부담하셔야 하며, 차량가격 기준 매입수수료가 발생 할 수 있습니다.</li>
+                            <p class="term-tit">일납입액 × 경과일수 × 200%</p>
+                            <ul class="bul-star">
+                                <li>일납입액 : 월 렌트료(부가세 제외) ÷ 30</li>
                             </ul>
                         </div>
                     </div>
@@ -74,13 +68,34 @@
                 <div class="acc-item">
                     <div class="term-head">
                         <div class="check-group line-type">
-                            <input type="checkbox" id="testTerm5" name="terms">
-                            <label for="testTerm5">기타(특약)사항</label>
+                            <input type="checkbox" id="agreement4" name="agreementTerms">
+                            <label for="agreement4">종료처리조건</label>
                         </div>
                     </div>
                     <div class="acc-body">
                         <div class="term-content">
-                            <p class="term-tit">자동차 장기임대차 약정서 체결 이후에 관계법령의 제정, 개정, 폐지 등 임대인의 책임있는 사유가 아닌 사유로 임대료의 변경 사유가 발생할 경우, 본 ‘상품조건’ 상의 월임대료를 조정하기로 한다.</p>
+                            <p class="term-tit">종료 시점 인수 / 반납 / 재렌탈(연장) 선택 가능</p>
+                            <ul class="bul-star">
+                                <li>차량을 인수할 경우, 잔존가치 및 소유권 이전비용, 세금 등 발생비용은 모두 고객 측 부담입니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acc-item">
+                    <div class="term-head">
+                        <div class="check-group line-type">
+                            <input type="checkbox" id="agreement5" name="agreementTerms">
+                            <label for="agreement5">초과운행수수료</label>
+                        </div>
+                    </div>
+                    <div class="acc-body">
+                        <div class="term-content">
+                            <p class="term-tit">약정주행거리 초과운행 km × km당 초과운행료</p>
+                            <ul class="bul-star">
+                                <li>km당 초과운행료 : 국산차 150원 / 수입차 250원</li>
+                                <li>실 운행 거리에서 2,000km 공제한 거리를 기준으로 초과운행거리 산정</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -91,10 +106,20 @@
                 <p class="term-tit">렌트이용자(임차인) 및 연대보증인은 <br> 중요 약정 사항을 확인하고 이에 동의합니다.</p>
             </div>
         </div>
+
         <div class="card-box notice">
-            <h3 class="card-tit">과태료/범칙금</h3>
-            <p class="tit">1차 사전통지시 카카오톡 알림 또는 SMS발송, 미납시 당사 대납 후 익월 렌트료 포함 청구</p>
-            <p class="info">사고 발생 시에는 대표번호(000-0000), 추가운전자를 신청하실 경우에는 대표번호(000-0000)으로 접수 부탁드립니다.</p>
+            <h3 class="card-tit">안내사항</h3>
+            <ul>과태료 / 범칙금
+                <li>법인은 계약 시 신청등록 된 청구지 주소로 고지서가 다이렉트 발송됩니다.</li>
+            </ul>
+            <ul>사고・정비 접수센터
+                <li>대표번호 : 1600-5330</li>
+            </ul>
+            <ul>추가운전자 지정
+                <li>법인은 추가운전자 지정이 불가합니다.</li>
+            </ul>
+            <!-- <p class="tit">1차 사전통지시 카카오톡 알림 또는 SMS발송, 미납시 당사 대납 후 익월 렌트료 포함 청구</p>
+            <p class="info">사고 발생 시에는 대표번호(000-0000), 추가운전자를 신청하실 경우에는 대표번호(000-0000)으로 접수 부탁드립니다.</p> -->
         </div>
     </div>
     <div class="col-group">
@@ -102,7 +127,7 @@
         <div class="card-box summary">
             <h3 class="card-tit">상품 신청 내역</h3>
             <ul class="info-list">
-                <li><p class="tit">신청상품</p><p class="desc">자동차 장기임대</p></li>
+                <li><p class="tit">신청상품</p><p class="desc">렌터카(장기) 만기선택형(정비제외)</p></li>
             </ul>
         </div>
 
@@ -110,6 +135,7 @@
             <!-- 차량정보 -->
             <div class="card-box is-expanded">
                 <h3 class="card-tit">차량정보</h3>
+            
                 <ul class="info-list">
                     <li>
                         <p class="tit">제조사</p>
@@ -117,7 +143,7 @@
                     </li>
                     <li>
                         <p class="tit">차량모델</p>
-                        <p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD <br>(3,470cc)</p>
+                        <p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD<br>(3,470cc)</p>
                     </li>
                     <li>
                         <p class="tit">총 차량가</p>
@@ -127,34 +153,52 @@
                         <p class="tit">차량기본가</p>
                         <p class="desc">60,500,000원</p>
                     </li>
+            
                     <li class="depth2">
                         <div>
                             <p class="tit">옵션가격</p>
                             <p class="desc">5,000,000원</p>
                         </div>
-                        <ul class="sub-info">
+            
+                        <ul class="sub-info info-sub-box">
                             <li>
-                                <p class="tit">1)[악세사리] 차량보호필름</p>
+                                <p class="tit">
+                                    <span class="num-tab">1)</span>
+                                    <span>[악세사리] 차량보호필름</span>
+                                </p>
                                 <p class="desc">1,000,000원</p>
                             </li>
                             <li>
-                                <p class="tit">2)드라이빙 어시스턴스 패키지II</p>
+                                <p class="tit">
+                                    <span class="num-tab">2)</span>
+                                    <span>드라이빙 어시스턴스 패키지II</span>
+                                </p>
                                 <p class="desc">1,000,000원</p>
                             </li>
                             <li>
-                                <p class="tit">3)빌트인 캠 패키지II</p>
+                                <p class="tit">
+                                    <span class="num-tab">3)</span>
+                                    <span>빌트인 캠 패키지II</span>
+                                </p>
                                 <p class="desc">1,000,000원</p>
                             </li>
                             <li>
-                                <p class="tit">4)시그니처 디자인 컬렉션</p>
+                                <p class="tit">
+                                    <span class="num-tab">4)</span>
+                                    <span>시그니처 디자인 컬렉션</span>
+                                </p>
                                 <p class="desc">1,000,000원</p>
                             </li>
                             <li>
-                                <p class="tit">5)하이테크 패키지</p>
+                                <p class="tit">
+                                    <span class="num-tab">5)</span>
+                                    <span>하이테크 패키지</span>
+                                </p>
                                 <p class="desc">1,000,000원</p>
                             </li>
                         </ul>
                     </li>
+            
                     <li>
                         <p class="tit">정비상품</p>
                         <p class="desc">Self</p>
@@ -165,7 +209,7 @@
                     </li>
                     <li>
                         <p class="tit">내장색상</p>
-                        <p class="desc">애쉬 그레이 / <br>글레이셔 화이트 투톤</p>
+                        <p class="desc">애쉬 그레이/ <br> 글레이셔 화이트 투톤</p>
                     </li>
                 </ul>
                 <div class="card-more" hidden>
@@ -218,35 +262,49 @@
             <!-- 보험정보 -->
             <div class="card-box is-expanded">
                 <h3 class="card-tit">보험정보</h3>
+            
                 <ul class="info-list">
                     <li>
                         <p class="tit">운전자연령</p>
-                        <p class="desc">만 26세이상<br/>(운전면허 취득 1년이상 경과)</p>
+                        <p class="desc">만 26세이상<br>(운전면허 취득 1년이상 경과)</p>
                     </li>
                     <li>
-                        <p class="tit">임직원 한정 <br>운전 특약 가입</p>
+                        <p class="tit">임직원 한정<br>운전 특약 가입</p>
                         <p class="desc">가입</p>
                     </li>
                     <li>
                         <p class="tit">운전자범위</p>
-                        <p class="desc">[개인사업자] 계약자, 임직원 <br> (그 외 운전불가)</p>
+                        <p class="desc">고용 운전기사 및 임직원<br>(4대보험 가입자, 법인등기부 등재 임원 포함)</p>
                     </li>
+            
+                    <li class="info-sub-row">
+                        <div class="info-sub-box">
+                            <p class="info-msg">경차 및 9인승(임직원특약 미가입대상 차종) 경우</p>
+                            <p class="info-desc">
+                                → 고용 운전기사 및 임직원 +
+                                <span>임직원의 직계가족(배우자 제외)</span>
+                            </p>
+                        </div>
+                    </li>
+            
                     <li>
                         <p class="tit">의무가입사항</p>
-                        <div class="desc desc-list">
-                            <p>대인배상(책임,무한)무한</p>
-                            <p>무보험차 상해(1인당) 2억</p>
-                            <p>긴급출동 연 5회</p>
-                        </div>
+                        <ul class="desc-list">
+                            <li>대인배상(책임,무한)무한</li>
+                            <li>무보험차 상해(1인당) 2억</li>
+                            <li>긴급출동 연 5회 
+                                <span> (10km 이내)</span>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <p class="tit">필수가입사항</p>
-                        <div class="desc desc-list">
-                            <p>대물배상(1사고당) 1억</p>
-                            <p>자기신체사고(1인당) 1억</p>
-                            <p>자기차량손해(자기부담금) 300,000원</p>
-                            <p>차량손해면책제도(CDW)</p>
-                        </div>
+                        <ul class="desc-list">
+                            <li>대물배상(1사고당) 1억</li>
+                            <li>자기신체사고(1인당) 1억</li>
+                            <li>자기차량손해(자기부담금) 300,000원</li>
+                            <li>차량손해면책제도(CDW)</li>
+                        </ul>
                     </li>
                 </ul>
                 <div class="card-more" hidden>
