@@ -153,9 +153,9 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {background: ur
 /* 에러 메시지 */
 .form-input.error,
 .form-input[aria-invalid="true"] { border-color: var(--error);  }
-.error-msg { display: flex; align-items: center; color: var(--error); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; }
+.error-msg { display: flex; color: var(--error); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; line-height: 1.5; }
 .error-msg:not(:last-child) { margin-bottom: 14px; }
-.error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning.svg') no-repeat center / contain; margin-right: 8px; flex-shrink: 0; }
+.error-msg::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning.svg') no-repeat center / contain; margin-top: 1px; margin-right: 8px; flex-shrink: 0; }
 
 /* 유의사항 메시지 */
 .info-msg { display: flex; color: var(--color-75); font-size: var(--font16); font-weight: var(--font-w-r); margin-top: 14px; line-height: 1.5; }/* 260625 추가 or 수정 */
