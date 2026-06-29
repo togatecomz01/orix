@@ -126,7 +126,7 @@ select.form-input { -webkit-appearance: none; -moz-appearance: none; appearance:
 .radio-group.r-card label.card-box { display: block; width: 100%; cursor: pointer; }
 .radio-group.r-card input[type="radio"]:checked + label.card-box {border: 3px solid var(--primary);}
 .radio-group.r-card input[type="radio"]:checked + label.card-box .card-tit {color: var(--primary);}
-.radio-group.r-card .card-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 32px; }
+.radio-group.r-card .card-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 40px; }
 .radio-group.r-card .card-head .card-tit { margin-bottom: 0; }
 .radio-group.r-card .radio-check { margin-right: 0; }
 

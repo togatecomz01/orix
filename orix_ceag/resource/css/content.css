@@ -50,7 +50,7 @@
 .step-progress li.active .step-txt { font-weight: var(--font-w-m); color: var(--primary); }
 
 /* 정보 리스트 */
-.info-list { display: flex;flex-direction: column;gap: 32px; }
+.info-list { display: flex;flex-direction: column;gap: 30px; }
 .info-list li { display: flex; justify-content: space-between; gap: 4px;} /* 260625 추가 or 수정 */
 .info-list .tit {flex-shrink: 0; margin-right: 20px; font-size: var(--font20); font-weight: var(--font-w-l); color: var(--color-6); white-space: nowrap;}
 .info-list .desc {display: flex; /* flex-direction: column; */ gap: 6px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); text-align: right; word-break: break-all;}
@@ -224,7 +224,7 @@
 .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
 /* prog-003 과태료 범칙금 임시 추가 (디자인 확정 시 주석 수정예정) */ /* 260625 추가 or 수정 */
 .card-box.notice > ul {display: flex; justify-content: center; align-items: flex-start; flex-direction: column; width: 100%; font-weight: var(--font-w-m); font-size: var(--font20); color: var(--color-45); gap: 24px;}
-.card-box.notice > ul > li {display: flex; align-items: center; justify-content: flex-start; width: 100%; background: var(--color-fa); color: var(--color-45); border: 1px solid var(--color-fa); padding: 20px; font-size: var(--font16); font-weight: var(--font-w-m);}
+.card-box.notice > ul > li {display: flex; align-items: center; justify-content: flex-start; width: 100%; background: var(--color-fa); color: var(--color-45); border: 1px solid var(--color-fa); padding: 20px; font-size: var(--font16); font-weight: var(--font-w-m); word-break: break-all;}
 .card-box.notice > ul + ul { margin-top: 32px; }
 
 /* 상품 신청 내역 */
