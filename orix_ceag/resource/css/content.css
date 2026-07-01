@@ -176,7 +176,7 @@
 .list-type + .list-type, .text-type + .text-type { margin-top: 14px; }
 /* 조항 제목 */
 .term-content > .bold-txt { display: block; font-size: var(--font18); line-height: 1.5; }
-.term-content > .term-tit { margin-top: 32px; margin-bottom: 12px; }
+.term-content > .term-tit { margin-top: 32px; margin-bottom: 8px; }
 .term-content > .term-tit:first-child { margin-top: 0; }
 .term-content > .term-tit + .list-cont { margin-top: 4px; }
 .term-content > .list-cont + .term-tit { margin-top: 32px; }
