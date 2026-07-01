@@ -59,6 +59,16 @@
 .card-wrap > .card-box .info-list .desc {line-height: 1.5; max-width: 360px;}
 .card-wrap > .card-box .info-list > li:not(.depth2):not(.info-sub-row) {align-items: baseline;}
 
+/* 결과 안내 박스 (Payment Result) */
+.payment-result-box { background-color: #F0F6FF; border-radius: 12px; padding: 28px 26px; display: flex; justify-content: space-between; align-items: center; margin-top: 32px;}
+.payment-result-box.ver2 {background-color: #F3F5F7; color: var(--color-2);}
+.payment-result-box.ver2 .date{color: #0F3862;}
+.payment-result-box.first_element { margin-left: -20px; margin-right: -20px;}
+.payment-result-box .label { font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-2); }
+.payment-result-box .date { font-size: var(--font26); font-weight: var(--font-w-sb); color: var(--primary); }
+/* .payment-notice { display: flex; align-items: flex-start; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); margin-bottom: 20px; line-height: 1.5;}
+.payment-notice::before { content: ''; display: inline-block; width: 20px; height: 20px; background: url('../images/svg/ico_warning_999.svg') no-repeat center / contain; margin-right: 10px; flex-shrink: 0;} */
+
 /* 약관 동의 헤더 */
 
 /* 인증번호 타이머 */
