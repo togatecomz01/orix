@@ -7,7 +7,7 @@
 
     <link href="../../resource/css/ui-util.css" rel="stylesheet">
     <script src="../../resource/js/jquery-1.11.3.min.js"></script>
-    <script src="../../resource/js/include.js"></script>
+    <!-- <script src="../../resource/js/include.js"></script> -->
     <script src="../../resource/js/common.js"></script>
     <script src="./ORIX-CEAG-PROG-003.js"></script>
     <style>
@@ -43,9 +43,1347 @@
                 </ol>
 
                 <div class="page-container">
-                    <div class="group step1 active" data-include-path="./ORIX-CEAG-PROG-003-step1.html"></div>
-                    <div class="group step2" data-include-path="./ORIX-CEAG-PROG-003-step2.html"></div>
-                    <div class="group step3" data-include-path="./ORIX-CEAG-PROG-003-step3.html"></div>
+                    <div class="group step1 active">
+                        <div class="visual-content">
+                            <h2 class="page-tit">신청하신 계약 내용을 확인해 주세요.</h2>
+                            <p class="s-tit">담당자가 안내드린 견적을 기준으로 작성된 내용입니다. 차량 정보부터 계약 조건, 보험 및 부대 항목까지<br>
+                                전체 내용과 중요 약정사항을 꼼꼼히 확인하신 후 다음 단계로 진행해 주세요.</p>
+                        </div>
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box terms">
+                                    <h3 class="card-tit">중요 약정사항</h3>
+                        
+                                    <div class="check-list">
+                                        <div class="acc-item">
+                                            <div class="term-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="agreement1" name="agreementTerms">
+                                                    <label for="agreement1">
+                                                        <span class="term-badge is-pending small">미확인</span>
+                                                        중도해지 수수료
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="term-tit">잔여임대료 × 해지위약금율</p>
+                                                    <ul class="bul-star">
+                                                        <li>잔여 렌트료 : 월 렌트료(부가세 제외) ÷ 30 × 미경과일수</li>
+                                                        <li>
+                                                            해지위약금율 (계약체결일 기준)
+                                                            <ul class="sub-hyphen">
+                                                                <li>2년 이하 : 35%</li>
+                                                                <li>2년 ~ 3년 이하 : 30%</li>
+                                                                <li>3년 초과 : 25%</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="acc-item">
+                                            <div class="term-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="agreement2" name="agreementTerms">
+                                                    <label for="agreement2">
+                                                        <span class="term-badge is-pending small">미확인</span>
+                                                        승계수수료
+                                                    </label> 
+                                                </div>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="term-tit">승계시 수수료가 발생됩니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="acc-item">
+                                            <div class="term-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="agreement3" name="agreementTerms">
+                                                    <label for="agreement3">
+                                                        <span class="term-badge is-pending small">미확인</span>
+                                                        반환지연금
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="term-tit">일납입액 × 경과일수 × 200%</p>
+                                                    <ul class="bul-star">
+                                                        <li>일납입액 : 월 렌트료(부가세 제외) ÷ 30</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="acc-item">
+                                            <div class="term-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="agreement4" name="agreementTerms">
+                                                    <label for="agreement4">
+                                                        <span class="term-badge is-pending small">미확인</span>
+                                                        종료처리조건
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="term-tit">종료 시점 인수 / 반납 / 재렌탈(연장) 선택 가능</p>
+                                                    <ul class="bul-star">
+                                                        <li>차량을 인수할 경우, 잔존가치 및 소유권 이전비용, 세금 등 발생비용은 모두 고객 측 부담입니다.</li>
+                                                        <li>60개월 계약의 경우 재렌탈(연장) 불가</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="acc-item">
+                                            <div class="term-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="agreement5" name="agreementTerms">
+                                                    <label for="agreement5">
+                                                        <span class="term-badge is-pending small">미확인</span>
+                                                        초과운행수수료
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="term-tit">약정주행거리 초과운행 km × km당 초과운행료</p>
+                                                    <ul class="bul-star">
+                                                        <li>km당 초과운행료 : 국산차 150원 / 수입차 250원</li>
+                                                        <li>실 운행 거리에서 2,000km 공제한 거리를 기준으로 초과운행거리 산정</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="final-desc">
+                                        <strong>최종 확약내용</strong>
+                                        <p class="term-tit">렌트이용자(임차인) 및 연대보증인은 <br> 중요 약정 사항을 확인하고 이에 동의합니다.</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="card-box notice">
+                                    <h3 class="card-tit">안내사항</h3>
+                                    <ul>과태료 / 범칙금
+                                        <li>법인은 계약 시 신청등록 된 청구지 주소로 고지서가 다이렉트 발송됩니다.</li>
+                                    </ul>
+                                    <ul>사고・정비 접수센터
+                                        <li>대표번호 : 1670-5330</li>
+                                    </ul>
+                                    <ul>추가운전자 지정
+                                        <li>법인은 추가운전자 지정이 불가합니다.</li>
+                                    </ul>
+                                    <!-- <p class="tit">1차 사전통지시 카카오톡 알림 또는 SMS발송, 미납시 당사 대납 후 익월 렌트료 포함 청구</p>
+                                    <p class="info">사고 발생 시에는 대표번호(000-0000), 추가운전자를 신청하실 경우에는 대표번호(000-0000)으로 접수 부탁드립니다.</p> -->
+                                </div>
+                            </div>
+                            <div class="col-group">
+                                <!-- 상품 신청 내역 -->
+                                <div class="card-box summary">
+                                    <h3 class="card-tit">상품 신청 내역</h3>
+                                    <ul class="info-list">
+                                        <li><p class="tit">신청상품</p><p class="desc">렌터카(장기)만기선택형(정비제외)</p></li>
+                                    </ul>
+                                </div>
+                        
+                                <div class="card-wrap">
+                                    <!-- 차량정보 -->
+                                    <div class="card-box is-expanded">
+                                        <h3 class="card-tit">차량 정보</h3>
+                                    
+                                        <ul class="info-list">
+                                            <li>
+                                                <p class="tit">제조사</p>
+                                                <p class="desc">제네시스</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">차량모델</p>
+                                                <p class="desc">디 올 뉴 G80 가솔린 3.5 터보 2WD<br>(3,470cc)</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">총 차량가</p>
+                                                <p class="desc">65,500,000원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">차량기본가</p>
+                                                <p class="desc">60,500,000원</p>
+                                            </li>
+                                    
+                                            <li class="depth2">
+                                                <div>
+                                                    <p class="tit">옵션가격</p>
+                                                    <p class="desc">5,000,000원</p>
+                                                </div>
+                                    
+                                                <ul class="sub-info info-sub-box">
+                                                    <li>
+                                                        <p class="tit">
+                                                            <span class="num-tab">1)</span>
+                                                            <span>[악세사리] 차량보호필름</span>
+                                                        </p>
+                                                        <p class="desc">1,000,000원</p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="tit">
+                                                            <span class="num-tab">2)</span>
+                                                            <span>드라이빙 어시스턴스 패키지II</span>
+                                                        </p>
+                                                        <p class="desc">1,000,000원</p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="tit">
+                                                            <span class="num-tab">3)</span>
+                                                            <span>빌트인 캠 패키지II</span>
+                                                        </p>
+                                                        <p class="desc">1,000,000원</p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="tit">
+                                                            <span class="num-tab">4)</span>
+                                                            <span>시그니처 디자인 컬렉션</span>
+                                                        </p>
+                                                        <p class="desc">1,000,000원</p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="tit">
+                                                            <span class="num-tab">5)</span>
+                                                            <span>하이테크 패키지</span>
+                                                        </p>
+                                                        <p class="desc">1,000,000원</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                    
+                                            <li>
+                                                <p class="tit">정비상품</p>
+                                                <p class="desc">Self</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">외장색상</p>
+                                                <p class="desc">우유니 화이트</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">내장색상</p>
+                                                <p class="desc">애쉬 그레이/ <br> 글레이셔 화이트 투톤</p>
+                                            </li>
+                                        </ul>
+                                        <div class="card-more" hidden>
+                                            <button type="button" class="btn-card-more">더보기</button>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- 계약정보 -->
+                                    <div class="card-box is-expanded">
+                                        <h3 class="card-tit">계약 정보</h3>
+                                        <ul class="info-list">
+                                            <li>
+                                                <p class="tit">대여기간</p>
+                                                <p class="desc">36개월</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">월 임대료</p>
+                                                <p class="desc">1,218,800원 <!-- <span>(VAT포함)</span> --></p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">보증금</p>
+                                                <p class="desc">0원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">선납렌트료</p>
+                                                <p class="desc">0원</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">지연배상금율</p>
+                                                <p class="desc">년 20%</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">계약주행거리</p>
+                                                <p class="desc">1.5만 Km</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">Km당 초과운행료</p>
+                                                <p class="desc">초과Km*Km당 초과(150원):2천Km공제</p>
+                                            </li>
+                                        </ul>
+                                        <div class="card-more" hidden>
+                                            <button type="button" class="btn-card-more">더보기</button>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- 보험정보 -->
+                                    <div class="card-box is-expanded">
+                                        <h3 class="card-tit">보험 정보</h3>
+                                    
+                                        <ul class="info-list">
+                                            <li>
+                                                <p class="tit">운전자연령</p>
+                                                <p class="desc">26세</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">임직원 한정<br>운전 특약 가입</p>
+                                                <p class="desc">가입</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">운전자범위</p>
+                                                <p class="desc">고용 운전기사 및 임직원<br>(4대보험 가입자, 법인등기부 등재 임원 포함)</p>
+                                            </li>
+                                    
+                                            <li class="info-sub-row">
+                                                <div class="info-sub-box">
+                                                    <p class="info-msg">경차 및 9인승(임직원특약 미가입대상 차종) 경우</p>
+                                                    <p class="info-desc">
+                                                        → 고용 운전기사 및 임직원 +
+                                                        <span>임직원의 직계가족(배우자 제외)</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                    
+                                            <li>
+                                                <p class="tit">의무가입사항</p>
+                                                <ul class="desc-list">
+                                                    <li>대인배상(책임,무한)무한</li>
+                                                    <li>무보험차 상해(1인당) 2억</li>
+                                                    <li>긴급출동 연 5회 
+                                                        <span> (10km 이내)</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p class="tit">필수가입사항</p>
+                                                <ul class="desc-list">
+                                                    <li>대물1억</li>
+                                                    <li>자손1억</li>
+                                                    <li>면책금 300,000원</li>
+                                                    <li>차량손해면책제도(C.D.W)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="card-more" hidden>
+                                            <button type="button" class="btn-card-more">더보기</button>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- 연대보증 정보 -->
+                                    <div class="card-box is-expanded">
+                                        <h3 class="card-tit">연대보증 정보</h3>
+                                        <ul class="info-list">
+                                            <li>
+                                                <p class="tit">채무자명</p>
+                                                <p class="desc">김오릭</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">연대보증인명</p>
+                                                <p class="desc">홍길동</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">보증구분</p>
+                                                <p class="desc">일반보증인</p>
+                                            </li>
+                                            <li>
+                                                <p class="tit">보증종류</p>
+                                                <p class="desc">AA보증</p>
+                                            </li>
+                                            <li class="depth2">
+                                                <div>
+                                                    <p class="tit">보증내용</p>
+                                                   
+                                                </div>
+                                                <ul class="sub-info">
+                                                    <li>
+                                                        <p class="tit">1) 보증채무최고액</p>
+                                                        <p class="desc">0,000,000,000원
+                                                    </li>
+                                                    <li>
+                                                        <p class="tit">2) 보증기간</p>
+                                                        <p class="desc">대여기간과 동일</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="card-more" hidden>
+                                            <button type="button" class="btn-card-more">더보기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="bottom-button-wrap">
+                            <div class="bottom-button-inner">
+                                <div class="bottom-button-text-wrap">
+                                    <div class="bottom-button-notice">
+                                        <p class="notice">전체 계약 내용 및 중요 약정사항을 모두 확인하셨다면 [다음] 버튼을 눌러주세요.</p>
+                                        <p class="notice">다음 단계에서 약정 진행에 필요한 약정서 및 약관 동의를 진행합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="btn-area">
+                                    <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                                    <!-- 기본으로 disabled 속성, 유효성 검사 후 disabled 해제가 맞지만 테스트를 위해 풀어놓음 -->
+                                    <!-- data-action, data-ui는 개발용 삭제 X -->
+                                    <button type="button" class="btn-primary" data-action="goAgree" data-ui="nextBtn">다음</button>
+                                    <span class="tooltip">중요 약정사항을 확인해주세요.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="group step2">
+                        
+                        <div class="visual-content">
+                            <h2 class="page-tit">약정서 및 약관 내용을 확인하고 동의해 주세요.</h2>
+                            <p class="s-tit">약정서 및 약관에는 귀사의 권리와 의무에 관한 중요한 사항이 포함되어 있습니다. 자동차 장기임대 약정 및 자동이체 등록과 관련된<br>
+                                조건과 절차를 포함하고 있으니, 각 항목을 반드시 확인하신 후 동의해 주세요.</p>
+                        </div>
+
+                        <div class="layout-grid">
+                            <div class="col-group term">
+                                <div class="card-box">
+                                    <h3 class="card-tit">약정서 및 약관 동의</h3>
+
+                                    <div class="terms-guide">
+                                        각 약관의 상세 내용을 펼쳐 끝까지 확인해 주세요. 각 약관의 상세 내용 하단에 위치한 [동의] 버튼을 클릭해야만 해당 약관의 확인 상태가 자동으로 변경되며, 모든 필수 약관 동의 완료 시 다음 단계를 진행하실 수 있습니다.
+                                    </div>
+
+                                    <div class="accordion-list">
+                                        <div class="acc-item">
+                                            <div class="acc-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="term1" name="terms">
+                                                    <label for="term1">
+                                                        <span class="term-badge is-pending">미확인</span>
+                                                        <span class="acc-trigger term-title">[필수] 개인정보수집 이용동의 (렌터카)</span>
+                                                    </label>
+                                                </div>
+                                                <button type="button" class="btn-toggle" aria-label="내용 열기/닫기"></button>
+                                            </div>
+                                            
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <h4>1. 수집·이용에 관한 사항</h4>
+                                                    <ul class="list-type list-cont">
+                                                        <li class="list-tit"><span class="bold-txt">1) 수집·이용 목적</span></li>
+                                                        <ul class="list-type dep2 list-cont">
+                                                            <li><span>· 계약의 체결·유지·이행·관리·개선</span></li>
+                                                            <li><span>· 법령상 의무이행, 분쟁처리, 금융사고조사, 민원처리</span></li>
+                                                        </ul>
+                                                    </ul>
+                                                    <ul class="list-type list-cont">
+                                                        <li class="list-tit"><span class="bold-txt">2) 보유 및 이용기간</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li><span>거래종료일로(*)부터 5년. (단, 다른 관련 법령에 해당하는 경우 해당 법령상의 보존기간을 따르며, 거래종료일 후에는 법령상 의무이행, 분쟁처리, 금융사고조사, 민원처리를 위한 목적으로만 보유·이용됩니다.)</span></li>
+                                                                <li><span>(*)위 보유 기간에서의 거래종료일이란 귀하와 당사간의 (금융)거래에 따른 채권 · 채무 관계가 소멸된 날을 말합니다.</span></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-type list-cont">
+                                                        <li class="list-tit"><span class="bold-txt">3) 수집·이용 항목</span></li>
+                                                        <li class="list-cont-wrap">
+                                                        <ul class="list-type dep2 list-cont">
+                                                                <li class="list-tit"><span class="bold-txt">(1) 고유식별정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>운전면허번호, 여권번호, 외국인등록번호</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="list-tit"><span class="bold-txt">(2) 개인(신용)정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                <ul class="list-type dep3 list-cont">
+                                                                        <li class="list-tit"><span class="bold-txt">ㄱ. 일반개인정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>성명, 영문명, 생년월일, 나이, 연락처(휴대폰, 자택, 직장), 주소(자택, 직장), 이메일, 직장명, 직종, 부서, 직위, 성별, 국적, 음성Data, CI값, 마이핀, 아이핀, 서명, 인감, 국내거소신고번호, 사업자번호 등의 개인정보</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄴ. 신용개인정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 여신성 거래정보 : 당사 및 타 금융사의 대출, 보증, 담보제공, 신용카드, 할부금융 등의 금융거래정보</li>
+                                                                                <li>· 보험거래 정보: 자동차보험가입, 동산보험가입 등</li>
+                                                                                <li>· 상거래 정보 : 차량구매정보, 거래명세정보 등</li>
+                                                                                <li>· 기타 금융거래정보 : 자동이체계좌정보, 대출금 입금계좌정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄷ. 신용도판단정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 연체정보 : 연체금액, 연체발생일, 연체해제일, 채무불이행 여부, 부도, 대위변제 등</li>
+                                                                                <li>· 신용질서문란정보 : 명의도용정보, 보험사고정보 등 </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄹ. 신용능력정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 소득정보 : 소득종류, 소득금액, 근로소득원천징수영수증, 휴업•폐업사실증명원 등</li>
+                                                                                <li>· 재산정보 : 주택정보, 차량정보, 부동산정보 등 </li>
+                                                                                <li>· 납세실적정보 : 재산세납부실적, 국세·지방세납세증명서, 부가가치세 신고자료 등</li>
+
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㅁ. 공공정보 등</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 인적정보 : 성년후견인 정보 등</li>
+                                                                                <li>· 체납정보 : 압류 및 체납처분 정보 등</li>
+                                                                                <li>· 개인신용평점 : 신용평점 데이터 등</li>
+                                                                                <li>· 채무조정정보 : 개인회생, 파산, 신용회복 등</li>
+                                                                                <li>· 공적장부정보 : 건축물대장, 토지(임야)대장, 공장등록증명서 등</li>
+                                                                                <li>· 주민등록관련정보 : 주민등록등·초본, 주민등록증·운전면허증 발급일 등</li>
+                                                                                <li>· 공공요금납부정보 : 건강보험자격득실확인서, 건강보험납부실적 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                </ul> 
+                                                                </li>
+                                                        </ul> 
+                                                        </li>
+                                                    </ul>
+
+                                                    <h4>2. 조회에 관한 사항</h4>
+                                                    <ul class="list-type list-cont">
+                                                        <li class="list-tit"><span class="bold-txt">1) 조회 대상 기관</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li><span>· 종합신용정보집중기관(신용정보법 제25조) : 한국신용정보원</span></li>
+                                                                <li><span>· 신용정보회사 (신용정보법제2조제5호) : NICE평가정보(주), 코리아크레딧뷰로(주)</span></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="list-tit"><span class="bold-txt">2) 조회 목적</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li><span>· 계약의 체결·유지·이행·관리·개선</span></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="list-tit"><span class="bold-txt">3) 조회 동의의 효력기간</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li><span>당사의 조회 결과 귀하와의 (금융)거래가 개시되는 경우 해당 (금융)거래종료일까지 동의의 효력이 지속됩니다. 다만, 당사의 조회 결과 귀하가 신청한 (금융)거래의 설정이 거절된 경우에는 그 시점부터 동의의 효력은 소멸합니다.</span></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="list-tit"><span class="bold-txt">4) 조회 항목</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li class="list-tit"><span class="bold-txt">(1) 고유식별정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>운전면허번호, 여권번호, 외국인등록번호</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                        <ul class="list-type dep2">
+                                                                <li class="list-tit"><span class="bold-txt">(2) 개인(신용) 정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li class="list-tit"><span class="bold-txt">ㄱ. 일반개인정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>성명, 생년월일, 성별, 국적, 연락처(휴대폰, 자택, 직장), 주소(자택, 직장), 직장명, 직종, 부서, 직위, 사업자번호 등의 개인정보</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄴ. 신용거래정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 여신성 거래정보 : 당사 및 타 금융사의 대출, 보증, 담보제공, 신용카드, 할부금융 등의 금융거래정보</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄷ. 신용도판단정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 연체정보 : 연체금액, 연체발생일, 연체해제일, 채무불이행 여부, 부도, 대위변제 등</li>
+                                                                                <li>· 신용질서문란정보 : 명의도용정보, 보험사고정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄹ. 신용능력정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 소득정보 : 소득종류, 소득금액, 휴업·폐업사실 등</li>
+                                                                                <li>· 재산정보 : 주택정보, 차량정보, 부동산정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㅁ. 공공정보 등</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 체납정보 : 압류 및 체납처분 정보 등</li>
+                                                                                <li>· 개인신용평점 : 신용점수 데이터 등</li>
+                                                                                <li>· 채무조정정보 : 개인회생, 파산, 신용회복 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                        </ul> 
+                                                        </li>
+                                                    </ul>
+
+                                                    <h4>3. 제공에 관한 사항</h4>
+                                                    <ul class="list-type list-cont">
+                                                        <li class="list-tit"><span class="bold-txt">3-1. 거래목적 달성을 위하여 업무처리수탁업체 등에 개인(신용)정보 제공</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li class="list-tit"><span class="bold-txt">제공받는 자</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>전자약정인증·관리업체, 우편물 배송 및 반송업체, 본인인증업체, 신용회복지원협약기관, 전산개발·유지·보수 업체, 문서보관·관리업체, 채권추심업체, 법무법인, 법무사사무소, 차량탁송업체, 보험사, 보험처리·사고관리 업체, 차량정비업체, 차량등록대행업체, 공공기관(구청, 차량등록사업소, 법원, 경찰서 등)</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="list-tit"><span class="bold-txt">제공받는 자의 이용목적</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>전자약정인증·관리, 우편물 배송, 본인인증, 신용회복지원, 채권추심, 문서보관·관리, 전산개발·유지·보수, 보험가입, 소송, 확정일자발급, 문서공증, 보험처리·사고관리, 차량탁송, 차량정비서비스제공, 차량등록, 공공기관 요청자료 제공</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="list-tit"><span class="bold-txt">1) 제공 항목</span></li>
+                                                        <li>
+                                                            <ul class="list-type dep2">
+                                                                <li class="list-tit"><span class="bold-txt">(1) 고유식별정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>운전면허번호, 여권번호, 외국인등록번호</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="list-tit"><span class="bold-txt">(2) 개인(신용) 정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li class="list-tit"><span class="bold-txt">ㄱ. 일반개인정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>성명, 영문명, 생년월일, 나이, 연락처(휴대폰, 자택, 직장), 주소(자택, 직장), 이메일, 직장명, 직종, 부서, 직위, 성별, 국적, 음성Data, CI값, 마이핀, 아이핀, 서명, 인감, 사업자번호 등의 개인정보</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄴ. 신용거래정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 여신성 거래정보 : 당사의 대출, 채무보증, 담보 등의 금융거래정보</li>
+                                                                                <li>· 보험거래 정보: 자동차보험가입, 동산보험가입 등</li>
+                                                                                <li>· 상거래 정보 : 차량구매정보, 거래명세정보 등</li>
+                                                                                <li>· 그 외 금융거래정보 : 자동이체계좌정보, 대출금 입금계좌정보, DSR 관련 정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄷ. 신용도판단정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 연체정보 : 연체금액, 연체발생일, 연체해제일, 채무불이행 여부, 부도, 대위변제 등</li>
+                                                                                <li>· 신용질서문란정보 : 명의도용정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄹ. 신용능력정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 소득정보 : 소득종류, 소득금액, 소득에 대한 원천징수 정보, 휴업·폐업사실 등</li>
+                                                                                <li>· 재산정보 : 주택정보, 차량정보, 부동산정보 등</li>
+                                                                                <li>· 납세실적정보 : 재산세납부실적, 국세•지방세납세증명서, 부가가치세 신고자료 등 </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+
+                                                        <li class="list-tit"><span class="bold-txt">3-2. 여신금융협회 등에 개인(신용)정보 제공</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li class="list-tit"><span class="bold-txt">제공 받는 자</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>· 협회: 여신금융협회</li>
+                                                                        <li>· 국가기관: 국세청, 관세청, 행정안전부, 건강보험공단 등 </li>
+                                                                    </ul>
+                                                                </li>
+
+                                                                <li class="list-tit"><span class="bold-txt">제공 받는 자의 이용목적</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>과세자료의 제출 및 관리에 관한 법률 등 관련 법령에 근거한 의무 이행</li>
+                                                                    </ul>
+                                                                </li>
+
+                                                                <li class="list-tit"><span class="bold-txt">보유 및 이용기간</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>위 제공받는 기관이 준수하여야 하는 관련 법령의 보존기간을 따름</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+
+                                                        <li class="list-tit"><span class="bold-txt">1) 제공항목</span></li>
+                                                        <li class="list-cont-wrap">
+                                                            <ul class="list-type dep2 list-cont">
+                                                                <li class="list-tit"><span class="bold-txt">(1) 고유식별정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li>운전면허번호, 여권번호, 외국인등록번호</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="list-tit"><span class="bold-txt">(2) 개인(신용) 정보</span></li>
+                                                                <li class="list-cont-wrap">
+                                                                    <ul class="list-type dep3 list-cont">
+                                                                        <li class="list-tit"><span class="bold-txt">ㄱ. 일반개인정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>성명, 주소(자택), 연락처(휴대폰, 자택), 사용본거지</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄴ. 신용거래정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 여신성 거래정보 : 당사의 대출, 리스, 할부 등의 금융거래정보</li>
+                                                                                <li>· 그 외 금융거래정보, 상거래정보 등</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="list-tit"><span class="bold-txt">ㄷ. 신용능력정보</span></li>
+                                                                        <li class="list-cont-wrap">
+                                                                            <ul class="list-type dep4 list-cont">
+                                                                                <li>· 소득정보 : 소득종류, 소득금액, 원천징수정보 등</li>
+                                                                                <li>· 재산정보 : 차량정보(차량번호, 차대번호, 차종) 등</li>
+                                                                                <li>· 납세실적정보 : 국세•지방세 신고·납세정보 등 </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <div class="term-footer">
+                                                        <ul>
+                                                            <li>위 개인정보 수집·이용(렌터카) 약관에 동의하십니까?</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="btn-area">
+                                                        <button class="btn-form">동의</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="acc-item">
+                                            <div class="acc-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="term2" name="terms">
+                                                    <label for="term2">
+                                                        <span class="term-badge is-pending">미확인</span>
+                                                        <span class="term-title">[필수] 렌터카 약관</span>
+                                                    </label>
+                                                </div>
+                                                <button type="button" class="btn-toggle"></button>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <ul class="list-type list-cont">
+                                                        <li>본 계약서는 "대여이용자(계약자)(이하 “갑”이라함)과 “대여회사(오릭스캐피탈코리아)”(이하 “을”이라함)이 대여차량의 임대차계약(이하 "본 계약")을 체결함에 있어, 상호 신의 성실의 원칙 하에 다음 사항을 준수, 이행키로 합의하고 기명날인 후 각 1부씩 보관한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제1조 (차종 및 대여요금)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) 대여차종은 대여조건요악표(1)에 의한다.</li>
+                                                        <li>(2) 매월 대여료는 대여조건요약표(3)에 의한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제2조 (대여기간)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>대여기간은 대여조건요약표(2)에 의하되 그 기산일은 차량인수일로 한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제3조 (계약조건)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) 대여료선수금 및 보증금 등</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>1. 대여료선수금 및 보증금, 보증보험증권의 금액은 대여조건요약표 (4),(5),(6)에 의한다.</li>
+                                                                <li>2. “갑”은 계약체결 시 필요할 경우 일정액의 보증금 및 대여료선수금 또는 보증보험증권을 “을”에게 지급하여야 한다.</li>
+                                                                <li>3. “을”은 보증금을 계약만료 후 대여료 등 미수금이 없는 한 “갑”에게 반환하여야 한다.</li>
+                                                                <li>4. “갑”의 귀책사유로 계약이 중도 해지될 경우 “을”은 잔여대여료 및 위약금 등 “갑”의 채무를 보증금 및 대여료선수금에서 차감한 후 차액이 있을 경우 “갑”에게 반환한다.</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제4조 (대여료 지급)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	대여료는 월간 단위로 정산하고 매월 후불을 원칙으로 한다</li>
+                                                        <li>(2)	대여료 납부방법은 금융신청서에 의한다.</li>
+                                                        <li>(3)	대여료는 지정된 납부방법으로 납부하여야 하고 이외에 “을”의 영업사원에게 직접 납부하여서는 아니 되며, 이로 인하여 발생되는 모든 법적인 문제는 “갑”이 책임진다.</li>
+                                                        <li>(4)	갑의 사정으로 대여료의 지급이 지연될 때에는 “을”은 24%의 연체이율을 적용하여 “갑”에게 지연배상금을 청구한다.</li>
+                                                        <li>(5)	계약이 만료 또는 중도 해지됨으로써 월간 사용일수에 대해 과부족이 발생할 경우에는 월대여료를 1일 단위로 환산한 일 평균요금을 적용하여 정산한다.</li>
+                                                        <li>(6)	대여료의 변동이 불가피할 시 “갑”과 “을”은 사전양해 및 합의를 거처 재조정할 수 있다.</li>
+                                                        <li>(7)	대여기간 중 발생한 교통법규위반 범칙금은 “갑”의 부담으로 한다.</li>
+                                                        <li>(8)	월대여료 납입일은 원칙적으로 차량인수증 발급일이 해당하는 월의 1일부터 10일 이내이면 5일, 11일부터 20일 이내이면 15일, 21일부터 말일 이내면 25일로 한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제5조 (운전자 자격요건)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	대여차량의 운전자는 대여조건요약표(7)에 부합하는 자로서, 운전경력 1년 이상의 관계법령이 요구하는 유효한 운전면허증(외국인은 국제운전면허증)소지자 이어야 한다.</li>
+                                                        <li>(2)	대여차량의 운전자는 “갑”을 포함하여 다음 각 호의 자로 제한한다.</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>1. 법인의 경우 고용된 운전기사 및 임직원 (임직원한정 운전 특약 미가입 시 임원의 직계 가족 포함)</li>
+                                                                <li>2. 개인의 경우 계약자 본인 및 배우자와 직계가족</li>
+                                                                <li>3. 개인사업자의 경우 계약자 본인 및 배우자와 직계가족, 사업장에 고용된 운전기사 및 직원</li>
+                                                                <li>4. 대리운전기사의 경무 자등차충합보험(대인배상, 대물배상, 자기신체사교 자기차랑손해 등)에 가입된 자</li>
+                                                                <li>※ 개인/개인사업자는 상기 운전자 이외에 추가로 2인까지 운전자 신청이 가능하며, 사전에 제2운전자로 등록된 자로 한함. (제2운전자 교체는 계약기간 중 1회 수정 가능함)</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제6조 (차량의 인도)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	“을”은 최초 배차시에 운행에 적합, 양호한 상태의 차량을 대여하며 “갑”은 계약 종료시에 정상적인 마모를 제외한 최초 인도받은 상태(판금, 도장을 필요로 하지 않는 양호한 상태)로 차량을 반납하여야 한다.</li>
+                                                        <li>(2)	“갑”은 계약기간 중 대여차량의 임의적인 교체를 요구하지 아니한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제7조 (차량 보험 및 보상)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	“을”은 차량의 소유주로써 “갑”의 과실로 인한 사고에 대해, 이를 보호하기 위하여 책임 및 종합보험(대인, 대물, 자손, 무보험차상해, 긴급출동특약)에 가입한 차량을 대여하여야 한다.</li>
+                                                        <li>(2)	보험보상한도</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① “갑”은 사고 발생시 자동차 손해배상보장법에 의한 책임보험 및 종합보험의 보험 약관에 명시된 해석과 보상보장 범위 내에서 대여조건요약표(8)과 같이 보험 보상의 혜택을 받는다. 단, 법규의 위반 또는 저촉 시에는 일부 또는 전부를 받지 못할 수도 있으며, 이 경우 “갑”의 책임으로 한다.</li>
+                                                                <li>
+                                                                    <ul class="text-type dep3">
+                                                                        <li>※ 기본 보상 한도 가입조건</li>
+                                                                        <li>► 대인 배상한도 : 무한 ► 대물배상한도 : 1억원 한도</li>
+                                                                        <li>► 자손 보상한도 : 개인당 1억원/사고당 1천 5백만원 한도</li>
+                                                                        <li>► 무보험차 상해 : 필수 가입</li>
+                                                                        <li>※ 선택 보상한도 가입여부</li>
+                                                                        <li>► 보상한도 증액( ) : 대물배상 최대 3억원 한도, 자손보상 한도 1억원</li>
+                                                                        <li>► 자기차량손해(종합보험) ( ) : 자기부담금 ( ) 만원</li>
+                                                                        <li>※ 기본 보상 한도와 선택 보상 한도는 중복 적용 불가하다.</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>② 차량손해면책제도</li>
+                                                                <li>
+                                                                    <ul class="text-type dep3">
+                                                                        <li>가.	제5조의 자격요건을 갖춘 운전자의 부주의나 과실에 의한 모든 차량손해에 대하여서 “을”이 책임진다. 단, “갑”은 사고 건당 대여조건요약표(9)의 자기차량 손해 면책금은 “을”에게 납부하여야 하며 차량이 멸실된 경우는 제14조에 의해 계약이 중도해지된 것으로 보아 멸실 사유가 발생한 날을 기준으로 제10조의 방식으로 산출된 중도해지수수료를 자기차량 손해 면책금에 더하여 납부한다.</li>
+                                                                        <li>나.	차량손해면책제도는 본 계약서의 작성날인과 동시에 가입되는 것으로 한다.</li>
+                                                                        <li>다.	다음과 같은 경우로 인한 차량손해 시에는 “갑”이 모두 책임진다.</li>
+                                                                        <li>
+                                                                            <ul class="text-type dep4">
+                                                                                <li>- 운전자나 탑승고객의 고의로 발생한 차량손해</li>
+                                                                                <li>- 천재지변을 제외한 “갑”의 관리소홀로 인한 차량의 도난 또는 분실 손해</li>
+                                                                                <li>- 차량부속품 및 부착물의 자연 마모가 아닌 파손 또는 훼손 손해</li>
+                                                                                <li>- 제8조의 금지행위로 인해 발생한 차량손해</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li>라.	사고가 발생한 경우 보험 계약에 의해 지급되는 보험금 중 차량의 손실로 인하여 지급되는 보험금은 회사가 수령하여 차량의 손실액에 충당하기로 한다. 다만, “갑”이 계약한 차량을 인수할 경우 회사는 “갑”에게 수령한 보험금을 반환하기로 한다.</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>③ 대차제공</li>
+                                                                <li>
+                                                                    <ul class="text-type dep3">
+                                                                        <li>1. 차량손해면책제도 가입여부에 불구하고, “갑”은 차량가해사고의 경우, 동 수리기간 중 대차 사용된 차량에 대하여 “을”에게 사용료를 추가 지급하기로 한다. 단, 대여이용자의 대차사용료 지급부담은 해당사고의 본인과실비율에 따르도록 한다.</li>
+                                                                        <li>2. "갑"의 피해사고의 경우 사용료 추가 지급 없이 무료로 동급의 차량을 대차한다.</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제8조 (금지행위)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>“갑”은 대여차량에 대해 다음 각호의 행위를 하여서는 아니 된다</li>
+                                                        <li>1. 제5조 운전자의 자격요건에 해당되지 않는 자에게 차량을 운전토록 하는 행위</li>
+                                                        <li>2. 테스트, 운전연습, 경기대회 참가, 타차의 견인을 위해서 사용하는 행위</li>
+                                                        <li>3. 유상운송 또는 재대여 용도로 사용하는 행위</li>
+                                                        <li>4. 차량의 구조를 변경, 개조하는 행위</li>
+                                                        <li>5. 정상적인 도로 이외의 지역을 운행하는 행위</li>
+                                                        <li>6. 기타 법규로 금지된 행위(음주운전/무면허운전/도주, 뺑소니 등 사고 후 조치 미이행 등)</li>
+                                                        <li>7. 정상적 운행목적 외 다른 용도(화물수송, 위험물수송)사업을 위해 좌석 등을 임의로 구조 변경하는 행위</li>
+                                                        <li>8. 차량의 주행거리를 조작하는 행위</li>
+                                                        <li>9. 미수선 수리비의 명목 등으로 차량수리비를 보험사나 가해 운전자에게 청구 또는 이를 수령하는 행위</li>
+                                                        <li>10. 사고발생시 사고처리를 지연시키는 행위("올"의 콜센터에 미접수한 상태로 사고현장 이탈, 사고 신고지연, 현장 훼손 등). 단, 사고 직후 “갑”이 병원으로 긴급 후송되는 경우는 제외한다.</li>
+                                                        <li>11. 기타 영업용 자동차 보험 보상약관에 의하여 보험사가 보상하지 않는 면책 행위</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제9조 차량관리</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) 차량의 유지 및 관리</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① “갑”은 렌터카를 인도받은 시점부터 회사에 반환하는 시점까지 선량한 관리자의 주의의무를 다하여 렌터카를 사용하고 보관하여야 한다.</li>
+                                                                <li>② “갑”은 대여기간 중 타이어나 차체의 외관상태 및 시동 후 엔진상태 등 운행 전, 후의 일상점검을 이행하여야 한다.</li>
+                                                                <li>③ “갑”은 전호의 점검결과 이상이 발견된 경우에는 즉시 “을”에게 이를 통보하여야 한다.</li>
+                                                                <li>④ 보험사에서 제공하는 출동서비스(긴급/사고/견인)의 기준은 가입보험사 약관 기준에 의거하여 진행한다.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(2) 정비서비스</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① “을”은 대여조건요약표(10)에 기재된 바에 따라 “갑”에게 정비서비스를 제공한다.</li>
+                                                                <li>② “을”은 차량의 안전운전을 위해 정해진 주기와 내용으로 정기적인 점검을 실시하며, 이에 따른 제반 경비와 부품은 “을”이 결정한다.</li>
+                                                                <li>③ “갑”은 “을”의 정기점검 및 정비를 위해 차량을 취급할 수 있는 충분한 시간을 할애한다.</li>
+                                                                <li>④ “갑”은 차량사용 중 응급조치 및 이에 따른 자체수리가 불가피할 경우 “을”에게 사전 동의를 얻은 후 자체 처리할 수 있다.</li>
+                                                                <li>⑤ “갑”이 전4호에 따른 수리내역에 대한 증빙을 첨부하여 “을”에게 청구하면 “을”은 해당 비용을 지급한다.</li>
+                                                                <li>⑥ “을”은 차량수리 및 긴급정비를 위해 필요시 “갑”의 고객정보를 제3자에게 제공할 수 있다.</li>
+                                                                <li>⑦ 전 제1호 내지 제6호에도 불구하고 타이어 정상마모 이외의 절삭, 파손, 펑크수리, 찢김 등으로 발생되는 비용은 “갑”이 부담한다.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(3) 사고처리</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① 사고발생시 “갑”과 “을”은 다음 사항을 준수하여 사고해결을 위해 상호 협력한다.</li>
+                                                                <li>② “갑”은 “을”이 요청하는 지정양식에 의한 사고보고서를 제출하여야 하며, "을"은 관계법령이 요구하는 즉각적인 조치를 취한다</li>
+                                                                <li>③ “갑”과 “을”은 보험회사 또는 경찰서에서 필요로 하는 서류 및 증거를 제출하여야 한다.</li>
+                                                                <li>④ “갑”과 “을” 쌍방은 다른 일방에게 불리한 담판이나 계약을 제3자와 체결할 수 없으며 상기 의무를 태만히 함으로써 발생하는 손해에 대해서는 상대방에게 배상한다.</li>
+                                                                <li>⑤ “갑”은 “을”이 지정한 정비업체가 아닌 다른 정비업체에서 사고 처리함에 따라 발생한 수리 비용은 “갑”이 부담한다. 다만, “을”의 사전동의가 있는 경우에는 예외로 한다.</li>
+                                                                <li>⑥ “갑”은 블랙박스 영상기록 장치의 영상을 사고처리의 목적을 위해 “을” 또는 보험사와 타기관(경찰서 등)에 제공해야 하며 “을”은 개인정보보호법 등을 위반하는 배포, 제공 등의 행위를 하여서는 안된다.</li>
+                                                                <li>⑦ 이종연료 또는 불량연료(석유대체연료, 유사석유제품, 비공식 판매주유소 연료 등) 주입으로 인한 수리비용은 “갑”이 부담한다.</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제10조 (중도해지수수료)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	제14조, 제15조에 의하여 본 계약이 해제 또는 해지되는 경우 “갑”은 지체없이 "올"에 대하여 다음의 산식에 의하여 중도해지수수료를 지급하여야 한다. 단, 제13조에 규정된 의무와 차량반환을 이행/완료한 경우에 한한다.</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li class="border-txt">중도해지수수료 = 월대여료(앞면표기(3))/30 × 미경과일수 × 35%</li>
+                                                                <li>※ 단, 대여개시일로부터 2년 경과 시 30%, 3년 경과 시 25% 적용</li>
+                                                                <li>(2)	제(1)항의 미경과일수는 (총계약일수-경과일수)로 한다.</li>
+                                                                <li>(3)	본 조의 중도해지수수료에 관하여 “갑”과 “을”의 별도의 특약이 있는 경우에는 그 특약에 의하여 지급하여야 하며, “갑”이 이를 해태함으로 인하여 “을”에게 가산금, 독촉, 압류 등의 불이익이 발생하는 경우에는 “갑”은 전항에 따른다.</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(2)	제(1)항의 미경과일수는 (총계약일수-경과일수)로 한다.</li>
+                                                        <li>(3)	본 조의 중도해지수수료에 관하여 “갑”과 “을”의 별도의 특약이 있는 경우에는 그 특약에 의하여 지급하여야 하며, “갑”이 이를 해태함으로 인하여 “을”에게 가산금, 독촉, 압류 등의 불이익이 발생하는 경우에는 “갑”은 전항에 따른다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제11조 (반환지연금)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>본 계약이 만기 또는 중도해지 되어 계약이 종료되었음에도 불구하고 “갑”이 제15조에 따른 차량의 반환을 지체하고 있는 경우, “갑”은 “을”에게 차량을 반환할 때까지 다음 산식에 의하여 산정한 반환지연금을 지급하여야 한다. 단, “갑”의 책임이 없는 사유(불가항력, 사변, 재해, 운행중 사고, 직계존비속의 사망 등)로 인하여 반환이 불가피하게 지연되는 경우, 이를 “을”에게 합리적으로 입증하는 경우에는 반환 지연금을 면제하기로 한다.</li>
+                                                        <li>
+                                                            <ul class="text-type border-txt dep2">
+                                                                <li class="bold-txt">반환지연금 = 일납입액 × 경과일수 × 200%</li>
+                                                                <li class="bold-txt">일납입액 = 월대여료 / 30</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제12조 (범칙금 및 과태료)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	“갑”의 차량 수령 후 차량의 사용과 관련하여 범칙금 또는 과태료 등이 부과된 경우, 동 범칙금 또는 과태료는 “갑”이 직접 관공서 또는 관계기관에 납부하여야 하며, 이에 대해 동 범칙금 또는 과태료를 “갑”에게 직접 부과 되도록 하는 “을”의 신고업무에 “갑”은 적극 협조 하여야 하며, “갑”은 범칙금 또는 과태료 등의 고지서 수령 시, 즉시 관계기관에 납부하여야 한다.</li>
+                                                        <li>(2)	전항에도 불구하고 “을”에게 범칙금 또는 과태료 등이 부과되어, “을”이 관계기관에 그 범칙금 또는 과태료를 대납한 경우, “갑”은 그 지급일이 속한 달의 대여료 지급시, 대여료와는 별도로 “을”이 지급한 범칙금 또는 과태료 상당액을 “을”에게 지급하여야 한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제13조 (차량의 멸실/훼손에 따른 원상회복의무)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	본 계약 제7조 제2항 제2호에 따라 면책되는 경우를 제외하고, “갑”이 차량을 인수한 때부터 “을”에게 차량을 반환할 때까지 발생한 차량의 멸실, 훼손 등으로 인해 “을”이 손해를 입은 경우 “갑”은 이를 배상한다.</li>
+                                                        <li>(2)	정상적인 마모를 제외하고 차량이 훼손되었을 때에는 “갑”은 지체 없이 이를 완전한 상태로 수리하여야 한다. 이 경우 본 계약은 아무런 변경없이 존속하나, 다음의 각 호의 사유가 발생한 경우에는 본 계약 제14조 제1항에서 정한 대여차량이 멸실된 경우로 보아 사유가 발생한 날에 계약은 자동 해지되며, 이 경우 “갑”은 “을”에게 해지일 기준 중도해지수수료와 대여차량의 장부가액의 합계액을 납부한다. </li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① 사고수리비가 아래의 사고수리비 기준액을 초과하는 경우</li>
+                                                                <li>- 아 래 -</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li class="bold-txt">
+                                                                    <table class="info-table">
+                                                                        <tr>
+                                                                            <th rowspan="2">사고수리비 기준액</th>
+                                                                            <th colspan="4">회차별 요율</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="td-to-th">1회 ~ 12회</td>
+                                                                            <td class="td-to-th">13회 ~ 24회</td>
+                                                                            <td class="td-to-th">25회 ~ 46회</td>
+                                                                            <td class="td-to-th">37회 이상</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="td-to-th">총 차량가격 × 회차별 요율</td>
+                                                                            <td>70%</td>
+                                                                            <td>60%</td>
+                                                                            <td>50%</td>
+                                                                            <td>40%</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>② 멸실 등의 사유로 수리가 불가능하다고 판단되는 경우</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제14조 (“을”에 의한 계약의 중도해지)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	“갑”에게 다음 각호의 1에 해당하는 사유가 발생하는 때에는 “을”은 “갑”에게 아무런 통지나 최고없이 본 계약을 해지하고 차량의 반환을 청구하거나 회수할 수 있다.</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① “갑” 또는 “갑”의 연대보증인이 “을”에게 담보로 제공한 재산에 대하여 압류, 경매 또는 기타 강제집행의 신청이 있거나 압류통지가 발송된 경우</li>
+                                                                <li>② “갑”에 대하여 파산, 화의개시, 회사정리절차 개시의 신청이 있거나 채무불이행자명부의 등재신청이 있는 경우</li>
+                                                                <li>③ “갑”이 사망, 금치산, 한정치산의 선고를 받거나, 3개월 이상의 영업정지 또는 영업을 폐지하거나 해산의 결의를 한 경우</li>
+                                                                <li>④ 제8조를 위반하거나, 대여차량을 제3자에게 양도, 담보제공 또는 사용, 수익하게 한 경우</li>
+                                                                <li>⑤ 차량의 훼손 등에 관한 제13조의 의무를 위반한 경우</li>
+                                                                <li>⑥ “갑”이 발행, 배서, 보증 또는 인수한 어음 또는 수표의 지급이 거절되거나 어음교환소의 거래정지 처분이 있는 경우</li>
+                                                                <li>⑦ “을”의 영업 또는 재산의 중요부분을 양도 또는 기타의 방법으로 처분하거나, 정부에 의하여 수용 또는 몰수되었을 때</li>
+                                                                <li>⑧ “갑”이 당사자로 되어있는 다른 채무를 약정기일에 이행하지 못하거나 그 계약상의 의무를 이행하지 못하여 해당 채무 또는 다른 채무의 기한의 이익을 상실되거나 그 채권자 또는 다른 채권자가 해당채무의 기한의 이익을 상실시킨 경우</li>
+                                                                <li>⑨ 대여차량이 멸실(전손 등)된 경우</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(2)	“갑”에게 다음 각호의 1에 해당하는 사유가 발생하고 “을”이 “갑”에게 상당한 기간을 정하여 이행, 하자의 치유 또는 위반사항의 시정을 최고한 후 그기간 내에 “갑”이 이행하지 않거나 하자의 치유를 완료하지 않거나 또는 위반사항의 시정을 하지 않는 경우 “을”은 본 계약을 해지할 수 있다.</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① 본 계약상 규정된 대여료, 대여료선수금, 보증금 등의 지급의무를 단 2회라도 위반한 경우</li>
+                                                                <li>② 본 계약상에 규정된 차량인수 및 차량인수증의 발급의무를 위반하거나 그 이행올 지체한 경우</li>
+                                                                <li>③ 본 계약상 규정된 차량의 보관, 사용, 유지, 관리, 및 반환의무를 위반한 경우</li>
+                                                                <li>④ “갑”이 본 계약상 규정된 연대보증인을 세우지 않거나 “을”의 요청에 따른 연대보증인의 추가, 교체를 이행하지 아니한 경우</li>
+                                                                <li>⑤ “갑”이 본 계약상 규정된 담보의 제공, 추가, 교체의 의무를 이행하지 아니하는 경우 및 “갑” 또는 “갑”의 연대보증인이 '을"에게 담보로 제공한 재산에 대하여 가압류 또는 가처분의 통지가 발송된 경우</li>
+                                                                <li>⑥ 본 계약의 존속이 무의미할 정도로 본 계약(본 계약에 추가 또는 별도 서면 합의한 특약사항도 포함)에서 정한 금지행위, 비용부담, 책임, 의무 등을 위반한 경우</li>
+                                                                <li>⑦ “갑”의 본 계약 및 기타 본 계약관련 서류상의 기재사항을 허위로 기재한 경우</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(3)	전 각호 외에 갑이 결손회사와의 합병, 노사분규에 따른 사업장 폐쇄, 관련기업의 도산, 회사경영에 영향을 미칠 법적 분쟁의 발생 등으로 현저하게 신용이 상실되었다고 인정되는 등 채권보전이 필요하다고 인정되는 객관적으로 상당한 사유가 발생한 때에도 제1항에 의한다.</li>
+                                                        <li>(4)	본 조에 의하여 본 계약이 해지되고, “갑”이 제13조에 규정된 의무와 차량 반환을 이행/ 완료하지 않을 경우에는, 해지일자를 기준으로 "갑'은 “을”에 대하여 제13조 (2)항에 규정된 손해배상액을 배상하기로 한다.</li>
+                                                        <li>(5)	본 조에 따라 “을”이 본 계약을 해지 또는 해제하는 경우에, “을”이 “갑”에게 반환하여야 할 보증금 또는 잔여선수금이 있는 경우, “을”은 “갑”으로부터 지급받을 모든 채무를 위 보증금 또는 잔여선수금으로 충당할 수 있다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제15조 (“갑”에 의한 계약의 중도해지)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) “갑”은 본 계약의 체결 후 언제든지 본 계약서에 정한 절차를 거쳐 본 계약을 해지할 수 있다.</li>
+                                                        <li>(2)	본 계약의 체결 후 대여차량의 인도 전에 본 계약을 해지하고자 하는 경우, “갑”은 “을”에게 “을”이 차량의 구매와 관련하여 이미 지급한 일체의 비용과 이에 대한 이자비용을 모두 지급한 후 본 계약을 해지할 수 있다.</li>
+                                                        <li>(3)	“갑”이 차량의 인도로 대여기간이 개시된 이후에 본 계약을 해지할 경우에는 제13조에 규정한 절차에 따라 차량을 지체없이 반환하고 정산금을 포함하여 해지에 따른 “을”의 일체의 손해를 지체없이 배상한 후, 본 계약을 해지할 수 있다.</li>
+                                                        <li>(4)	계약기간 중 차량이 도난, 전손으로 인한 경우에는, 경찰서신고일과 당사 서면 접수일 중 빠른날짜를 기준으로 이 계약은 해지된다.</li>
+                                                        <li>(5)	본 조에 따라 “갑”이 본 계약을 해지 또는 해제하는 경우에, “을”이 “갑”에게 반환하여야 할 보증금 및 잔여선수금이 있는 경우, “을”은 “갑”으로부터 지급받을 금원을 위 보증금 또는 잔여 선수금으로 충당할 수 있다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제16조 (지연배상금)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>“갑”이 본 계약에 따라 “을”에게 부담하는 채무의 이행을 지체한 때 또는 “을”이 “갑”올 위하여 비용을 대납한 때에는 “갑”은 미지급금 또는 대납비용의 지급기일로부터 완제일까지의 기간 동안 위 금액에 대해 대여조건요약표(12) 기재의 연체이자율로 계산한 지연배상금을 “을”에게 추가로 지급하여야 한다. 단, 향후 국내 금융시장의 변화에 따라 대여조건요약표(12) 기재의 이율을 계속 적용하는 것이 경제사정에 비추어 상당하지 않다고 인정될 때에는 “을”은 변경된 지연배상금의 이율을 “갑”에게 통지하고 통지 후 30일이 경과하면 “갑”은 변경된 이율에 따르기로 한다. 다만, “갑”은 이의가 있을 경우 통보받은 날로부터 1개월 이내에 본 계약을 해지할 수 있고, 이 경우 지연배상금의 이율은 변경 전 이율을 적용하기로 한다. “갑”이 본항에 따라 본 계약을 해지한 경우에는 제15조가 적용된다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제17조 (권리의 양도)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>“을”은 본 계약에 따른 “갑”의 차량에 대한 사용 수익권을 침해하지 않는 범위 내에서 “갑”의 동의없이 본 계약상의 권리의 전부나 일부 또는 차량을 제3자에게 양도하거나 담보로 제공할 수 있다. 또한 “을”이 “갑”에게 서면에 의한 동의서 등올 요구한 때에는 “갑”은 지체없이 이행하여야 한다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제18조 (연대보증인)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	연대보증인은 월대여료 지급의무를 포함하여 “갑”이 "을 "에 대하여 본 계약에 의하여 또는 본 계약과 관련하여 부담하는 모든 채무를 보증하고 “갑”과 연대하여 채무를 이행하기로 한다. </li>
+                                                        <li>(2) “을”은 “갑”의 신용악화, 담보가치의 감소 또는 연대보증인의 신용악화, 기타 채권보전상 필요하다고 인정될 상당한 사유가 발생한 경우에 한하여 “갑”에게 연대보증인의 추가, 변경을 요청할 수 있고 이 경우 “갑”은 “을”이 만족하는 연대보증인을 세우거나 추가 또는 변경하기로 한다.</li>
+                                                        <li>(3)	연대보증인은 본 계약에 의한 “갑”의 채무의 일부에 대하여 변제, 대물변제, 상계 등 채권을 소멸시키는 행위로 말미암아 대위에 의하여 “을”로부터 취득한 권리를 “을”에 앞서 행사하지 않으며 “을”과 동시에 그 권리를 행사할 경우에도 "올"의 다음으로 변제 받기로 한다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제19조 (담보의 제공)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) “을”은 “갑”의 “을”에 대한 본 계약상의 모든 채무의 이행을 담보하기 위하여 별도의 담보를 제공할 것을 “갑”에게 요구할 수 있으며, 이 경우 “갑”은 담보제공과 관련된 일체의 절차 및 방법에 대하여 “을”이 정하는 내용에 따르기로 하며, 담보제공과 관련된 일체의 비용을 부담하기로 한다.</li>
+                                                        <li>(2) “을”은 “갑”의 신용악화, 담보가치의 감소 또는 연대보증인의 신용악화, 기타 채권보전상 필요하다고 인정될 상당한 사유가 발생한 경우에 한하여 “갑”에게 제1항의 담보 이외의 추가담보의 제공을 요구할 수 있다. 이 경우 “갑”은 즉시 “을”이 만족하는 담보를 “갑”의 비용으로 “을”에게 제공하여야한다.</li>
+                                                        <li>(3)	본 조에 의하여 “갑”이 “을”에게 제공하는 담보는 “갑”과 “을”간에 본 계약과 본 계약 외의 모든 “을”에 대한 채무를 공동으로 담보하는 것으로 하고 담보의 처분순위는 “을”이 정하는 바에 따른다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제20조 (자료의 제출 등)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1) 이 계약기간 등안 “갑” 또는 연대보증인은 대차대조표, 손익계산서, 현금흐름표 등 공인회계사의 감사를 받은 재무제표를 매 회계연도 종료 후 “을”의 요청에 따라서 즉시 제출하여야 하며, 회계연도중이라도 “을”이 지정하는 일자를 기준으로 작성한 재무제표 등 “갑” 및 연대보증인의 재무, 손익상태를 파악할 수 있는 자료를 지체없이 제출하여야 한다. </li>
+                                                        <li>(2) “갑” 또는 연대보증인은 부채현황표를 이 계약의 체결, 변경 및 “을”의 정기여신 검토 또는 “을”의 요청이 있을 경우 “을”이 정한 양식에 따라 지체없이 제출 하여야 한다. </li>
+                                                        <li>(3) “갑” 또는 연대보증인은 “을”의 요청이 있을 경우 재무상태, 사업현황, 자동차의 사용, 담보상황 및 이와 관련된 법규의 준수상황 등 관련자료를 첨부하여 “을”에게 통보하여야 한다.</li>
+                                                        <li>(4) “갑” 또는 연대보증인은 이 계약과 관련하여 “을”에게 제출하는 자료를 사실과 틀림없이 성실하게 작성하여야 하며, 만약 제출한 자료가 허위, 위, 변조, 또는 고의로 불성실하게 작성된 부실자료로 판명될 경우 “갑” 또는 연대보증인은 “을”의 요청을 받은 날로부터 7일 이내에 소명자료를 제출하여야 한다. </li>
+                                                        <li>(5)	“갑” 또는 “갑”의 연대보증인은 다음에 열거하는 사유가 발생한 경우 즉시 “을”에게 통보하여야한다. </li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li>① “갑” 또는 “갑”의 연대보증인이 그 주소, 상호, 대표자 등을 변경한 경우 </li>
+                                                                <li>② 차량에 대한 분실, 손상, 도난 기타 제3자에 의한 소유권 침해 등의 사유가 발생하거나 그러한 우려가 있을 때 </li>
+                                                                <li>③ 차량의 운행 또는 보관, 기타 취급에 따른 사고로 인하여 제3자에게 손해가 발생한 때 </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(6) “갑”이 주소변경에 관하여 “을”에게 서면으로 신고하지 않을 경우 “을”은 종전 주소로 통지함으로써 필요한 통지를 마친 것으로 본다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제21조 (공정증서)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>“갑”과 연대보증인은 “을”의 요청이 있을 때에 언제든지 공증인을 위촉하여 이 계약상 “을”의 모든 채권을 회수하기 위해 강제집행을 할 수 있도록 공정증서를 작성하기로 한다. 이 경우 비용은 “갑”이 부담하기로 한다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제22조 (관할법원)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>본 계약에 관한 법적 분쟁은 "을"의 소재지를 관할하는 지방법원을 관할법원으로 한다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제23조 (해석)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>본 계약의 각 조항 해석에 관하여 이의가 있을 때에는 “갑”과 “을”간의 합의에 의해 결정하되, 합의에 이르지 못한 때에는 관계법령과 일반금융관례에 따르기로 한다.</li>
+                                                    </ul>
+
+                                                    <span class="bold-txt term-tit">제24조 (변제의 충당)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	“갑”이 “을”에게 변제한 채무 변제액이 “갑”의 채무전액을 소멸시키기에 부족한 때에는 “을”이 정하는 방법에 따라 변제 충당하기로 한다. </li>
+                                                        <li>(2)	제19조의 담보권 실행에 따른 경매 등의 배당금이 “을”이 가지는 피담보채권의 전부를 소멸시키기에 부족한 경우에는 민법 제477조의 법정변제충당의 방법을 따르기로 한다.</li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제25조 (초과운행수수료)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>을은 본 계약이 종료(중도해지 포함)된 후 반납된 차량의 운행거리가 대여조건요약표(11)에 기재한 계약운행거리를 초과한 경우, 반납차량평가 시점에 확인된 운행거리로써 차량에 대한 초과운행거리를 산정하여 갑은 다음산식에 의한 초과운행수수료를 을에게 지급하여야 한다. 대여기간 만료 전에 차량을 반납한 경우에는 계약운행거리를 월단위로 환산하여 초과운행거리를 산정한다. 단, 계약운행거리가 무제한인 경우는 본 조를 적용하지 아니한다.</li>
+                                                        <li>
+                                                            <ul class="text-type dep2">
+                                                                <li class="border-txt">□ 초과운행수수료 = 초과운행 Km × Km당 초과운행료</li>
+                                                                <li>▷ Km당 초과운행료 : 국산차 150원 / 수입차 250원 </li>
+                                                                <li>▷ 실 운행 거리에서 2,000Km 공제한 거리를 기준으로 초과운행거리 산정</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <span class="bold-txt term-tit">제26조 (제세공과금)</span>
+                                                    <ul class="text-type list-cont">
+                                                        <li>(1)	대여차량에 대하여 부과하는 자등차세 및 기타 제세공과금은 “을”이 납부한다.</li>
+                                                        <li>(2)	대여기간 중 자동차세 및 기타 제세공과금의 세율 또는 금액이 변경된 경우 그 변경이 적용(시행)되는 시점부터 대여료를 변경하기로 한다.</li>
+                                                    </ul>
+                                                    <div class="term-footer">
+                                                        <ul>
+                                                            <li>위 렌터카 약관에 동의하십니까?</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btn-area">
+                                                        <button class="btn-form">동의</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="acc-item">
+                                            <div class="acc-head">
+                                                <div class="check-group line-type">
+                                                    <input type="checkbox" id="term3" name="terms">
+                                                    <label for="term3">
+                                                        <span class="term-badge is-pending">미확인</span>
+                                                        <span class="term-title">[필수] 자동이체약관 동의</span>
+                                                    </label>
+                                                </div>
+                                                <button type="button" class="btn-toggle"></button>
+                                            </div>
+                                            <div class="acc-body">
+                                                <div class="term-content">
+                                                    <p class="txt-right">금융감독원 신고수리일 : 2014.04.03</p>
+                                                    <ul class="list-type list-cont">
+                                                        <li>1. 신청인 및 예금주(이하 “고객”이라 합니다.)는 약정된 납부일을 기준으로 오릭스캐피탈코리아주식회사 (이하 “회사”라 합니다.)가 지정하는 계좌이체일(휴일인경우 익영업일)에 회사가 청구하는 금액을 자동이체 계좌로 신청한 은행 및 잔고보유 금융기관(이하 “금융기관”이라 합니다.) 계좌(이하 “지정계좌”라 합니다.)에서 출금하여 납부합니다.</li>
+                                                        <li>2. 자동납부를 위하여 지정계좌의 예금을 출금하는 경우에는 예금약관이나 약정서의 규정에도 불구하고 예금 청구서나 수표 없이 자동계좌이체 처리절차에 의하여 출금처리 되며, 금융기관의 출금마감시간 내에 입금 된 금액에 한하여 출금처리 됩니다.</li>
+                                                        <li>3. 지정계좌의 예금잔액(자동대출 약정이 있는 경우 대출 한도 포함)이 이체일 현재회사의 청구금액보다 부족하거나 예금의 지급제한, 약정대출의 연체 등으로 대체납부가 불가능한 경우의 손해에 대해서는 고객이 책임을 부담합니다.</li>
+                                                        <li>4. 이체일에 동일한 수종의 자동계좌이체 청구가 있는 경우의 출금우선 순위는 금융기관이 이미 약관에 따라 고객과 약정한 바에 따르기로 합니다.</li>
+                                                        <li>5. 자동이체 일자는 회사의 사정에 따라 변경될 수 있으나 이런 경우 사전에 고객에게 통지하며, 자동이체일 변경으로 인해 고객이 불리하지 않도록 하겠습니다.</li>
+                                                        <li>6. 납부자의 사정으로 예금계좌를 변경하거나 자동납부신청을 해지하고자 하는 경우에는 금융기관 소정의 양식에 의한 자동납부 해지신청서와 통장사본을 제출할 것이며 이의 불이행으로 발생하는 손해는 고객의 책임으로 합니다.</li>
+                                                        <li>7. 자동납부 신청에 의한 지정계좌에서의 출금은 회사의 청구대로 출금하되 청구금액에 이의가 있을 때에는 고객과 회사가 협의하여 조정합니다.</li>
+                                                        <li>8. 이 약관에서 정하지 아니한 사항은 금융기관의 자동이체납부약관에서 정하는 바에 따릅니다.</li>
+                                                    </ul>
+                                                    <div class="term-footer">
+                                                        <ul>
+                                                            <li>위 자동이체 약관에 동의하십니까?</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btn-area">
+                                                        <button class="btn-form">동의</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="bottom-button-wrap">
+                            <div class="bottom-button-inner">
+                                <div class="bottom-button-text-wrap">
+                                    <div class="bottom-button-notice">
+                                        <p class="notice">모든 약정서 및 약관에 동의하셨다면 [다음] 버튼을 눌러주세요.</p>
+                                        <p class="notice">다음 단계에서 약정서 발송 및 자동이체 등록에 필요한 고객정보와 계좌 정보를 입력하게 됩니다.</p>
+                                    </div>
+                                </div>
+                                <div class="btn-area">
+                                    <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                                    <!-- 기본으로 disabled 속성, 유효성 검사 후 disabled 해제가 맞지만 테스트를 위해 풀어놓음 -->
+                                    <!-- data-action, data-ui는 개발용 삭제 X -->
+                                    <button type="button" class="btn-primary" data-action="goAgree" data-ui="nextBtn">다음</button>
+                                    <span class="tooltip">모든 약관에 동의해주세요.</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="group step3">
+                        <div class="visual-content">
+                            <h2 class="page-tit">고객 정보 및 자동이체 정보를 입력해 주세요.</h2>
+                            <p class="s-tit">작성하신 정보는 약정서 발송 및 자동이체 등록에 활용됩니다. 자택 주소, 직장 정보, 이메일 등 약정서 수령을 위한 고객 정보와<br> 자동이체에 사용할
+                                계좌 정보 등 입력하신 정보는 암호화되어 안전하게 처리됩니다.</p>
+                        </div>
+                        
+                        <div class="layout-grid">
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">고객정보</h3>
+                        
+                                    <div class="form-item js-address-group">
+                                        <label class="form-label">사업장 주소<span class="required">*</span></label>
+                            
+                                        <div class="form-row mb-12">
+                                            <input type="text" id="Zonecode" placeholder="사업장 주소를 검색해 주세요." class="form-input js-zonecode" readonly>
+                                            <button type="button"class="btn-form js-btn-postcode">주소 검색</button>
+                                        </div>
+                            
+                                        <input type="text" id="Address" placeholder="" class="form-input mb-12 js-address" readonly>
+                                        <input type="text" id="DetailAddress" placeholder="" class="form-input js-detail-address">
+                                        <p class="error-msg" style="display:none;">주소를 입력해 주세요.</p>
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label" for="TPCName">담당자명<span class="required">*</span></label>
+                                        <input id="TPCName" type="text" name="TPCName" class="form-input" placeholder="현재 전자약정을 진행중인 분의 성명을 입력해 주세요.">
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label" for="TPC">담당자 구분<span class="required">*</span></label>
+                                        <select class="form-input is-placeholder">
+                                            <option value="" disabled selected hidden>담당자 구분을 선택해 주세요.</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label" for="CNumber">직장/사업장 전화번호<span class="required">*</span></label>
+                                        <input id="CNumber" type="text" name="CNumber" class="form-input" placeholder="전화번호를 입력해 주세요.">
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label" for="eMail">이메일<span class="required">*</span></label>
+                                        <input id="eMail" type="text" name="eMail" class="form-input" placeholder="예) capital@orix.co.kr">
+                                        <p class="error-msg">영문 대소문자와 숫자, 마침표(.), 하이픈(-), 언더바(_), 골뱅이(@)만 입력 가능합니다.</p>
+                                        
+                                        <div class="info-guide">
+                                            <p class="tit">확인해 주세요!</p>
+                                            <div class="desc">
+                                                <p>세금계산서 발급용과 동일한 이메일 주소를 입력해 주시기 바랍니다.</p>
+                                                <p>입력하신 이메일 주소로 전자약정 및 자동이체 청구서가 발송되므로 정확한 이메일 주소 입력을 부탁드립니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-group">
+                                <div class="card-box">
+                                    <h3 class="card-tit">자동이체 설정</h3>
+                        
+                                    <div class="form-item">
+                                        <label for="accHoldername" class="form-label">예금주 <span class="required">*</span></label>
+                                        <input type="text" id="accHoldername" class="form-input" placeholder="예금주명을 입력해 주세요.">
+                                        <p class="error-msg" style="display:none;">올바른 예금주명을 입력해 주세요.</p>
+                                        <p class="error-msg" style="display:none;">예금주를 입력해 주세요.</p>
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label">계좌번호 <span class="required">*</span></label>
+                                        <div class="form-stack">
+                                            <div class="radio-list">
+                                                <div class="radio-group">
+                                                    <input type="radio" id="accountTypeBank" name="accountType" value="bank" checked>
+                                                    <label for="accountTypeBank">
+                                                        <span class="radio-check"></span>
+                                                        <span class="txt">은행</span>
+                                                    </label>
+                                                </div>
+                                    
+                                                <div class="radio-group">
+                                                    <input type="radio" id="accountTypeStock" name="accountType" value="stock">
+                                                    <label for="accountTypeStock">
+                                                        <span class="radio-check"></span>
+                                                        <span class="txt">증권사</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <select class="form-input is-placeholder">
+                                                <option value="" disabled selected hidden>선택해주세요.</option>
+                                                <option value="신한">신한</option>
+                                                <option value="국민">국민</option>
+                                                <option value="하나">하나</option>
+                                            </select>
+                                            <!-- <select class="form-input is-placeholder">
+                                                <option value="" disabled selected hidden>증권사 선택</option>
+                                                <option value="한국투자">한국투자증권</option>
+                                                <option value="삼성">삼성증권</option>
+                                                <option value="키움">키움증권</option>
+                                            </select> -->
+                                    
+                                            <input type="tel" class="form-input error" placeholder="'-'를 제외하고 입력해 주세요.">
+                                            <p class="error-msg">올바른 계좌번호를 입력해 주세요.</p>
+                                        </div>
+                        
+                                        <div class="btn-area full">
+                                            <button type="button" class="btn-primary">계좌 확인</button>
+                                        </div>
+                        
+                                        <div class="info-guide">
+                                            <p class="tit">확인해 주세요!</p>
+                                            <div class="desc">
+                                                <p>입금 전용 가상계좌 또는 평생계좌(휴대폰번호 등)는 자동이체 출금 계좌로 등록할 수 없습니다.</p>
+                                                <p>법인명의 계좌만 납부 수단으로 등록할 수 있습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="form-item">
+                                        <label class="form-label" for="inVoice">자동이체일<span class="required">*</span></label>
+                                        <div class="radio-list form-row mb-14">
+                                            <div class="radio-group r-box">
+                                                <input type="radio" id="choice" name="Autopay" value="choice" checked>
+                                                <label for="choice">
+                                                    <span class="radio-check"></span>
+                                                    <span class="txt">이체일 선택</span>
+                                                </label>
+                                            </div>
+                                        
+                                            <div class="radio-group r-box">
+                                                <input type="radio" id="direct" name="Autopay" value="direct">
+                                                <label for="direct">
+                                                    <span class="radio-check"></span>
+                                                    <span class="txt">직접입력</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                        
+                                        <div id="dateSelectArea" class="radio-list">
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="radioType3Date5" name="radioType3" value="5">
+                                                <label for="radioType3Date5">5일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="radioType3Date15" name="radioType3" value="15" checked>
+                                                <label for="radioType3Date15">15일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="radioType3Date25" name="radioType3" value="25">
+                                                <label for="radioType3Date25">25일</label>
+                                            </div>
+                                            <div class="radio-group r-btn">
+                                                <input type="radio" id="radioType3DateLast" name="radioType3" value="last">
+                                                <label for="radioType3DateLast">말일</label>
+                                            </div>
+                                        </div>
+                        
+                                        <div id="directInputArea" class="direct-input-wrap" style="display:none;">
+                                            <input type="date" id="payDirectInput" class="form-input js-min-today" data-placeholder="납부일을 선택해 주세요." required>
+                                            <p class="error-msg" style="display:none;">날짜를 선택해 주세요.</p>
+                                        </div>
+                        
+                                        <div class="payment-result-box pay-date">
+                                            <span class="label">첫회차 납부일</span>
+                                            <span class="date">2026.03.15</span>
+                                        </div>
+                                        <p class="info-msg" style="display: none;">안전한 약정 처리를 위해 첫 납부일은 오늘(전자약정 진행일)을 기준으로 15일 후부터 31일 이내로만 설정이 가능합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
+                        <div id="bottom-button-wrap">
+                            <div class="bottom-button-inner">
+                                <div class="bottom-button-text-wrap">
+                                    <div class="bottom-button-notice">
+                                        <p class="notice">올바른 정보를 입력하셨는지 다시 한번 확인 후 [다음] 버튼을 눌러주세요.</p>
+                                        <p class="notice">입력하신 내용을 기반으로 다음 단계에서 법인 공동인증서 인증을 진행합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="btn-area">
+                                    <!-- 솔루션 노출이 필요할 시 button으로 바꿔서 솔루션 연결 -->
+                                    <!-- 기본으로 disabled 속성, 유효성 검사 후 disabled 해제가 맞지만 테스트를 위해 풀어놓음 -->
+                                    <!-- data-action, data-ui는 개발용 삭제 X -->
+                                    <button type="button" class="btn-primary" data-action="goAgree" data-ui="nextBtn" disabled>다음</button>
+                                    <span class="tooltip">모든 필수 정보를 입력해주세요.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

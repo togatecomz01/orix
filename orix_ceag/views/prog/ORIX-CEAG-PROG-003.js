@@ -117,7 +117,7 @@ $(function () {
         var match = window.location.search.match(/[?&]step=([0-9]+)/);
 
         /* step 값이 있으면 숫자로 변환하고, 없으면 null 처리 */
-        var step = match ? parseInt(match[1], 4) : null;
+        var step = match ? parseInt(match[1], 10) : null;
 
         /* step 값이 없거나, 1보다 작거나, 실제 step 개수보다 크면 무시 */
         if (!step || step < 1 || step > GROUP_MAX) {
@@ -137,16 +137,16 @@ $(function () {
     }
 
     // 데이트피커 날짜 형식 변환
-    function formatDate(date) {
+    /* function formatDate(date) {
         var year = date.getFullYear();
         var month = String(date.getMonth() + 1).padStart(2, '0');
         var day = String(date.getDate()).padStart(2, '0');
 
         return year + '-' + month + '-' + day;
-    }
+    } */
 
     // 데이트피커 오늘 + 15일 이전, 선택 가능일로부터 31일 이후 선택 안되게
-    function syncDateLimit() {
+    /* function syncDateLimit() {
         var todayObj = new Date();
 
         var minDateObj = new Date(
@@ -155,14 +155,14 @@ $(function () {
             todayObj.getDate() + 15
         );
 
-        var maxDateObj = new Date(minDateObj);
+        var maxDateObj = new Date(minDateObj); */
         // min 날짜도 선택 가능한 1일차로 포함되기 떄문에 31일 범위는 +30
-        maxDateObj.setDate(maxDateObj.getDate() + 30);
+        /* maxDateObj.setDate(maxDateObj.getDate() + 30);
 
         $('.js-min-today')
             .attr('min', formatDate(minDateObj))
             .attr('max', formatDate(maxDateObj));
-    }
+    } */
 
     // include로 불러온 화면 안에 같은 id가 있을 때 label 연결까지 같이 보정
     function escapeSelector(text) {
@@ -249,7 +249,7 @@ $(function () {
         $groups.removeClass('active').eq(cur - 1).addClass('active');
         updateIndicator(cur);
         updateStepButtons();
-        syncDateLimit();
+        /* syncDateLimit(); */
         syncLayoutCards();
 
         if (!skipScroll) {
@@ -276,7 +276,7 @@ $(function () {
     $(document).on('include:loaded', '.page-container .group', function () {
         syncDuplicateIds();
         updateStepButtons();
-        syncDateLimit();
+        /* syncDateLimit(); */
         syncLayoutCards();
     });
 
@@ -287,8 +287,26 @@ $(function () {
     
         $(this).find('.tooltip').toggleClass('on', e.type === 'mouseenter' && isDisabled);
     });
+    /* 중요 약정사항 확인 여부 출력 */
+    /* 퍼블용!!!! 개발단에서는 삭제 필요 */
+    $(document).on("change", ".check-list [name=agreementTerms]", function(e) {
+        var $input = $(e.currentTarget);
+        var $label = $input.siblings("label");
+
+        if ($input.prop("checked")) {
+            $label.find(".term-badge")
+                .removeClass("is-pending small")
+                .addClass("is-complete small")
+                .text("확인완료");
+        } else {
+            $label.find(".term-badge")
+                .removeClass("is-complete small")
+                .addClass("is-pending small")
+                .text("미확인");
+        }
+    });
 
     syncDuplicateIds();
-    syncDateLimit();
+    /* syncDateLimit(); */
     setStep(cur, true);
 });

@@ -30,3 +30,5 @@
 .term-badge { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 32px; margin-right: 12px; padding: 5px 10px; border-radius: 100px; box-sizing: border-box; font-size: var(--font18) !important; line-height: 1; text-align: center; white-space: nowrap; }
 .term-badge.is-pending { background: #FFE7E7; color: var(--error); font-weight: var(--font-w-r); }
 .term-badge.is-complete { background: #F0F6FF; color: var(--primary); font-weight: var(--font-w-m); }
+.term-badge.is-pending.small,
+.term-badge.is-complete.small {font-size: var(--font16) !important; width: 75px; height: 25px;}
