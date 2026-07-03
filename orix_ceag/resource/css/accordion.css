@@ -31,4 +31,4 @@
 .term-badge.is-pending { background: #FFE7E7; color: var(--error); font-weight: var(--font-w-r); }
 .term-badge.is-complete { background: #F0F6FF; color: var(--primary); font-weight: var(--font-w-m); }
 .term-badge.is-pending.small,
-.term-badge.is-complete.small { font-size: var(--font16) !important; width: 75px; height: 25px; }
+.term-badge.is-complete.small { font-size: var(--font16) !important; width: 80px; height: 32px; }
