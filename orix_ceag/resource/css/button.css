@@ -40,8 +40,7 @@
 .pop-footer .btn-secondary, .pop-footer .btn-primary {
     padding: 20px 40px; font-size: var(--font18);
 }
-.s-ready-container .btn-area {margin-top: 10px; max-width: 300px; margin: 0 auto;}
-.s-ready-container .btn-area .btn-primary{font-size: var(--font24);}
+
 @media (max-width: 1600px) {
     .btn-download { font-size: var(--font16); }
     .ico-download { width: 24px; height: 24px; }
@@ -53,3 +52,5 @@
 /* 2026.05.28 계좌번호 input 버튼크기 */
 .btn-area.full {display: block; margin-top: 14px; margin-bottom: 14px;}
 .btn-area.full .btn-primary {width: 100%; padding: 16px 32px; color: #F2F3F8; font-weight: var(--font-w-m); font-size: var(--font18);}
+/* 2026.07.07 에러페이지 버튼 하단 패딩*/
+.btn-area.error {padding-bottom: 32px;}
