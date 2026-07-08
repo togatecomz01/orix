@@ -14,7 +14,15 @@
 </head>
 <body>
     <div id="wrap">
-        <div data-include-path="../../views/include/inc-header.html"></div>
+        <!-- 
+            D : 아래 inc-header.js는 퍼블용 인클루드 소스입니다.
+            개발에서는 ../include/inc-header.html 확인하시면 됩니다.
+        -->
+        <div id="headerWrap"></div>
+        <script src="../../views/include/inc-header.js"></script>
+
+        <!-- 개발 확인용 헤더 인클루드 -->
+        <!-- <div data-include-path="../include/inc-header.html"></div> -->
 
         <div id="contentWrap" role="main">
             <div class="contents">
@@ -22,7 +30,7 @@
                     <h2 class="page-tit">Foundations</h2>
                 </div>
                 <div class="layout-grid">
-                    <div class="col-group">
+                    <div class="col-group term">
                         <div class="card-box">
                             <h3 class="card-tit">Color</h3>
                             <div class="card-list">
