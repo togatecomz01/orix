@@ -226,10 +226,10 @@
 .card-box.notice .tit { margin-bottom: 14px; font-size: var(--font20); font-weight: var(--font-w-m); color: var(--color-45); line-height: 1.5;}
 .card-box.notice .info { position: relative; padding-left: 26px; font-size: var(--font16); font-weight: var(--font-w-r); color: var(--color-75); line-height: 1.5;}
 .card-box.notice .info::before { content: ''; position: absolute; top: 0; left: 0; display: inline-block; width: 20px; height: 20px; background: url("../../resource/images/svg/ico_info.svg") no-repeat center center; }
-/* prog-003 과태료 범칙금 임시 추가 (디자인 확정 시 주석 수정예정) */ /* 260625 추가 or 수정 */
-.card-box.notice > ul {display: flex; justify-content: center; align-items: flex-start; flex-direction: column; width: 100%; font-weight: var(--font-w-m); font-size: var(--font20); color: var(--color-45); gap: 24px;}
-.card-box.notice > ul > li {display: flex; align-items: center; justify-content: flex-start; width: 100%; background: var(--color-fa); color: var(--color-45); border: 1px solid var(--color-fa); padding: 20px; font-size: var(--font16); font-weight: var(--font-w-m); word-break: break-all;}
-.card-box.notice > ul + ul { margin-top: 32px; }
+/* prog-003 과태료 범칙금 임시 추가 (디자인 확정 시 주석 수정예정) */ /* 260710 수정 */
+.card-box.notice > ul , .card-box.etc > ul{display: flex; justify-content: center; align-items: flex-start; flex-direction: column; width: 100%; font-weight: var(--font-w-m); font-size: var(--font20); color: var(--color-45); gap: 24px;}
+.card-box.notice > ul > li ,.card-box.etc > ul > li{display: flex; align-items: center; justify-content: flex-start; width: 100%; background: var(--color-fa); color: var(--color-45); border: 1px solid var(--color-fa); padding: 20px; font-size: var(--font16); font-weight: var(--font-w-m); word-break: break-all;}
+.card-box.notice > ul + ul ,.card-box.etc > ul + ul{ margin-top: 32px; }
 
 /* 상품 신청 내역 */
 .card-wrap { display: flex; flex: 1; flex-direction: column; gap: 20px; min-height: 0; }
